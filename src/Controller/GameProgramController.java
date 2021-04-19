@@ -5,8 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GameProgramController<T> {
-    public static HashMap<Pattern, GameProgramController<Matcher>> commandMap = new HashMap<>();
+public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
 
     public boolean checkWrongPosition(int position) {
@@ -18,7 +17,6 @@ public class GameProgramController<T> {
     }
 
     public boolean isAnyCardSelected() {
-        Regex.selectCard
     }
 
 

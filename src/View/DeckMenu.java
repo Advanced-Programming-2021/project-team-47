@@ -4,12 +4,14 @@ import Controller.GameProgramController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DeckMenu{
-    public static HashMap<Pattern, GameProgramController<Matcher>> commandMap = new HashMap<>();
+public class DeckMenu {
+    public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<DeckMenu> decks = new ArrayList<>();
+    private ArrayList<String> cardsInDecks = new ArrayList<>();
     private String deckName;
     private String owner;
     private String type;
@@ -25,11 +27,29 @@ public class DeckMenu{
     }
 
     public static DeckMenu getDeckByName(String deckName) {
-
+        for (DeckMenu deck : decks) {
+            if (deck.getDeckName().equals(deckName)) {
+                return deck;
+            }
+        }
+        return null;
     }
 
     public static DeckMenu getDeckByOwner(String owner) {
+        for (DeckMenu deck : decks) {
+            if (deck.getOwner().equals(owner)) {
+                return deck;
+            }
+        }
+        return null;
+    }
 
+    public ArrayList<String> getCardsInDecks() {
+        return cardsInDecks;
+    }
+
+    public void setCardsInDecks(ArrayList<String> cardsInDecks) {
+        this.cardsInDecks = cardsInDecks;
     }
 
     public int getAllCardsNumber() {

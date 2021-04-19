@@ -56,6 +56,15 @@ public class Players {
         return null;
     }
 
+    public static Players getPlayerByNickName(String nickname) {
+        for (Players players : allPlayers) {
+            if (players.nickname.equals(nickname)) {
+                return players;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<String> getCardsInHand() {
         return cardsInHand;
     }

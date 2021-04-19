@@ -4,11 +4,12 @@ import Controller.GameProgramController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DuelMenu {
-    public static HashMap<Pattern, GameProgramController<Matcher>> commandMap = new HashMap<>();
+    public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private ArrayList<DuelMenu> duelGame = new ArrayList<>();
     private String firstPlayer;
     private String secondPlayer;

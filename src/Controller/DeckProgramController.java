@@ -5,6 +5,15 @@ import View.DeckMenu;
 
 public class DeckProgramController {
 
+    private static DeckProgramController deckProgramController;
+
+    public static DeckProgramController getInstance() {
+        if (deckProgramController == null) {
+            deckProgramController = new DeckProgramController();
+        }
+        return deckProgramController;
+    }
+
     public boolean checkDeckNameExist(String deckName) {
         return DeckMenu.getDeckByName(deckName) != null;
     }

@@ -3,6 +3,15 @@ package Controller;
 import Model.Players;
 
 public class LoginProgramController {
+    private static LoginProgramController loginProgramController;
+
+    public static LoginProgramController getInstance() {
+        if (loginProgramController == null) {
+            loginProgramController = new LoginProgramController();
+        }
+        return loginProgramController;
+    }
+
     public boolean checkUsernameExist(String username) {
         return Players.getPlayerByUsername(username) != null;
     }

@@ -21,14 +21,22 @@ public class LoginMenu implements Runnable {
         return loginMenuSingleton;
     }
 
-    public void run(String command) {
-        while (true) {
-        }
+    public static void takeCommand(String command) {
+        for (Pattern commandReg : commandMap.keySet())
+            if (command.matches(commandReg.pattern())) {
+                commandMap.get(commandReg).accept(commandReg.matcher(command));
+                return;
+            }
+        System.out.println("invalid command");
     }
 
-    public void showCurrentMenu() {
-        Menus current = MenuProgramController.currentMenu;
-        System.out.println(current.label);
+    public void run(String command) {
+        commandMap.put(Regex.SHOW_CURRENT_MENU.label, LoginMenu.commandChecker::showCurrentMenu);
+        while (!command.equals("menu exit")) {
+            takeCommand(command);
+            command = GameProgramController.scanner.nextLine().trim();
+        }
+        System.exit(0);
     }
 
     public String getLoginUsername() {
@@ -37,5 +45,12 @@ public class LoginMenu implements Runnable {
 
     public void setLoginUsername(String loginUsername) {
         this.loginUsername = loginUsername;
+    }
+
+    static class commandChecker {
+        static void showCurrentMenu(Matcher matcher) {
+            Menus current = MenuProgramController.currentMenu;
+            System.out.println(current.label);
+        }
     }
 }

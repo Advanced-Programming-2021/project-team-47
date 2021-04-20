@@ -23,5 +23,6 @@ public class MenuProgramController {
                 ShopMenu.getInstance().run(command);
             }
         }
+        System.exit(0);
     }
 }

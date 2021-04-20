@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Players {
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private static ArrayList<Players> allPlayers = new ArrayList<>();
+    private ArrayList<String> playerCards = new ArrayList<>();
     private ArrayList<String> cardsInHand = new ArrayList<>();
     private ArrayList<String> mainDecks = new ArrayList<>();
     private ArrayList<String> sideDecks = new ArrayList<>();
@@ -62,12 +63,16 @@ public class Players {
         return null;
     }
 
-    public ArrayList<String> getCardsInHand() {
-        return cardsInHand;
+    public ArrayList<String> getPlayerCards() {
+        return playerCards;
     }
 
-    public void setCardsInHand(ArrayList<String> cardsInHand) {
-        this.cardsInHand = cardsInHand;
+    public void setPlayerCards(String playerCards) {
+        this.playerCards.add(playerCards);
+    }
+
+    public ArrayList<String> getCardsInHand() {
+        return cardsInHand;
     }
 
     public void setCardsInHand(String cardName) {
@@ -78,20 +83,12 @@ public class Players {
         return mainDecks;
     }
 
-    public void setMainDecks(ArrayList<String> mainDecks) {
-        this.mainDecks = mainDecks;
-    }
-
     public void setMainDecks(String mainDecks) {
         this.mainDecks.add(mainDecks);
     }
 
     public ArrayList<String> getSideDecks() {
         return sideDecks;
-    }
-
-    public void setSideDecks(ArrayList<String> sideDecks) {
-        this.sideDecks = sideDecks;
     }
 
     public void setSideDecks(String sideDecks) {
@@ -102,20 +99,12 @@ public class Players {
         return fieldZone;
     }
 
-    public void setFieldZone(ArrayList<String> fieldZone) {
-        this.fieldZone = fieldZone;
-    }
-
     public void setFieldZone(String fieldZone) {
         this.fieldZone.add(fieldZone);
     }
 
     public ArrayList<String> getCardsInGraveyard() {
         return cardsInGraveyard;
-    }
-
-    public void setCardsInGraveyard(ArrayList<String> cardsInGraveyard) {
-        this.cardsInGraveyard = cardsInGraveyard;
     }
 
     public void setCardsInGraveyard(String cardName) {
@@ -126,8 +115,8 @@ public class Players {
         return deckZone;
     }
 
-    public void setDeckZone(String[] deckZone) {
-        this.deckZone = deckZone;
+    public void setDeckZone(String deckZone,int i) {
+        this.deckZone[i] = deckZone;
     }
 
     public int getLifePoint() {
@@ -185,6 +174,10 @@ public class Players {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public void decreaseMoney(int money) {
+        this.money -= money;
     }
 
     public void increaseMoney(int money) {

@@ -12,9 +12,7 @@ import Model.Menus;
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static LoginMenu loginMenuSingleton;
-    private String username;
-    private String nickname;
-    private String password;
+    private String loginUsername;
 
     public static LoginMenu getInstance() {
         if (loginMenuSingleton == null) {
@@ -33,4 +31,11 @@ public class LoginMenu implements Runnable {
         System.out.println(current.label);
     }
 
+    public String getLoginUsername() {
+        return loginUsername;
+    }
+
+    public void setLoginUsername(String loginUsername) {
+        this.loginUsername = loginUsername;
+    }
 }

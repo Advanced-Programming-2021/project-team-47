@@ -2,9 +2,15 @@ package View;
 
 import Controller.GameProgramController;
 import Controller.MenuProgramController;
+import Controller.Regex;
+import Controller.ShopProgramController;
+import Model.Cards;
 import Model.Menus;
+import Model.Players;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,14 +36,40 @@ public class ShopMenu implements Runnable {
     }
 
     public void run(String command) {
+        commandMap.put(Regex.BUY.label, commandChecker::printMoneyError);
+        commandMap.put(Regex.SHOW_CURRENT_MENU.label, commandChecker::showCurrentMenu);
+        commandMap.put(Regex.SHOP_SHOW_ALL.label, commandChecker::printAllCards);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
         }
     }
 
-    public void showCurrentMenu() {
-        Menus current = MenuProgramController.currentMenu;
-        System.out.println(current.label);
+    static class commandChecker {
+        static void showCurrentMenu(Matcher matcher) {
+            Menus current = MenuProgramController.currentMenu;
+            System.out.println(current.label);
+        }
+
+        static void printMoneyError(Matcher matcher) {
+            if (ShopProgramController.checkEnoughMoney(LoginMenu.getInstance().getLoginUsername(), matcher.group(1))) {
+                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).setPlayerCards(matcher.group(1));
+                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
+            } else if (Cards.getCardByName(matcher.group(1)) == null) {
+                System.out.println(Response.cardNameNotExist);
+            } else {
+                System.out.println(Response.notEnoughMoney);
+            }
+        }
+
+        static void printAllCards(Matcher matcher) {
+            TreeMap<String, Integer> sortCard = new TreeMap<>();
+            for (Cards card : Cards.allCards) {
+                sortCard.put(card.getCardName(), card.getPrice());
+            }
+            for (Map.Entry<String, Integer> entry : sortCard.entrySet()) {
+                System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
+        }
     }
 }

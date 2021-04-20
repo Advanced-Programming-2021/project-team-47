@@ -43,6 +43,7 @@ public class ShopMenu implements Runnable {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
         }
+        MenuProgramController.currentMenu=Menus.LOGIN_MENU;
     }
 
     static class commandChecker {

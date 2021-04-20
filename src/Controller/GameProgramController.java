@@ -5,6 +5,14 @@ import java.util.Scanner;
 
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
+    private static GameProgramController gameProgramController;
+
+    public static GameProgramController getInstance() {
+        if (gameProgramController == null) {
+            gameProgramController = new GameProgramController();
+        }
+        return gameProgramController;
+    }
 
     public boolean checkWrongPosition(int position) {
 

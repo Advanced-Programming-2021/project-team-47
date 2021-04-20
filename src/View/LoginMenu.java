@@ -10,14 +10,8 @@ import Controller.*;
 import Model.Menus;
 
 public class LoginMenu implements Runnable {
-    public static Menus currentMenu = Menus.MAIN_MENU;
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static LoginMenu loginMenuSingleton;
-    MainMenu mainMenu = new MainMenu();
-    ShopMenu shopMenu = new ShopMenu();
-    ScoreboardMenu scoreboardMenu = new ScoreboardMenu();
-    ProfileMenu profileMenu = new ProfileMenu();
-    ImportOrExportMenu importOrExportMenu = new ImportOrExportMenu();
     private String username;
     private String nickname;
     private String password;
@@ -29,14 +23,13 @@ public class LoginMenu implements Runnable {
         return loginMenuSingleton;
     }
 
-    public void run() {
+    public void run(String command) {
         while (true) {
-            String command = GameProgramController.scanner.nextLine();
         }
     }
 
     public void showCurrentMenu() {
-        Menus current = LoginMenu.currentMenu;
+        Menus current = MenuProgramController.currentMenu;
         System.out.println(current.label);
     }
 

@@ -10,7 +10,8 @@ public enum Menus {
     PROFILE_MENU("Main Menu"),
     SHOP_MENU("Main Menu"),
     SCOREBOARD_MENU("Main Menu"),
-    IMPORT_OR_EXPORT_MENU("Main Menu");
+    IMPORT_OR_EXPORT_MENU("Main Menu"),
+    EXIT("Exit");
 
     public final String label;
 

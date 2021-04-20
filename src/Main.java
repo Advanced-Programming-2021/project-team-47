@@ -1,8 +1,8 @@
-import View.LoginMenu;
+import Controller.MenuProgramController;
 
 public class Main {
 
     public static void main(String[] args) {
-        new LoginMenu().run();
+        new MenuProgramController().run();
     }
 }

@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameProgramController;
+import Controller.MenuProgramController;
 import Model.Menus;
 
 import java.util.HashMap;
@@ -28,8 +29,7 @@ public class ShopMenu implements Runnable {
         System.out.println("invalid command");
     }
 
-    public void run() {
-        String command = GameProgramController.scanner.nextLine().trim();
+    public void run(String command) {
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
@@ -37,7 +37,7 @@ public class ShopMenu implements Runnable {
     }
 
     public void showCurrentMenu() {
-        Menus current = LoginMenu.currentMenu;
+        Menus current = MenuProgramController.currentMenu;
         System.out.println(current.label);
     }
 }

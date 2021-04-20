@@ -1,10 +1,14 @@
 package View;
 
+import Controller.GameProgramController;
 import Controller.MenuProgramController;
+import Controller.Regex;
 import Model.Menus;
+import Model.Players;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,7 +16,6 @@ import java.util.regex.Pattern;
 public class ScoreboardMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static ScoreboardMenu scoreboardMenuSingleton;
-    public TreeMap<String, Integer> scoreSorting = new TreeMap<>();
 
     public static ScoreboardMenu getInstance() {
         if (scoreboardMenuSingleton == null) {
@@ -21,16 +24,73 @@ public class ScoreboardMenu implements Runnable {
         return scoreboardMenuSingleton;
     }
 
-    public void showScoreboard(String username) {
-
+    public static void takeCommand(String command) {
+        for (Pattern commandReg : commandMap.keySet())
+            if (command.matches(commandReg.pattern())) {
+                commandMap.get(commandReg).accept(commandReg.matcher(command));
+                return;
+            }
+        System.out.println("invalid command");
     }
 
     public void run(String command) {
-
+        commandMap.put(Regex.SHOW_CURRENT_MENU.label, ScoreboardMenu.commandChecker::showCurrentMenu);
+        commandMap.put(Regex.SCOREBOARD.label, ScoreboardMenu.commandChecker::showScoreboard);
+        while (!command.equals("menu exit")) {
+            takeCommand(command);
+            command = GameProgramController.scanner.nextLine().trim();
+        }
     }
 
-    public void showCurrentMenu() {
-        Menus current = MenuProgramController.currentMenu;
-        System.out.println(current.label);
+
+    static class commandChecker {
+        static void showCurrentMenu(Matcher matcher) {
+            Menus current = MenuProgramController.currentMenu;
+            System.out.println(current.label);
+        }
+
+        static void showScoreboard(Matcher matcher) {
+            int rank = 1;
+            HashMap<String, Integer> scoreSorting = new HashMap<>();
+            for (int i = 0; i < Players.allPlayers.size(); ++i) {
+                if (i < Players.allPlayers.size() - 1) {
+                    if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(i + 1).getScore()) {
+                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                    } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(i + 1).getScore()) {
+                        if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(i + 1).getUsername()) < 0) {
+                            scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                        } else {
+                            scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
+                        }
+                    } else {
+                        scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
+                    }
+                } else {
+                    if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(0).getScore()) {
+                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                    } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(0).getScore()) {
+                        if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(0).getUsername()) < 0) {
+                            scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                        } else {
+                            scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
+                        }
+                    } else {
+                        scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
+                    }
+                }
+
+            }
+            ArrayList<String> sortWithArrayList = new ArrayList<>();
+            for (Map.Entry<String, Integer> entry : scoreSorting.entrySet()) {
+                sortWithArrayList.add(entry.getKey());
+            }
+            for (int j = 0; j < sortWithArrayList.size(); ++j) {
+                System.out.println(rank + "-" + sortWithArrayList.get(j) + ":" + " " + Players.getPlayerByNickName(sortWithArrayList.get(j)).getScore());
+                if (j != 0 && j < sortWithArrayList.size() - 1 && Players.getPlayerByNickName(sortWithArrayList.get(j)).getScore() != Players.getPlayerByNickName(sortWithArrayList.get(j + 1)).getScore())
+                    ++rank;
+                if (j != 0 && j == sortWithArrayList.size() - 1 && Players.getPlayerByNickName(sortWithArrayList.get(j)).getScore() != Players.getPlayerByNickName(sortWithArrayList.get(j - 1)).getScore())
+                    ++rank;
+            }
+        }
     }
 }

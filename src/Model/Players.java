@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Players {
+    public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
-    private static ArrayList<Players> allPlayers = new ArrayList<>();
     private ArrayList<String> playerCards = new ArrayList<>();
     private ArrayList<String> cardsInHand = new ArrayList<>();
     private ArrayList<String> mainDecks = new ArrayList<>();
@@ -35,14 +35,6 @@ public class Players {
 
     public static void setUsernameAndPasswordOfPLayer(HashMap<String, String> usernameAndPasswordOfPLayer) {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
-    }
-
-    public static ArrayList<Players> getAllPlayers() {
-        return allPlayers;
-    }
-
-    public static void setAllPlayers(ArrayList<Players> allPlayers) {
-        Players.allPlayers = allPlayers;
     }
 
     public static Players getPlayerByUsername(String username) {
@@ -115,7 +107,7 @@ public class Players {
         return deckZone;
     }
 
-    public void setDeckZone(String deckZone,int i) {
+    public void setDeckZone(String deckZone, int i) {
         this.deckZone[i] = deckZone;
     }
 

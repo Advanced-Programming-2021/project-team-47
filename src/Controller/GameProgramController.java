@@ -1,11 +1,7 @@
 package Controller;
 
-import Model.Players;
-
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);

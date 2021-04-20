@@ -1,7 +1,5 @@
 package View;
 
-import Controller.GameProgramController;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;

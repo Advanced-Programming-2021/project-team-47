@@ -9,10 +9,15 @@ import java.util.regex.Pattern;
 import Controller.*;
 import Model.Menus;
 
-public class LoginMenu implements Runnable{
+public class LoginMenu implements Runnable {
     public static Menus currentMenu = Menus.MAIN_MENU;
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static LoginMenu loginMenuSingleton;
+    MainMenu mainMenu = new MainMenu();
+    ShopMenu shopMenu = new ShopMenu();
+    ScoreboardMenu scoreboardMenu = new ScoreboardMenu();
+    ProfileMenu profileMenu = new ProfileMenu();
+    ImportOrExportMenu importOrExportMenu = new ImportOrExportMenu();
     private String username;
     private String nickname;
     private String password;

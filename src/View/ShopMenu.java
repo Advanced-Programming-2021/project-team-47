@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ShopMenu implements Runnable{
+public class ShopMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static ShopMenu shopMenuSingleton;
 
@@ -19,8 +19,21 @@ public class ShopMenu implements Runnable{
         return shopMenuSingleton;
     }
 
-    public void run() {
+    public static void takeCommand(String command) {
+        for (Pattern commandReg : commandMap.keySet())
+            if (command.matches(commandReg.pattern())) {
+                commandMap.get(commandReg).accept(commandReg.matcher(command));
+                return;
+            }
+        System.out.println("invalid command");
+    }
 
+    public void run() {
+        String command = GameProgramController.scanner.nextLine().trim();
+        while (!command.equals("menu exit")) {
+            takeCommand(command);
+            command = GameProgramController.scanner.nextLine().trim();
+        }
     }
 
     public void showCurrentMenu() {

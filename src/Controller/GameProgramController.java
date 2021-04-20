@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Players;
+
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;

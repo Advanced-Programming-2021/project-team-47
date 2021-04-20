@@ -1,7 +1,5 @@
 package View;
 
-import Controller.GameProgramController;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -55,11 +53,13 @@ public class DuelMenu {
     }
 
     public void setSelectCard(String cardAddressSelected, int cardAddressNumberSelected) {
-
+        setCardZoneSelected(cardAddressSelected);
+        setCardAddressNumberSelected(cardAddressNumberSelected);
     }
 
     public void deselectCard() {
-
+        setCardZoneSelected(null);
+        setCardAddressNumberSelected(0);
     }
 
     public void setWinner() {
@@ -86,16 +86,23 @@ public class DuelMenu {
         this.showTurn = showTurn;
     }
 
-    public String getSelectedCardName() {
-
-    }
-
-    public boolean isZoneFull(String zoneName) {
-
-    }
-
     public void summonCard(String cardName) {
 
     }
 
+    public String getCardZoneSelected() {
+        return cardZoneSelected;
+    }
+
+    public void setCardZoneSelected(String cardZoneSelected) {
+        this.cardZoneSelected = cardZoneSelected;
+    }
+
+    public int getCardAddressNumberSelected() {
+        return cardAddressNumberSelected;
+    }
+
+    public void setCardAddressNumberSelected(int cardAddressNumberSelected) {
+        this.cardAddressNumberSelected = cardAddressNumberSelected;
+    }
 }

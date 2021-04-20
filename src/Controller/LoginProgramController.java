@@ -1,12 +1,6 @@
 package Controller;
 
-import Model.Menus;
 import Model.Players;
-import View.LoginMenu;
-
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LoginProgramController {
     public boolean checkUsernameExist(String username) {

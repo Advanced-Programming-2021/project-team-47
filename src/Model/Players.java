@@ -1,11 +1,7 @@
 package Model;
 
-import View.DeckMenu;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Stack;
 
 public class Players {
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
@@ -27,6 +23,7 @@ public class Players {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
+        setMoney(100000);
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
     }

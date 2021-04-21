@@ -5,6 +5,14 @@ import View.*;
 
 public class MenuProgramController {
     public static Menus currentMenu = Menus.LOGIN_MENU;
+    private static MenuProgramController menuProgramController;
+
+    public static MenuProgramController getInstance() {
+        if (menuProgramController == null) {
+            menuProgramController = new MenuProgramController();
+        }
+        return menuProgramController;
+    }
 
     public void run() {
         while (currentMenu != Menus.EXIT) {

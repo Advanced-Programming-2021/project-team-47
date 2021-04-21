@@ -35,17 +35,26 @@ public class ProfileMenu implements Runnable {
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, ProfileMenu.commandChecker::showCurrentMenu);
         commandMap.put(Regex.CHANGE_NICKNAME.label, ProfileMenu.commandChecker::changeNickNameResponse);
         commandMap.put(Regex.CHANGE_PASSWORD.label, ProfileMenu.commandChecker::changePasswordResponse);
+        commandMap.put(Regex.MENU_ENTER.label, ProfileMenu.commandChecker::menuEnterHandler);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
         }
-        MenuProgramController.currentMenu=Menus.LOGIN_MENU;
+        MenuProgramController.currentMenu = Menus.LOGIN_MENU;
     }
 
     static class commandChecker {
         static void showCurrentMenu(Matcher matcher) {
             Menus current = MenuProgramController.currentMenu;
             System.out.println(current.label);
+        }
+
+        static void menuEnterHandler(Matcher matcher) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+                MenuProgramController.currentMenu = Menus.MAIN_MENU;
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+                System.out.println(Response.menuNotPossible);
+            }
         }
 
         static void changeNickNameResponse(Matcher matcher) {
@@ -57,18 +66,18 @@ public class ProfileMenu implements Runnable {
         }
 
         static void changePasswordResponse(Matcher matcher) {
-            int newPassword = 0;
-            int currentPassword = 0;
+            String newPassword = null;
+            String currentPassword = null;
             for (int i = 1; i < 4; ++i) {
                 if (matcher.group(i).contains("--new")) {
-                    newPassword = i;
+                    newPassword = matcher.group(i).replaceAll("--new", "").trim();
                 } else if (matcher.group(i).contains("--current")) {
-                    currentPassword = i;
+                    currentPassword = matcher.group(i).replaceAll("--current", "").trim();
                 }
             }
-            if (LoginProgramController.getInstance().checkInvalidPassword(LoginMenu.getInstance().getLoginUsername(), matcher.group(currentPassword))) {
+            if (LoginProgramController.getInstance().checkInvalidPassword(LoginMenu.getInstance().getLoginUsername(), currentPassword)) {
                 System.out.println(Response.invalidCurrentPassword);
-            } else if (LoginProgramController.getInstance().checkSamePassword(LoginMenu.getInstance().getLoginUsername(), matcher.group(newPassword))) {
+            } else if (LoginProgramController.getInstance().checkSamePassword(LoginMenu.getInstance().getLoginUsername(), newPassword)) {
                 System.out.println(Response.samePasswordError);
             } else {
                 System.out.println(Response.changePasswordSuccessfully);

@@ -36,7 +36,7 @@ public class ScoreboardMenu implements Runnable {
     public void run(String command) {
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, ScoreboardMenu.commandChecker::showCurrentMenu);
         commandMap.put(Regex.SCOREBOARD.label, ScoreboardMenu.commandChecker::showScoreboard);
-        commandMap.put(Regex.MENU_ENTER.label, ShopMenu.commandChecker::menuEnterHandler);
+        commandMap.put(Regex.MENU_ENTER.label, ScoreboardMenu.commandChecker::menuEnterHandler);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
@@ -52,9 +52,9 @@ public class ScoreboardMenu implements Runnable {
         }
 
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
                 System.out.println(Response.menuNotPossible);
             }
         }

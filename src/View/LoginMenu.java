@@ -2,17 +2,19 @@ package View;
 
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import Controller.*;
 import Model.Menus;
+import Model.Players;
 
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
+    public static String loginUsername;
     private static LoginMenu loginMenuSingleton;
-    private String loginUsername;
 
     public static LoginMenu getInstance() {
         if (loginMenuSingleton == null) {
@@ -33,6 +35,8 @@ public class LoginMenu implements Runnable {
     public void run(String command) {
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, LoginMenu.commandChecker::showCurrentMenu);
         commandMap.put(Regex.MENU_ENTER.label, LoginMenu.commandChecker::menuEnterHandler);
+        commandMap.put(Regex.LOGIN.label, LoginMenu.commandChecker::loginResponse);
+        commandMap.put(Regex.CREATE_USER.label, LoginMenu.commandChecker::signUpResponse);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
@@ -45,7 +49,7 @@ public class LoginMenu implements Runnable {
     }
 
     public void setLoginUsername(String loginUsername) {
-        this.loginUsername = loginUsername;
+        LoginMenu.loginUsername = loginUsername;
     }
 
     static class commandChecker {
@@ -55,10 +59,54 @@ public class LoginMenu implements Runnable {
         }
 
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
                 System.out.println(Response.menuNotPossible);
+            }
+        }
+
+        static void loginResponse(Matcher matcher) {
+            String password = null;
+            String username = null;
+            for (int i = 1; i < 3; ++i) {
+                if (matcher.group(i).contains("--password")) {
+                    password = matcher.group(i).replaceAll("--password", "").trim();
+                } else if (matcher.group(i).contains("--username")) {
+                    username = matcher.group(i).replaceAll("--username", "").trim();
+                }
+            }
+            if (!LoginProgramController.getInstance().checkUsernameExist(username)) {
+                System.out.println(Response.wrongUsernameOrPassword);
+            } else if (LoginProgramController.getInstance().checkInvalidPassword(username, password)) {
+                System.out.println(Response.wrongUsernameOrPassword);
+            } else {
+                System.out.println(Response.userLoginSuccessfully);
+                LoginMenu.getInstance().setLoginUsername(username);
+                MenuProgramController.currentMenu = Menus.MAIN_MENU;
+            }
+        }
+
+        static void signUpResponse(Matcher matcher) {
+            String password = null;
+            String username = null;
+            String nickName = null;
+            for (int i = 1; i < 4; ++i) {
+                if (matcher.group(i).contains("--password")) {
+                    password = matcher.group(i).replaceAll("--password", "").trim();
+                } else if (matcher.group(i).contains("--username")) {
+                    username = matcher.group(i).replaceAll("--username", "").trim();
+                } else if (matcher.group(i).contains("--nickname")) {
+                    nickName = matcher.group(i).replaceAll("--nickname", "").trim();
+                }
+            }
+            if (LoginProgramController.getInstance().checkUsernameExist(username)) {
+                System.out.println("user with username " + username + " already exists");
+            } else if (LoginProgramController.getInstance().checkNicknameExist(nickName)) {
+                System.out.println("user with nickname " + nickName + " already exists");
+            } else {
+                System.out.println(Response.userCreateSuccessfully);
+                new Players(username, nickName, password);
             }
         }
     }

@@ -76,9 +76,9 @@ public class ShopMenu implements Runnable {
         }
 
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
                 System.out.println(Response.menuNotPossible);
             }
         }

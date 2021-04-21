@@ -5,6 +5,7 @@ import Controller.LoginProgramController;
 import Controller.MenuProgramController;
 import Controller.Regex;
 import Model.Menus;
+import Model.Players;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -50,9 +51,9 @@ public class ProfileMenu implements Runnable {
         }
 
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
                 System.out.println(Response.menuNotPossible);
             }
         }
@@ -60,6 +61,7 @@ public class ProfileMenu implements Runnable {
         static void changeNickNameResponse(Matcher matcher) {
             if (LoginProgramController.getInstance().checkNicknameExist(matcher.group(1))) {
                 System.out.println(Response.changeNicknameSuccessfully);
+                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).changeNickname(matcher.group(1));
             } else {
                 System.out.println("user with nickname " + matcher.group(1) + " already exists");
             }
@@ -81,6 +83,7 @@ public class ProfileMenu implements Runnable {
                 System.out.println(Response.samePasswordError);
             } else {
                 System.out.println(Response.changePasswordSuccessfully);
+                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).changePassword(newPassword);
             }
         }
     }

@@ -67,15 +67,8 @@ public class LoginMenu implements Runnable {
         }
 
         static void loginResponse(Matcher matcher) {
-            String password = null;
-            String username = null;
-            for (int i = 1; i < 3; ++i) {
-                if (matcher.group(i).contains("--password")) {
-                    password = matcher.group(i).replaceAll("--password", "").trim();
-                } else if (matcher.group(i).contains("--username")) {
-                    username = matcher.group(i).replaceAll("--username", "").trim();
-                }
-            }
+            String password = LoginProgramController.getInstance().loginUser(matcher).get(0);
+            String username = LoginProgramController.getInstance().loginUser(matcher).get(1);
             if (!LoginProgramController.getInstance().checkUsernameExist(username)) {
                 System.out.println(Response.wrongUsernameOrPassword);
             } else if (LoginProgramController.getInstance().checkInvalidPassword(username, password)) {
@@ -88,18 +81,9 @@ public class LoginMenu implements Runnable {
         }
 
         static void signUpResponse(Matcher matcher) {
-            String password = null;
-            String username = null;
-            String nickName = null;
-            for (int i = 1; i < 4; ++i) {
-                if (matcher.group(i).contains("--password")) {
-                    password = matcher.group(i).replaceAll("--password", "").trim();
-                } else if (matcher.group(i).contains("--username")) {
-                    username = matcher.group(i).replaceAll("--username", "").trim();
-                } else if (matcher.group(i).contains("--nickname")) {
-                    nickName = matcher.group(i).replaceAll("--nickname", "").trim();
-                }
-            }
+            String password = LoginProgramController.getInstance().signUpUser(matcher).get(0);
+            String username = LoginProgramController.getInstance().signUpUser(matcher).get(1);
+            String nickName = LoginProgramController.getInstance().signUpUser(matcher).get(2);
             if (LoginProgramController.getInstance().checkUsernameExist(username)) {
                 System.out.println("user with username " + username + " already exists");
             } else if (LoginProgramController.getInstance().checkNicknameExist(nickName)) {

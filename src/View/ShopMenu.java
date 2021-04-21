@@ -54,7 +54,7 @@ public class ShopMenu implements Runnable {
         }
 
         static void printMoneyError(Matcher matcher) {
-            if (ShopProgramController.checkEnoughMoney(LoginMenu.getInstance().getLoginUsername(), matcher.group(1))) {
+            if (ShopProgramController.getInstance().checkEnoughMoney(LoginMenu.getInstance().getLoginUsername(), matcher.group(1))) {
                 Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).setPlayerCards(matcher.group(1));
                 Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
             } else if (Cards.getCardByName(matcher.group(1)) == null) {
@@ -65,10 +65,7 @@ public class ShopMenu implements Runnable {
         }
 
         static void printAllCards(Matcher matcher) {
-            TreeMap<String, Integer> sortCard = new TreeMap<>();
-            for (Cards card : Cards.allCards) {
-                sortCard.put(card.getCardName(), card.getPrice());
-            }
+            TreeMap<String, Integer> sortCard = ShopProgramController.getInstance().sortCard();
             for (Map.Entry<String, Integer> entry : sortCard.entrySet()) {
                 System.out.println(entry.getKey() + ":" + entry.getValue());
             }

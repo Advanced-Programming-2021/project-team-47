@@ -39,11 +39,12 @@ public class ShopMenu implements Runnable {
         commandMap.put(Regex.BUY.label, commandChecker::printMoneyError);
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, commandChecker::showCurrentMenu);
         commandMap.put(Regex.SHOP_SHOW_ALL.label, commandChecker::printAllCards);
+        commandMap.put(Regex.MENU_ENTER.label, commandChecker::menuEnterHandler);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
         }
-        MenuProgramController.currentMenu=Menus.LOGIN_MENU;
+        MenuProgramController.currentMenu = Menus.LOGIN_MENU;
     }
 
     static class commandChecker {
@@ -70,6 +71,15 @@ public class ShopMenu implements Runnable {
             }
             for (Map.Entry<String, Integer> entry : sortCard.entrySet()) {
                 System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
+
+        }
+
+        static void menuEnterHandler(Matcher matcher) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+                MenuProgramController.currentMenu = Menus.MAIN_MENU;
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+                System.out.println(Response.menuNotPossible);
             }
         }
     }

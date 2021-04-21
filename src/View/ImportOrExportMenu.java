@@ -32,6 +32,7 @@ public class ImportOrExportMenu implements Runnable {
 
     public void run(String command) {
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, ImportOrExportMenu.commandChecker::showCurrentMenu);
+        commandMap.put(Regex.MENU_ENTER.label, ImportOrExportMenu.commandChecker::menuEnterHandler);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
@@ -43,6 +44,14 @@ public class ImportOrExportMenu implements Runnable {
         static void showCurrentMenu(Matcher matcher) {
             Menus current = MenuProgramController.currentMenu;
             System.out.println(current.label);
+        }
+
+        static void menuEnterHandler(Matcher matcher) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU)) {
+                MenuProgramController.currentMenu = Menus.MAIN_MENU;
+            } else if (matcher.group(1).equals(Menus.LOGIN_MENU)) {
+                System.out.println(Response.menuNotPossible);
+            }
         }
     }
 }

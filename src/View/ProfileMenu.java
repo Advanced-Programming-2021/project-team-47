@@ -68,15 +68,8 @@ public class ProfileMenu implements Runnable {
         }
 
         static void changePasswordResponse(Matcher matcher) {
-            String newPassword = null;
-            String currentPassword = null;
-            for (int i = 1; i < 4; ++i) {
-                if (matcher.group(i).contains("--new")) {
-                    newPassword = matcher.group(i).replaceAll("--new", "").trim();
-                } else if (matcher.group(i).contains("--current")) {
-                    currentPassword = matcher.group(i).replaceAll("--current", "").trim();
-                }
-            }
+            String newPassword = LoginProgramController.getInstance().changePassword(matcher).get(0);
+            String currentPassword = LoginProgramController.getInstance().changePassword(matcher).get(1);
             if (LoginProgramController.getInstance().checkInvalidPassword(LoginMenu.getInstance().getLoginUsername(), currentPassword)) {
                 System.out.println(Response.invalidCurrentPassword);
             } else if (LoginProgramController.getInstance().checkSamePassword(LoginMenu.getInstance().getLoginUsername(), newPassword)) {

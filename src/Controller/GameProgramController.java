@@ -1,5 +1,10 @@
 package Controller;
 
+import Model.Players;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -12,6 +17,43 @@ public class GameProgramController {
             gameProgramController = new GameProgramController();
         }
         return gameProgramController;
+    }
+
+    public ArrayList<String> scoreboardShow() {
+        HashMap<String, Integer> scoreSorting = new HashMap<>();
+        for (int i = 0; i < Players.allPlayers.size(); ++i) {
+            if (i < Players.allPlayers.size() - 1) {
+                if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(i + 1).getScore()) {
+                    scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(i + 1).getScore()) {
+                    if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(i + 1).getUsername()) < 0) {
+                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                    } else {
+                        scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
+                    }
+                } else {
+                    scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
+                }
+            } else {
+                if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(0).getScore()) {
+                    scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(0).getScore()) {
+                    if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(0).getUsername()) < 0) {
+                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
+                    } else {
+                        scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
+                    }
+                } else {
+                    scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
+                }
+            }
+
+        }
+        ArrayList<String> sortWithArrayList = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : scoreSorting.entrySet()) {
+            sortWithArrayList.add(entry.getKey());
+        }
+        return sortWithArrayList;
     }
 
     public boolean checkWrongPosition(int position) {

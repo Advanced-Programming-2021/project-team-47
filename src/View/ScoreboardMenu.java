@@ -61,39 +61,7 @@ public class ScoreboardMenu implements Runnable {
 
         static void showScoreboard(Matcher matcher) {
             int rank = 1;
-            HashMap<String, Integer> scoreSorting = new HashMap<>();
-            for (int i = 0; i < Players.allPlayers.size(); ++i) {
-                if (i < Players.allPlayers.size() - 1) {
-                    if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(i + 1).getScore()) {
-                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
-                    } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(i + 1).getScore()) {
-                        if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(i + 1).getUsername()) < 0) {
-                            scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
-                        } else {
-                            scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
-                        }
-                    } else {
-                        scoreSorting.put(Players.allPlayers.get(i + 1).getNickname(), Players.allPlayers.get(i + 1).getScore());
-                    }
-                } else {
-                    if (Players.allPlayers.get(i).getScore() > Players.allPlayers.get(0).getScore()) {
-                        scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
-                    } else if (Players.allPlayers.get(i).getScore() == Players.allPlayers.get(0).getScore()) {
-                        if (Players.allPlayers.get(i).getUsername().compareTo(Players.allPlayers.get(0).getUsername()) < 0) {
-                            scoreSorting.put(Players.allPlayers.get(i).getNickname(), Players.allPlayers.get(i).getScore());
-                        } else {
-                            scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
-                        }
-                    } else {
-                        scoreSorting.put(Players.allPlayers.get(0).getNickname(), Players.allPlayers.get(0).getScore());
-                    }
-                }
-
-            }
-            ArrayList<String> sortWithArrayList = new ArrayList<>();
-            for (Map.Entry<String, Integer> entry : scoreSorting.entrySet()) {
-                sortWithArrayList.add(entry.getKey());
-            }
+            ArrayList<String> sortWithArrayList = GameProgramController.getInstance().scoreboardShow();
             for (int j = 0; j < sortWithArrayList.size(); ++j) {
                 System.out.println(rank + "-" + sortWithArrayList.get(j) + ":" + " " + Players.getPlayerByNickName(sortWithArrayList.get(j)).getScore());
                 if (j != 0 && j < sortWithArrayList.size() - 1 && Players.getPlayerByNickName(sortWithArrayList.get(j)).getScore() != Players.getPlayerByNickName(sortWithArrayList.get(j + 1)).getScore())

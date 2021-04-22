@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Fix ImportOrExportMenu class">
+      <change beforePath="$PROJECT_DIR$/src/Controller/DeckProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ShopProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Menus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Style.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Zones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Zones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Runnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Hamid" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="AP_Project" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="" />
+      <created>1619018719294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619018719294</updated>
+      <workItem from="1619018724358" duration="1090000" />
+      <workItem from="1619019894191" duration="428000" />
+      <workItem from="1619076968712" duration="1163000" />
+      <workItem from="1619078607952" duration="508000" />
+    </task>
+    <task id="LOCAL-00001" summary="All files">
+      <created>1619018821009</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619018821009</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Other files">
+      <created>1619019440156</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619019440156</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Other files">
+      <created>1619077499621</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619077499621</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Hamid" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="All files" />
+    <MESSAGE value="Other files" />
+    <MESSAGE value="Fix ImportOrExportMenu class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix ImportOrExportMenu class" />
+  </component>
+</project>

@@ -38,12 +38,14 @@ public class LoginProgramController {
         String username = null;
         String nickName = null;
         for (int i = 1; i < 4; ++i) {
-            if (matcher.group(i).contains("--password")) {
-                password = matcher.group(i).replaceAll("--password", "").trim();
-            } else if (matcher.group(i).contains("--username")) {
-                username = matcher.group(i).replaceAll("--username", "").trim();
-            } else if (matcher.group(i).contains("--nickname")) {
-                nickName = matcher.group(i).replaceAll("--nickname", "").trim();
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--password")) {
+                    password = matcher.group(i).replaceAll("--password", "").trim();
+                } else if (matcher.group(i).contains("--username")) {
+                    username = matcher.group(i).replaceAll("--username", "").trim();
+                } else if (matcher.group(i).contains("--nickname")) {
+                    nickName = matcher.group(i).replaceAll("--nickname", "").trim();
+                }
             }
         }
         data.add(password);
@@ -57,10 +59,12 @@ public class LoginProgramController {
         String password = null;
         String username = null;
         for (int i = 1; i < 3; ++i) {
-            if (matcher.group(i).contains("--password")) {
-                password = matcher.group(i).replaceAll("--password", "").trim();
-            } else if (matcher.group(i).contains("--username")) {
-                username = matcher.group(i).replaceAll("--username", "").trim();
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--password")) {
+                    password = matcher.group(i).replaceAll("--password", "").trim();
+                } else if (matcher.group(i).contains("--username")) {
+                    username = matcher.group(i).replaceAll("--username", "").trim();
+                }
             }
         }
         data.add(password);
@@ -73,10 +77,12 @@ public class LoginProgramController {
         String newPassword = null;
         String currentPassword = null;
         for (int i = 1; i < 4; ++i) {
-            if (matcher.group(i).contains("--new")) {
-                newPassword = matcher.group(i).replaceAll("--new", "").trim();
-            } else if (matcher.group(i).contains("--current")) {
-                currentPassword = matcher.group(i).replaceAll("--current", "").trim();
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--new")) {
+                    newPassword = matcher.group(i).replaceAll("--new", "").trim();
+                } else if (matcher.group(i).contains("--current")) {
+                    currentPassword = matcher.group(i).replaceAll("--current", "").trim();
+                }
             }
         }
         data.add(newPassword);

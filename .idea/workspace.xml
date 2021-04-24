@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Fix ImportOrExportMenu class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="debug menu detection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +137,7 @@
       <workItem from="1619019894191" duration="428000" />
       <workItem from="1619076968712" duration="1163000" />
       <workItem from="1619078607952" duration="508000" />
-      <workItem from="1619222918459" duration="328000" />
+      <workItem from="1619222918459" duration="1166000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -164,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619077499621</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="debug menu detection">
+      <created>1619223481824</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619223481824</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +201,7 @@
     <MESSAGE value="All files" />
     <MESSAGE value="Other files" />
     <MESSAGE value="Fix ImportOrExportMenu class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix ImportOrExportMenu class" />
+    <MESSAGE value="debug menu detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug menu detection" />
   </component>
 </project>

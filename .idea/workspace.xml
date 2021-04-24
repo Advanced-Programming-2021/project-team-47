@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="debug menu detection">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="debug scoreboardShow" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -151,7 +153,7 @@
       <workItem from="1619019894191" duration="428000" />
       <workItem from="1619076968712" duration="1163000" />
       <workItem from="1619078607952" duration="508000" />
-      <workItem from="1619222918459" duration="9930000" />
+      <workItem from="1619222918459" duration="10259000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -188,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619224713342</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debug scoreboardShow">
+      <created>1619264971197</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619264971197</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +233,7 @@
     <MESSAGE value="Fix ImportOrExportMenu class" />
     <MESSAGE value="debug menu detection" />
     <MESSAGE value="debug menu enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug menu enum" />
+    <MESSAGE value="debug scoreboardShow" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug scoreboardShow" />
   </component>
 </project>

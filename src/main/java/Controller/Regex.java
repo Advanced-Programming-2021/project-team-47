@@ -3,7 +3,7 @@ package Controller;
 import java.util.regex.Pattern;
 
 public enum Regex {
-    LOGIN(Pattern.compile("^user login (--password (?:[\\s\\S]+)|--username (?:[\\s\\S]+)) (?:[\\s\\S]+)|--username (?:[\\s\\S]+))$")),
+    LOGIN(Pattern.compile("^user login (--password (?:[\\s\\S]+)|--username (?:[\\s\\S]+)) (--password (?:[\\s\\S]+)|--username (?:[\\s\\S]+))$")),
     MENU_ENTER(Pattern.compile("^menu enter ([^\\d]+)$")),
     MENU_EXIT(Pattern.compile("^menu exit$")),
     SHOW_CURRENT_MENU(Pattern.compile("^menu show-current$")),

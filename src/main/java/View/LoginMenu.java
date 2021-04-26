@@ -17,9 +17,8 @@ public class LoginMenu implements Runnable {
     private static LoginMenu loginMenuSingleton;
 
     public static LoginMenu getInstance() {
-        if (loginMenuSingleton == null) {
+        if (loginMenuSingleton == null)
             loginMenuSingleton = new LoginMenu();
-        }
         return loginMenuSingleton;
     }
 
@@ -37,9 +36,9 @@ public class LoginMenu implements Runnable {
         commandMap.put(Regex.MENU_ENTER.label, LoginMenu.commandChecker::menuEnterHandler);
         commandMap.put(Regex.LOGIN.label, LoginMenu.commandChecker::loginResponse);
         commandMap.put(Regex.CREATE_USER.label, LoginMenu.commandChecker::signUpResponse);
-        while (!command.equals("menu exit")) {
-            takeCommand(command);
+        while (!command.equalsIgnoreCase("menu exit")) {
             command = GameProgramController.scanner.nextLine().trim();
+            takeCommand(command);
         }
         System.exit(0);
     }
@@ -57,13 +56,11 @@ public class LoginMenu implements Runnable {
             Menus current = MenuProgramController.currentMenu;
             System.out.println(current.label);
         }
-
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
+            if (matcher.group(1).equals(Menus.MAIN_MENU.label))
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
+            else if (matcher.group(1).equals(Menus.LOGIN_MENU.label))
                 System.out.println(Response.menuNotPossible);
-            }
         }
 
         static void loginResponse(Matcher matcher) {

@@ -26,9 +26,9 @@ public class MainMenu implements Runnable {
     }
 
     public static MainMenu getInstance() {
-        if (mainMenuSingleton == null) {
+        if (mainMenuSingleton == null)
             mainMenuSingleton = new MainMenu();
-        }
+
         return mainMenuSingleton;
     }
 

@@ -8,9 +8,9 @@ public class MenuProgramController {
     private static MenuProgramController menuProgramController;
 
     public static MenuProgramController getInstance() {
-        if (menuProgramController == null) {
+        if (menuProgramController == null)
             menuProgramController = new MenuProgramController();
-        }
+
         return menuProgramController;
     }
 

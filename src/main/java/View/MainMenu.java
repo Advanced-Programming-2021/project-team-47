@@ -26,9 +26,6 @@ public class MainMenu implements Runnable {
         menuEnter.put(Menus.IMPORT_OR_EXPORT_MENU, Menus.IMPORT_OR_EXPORT_MENU.label);
     }
 
-    public static void main(String[] args) {
-        System.out.println("testing commit push");
-    }
     public static MainMenu getInstance() {
         if (mainMenuSingleton == null)
             mainMenuSingleton = new MainMenu();

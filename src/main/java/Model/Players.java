@@ -55,6 +55,14 @@ public class Players {
         return null;
     }
 
+    public String getCardsInHand(int x) {
+        return cardsInHand[x];
+    }
+
+    public void setCardsInHand(String cardsInHand, int x) {
+        this.cardsInHand[x] = cardsInHand;
+    }
+
     public ArrayList<String> getPlayerCards() {
         return playerCards;
     }

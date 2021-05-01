@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Players;
+import View.DuelMenu;
 
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class GameProgramController {
         ArrayList<Players> scoreSorting = Players.allPlayers;
         scoreSorting.sort(Comparator.comparing(Players::getScore)
                 .thenComparing(Players::getUsername));
-        ArrayList<String>scoreSortingUsernames=new ArrayList<>();
+        ArrayList<String> scoreSortingUsernames = new ArrayList<>();
         for (Players players : scoreSorting) {
             scoreSortingUsernames.add(players.getUsername());
         }
@@ -28,11 +29,15 @@ public class GameProgramController {
     }
 
     public boolean checkWrongPosition(int position) {
-
+        if (position > 5 || position < 1)
+            return false;
+        return true;
     }
 
-    public boolean checkCardExistInThisPosition(int position) {
-
+    public boolean checkCardExistInThisPosition(String username, int position) {
+        if (Players.getPlayerByUsername(username).getCardsInHand(position) != null)
+            return true;
+        return false;
     }
 
     public boolean isAnyCardSelected() {

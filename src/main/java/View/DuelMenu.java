@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class DuelMenu {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    private ArrayList<DuelMenu> duelGame = new ArrayList<>();
+    public static ArrayList<DuelMenu> duelGame = new ArrayList<>();
     private String firstPlayer;
     private String secondPlayer;
     private String phaseName;
@@ -22,6 +22,14 @@ public class DuelMenu {
         setSecondPlayer(secondPlayer);
         setRound(round);
         duelGame.add(this);
+    }
+
+    public static DuelMenu getDuelMenu(String username) {
+        for (DuelMenu game : duelGame) {
+            if (game.firstPlayer.equals(username) || game.secondPlayer.equals(username))
+                return game;
+        }
+        return null;
     }
 
     public String getFirstPlayer() {

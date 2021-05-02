@@ -96,12 +96,32 @@ public class GameProgramController {
         Players.getPlayerByUsername(username).setCardsInHand("OO", addressNumber);
     }
 
-    public void attackMonster(int addressNumber) {
+    public void attackMonster(String username, int addressNumber) {
+        Players playerUsername = Players.getPlayerByUsername(username);
+        if (playerUsername.getMonsterCardZone(addressNumber).equals("OO") &&) {
+            playerUsername.decreaseLifePoint();
+            playerUsername.setCardsInGraveyard();
+        } else if (playerUsername.getMonsterCardZone(addressNumber).equals("OO") &&)
+            playerUsername.setMonsterCardZone("E", addressNumber);
+        else if (playerUsername.getMonsterCardZone(addressNumber).equals("OO") &&) {
+            playerUsername.decreaseLifePoint();
+            playerUsername.setCardsInGraveyard();
+        } else if (playerUsername.getMonsterCardZone(addressNumber).equals("DO") &&)
+            playerUsername.setMonsterCardZone("E", addressNumber);
+        else if (playerUsername.getMonsterCardZone(addressNumber).equals("DO") &&) {
+            playerUsername.decreaseLifePoint();
+            playerUsername.setCardsInGraveyard();
+        } else if (playerUsername.getMonsterCardZone(addressNumber).equals("DH") &&)
+            playerUsername.setMonsterCardZone("E", addressNumber);
+        else if (playerUsername.getMonsterCardZone(addressNumber).equals("DH") &&) {
+            playerUsername.decreaseLifePoint();
+            playerUsername.setCardsInGraveyard();
+        }
 
     }
 
-    public void directAttack(int addressNumber) {
-
+    public void directAttack(String username) {
+        Players.getPlayerByUsername(username).decreaseLifePoint();
     }
 
     public void activateEffect(int addressNumber) {

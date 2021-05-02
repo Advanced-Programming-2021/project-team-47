@@ -180,4 +180,7 @@ public class Players {
     public void increaseLifePoint(int lifePoint) {
         this.lifePoint += lifePoint;
     }
+    public void decreaseLifePoint(int lifePoint) {
+        this.lifePoint -= lifePoint;
+    }
 }

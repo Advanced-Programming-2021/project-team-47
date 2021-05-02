@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Players;
+import Model.*;
 import View.DuelMenu;
 
 import java.util.*;
@@ -40,13 +40,18 @@ public class GameProgramController {
         return false;
     }
 
-    public boolean isAnyCardSelected() {
-
+    public boolean isAnyCardSelected(String username, int position) {
+        if (DuelMenu.getDuelMenu(username).getCardAddressNumberSelected() == position || DuelMenu.getDuelMenu(username).getCardZoneSelected() != null)
+            return true;
+        return false;
     }
 
 
-    public boolean isSummonAllowed(String cardName) {
-
+    public void summon(String username) {
+        for (int i = 1; i < 10; ++i) {
+            if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E"))
+                Players.getPlayerByUsername(username).setCardsInHand("OO", i);
+        }
     }
 
     public boolean isAnyCard(int addressNumber) {
@@ -57,7 +62,13 @@ public class GameProgramController {
 
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {
+        if (type.equals("Monster"))
+            new MonsterCard(cardName, level, type, ATK, DEF, description, price, style);
+        else if (type.equals("Trap"))
+            new TrapCard(cardName, level, type, ATK, DEF, description, price, style);
+        else
+            new SpellCard((cardName, level, type, ATK, DEF, description, price, style);
 
     }
 

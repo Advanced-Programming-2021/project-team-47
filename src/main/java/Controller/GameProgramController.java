@@ -49,8 +49,10 @@ public class GameProgramController {
 
     public void summon(String username) {
         for (int i = 1; i < 10; ++i) {
-            if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E"))
+            if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
                 Players.getPlayerByUsername(username).setCardsInHand("OO", i);
+                break;
+            }
         }
     }
 
@@ -77,16 +79,21 @@ public class GameProgramController {
         else if (type.equals("Trap"))
             new TrapCard(cardName, level, type, ATK, DEF, description, price, style);
         else
-            new SpellCard((cardName, level, type, ATK, DEF, description, price, style);
+            new SpellCard(cardName, level, type, ATK, DEF, description, price, style);
 
     }
 
-    public void normalSet(int addressNumber) {
-
+    public void normalSet(String username) {
+        for (int i = 1; i < 10; ++i) {
+            if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
+                Players.getPlayerByUsername(username).setCardsInHand("DH", i);
+                break;
+            }
+        }
     }
 
-    public void flipSummon(int addressNumber) {
-
+    public void flipSummon(String username, int addressNumber) {
+        Players.getPlayerByUsername(username).setCardsInHand("OO", addressNumber);
     }
 
     public void attackMonster(int addressNumber) {

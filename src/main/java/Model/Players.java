@@ -12,7 +12,7 @@ public class Players {
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
-    private String[] monsterCardZone = new String[10];
+    private String[] monsterCardZone = new String[11];
     private String username;
     private String nickname;
     private String password;
@@ -53,6 +53,14 @@ public class Players {
             }
         }
         return null;
+    }
+
+    public String getMonsterCardZone(int x) {
+        return monsterCardZone[x];
+    }
+
+    public void setMonsterCardZone(String monsterCardZone, int x) {
+        this.monsterCardZone[x] = monsterCardZone;
     }
 
     public String getCardsInHand(int x) {

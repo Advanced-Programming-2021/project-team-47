@@ -54,12 +54,21 @@ public class GameProgramController {
         }
     }
 
-    public boolean isAnyCard(int addressNumber) {
-
+    public boolean isAnyCard(String username, int addressNumber) {
+        if (!Players.getPlayerByUsername(username).getMonsterCardZone(addressNumber).equals("E"))
+            return true;
+        return false;
     }
 
-    public boolean isTwoMonsterCard(int addressNumber) {
-
+    public boolean isTwoMonsterCard(String username) {
+        int counter = 0;
+        for (int i = 1; i < 10; ++i) {
+            if (!Players.getPlayerByUsername(username).getMonsterCardZone(i).equals("E"))
+                ++counter;
+            if (counter == 2)
+                return true;
+        }
+        return false;
     }
 
     public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {

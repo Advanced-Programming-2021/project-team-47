@@ -32,7 +32,7 @@ public class MainMenu implements Runnable {
         return mainMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
+    public static takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));

@@ -12,7 +12,8 @@ public class Players {
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
-    private String[] monsterCardZone = new String[11];
+    private String[] monsterCardZone = new String[6];
+    private String[] spellCardZone = new String[6];
     private String username;
     private String nickname;
     private String password;
@@ -180,6 +181,7 @@ public class Players {
     public void increaseLifePoint(int lifePoint) {
         this.lifePoint += lifePoint;
     }
+
     public void decreaseLifePoint(int lifePoint) {
         this.lifePoint -= lifePoint;
     }

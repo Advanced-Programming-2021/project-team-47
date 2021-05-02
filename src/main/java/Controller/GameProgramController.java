@@ -2,7 +2,6 @@ package Controller;
 
 import Model.*;
 import View.DuelMenu;
-
 import java.util.*;
 
 
@@ -145,19 +144,19 @@ public class GameProgramController {
     }
 
     public void swapTurn(String username) {
-        DuelMenu game = DuelMenu.getDuelMenu(username);
+        DuelMenu game = DuelMenu.getInstance();
         String turn = game.getShowTurn();
         if (turn.equals(game.getFirstPlayer()))
-            DuelMenu.getDuelMenu(username).setShowTurn(game.getSecondPlayer());
+            DuelMenu.getInstance().setShowTurn(game.getSecondPlayer());
         else
-            DuelMenu.getDuelMenu(username).setShowTurn(game.getFirstPlayer());
+            DuelMenu.getInstance().setShowTurn(game.getFirstPlayer());
     }
 
     public void setPosition(String username, String position) {
         if (position.equals("attack"))
-            Players.getPlayerByUsername(username).setMonsterCardZone("OO", DuelMenu.getDuelMenu(username).getCardAddressNumberSelected());
+            Players.getPlayerByUsername(username).setMonsterCardZone("OO", DuelMenu.getInstance().getCardAddressNumberSelected());
         else
-            Players.getPlayerByUsername(username).setMonsterCardZone("DO", DuelMenu.getDuelMenu(username).getCardAddressNumberSelected());
+            Players.getPlayerByUsername(username).setMonsterCardZone("DO", DuelMenu.getInstance().getCardAddressNumberSelected());
     }
 
     public void ritualSummon(int addressNumber) {

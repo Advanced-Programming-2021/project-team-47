@@ -120,8 +120,8 @@ public class GameProgramController {
 
     }
 
-    public void directAttack(String username) {
-        Players.getPlayerByUsername(username).decreaseLifePoint();
+    public void directAttack(String username, String cardName) {
+        Players.getPlayerByUsername(username).decreaseLifePoint(Cards.getCardByName(cardName).getATK());
     }
 
     public void activateEffect(int addressNumber) {
@@ -144,12 +144,20 @@ public class GameProgramController {
 
     }
 
-    public void swapTurn(int addressNumber) {
-
+    public void swapTurn(String username) {
+        DuelMenu game = DuelMenu.getDuelMenu(username);
+        String turn = game.getShowTurn();
+        if (turn.equals(game.getFirstPlayer()))
+            DuelMenu.getDuelMenu(username).setShowTurn(game.getSecondPlayer());
+        else
+            DuelMenu.getDuelMenu(username).setShowTurn(game.getFirstPlayer());
     }
 
-    public void setPosition(int addressNumber) {
-
+    public void setPosition(String username, String position) {
+        if (position.equals("attack"))
+            Players.getPlayerByUsername(username).setMonsterCardZone("OO", DuelMenu.getDuelMenu(username).getCardAddressNumberSelected());
+        else
+            Players.getPlayerByUsername(username).setMonsterCardZone("DO", DuelMenu.getDuelMenu(username).getCardAddressNumberSelected());
     }
 
     public void ritualSummon(int addressNumber) {

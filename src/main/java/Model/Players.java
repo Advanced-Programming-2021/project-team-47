@@ -60,8 +60,20 @@ public class Players {
         return monsterCardZone[x];
     }
 
+    public String[] getSpellCardZone() {
+        return spellCardZone;
+    }
+
+    public String getSpellCardZoneByCoordinate(int x) {
+        return spellCardZone[x];
+    }
+
     public void setMonsterCardZone(String monsterCardZone, int x) {
         this.monsterCardZone[x] = monsterCardZone;
+    }
+
+    public void setSpellCardZone(String spellCardZone, int x) {
+        this.spellCardZone[x] = spellCardZone;
     }
 
     public String getCardsInHand(int x) {

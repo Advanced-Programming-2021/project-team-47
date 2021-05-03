@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import View.DuelMenu;
+
 import java.util.*;
 
 
@@ -40,7 +41,7 @@ public class GameProgramController {
     }
 
     public boolean isAnyCardSelected(String username, int position) {
-        if (DuelMenu.getDuelMenu(username).getCardAddressNumberSelected() == position || DuelMenu.getDuelMenu(username).getCardZoneSelected() != null)
+        if (DuelMenu.getInstance().getCardAddressNumberSelected() == position || DuelMenu.getInstance().getCardZoneSelected() != null)
             return true;
         return false;
     }
@@ -127,16 +128,22 @@ public class GameProgramController {
 
     }
 
-    public void setSpell(int addressNumber) {
-
+    public void setSpell(String username) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+            if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
+                Players.getPlayerByUsername(username).setSpellCardZone("O", i);
+        }
     }
 
     public void specialSummon(int addressNumber) {
 
     }
 
-    public void setTrap(int addressNumber) {
-
+    public void setTrap(String username) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+            if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
+                Players.getPlayerByUsername(username).setSpellCardZone("H", i);
+        }
     }
 
     public void setTrapOrSpellOpponentTurn(int addressNumber) {

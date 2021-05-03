@@ -124,19 +124,20 @@ public class GameProgramController {
         Players.getPlayerByUsername(username).decreaseLifePoint(Cards.getCardByName(cardName).getATK());
     }
 
-    public void activateEffect(int addressNumber) {
-
+    public void activateEffect(String username, String cardName) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+            if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
+                Players.getPlayerByUsername(username).setSpellCardZone("O", i);
+        }
+        if (Players.getPlayerByUsername(username).getFieldZone().contains(cardName))
+            Players.getPlayerByUsername(username).setFieldZone(cardName);
     }
 
     public void setSpell(String username) {
         for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
-                Players.getPlayerByUsername(username).setSpellCardZone("O", i);
+                Players.getPlayerByUsername(username).setSpellCardZone("H", i);
         }
-    }
-
-    public void specialSummon(int addressNumber) {
-
     }
 
     public void setTrap(String username) {
@@ -144,10 +145,6 @@ public class GameProgramController {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
                 Players.getPlayerByUsername(username).setSpellCardZone("H", i);
         }
-    }
-
-    public void setTrapOrSpellOpponentTurn(int addressNumber) {
-
     }
 
     public void swapTurn(String username) {
@@ -166,8 +163,13 @@ public class GameProgramController {
             Players.getPlayerByUsername(username).setMonsterCardZone("DO", DuelMenu.getInstance().getCardAddressNumberSelected());
     }
 
-    public void ritualSummon(int addressNumber) {
-
+    public void ritualSummon(String username, String position) {
+        for (int i = 1; i < 10; ++i) {
+            if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
+                Players.getPlayerByUsername(username).setCardsInHand(position, i);
+                break;
+            }
+        }
     }
 
 }

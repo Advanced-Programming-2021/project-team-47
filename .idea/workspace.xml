@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="debug menu detection">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="GameProgramController and Players" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-      </list>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
     </option>
   </component>
   <component name="Git.Settings">
@@ -118,8 +112,6 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -138,22 +130,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -167,12 +156,8 @@
       <workItem from="1619019894191" duration="428000" />
       <workItem from="1619076968712" duration="1163000" />
       <workItem from="1619078607952" duration="508000" />
-      <workItem from="1619222918459" duration="1166000" />
-      <workItem from="1619260526842" duration="514000" />
-      <workItem from="1619265155483" duration="883000" />
-      <workItem from="1619280761214" duration="2281000" />
-      <workItem from="1619362718755" duration="750000" />
-      <workItem from="1619459446063" duration="4467000" />
+      <workItem from="1619222918459" duration="13831000" />
+      <workItem from="1619314598363" duration="15467000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -202,7 +187,105 @@
       <option name="project" value="LOCAL" />
       <updated>1619223481824</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="debug menu enum">
+      <created>1619224713342</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619224713342</updated>
+    </task>
+    <task id="LOCAL-00006" summary="debug scoreboardShow">
+      <created>1619264971197</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619264971197</updated>
+    </task>
+    <task id="LOCAL-00007" summary="debug scoreboardShow">
+      <created>1619268052779</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619268052779</updated>
+    </task>
+    <task id="LOCAL-00008" summary="debug scoreboardShow">
+      <created>1619880051761</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619880051761</updated>
+    </task>
+    <task id="LOCAL-00009" summary="debug scoreboardShow">
+      <created>1619884195890</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619884195890</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Duel menu add">
+      <created>1619934019779</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934019779</updated>
+    </task>
+    <task id="LOCAL-00011" summary="GameProgramController and Players">
+      <created>1619934114039</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934114039</updated>
+    </task>
+    <task id="LOCAL-00012" summary="GameProgramController and Players">
+      <created>1619934217232</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934217232</updated>
+    </task>
+    <task id="LOCAL-00013" summary="GameProgramController">
+      <created>1619934583056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934583056</updated>
+    </task>
+    <task id="LOCAL-00014" summary="GameProgramController and Players">
+      <created>1619934852241</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934852241</updated>
+    </task>
+    <task id="LOCAL-00015" summary="GameProgramController">
+      <created>1619934972520</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934972520</updated>
+    </task>
+    <task id="LOCAL-00016" summary="GameProgramController">
+      <created>1619980573814</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619980573814</updated>
+    </task>
+    <task id="LOCAL-00017" summary="GameProgramController and DuelMenu">
+      <created>1619980605388</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1619980605388</updated>
+    </task>
+    <task id="LOCAL-00018" summary="GameProgramController and Players">
+      <created>1620042620087</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1620042620087</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +320,12 @@
     <MESSAGE value="Other files" />
     <MESSAGE value="Fix ImportOrExportMenu class" />
     <MESSAGE value="debug menu detection" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug menu detection" />
+    <MESSAGE value="debug menu enum" />
+    <MESSAGE value="debug scoreboardShow" />
+    <MESSAGE value="Duel menu add" />
+    <MESSAGE value="GameProgramController" />
+    <MESSAGE value="GameProgramController and DuelMenu" />
+    <MESSAGE value="GameProgramController and Players" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameProgramController and Players" />
   </component>
 </project>

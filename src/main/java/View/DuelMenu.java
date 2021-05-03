@@ -6,9 +6,9 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DuelMenu {
+public class DuelMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    private ArrayList<DuelMenu> duelGame = new ArrayList<>();
+    private static DuelMenu duelMenu;
     private String firstPlayer;
     private String secondPlayer;
     private String phaseName;
@@ -17,11 +17,24 @@ public class DuelMenu {
     private String cardZoneSelected;
     private int cardAddressNumberSelected;
 
-    public DuelMenu(String firstPlayer, String secondPlayer, int round) {
-        setFirstPlayer(firstPlayer);
-        setSecondPlayer(secondPlayer);
-        setRound(round);
-        duelGame.add(this);
+    public void run(String command) {
+
+    }
+
+    public static DuelMenu getInstance() {
+        if (duelMenu == null) {
+            duelMenu = new DuelMenu();
+        }
+        return duelMenu;
+    }
+
+    public void takeCommand(String command) {
+        for (Pattern commandReg : commandMap.keySet())
+            if (command.matches(commandReg.pattern())) {
+                commandMap.get(commandReg).accept(commandReg.matcher(command));
+                return;
+            }
+        System.out.println("invalid command");
     }
 
     public String getFirstPlayer() {

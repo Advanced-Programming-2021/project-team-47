@@ -21,7 +21,7 @@ public class ImportOrExportMenu implements Runnable {
         return importOrExportMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
+    public void takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));

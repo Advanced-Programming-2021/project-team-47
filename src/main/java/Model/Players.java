@@ -7,12 +7,13 @@ public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private ArrayList<String> playerCards = new ArrayList<>();
-    private ArrayList<String> cardsInHand = new ArrayList<>();
     private ArrayList<String> mainDecks = new ArrayList<>();
     private ArrayList<String> sideDecks = new ArrayList<>();
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private String[] deckZone = new String[6];
+    private String[] cardsInHand = new String[6];
+    private String[] monsterCardZone = new String[6];
+    private String[] spellCardZone = new String[6];
     private String username;
     private String nickname;
     private String password;
@@ -55,6 +56,34 @@ public class Players {
         return null;
     }
 
+    public String getMonsterCardZone(int x) {
+        return monsterCardZone[x];
+    }
+
+    public String[] getSpellCardZone() {
+        return spellCardZone;
+    }
+
+    public String getSpellCardZoneByCoordinate(int x) {
+        return spellCardZone[x];
+    }
+
+    public void setMonsterCardZone(String monsterCardZone, int x) {
+        this.monsterCardZone[x] = monsterCardZone;
+    }
+
+    public void setSpellCardZone(String spellCardZone, int x) {
+        this.spellCardZone[x] = spellCardZone;
+    }
+
+    public String getCardsInHand(int x) {
+        return cardsInHand[x];
+    }
+
+    public void setCardsInHand(String cardsInHand, int x) {
+        this.cardsInHand[x] = cardsInHand;
+    }
+
     public ArrayList<String> getPlayerCards() {
         return playerCards;
     }
@@ -63,13 +92,6 @@ public class Players {
         this.playerCards.add(playerCards);
     }
 
-    public ArrayList<String> getCardsInHand() {
-        return cardsInHand;
-    }
-
-    public void setCardsInHand(String cardName) {
-        this.cardsInHand.add(cardName);
-    }
 
     public ArrayList<String> getMainDecks() {
         return mainDecks;
@@ -101,14 +123,6 @@ public class Players {
 
     public void setCardsInGraveyard(String cardName) {
         this.cardsInGraveyard.add(cardName);
-    }
-
-    public String[] getDeckZone() {
-        return deckZone;
-    }
-
-    public void setDeckZone(String deckZone, int i) {
-        this.deckZone[i] = deckZone;
     }
 
     public int getLifePoint() {
@@ -178,5 +192,9 @@ public class Players {
 
     public void increaseLifePoint(int lifePoint) {
         this.lifePoint += lifePoint;
+    }
+
+    public void decreaseLifePoint(int lifePoint) {
+        this.lifePoint -= lifePoint;
     }
 }

@@ -1,14 +1,13 @@
-package View;
+package main.java.View;
 
-import Controller.GameProgramController;
-import Controller.MenuProgramController;
-import Controller.Regex;
 import Model.Menus;
 import Model.Players;
+import main.java.Controller.GameProgramController;
+import main.java.Controller.MenuProgramController;
+import main.java.Controller.Regex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +23,7 @@ public class ScoreboardMenu implements Runnable {
         return scoreboardMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
+    public void takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));
@@ -55,7 +54,7 @@ public class ScoreboardMenu implements Runnable {
             if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
             } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
-                System.out.println(Response.menuNotPossible);
+                System.out.println(View.Response.menuNotPossible);
             }
         }
 

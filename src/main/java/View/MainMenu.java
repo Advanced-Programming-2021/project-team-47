@@ -1,9 +1,9 @@
-package View;
+package main.java.View;
 
-import Controller.GameProgramController;
-import Controller.MenuProgramController;
-import Controller.Regex;
 import Model.Menus;
+import main.java.Controller.GameProgramController;
+import main.java.Controller.MenuProgramController;
+import main.java.Controller.Regex;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainMenu implements Runnable {
-    public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
+    public HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static HashMap<Menus, String> menuEnter = new HashMap<>();
     private static MainMenu mainMenuSingleton;
 
@@ -32,7 +32,7 @@ public class MainMenu implements Runnable {
         return mainMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
+    public void takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));

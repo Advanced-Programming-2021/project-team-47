@@ -1,4 +1,4 @@
-package View;
+package main.java.View;
 
 
 import java.util.HashMap;
@@ -6,9 +6,12 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Controller.*;
 import Model.Menus;
 import Model.Players;
+import main.java.Controller.GameProgramController;
+import main.java.Controller.LoginProgramController;
+import main.java.Controller.MenuProgramController;
+import main.java.Controller.Regex;
 
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
@@ -22,7 +25,7 @@ public class LoginMenu implements Runnable {
         return loginMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
+    public void takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));

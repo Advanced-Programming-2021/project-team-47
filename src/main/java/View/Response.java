@@ -1,4 +1,4 @@
-package View;
+package main.java.View;
 
 public class Response {
     public static String loginFirst = "please login first";

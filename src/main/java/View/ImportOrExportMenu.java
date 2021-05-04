@@ -1,9 +1,9 @@
-package View;
+package main.java.View;
 
-import Controller.GameProgramController;
-import Controller.MenuProgramController;
-import Controller.Regex;
 import Model.Menus;
+import main.java.Controller.GameProgramController;
+import main.java.Controller.MenuProgramController;
+import main.java.Controller.Regex;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -21,13 +21,8 @@ public class ImportOrExportMenu implements Runnable {
         return importOrExportMenuSingleton;
     }
 
-    public static void takeCommand(String command) {
-        for (Pattern commandReg : commandMap.keySet())
-            if (command.matches(commandReg.pattern())) {
-                commandMap.get(commandReg).accept(commandReg.matcher(command));
-                return;
-            }
-        System.out.println("invalid command");
+    public void takeCommand(String command) {
+
     }
 
     public void run(String command) {

@@ -1,4 +1,5 @@
-package View;
+package main.java.View;
+
 
 import java.util.regex.Pattern;
 

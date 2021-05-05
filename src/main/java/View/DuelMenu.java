@@ -1,5 +1,8 @@
 package View;
 
+import Controller.GameProgramController;
+import Model.Players;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -35,6 +38,39 @@ public class DuelMenu implements Runnable {
                 return;
             }
         System.out.println("invalid command");
+    }
+    public void startTwoPlayerDuel(String firstPlayerUsername,String secondPlayerUsername, int rounds) {
+        Players thisPlayer=Players.getPlayerByUsername(firstPlayerUsername);
+        if (rounds != 3 && rounds != 1) {
+            System.out.println(Response.invalidRoundNumber);
+            return;
+        }
+        Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);
+        if (secondPlayer == null) {
+            System.out.println(Response.usernameNotExist);
+            return;
+        }
+        if (secondPlayer.getMainDecks() == null) {
+            System.out.println(secondPlayerUsername+" "+Response.activeDeckNotAvailable);
+            return;
+        }
+        Deck firstDeck = Deck.getDeckByID(thisPlayer.getMainDeckID());
+        if (!firstDeck.isDeckValid()) {
+            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
+            return;
+        }
+        Deck secondDeck = Deck.getDeckByID(secondPlayer.getMainDeckID());
+        if (!secondDeck.isDeckValid()) {
+            System.out.println(secondPlayerUsername+"'s "+Response.invalidDeck);
+            return;
+        }
+        Random random = new Random();
+        boolean isFirstPlayerTurn = random.nextBoolean();
+        PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
+        PlayerController secondPlayerController = new NormalPlayerController(isFirstPlayerTurn ? secondPlayer : firstPlayer);
+        GameProgramController gameController = GameProgramController.getInstance();
+        ProgramController.setGameControllerID(gameController.getId());
+        gameController.play();
     }
 
     public String getFirstPlayer() {

@@ -51,6 +51,7 @@ public enum Regex {
     CARD_IMPORT(Pattern.compile("^import card ([\\s\\S]+)$")),
     CARD_EXPORT(Pattern.compile("^export card ([\\s\\S]+)$"));
 
+
     public final Pattern label;
 
     Regex(Pattern label) {

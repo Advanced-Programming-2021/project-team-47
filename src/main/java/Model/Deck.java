@@ -23,7 +23,11 @@ public class Deck {
         setType(type);
         setActive(false);
     }
-
+    public static boolean isDeckValid(Deck deck){
+        if (deck==null) return false;
+        if (getNumberOfCards(deck)<40 || getNumberOfCards(deck)>60) return false;
+        return true;
+    }
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {
@@ -32,7 +36,9 @@ public class Deck {
         }
         return null;
     }
-
+    public static int getNumberOfCards(Deck deck){
+        return deck.cardsInDecks.size();
+    }
     public static Deck getDeckByOwner(String owner) {
         for (Deck deck : decks) {
             if (deck.getOwner().equals(owner)) {

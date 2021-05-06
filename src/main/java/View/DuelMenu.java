@@ -8,6 +8,7 @@ import main.java.View.Response;
 import main.java.Model.Deck;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

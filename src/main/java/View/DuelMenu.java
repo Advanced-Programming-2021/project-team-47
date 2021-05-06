@@ -1,10 +1,10 @@
 package View;
 
 import Controller.GameProgramController;
-import Model.Players;
 
 import Controller.GameProgramController;
-import Model.Players;
+import main.java.Model.Players;
+import main.java.View.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public class DuelMenu implements Runnable {
     public void startTwoPlayerDuel(String firstPlayerUsername,String secondPlayerUsername, int rounds) {
         Players thisPlayer=Players.getPlayerByUsername(firstPlayerUsername);
         if (rounds != 3 && rounds != 1) {
-            System.out.println(Response.invalidRoundNumber);
+            System.out.println(main.java.View.Response.invalidRoundNumber);
             return;
         }
         Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="duelMenu startOnePlayerDuel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Player update">
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620330431804</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="SideDeck and MainDeck class">
+      <created>1620330949353</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1620330949353</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Player update">
+      <created>1620331108025</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1620331108025</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,6 +468,8 @@
     <MESSAGE value="clean code" />
     <MESSAGE value="duelMenu startTwoPlayerDuel update" />
     <MESSAGE value="duelMenu startOnePlayerDuel" />
-    <option name="LAST_COMMIT_MESSAGE" value="duelMenu startOnePlayerDuel" />
+    <MESSAGE value="SideDeck and MainDeck class" />
+    <MESSAGE value="Player update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player update" />
   </component>
 </project>

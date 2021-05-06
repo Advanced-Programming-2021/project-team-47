@@ -3,8 +3,10 @@ package View;
 import Controller.GameProgramController;
 
 import Controller.GameProgramController;
+import Model.MainDeck;
 import Model.Players;
 import Model.Players;
+import Model.SideDeck;
 import main.java.View.Response;
 import main.java.Model.Deck;
 
@@ -70,22 +72,22 @@ public class DuelMenu implements Runnable {
             return;
         }
         MainDeck firstPlayerMainDeck = thisPlayer.getMainDecks();
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck, 1)) {
+        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        Deck secondPlayerMainDeck = secondPlayer.getMainDecks();
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck, 1)) {
+        MainDeck secondPlayerMainDeck = secondPlayer.getMainDecks();
+        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        Deck firstPlayerSideDeck = thisPlayer.getSideDecks();
-        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck, -1)) {
+        SideDeck firstPlayerSideDeck = thisPlayer.getSideDecks();
+        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        Deck secondPlayerSideDeck = secondPlayer.getSideDecks();
-        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck, -1)) {
+        SideDeck secondPlayerSideDeck = secondPlayer.getSideDecks();
+        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
@@ -112,13 +114,13 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.invalidRoundNumber);
             return;
         }
-        Deck playerMainDeck = thisPlayer.getMainDecks();
-        if (!playerMainDeck.isDeckValid(playerMainDeck, 1)) {
+        MainDeck playerMainDeck = thisPlayer.getMainDecks();
+        if (!playerMainDeck.isDeckValid(playerMainDeck)) {
             System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        Deck playerSideDeck = thisPlayer.getSideDecks();
-        if (!playerSideDeck.isDeckValid(playerSideDeck, -1)) {
+        SideDeck playerSideDeck = thisPlayer.getSideDecks();
+        if (!playerSideDeck.isDeckValid(playerSideDeck)) {
             System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }

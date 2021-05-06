@@ -3,6 +3,7 @@ package View;
 import Controller.GameProgramController;
 
 import Controller.GameProgramController;
+import Model.Players;
 import main.java.Model.Players;
 import main.java.View.Response;
 import main.java.Model.Deck;

@@ -1,4 +1,4 @@
-package main.java.Model;
+package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private ArrayList<String> playerCards = new ArrayList<>();
-    private Deck mainDeck ;
-    private Deck sideDeck ;
+    private Deck mainDecks;
+    private Deck sideDecks;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
@@ -38,12 +38,12 @@ public class Players {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
 
-    public void setMainDeck(Deck mainDeck) {
-        this.mainDeck = mainDeck;
+    public void setMainDecks(Deck mainDecks) {
+        this.mainDecks = mainDecks;
     }
 
-    public void setSideDeck(Deck sideDeck) {
-        this.sideDeck = sideDeck;
+    public void setSideDecks(Deck sideDecks) {
+        this.sideDecks = sideDecks;
     }
 
     public static Players getPlayerByUsername(String username) {
@@ -63,11 +63,11 @@ public class Players {
         }
         return null;
     }
-    public Deck getSideDeck(){
-       return this.sideDeck;
+    public Deck getSideDecks(){
+       return this.sideDecks;
     }
-    public Deck getMainDeckBy(){
-        return this.mainDeck;
+    public Deck getMainDecks(){
+        return this.mainDecks;
     }
     public String getMonsterCardZone(int x) {
         return monsterCardZone[x];
@@ -106,21 +106,21 @@ public class Players {
     }
 
 
-    public ArrayList<String> getMainDecks() {
-        return mainDecks;
-    }
+ // public ArrayList<String> getMainDecks() {
+ //     return mainDecks;
+ // }
 
-    public void setMainDecks(String mainDecks) {
-        this.mainDecks.add(mainDecks);
-    }
+ // public void setMainDecks(String mainDecks) {
+ //     this.mainDecks.add(mainDecks);
+ // }
 
-    public ArrayList<String> getSideDecks() {
-        return sideDecks;
-    }
+ // public ArrayList<String> getSideDecks() {
+ //     return sideDecks;
+ // }
 
-    public void setSideDecks(String sideDecks) {
-        this.sideDecks.add(sideDecks);
-    }
+ // public void setSideDecks(String sideDecks) {
+ //     this.sideDecks.add(sideDecks);
+ // }
 
     public ArrayList<String> getFieldZone() {
         return fieldZone;

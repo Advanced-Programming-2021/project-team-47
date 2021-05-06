@@ -1,5 +1,6 @@
 package main.java.View;
 
+import Controller.ShopProgramController;
 import Model.Cards;
 import Model.Menus;
 import Model.Players;
@@ -7,7 +8,7 @@ import main.java.Controller.GameProgramController;
 import main.java.Controller.MenuProgramController;
 import main.java.Controller.Regex;
 import main.java.Controller.ShopProgramController;
-
+import main.java.View.LoginMenu;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;

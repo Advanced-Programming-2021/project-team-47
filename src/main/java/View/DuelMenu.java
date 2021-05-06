@@ -62,17 +62,25 @@ public class DuelMenu implements Runnable {
             return;
         }
         Deck firstPlayerMainDeck = thisPlayer.getMainDecks();
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
+        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck,1)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Deck secondPlayerMainDeck = secondPlayer.getMainDecks();
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
+        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck,1)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Deck firstPlayerSideDeck = thisPlayer.getSideDecks();
+        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck,-1)) {
+            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
+            return;
+        }
         Deck secondPlayerSideDeck = secondPlayer.getSideDecks();
+        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck,-1)) {
+            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
+            return;
+        }
         Random random = new Random();
         boolean isFirstPlayerTurn = random.nextBoolean();
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);

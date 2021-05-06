@@ -5,7 +5,7 @@ import Controller.GameProgramController;
 import Controller.GameProgramController;
 import main.java.Model.Players;
 import main.java.View.Response;
-
+import main.java.Model.Deck;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -45,7 +45,7 @@ public class DuelMenu implements Runnable {
     public void startTwoPlayerDuel(String firstPlayerUsername,String secondPlayerUsername, int rounds) {
         Players thisPlayer=Players.getPlayerByUsername(firstPlayerUsername);
         if (rounds != 3 && rounds != 1) {
-            System.out.println(main.java.View.Response.invalidRoundNumber);
+            System.out.println(Response.invalidRoundNumber);
             return;
         }
         Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);

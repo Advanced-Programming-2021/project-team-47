@@ -23,10 +23,19 @@ public class Deck {
         setType(type);
         setActive(false);
     }
-    public static boolean isDeckValid(Deck deck){
+    public static boolean isDeckValid(Deck deck,int type){
+        // type=1 --> mainDeck type=-1 --> sideDeck
+
         if (deck==null) return false;
-        if (getNumberOfCards(deck)<40 || getNumberOfCards(deck)>60) return false;
-        return true;
+        if (type==1){
+            if (getNumberOfCards(deck)<40 || getNumberOfCards(deck)>60) return false;
+            return true;
+        }
+        if (type==-1){
+            if (getNumberOfCards(deck)>15) return false;
+            return true;
+        }
+        return false;
     }
 
     public static Deck getDeckByName(String deckName) {

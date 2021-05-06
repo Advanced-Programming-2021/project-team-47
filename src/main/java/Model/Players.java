@@ -2,7 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import main.java.Model.Deck;
+
 public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
@@ -63,12 +65,15 @@ public class Players {
         }
         return null;
     }
-    public Deck getSideDecks(){
-       return this.sideDecks;
+
+    public Deck getSideDecks() {
+        return this.sideDecks;
     }
-    public Deck getMainDecks(){
+
+    public Deck getMainDecks() {
         return this.mainDecks;
     }
+
     public String getMonsterCardZone(int x) {
         return monsterCardZone[x];
     }
@@ -106,21 +111,21 @@ public class Players {
     }
 
 
- // public ArrayList<String> getMainDecks() {
- //     return mainDecks;
- // }
+    // public ArrayList<String> getMainDecks() {
+    //     return mainDecks;
+    // }
 
- // public void setMainDecks(String mainDecks) {
- //     this.mainDecks.add(mainDecks);
- // }
+    // public void setMainDecks(String mainDecks) {
+    //     this.mainDecks.add(mainDecks);
+    // }
 
- // public ArrayList<String> getSideDecks() {
- //     return sideDecks;
- // }
+    // public ArrayList<String> getSideDecks() {
+    //     return sideDecks;
+    // }
 
- // public void setSideDecks(String sideDecks) {
- //     this.sideDecks.add(sideDecks);
- // }
+    // public void setSideDecks(String sideDecks) {
+    //     this.sideDecks.add(sideDecks);
+    // }
 
     public ArrayList<String> getFieldZone() {
         return fieldZone;

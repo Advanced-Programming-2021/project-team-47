@@ -4,7 +4,7 @@ import Controller.GameProgramController;
 
 import Controller.GameProgramController;
 import Model.Players;
-import main.java.Model.Players;
+import Model.Players;
 import main.java.View.Response;
 import main.java.Model.Deck;
 
@@ -62,22 +62,22 @@ public class DuelMenu implements Runnable {
             return;
         }
         Deck firstPlayerMainDeck = thisPlayer.getMainDecks();
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck,1)) {
+        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck, 1)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Deck secondPlayerMainDeck = secondPlayer.getMainDecks();
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck,1)) {
+        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck, 1)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Deck firstPlayerSideDeck = thisPlayer.getSideDecks();
-        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck,-1)) {
+        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck, -1)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Deck secondPlayerSideDeck = secondPlayer.getSideDecks();
-        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck,-1)) {
+        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck, -1)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }

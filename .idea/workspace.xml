@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Deck isDeckValid update">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="DuelMenu startTwoPlayerDuel update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -366,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620329426463</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="DuelMenu startTwoPlayerDuel update">
+      <created>1620329551528</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1620329551528</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,8 +425,8 @@
     <MESSAGE value="DuelMenu update" />
     <MESSAGE value="Players mainDeck , sideDeck  (+ setter and getter)" />
     <MESSAGE value="players debug" />
-    <MESSAGE value="DuelMenu startTwoPlayerDuel update" />
     <MESSAGE value="Deck isDeckValid update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deck isDeckValid update" />
+    <MESSAGE value="DuelMenu startTwoPlayerDuel update" />
+    <option name="LAST_COMMIT_MESSAGE" value="DuelMenu startTwoPlayerDuel update" />
   </component>
 </project>

@@ -1,12 +1,12 @@
-package View;
+package main.java.View;
 
-import Controller.GameProgramController;
-import Controller.MenuProgramController;
-import Controller.Regex;
-import Controller.ShopProgramController;
 import Model.Cards;
 import Model.Menus;
 import Model.Players;
+import main.java.Controller.GameProgramController;
+import main.java.Controller.MenuProgramController;
+import main.java.Controller.Regex;
+import main.java.Controller.ShopProgramController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,9 +58,9 @@ public class ShopMenu implements Runnable {
                 Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).setPlayerCards(matcher.group(1));
                 Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
             } else if (Cards.getCardByName(matcher.group(1)) == null) {
-                System.out.println(Response.cardNameNotExist);
+                System.out.println(View.Response.cardNameNotExist);
             } else {
-                System.out.println(Response.notEnoughMoney);
+                System.out.println(View.Response.notEnoughMoney);
             }
         }
 
@@ -76,7 +76,7 @@ public class ShopMenu implements Runnable {
             if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
             } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
-                System.out.println(Response.menuNotPossible);
+                System.out.println(View.Response.menuNotPossible);
             }
         }
     }

@@ -1,7 +1,7 @@
-package Controller;
+package main.java.Controller;
 
-import Model.Cards;
-import View.DeckMenu;
+import main.java.Model.Cards;
+import main.java.Model.Deck;
 
 public class DeckProgramController {
 
@@ -15,7 +15,7 @@ public class DeckProgramController {
     }
 
     public boolean checkDeckNameExist(String deckName) {
-        return DeckMenu.getDeckByName(deckName) != null;
+        return Deck.getDeckByName(deckName) != null;
     }
 
     public boolean checkCardNameExist(String cardName) {
@@ -24,7 +24,7 @@ public class DeckProgramController {
 
     public boolean isDeckFull(String deckName, String cardName) {
         int counter = 0;
-        for (DeckMenu checkDeck : DeckMenu.decks) {
+        for (Deck checkDeck : Deck.decks) {
             if (checkDeck.getDeckName().equals(deckName)) {
                 for (int i = 0; i < checkDeck.getCardsInDecks().size(); ++i) {
                     if (checkDeck.getCardsInDecks().get(i).equals(cardName)) {

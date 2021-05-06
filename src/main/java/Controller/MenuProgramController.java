@@ -1,7 +1,7 @@
-package Controller;
+package main.java.Controller;
 
-import Model.Menus;
-import View.*;
+import main.java.Model.Menus;
+import main.java.View.*;
 
 public class MenuProgramController {
     public static Menus currentMenu = Menus.LOGIN_MENU;

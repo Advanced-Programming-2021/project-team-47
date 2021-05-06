@@ -1,100 +1,44 @@
 package View;
 
-import java.util.ArrayList;
+import main.java.Controller.Regex;
+
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DeckMenu {
+public class DeckMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    public static ArrayList<DeckMenu> decks = new ArrayList<>();
-    private ArrayList<String> cardsInDecks = new ArrayList<>();
-    private String deckName;
-    private String owner;
-    private String type;
-    private int allCardsNumber;
-    private boolean isActive;
-    private boolean invalidDeck;
+    private static DeckMenu deckMenu;
 
-    public DeckMenu(String deckName, String owner, String type) {
-        setDeckName(deckName);
-        setOwner(owner);
-        setType(type);
-        setActive(false);
-    }
-
-    public static DeckMenu getDeckByName(String deckName) {
-        for (DeckMenu deck : decks) {
-            if (deck.getDeckName().equals(deckName)) {
-                return deck;
-            }
+    public static DeckMenu getInstance() {
+        if (deckMenu == null) {
+            deckMenu = new DeckMenu();
         }
-        return null;
+        return deckMenu;
     }
 
-    public static DeckMenu getDeckByOwner(String owner) {
-        for (DeckMenu deck : decks) {
-            if (deck.getOwner().equals(owner)) {
-                return deck;
+    public void run(String command) {
+        commandMap.put(Regex.CREATE_DECK.label, DeckMenu.commandChecker::createDeck);
+        commandMap.put(Regex.DELETE_DECK.label, DeckMenu.commandChecker::deleteDeck);
+        commandMap.put(Regex.SET_ACTIVE_DECK.label, DeckMenu.commandChecker::setActiveDeck);
+        commandMap.put(Regex.DECK_REMOVE_CARD.label, DeckMenu.commandChecker::deckRemoveCard);
+        commandMap.put(Regex.DECK_ADD_CARD.label, DeckMenu.commandChecker::deckAddCard);
+        commandMap.put(Regex.DECK_SHOW_ALL.label, DeckMenu.commandChecker::deckShowAll);
+        commandMap.put(Regex.SHOW_DECK.label, DeckMenu.commandChecker::showDeck);
+        commandMap.put(Regex.DECK_SHOW_CARD.label, DeckMenu.commandChecker::showDeckCard);
+    }
+
+    public void takeCommand(String command) {
+        for (Pattern commandReg : commandMap.keySet())
+            if (command.matches(commandReg.pattern())) {
+                commandMap.get(commandReg).accept(commandReg.matcher(command));
+                return;
             }
-        }
-        return null;
+        System.out.println("invalid command");
     }
 
-    public ArrayList<String> getCardsInDecks() {
-        return cardsInDecks;
-    }
+    static class commandChecker {
 
-    public void setCardsInDecks(ArrayList<String> cardsInDecks) {
-        this.cardsInDecks = cardsInDecks;
-    }
-
-    public int getAllCardsNumber() {
-        return allCardsNumber;
-    }
-
-    public void setAllCardsNumber(int allCardsNumber) {
-        this.allCardsNumber = allCardsNumber;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDeckName() {
-        return deckName;
-    }
-
-    public void setDeckName(String deckName) {
-        this.deckName = deckName;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean isActive) {
-        this.isActive = isActive;
-    }
-
-    public boolean isInvalidDeck() {
-        return invalidDeck;
-    }
-
-    public void setInvalidDeck(boolean invalidDeck) {
-        this.invalidDeck = invalidDeck;
     }
 }

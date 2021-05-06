@@ -97,39 +97,29 @@ public class DuelMenu implements Runnable {
         ProgramController.setGameControllerID(gameController.getId());
         gameController.play();
     }
-    public void startOnePlayerDuel(String PlayerUsername, int rounds) {
-        Players thisPlayer = Players.getPlayerByUsername(PlayerUsername);
+
+    public void startOnePlayerDuel(String playerUsername, int rounds) {
+        Players thisPlayer = Players.getPlayerByUsername(playerUsername);
+        if (thisPlayer == null) {
+            System.out.println(Response.usernameNotExist);
+            return;
+        }
+        if (thisPlayer.getMainDecks() == null) {
+            System.out.println(playerUsername + " " + Response.activeDeckNotAvailable);
+            return;
+        }
         if (rounds != 3 && rounds != 1) {
             System.out.println(Response.invalidRoundNumber);
             return;
         }
-        Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);
-        if (secondPlayer == null) {
-            System.out.println(Response.usernameNotExist);
+        Deck playerMainDeck = thisPlayer.getMainDecks();
+        if (!playerMainDeck.isDeckValid(playerMainDeck, 1)) {
+            System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        if (secondPlayer.getMainDecks() == null) {
-            System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        Deck firstPlayerMainDeck = thisPlayer.getMainDecks();
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck, 1)) {
-            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        Deck secondPlayerMainDeck = secondPlayer.getMainDecks();
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck, 1)) {
-            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        Deck firstPlayerSideDeck = thisPlayer.getSideDecks();
-        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck, -1)) {
-            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        Deck secondPlayerSideDeck = secondPlayer.getSideDecks();
-        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck, -1)) {
-            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
+        Deck playerSideDeck = thisPlayer.getSideDecks();
+        if (!playerSideDeck.isDeckValid(playerSideDeck, -1)) {
+            System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }
         Random random = new Random();

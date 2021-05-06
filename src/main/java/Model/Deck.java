@@ -28,6 +28,7 @@ public class Deck {
         if (getNumberOfCards(deck)<40 || getNumberOfCards(deck)>60) return false;
         return true;
     }
+
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {

@@ -2,13 +2,13 @@ package main.java.Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import main.java.Model.Deck;
 public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private ArrayList<String> playerCards = new ArrayList<>();
-    private ArrayList<String> mainDecks = new ArrayList<>();
-    private ArrayList<String> sideDecks = new ArrayList<>();
+    private Deck mainDeck ;
+    private Deck sideDeck ;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
@@ -38,6 +38,14 @@ public class Players {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
 
+    public void setMainDeck(Deck mainDeck) {
+        this.mainDeck = mainDeck;
+    }
+
+    public void setSideDeck(Deck sideDeck) {
+        this.sideDeck = sideDeck;
+    }
+
     public static Players getPlayerByUsername(String username) {
         for (Players players : allPlayers) {
             if (players.username.equals(username)) {
@@ -55,7 +63,12 @@ public class Players {
         }
         return null;
     }
-
+    public Deck getSideDeck(){
+       return this.sideDeck;
+    }
+    public Deck getMainDeckBy(){
+        return this.mainDeck;
+    }
     public String getMonsterCardZone(int x) {
         return monsterCardZone[x];
     }

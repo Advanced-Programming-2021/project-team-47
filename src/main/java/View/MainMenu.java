@@ -3,7 +3,6 @@ package View;
 import Controller.GameProgramController;
 import Controller.MenuProgramController;
 import Controller.Regex;
-import Model.Menus;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.HashMap;
@@ -14,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class MainMenu implements Runnable {
     public HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    private static HashMap<Menus, String> menuEnter = new HashMap<>();
+    private static HashMap<main.java.Model.Menus, String> menuEnter = new HashMap<>();
     private static MainMenu mainMenuSingleton;
 
     static {

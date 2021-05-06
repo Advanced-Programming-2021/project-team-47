@@ -9,8 +9,8 @@ public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private ArrayList<String> playerCards = new ArrayList<>();
-    private Deck mainDecks;
-    private Deck sideDecks;
+    private MainDeck mainDecks;
+    private SideDeck sideDecks;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
@@ -40,11 +40,11 @@ public class Players {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
 
-    public void setMainDecks(Deck mainDecks) {
+    public void setMainDecks(MainDeck mainDecks) {
         this.mainDecks = mainDecks;
     }
 
-    public void setSideDecks(Deck sideDecks) {
+    public void setSideDecks(SideDeck sideDecks) {
         this.sideDecks = sideDecks;
     }
 
@@ -66,11 +66,11 @@ public class Players {
         return null;
     }
 
-    public Deck getSideDecks() {
+    public SideDeck getSideDecks() {
         return this.sideDecks;
     }
 
-    public Deck getMainDecks() {
+    public MainDeck getMainDecks() {
         return this.mainDecks;
     }
 

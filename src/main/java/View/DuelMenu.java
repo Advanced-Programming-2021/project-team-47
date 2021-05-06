@@ -69,7 +69,7 @@ public class DuelMenu implements Runnable {
             System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
             return;
         }
-        Deck firstPlayerMainDeck = thisPlayer.getMainDecks();
+        MainDeck firstPlayerMainDeck = thisPlayer.getMainDecks();
         if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck, 1)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;

@@ -13,6 +13,7 @@ import main.java.Controller.LoginProgramController;
 import main.java.Controller.MenuProgramController;
 import main.java.Controller.Regex;
 
+
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static String loginUsername;
@@ -32,7 +33,6 @@ public class LoginMenu implements Runnable {
             }
         System.out.println("invalid command");
     }
-
     public void run(String command) {
         commandMap.put(Regex.SHOW_CURRENT_MENU.label, LoginMenu.commandChecker::showCurrentMenu);
         commandMap.put(Regex.MENU_ENTER.label, LoginMenu.commandChecker::menuEnterHandler);

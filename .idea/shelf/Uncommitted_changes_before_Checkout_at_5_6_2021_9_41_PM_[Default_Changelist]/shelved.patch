@@ -1,0 +1,26 @@
+Index: src/main/java/View/LoginMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package View;\r\n\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.function.Consumer;\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\nimport Controller.*;\r\nimport Model.Menus;\r\nimport Model.Players;\r\n\r\npublic class LoginMenu implements Runnable {\r\n    public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();\r\n    public static String loginUsername;\r\n    private static LoginMenu loginMenuSingleton;\r\n\r\n    public static LoginMenu getInstance() {\r\n        if (loginMenuSingleton == null)\r\n            loginMenuSingleton = new LoginMenu();\r\n        return loginMenuSingleton;\r\n    }\r\n\r\n    public void takeCommand(String command) {\r\n        for (Pattern commandReg : commandMap.keySet())\r\n            if (command.matches(commandReg.pattern())) {\r\n                commandMap.get(commandReg).accept(commandReg.matcher(command));\r\n                return;\r\n            }\r\n        System.out.println(\"invalid command\");\r\n    }\r\n\r\n    public void run(String command) {\r\n        commandMap.put(Regex.SHOW_CURRENT_MENU.label, LoginMenu.commandChecker::showCurrentMenu);\r\n        commandMap.put(Regex.MENU_ENTER.label, LoginMenu.commandChecker::menuEnterHandler);\r\n        commandMap.put(Regex.LOGIN.label, LoginMenu.commandChecker::loginResponse);\r\n        commandMap.put(Regex.CREATE_USER.label, LoginMenu.commandChecker::signUpResponse);\r\n        while (!command.equalsIgnoreCase(\"menu exit\")) {\r\n            command = GameProgramController.scanner.nextLine().trim();\r\n            takeCommand(command);\r\n        }\r\n        System.exit(0);\r\n    }\r\n\r\n    public String getLoginUsername() {\r\n        return loginUsername;\r\n    }\r\n\r\n    public void setLoginUsername(String loginUsername) {\r\n        LoginMenu.loginUsername = loginUsername;\r\n    }\r\n\r\n    static class commandChecker {\r\n        static void showCurrentMenu(Matcher matcher) {\r\n            Menus current = MenuProgramController.currentMenu;\r\n            System.out.println(current.label);\r\n        }\r\n        static void menuEnterHandler(Matcher matcher) {\r\n            if (matcher.group(1).equals(Menus.MAIN_MENU.label))\r\n                MenuProgramController.currentMenu = Menus.MAIN_MENU;\r\n            else if (matcher.group(1).equals(Menus.LOGIN_MENU.label))\r\n                System.out.println(Response.menuNotPossible);\r\n        }\r\n\r\n        static void loginResponse(Matcher matcher) {\r\n            String password = LoginProgramController.getInstance().loginUser(matcher).get(0);\r\n            String username = LoginProgramController.getInstance().loginUser(matcher).get(1);\r\n            if (!LoginProgramController.getInstance().checkUsernameExist(username)) {\r\n                System.out.println(Response.wrongUsernameOrPassword);\r\n            } else if (LoginProgramController.getInstance().checkInvalidPassword(username, password)) {\r\n                System.out.println(Response.wrongUsernameOrPassword);\r\n            } else {\r\n                System.out.println(Response.userLoginSuccessfully);\r\n                LoginMenu.getInstance().setLoginUsername(username);\r\n                MenuProgramController.currentMenu = Menus.MAIN_MENU;\r\n            }\r\n        }\r\n\r\n        static void signUpResponse(Matcher matcher) {\r\n            String password = LoginProgramController.getInstance().signUpUser(matcher).get(0);\r\n            String username = LoginProgramController.getInstance().signUpUser(matcher).get(1);\r\n            String nickName = LoginProgramController.getInstance().signUpUser(matcher).get(2);\r\n            if (LoginProgramController.getInstance().checkUsernameExist(username)) {\r\n                System.out.println(\"user with username \" + username + \" already exists\");\r\n            } else if (LoginProgramController.getInstance().checkNicknameExist(nickName)) {\r\n                System.out.println(\"user with nickname \" + nickName + \" already exists\");\r\n            } else {\r\n                System.out.println(Response.userCreateSuccessfully);\r\n                new Players(username, nickName, password);\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/View/LoginMenu.java b/src/main/java/View/LoginMenu.java
+--- a/src/main/java/View/LoginMenu.java	(revision 8c4347ccea4f83cb689548406f4fcf1b3f157c17)
++++ b/src/main/java/View/LoginMenu.java	(date 1620321117601)
+@@ -11,6 +11,7 @@
+ import Model.Menus;
+ import Model.Players;
+ 
++
+ public class LoginMenu implements Runnable {
+     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
+     public static String loginUsername;
+@@ -30,7 +31,6 @@
+             }
+         System.out.println("invalid command");
+     }
+-
+     public void run(String command) {
+         commandMap.put(Regex.SHOW_CURRENT_MENU.label, LoginMenu.commandChecker::showCurrentMenu);
+         commandMap.put(Regex.MENU_ENTER.label, LoginMenu.commandChecker::menuEnterHandler);

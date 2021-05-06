@@ -7,6 +7,7 @@ import Model.Players;
 import main.java.Model.Players;
 import main.java.View.Response;
 import main.java.Model.Deck;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -44,8 +45,9 @@ public class DuelMenu implements Runnable {
             }
         System.out.println("invalid command");
     }
-    public void startTwoPlayerDuel(String firstPlayerUsername,String secondPlayerUsername, int rounds) {
-        Players thisPlayer=Players.getPlayerByUsername(firstPlayerUsername);
+
+    public void startTwoPlayerDuel(String firstPlayerUsername, String secondPlayerUsername, int rounds) {
+        Players thisPlayer = Players.getPlayerByUsername(firstPlayerUsername);
         if (rounds != 3 && rounds != 1) {
             System.out.println(Response.invalidRoundNumber);
             return;
@@ -56,19 +58,21 @@ public class DuelMenu implements Runnable {
             return;
         }
         if (secondPlayer.getMainDecks() == null) {
-            System.out.println(secondPlayerUsername+" "+Response.activeDeckNotAvailable);
+            System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
             return;
         }
-        Deck firstDeck = Deck.getDeckByID(thisPlayer.getMainDeckID());
-        if (!firstDeck.isDeckValid(firstDeck)) {
-            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
+        Deck firstPlayerMainDeck = thisPlayer.getMainDecks();
+        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
+            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        Deck secondDeck = Deck.getDeckByID(secondPlayer.getMainDeckID());
-        if (!secondDeck.isDeckValid(secondDeck)) {
-            System.out.println(secondPlayerUsername+"'s "+Response.invalidDeck);
+        Deck secondPlayerMainDeck = secondPlayer.getMainDecks();
+        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
+            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
+        Deck firstPlayerSideDeck = thisPlayer.getSideDecks();
+        Deck secondPlayerSideDeck = secondPlayer.getSideDecks();
         Random random = new Random();
         boolean isFirstPlayerTurn = random.nextBoolean();
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);

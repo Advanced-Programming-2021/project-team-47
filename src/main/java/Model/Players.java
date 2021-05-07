@@ -39,12 +39,11 @@ public class Players {
         if (!(players.activeDeck.get(0) instanceof MainDeck)) return false;
         if (!(players.activeDeck.get(1) instanceof SideDeck)) return false;
         ArrayList<Cards> allOfCards = new ArrayList<>();
-        for (Cards mainCards : players.activeDeck.get(0).mainDeckCards) {
-            allOfCards.add(mainCards);
-        }
-        for (Cards sideCards : players.activeDeck.get(1).sideDeckCards) {
-            allOfCards.add(sideCards);
-        }
+        MainDeck playerMainDeck = (MainDeck) players.activeDeck.get(0);
+        SideDeck playerSideDeck = (SideDeck) players.activeDeck.get(1);
+
+        allOfCards.addAll(playerMainDeck.getMainDeckCards());
+        allOfCards.addAll(playerSideDeck.getSideDeckCards());
         for (Cards card : allOfCards) {
             if (Collections.frequency(allOfCards, card) > 3) return false;
         }

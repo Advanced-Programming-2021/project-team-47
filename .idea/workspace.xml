@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="addToDeck method /// abstract Deck =&gt; MainDeck and SideDeck">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/DeckProgramController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,17 +171,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.kdsfjljs" />
@@ -206,6 +193,7 @@
       <workItem from="1619314598363" duration="15467000" />
       <workItem from="1620227638941" duration="6723000" />
       <workItem from="1620387660915" duration="2679000" />
+      <workItem from="1620401866403" duration="912000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>

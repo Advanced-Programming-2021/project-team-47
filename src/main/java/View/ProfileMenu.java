@@ -1,15 +1,16 @@
 package main.java.View;
 
-import Model.Menus;
+import main.java.Model.Menus;
 import Model.Players;
-import main.java.Controller.GameProgramController;
+import Controller.GameProgramController;
 import main.java.Controller.LoginProgramController;
 import main.java.Controller.MenuProgramController;
 import main.java.Controller.Regex;
-
+import main.java.View.Response;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
+import main.java.View.LoginMenu;
 import java.util.regex.Pattern;
 
 public class ProfileMenu implements Runnable {

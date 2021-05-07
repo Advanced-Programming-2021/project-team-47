@@ -136,7 +136,6 @@ public class DuelMenu implements Runnable {
         Random random = new Random();
         boolean isFirstPlayerTurn = random.nextBoolean();
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
-        PlayerController secondPlayerController = new NormalPlayerController(isFirstPlayerTurn ? secondPlayer : firstPlayer);
         GameProgramController gameController = GameProgramController.getInstance();
         ProgramController.setGameControllerID(gameController.getId());
         gameController.play();

@@ -28,9 +28,6 @@ public class GameProgramController {
         return Players.getPlayerByUsername(userName);
     }
 
-   // public Players getSecondPlayer(String userName) {
-   //     return Players.getPlayerByUsername(userName);
-   // }
 
     public ArrayList<String> scoreboardShow() {
         ArrayList<Players> scoreSorting = Players.allPlayers;

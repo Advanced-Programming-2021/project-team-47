@@ -1,12 +1,14 @@
 package main.java.Model;
 
+import Model.Cards;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Deck {
+public abstract class Deck {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<Deck> decks = new ArrayList<>();
     private ArrayList<String> cardsInDecks = new ArrayList<>();
@@ -60,6 +62,8 @@ public class Deck {
         }
         return null;
     }
+
+    public abstract void addToDeck(Cards card);
 
     public ArrayList<String> getCardsInDecks() {
         return cardsInDecks;

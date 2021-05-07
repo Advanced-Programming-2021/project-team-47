@@ -1,7 +1,5 @@
-package main.java.View;
+package View;
 
-
-import java.util.regex.Pattern;
 
 public interface Runnable {
     void run(String command);

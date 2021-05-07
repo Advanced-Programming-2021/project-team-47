@@ -1,7 +1,13 @@
 package View;
 
+import Controller.DeckProgramController;
+import Model.Cards;
+import Model.Deck;
 import main.java.Controller.Regex;
+import main.java.View.LoginMenu;
+import main.java.View.Response;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -39,6 +45,54 @@ public class DeckMenu implements Runnable {
     }
 
     static class commandChecker {
+        public static void createDeck(Matcher matcher) {
+            if (matcher.find()){
+                if (DeckProgramController.getInstance().checkDeckNameExist(matcher.group(1))){
+                    System.out.println("deck with name "+matcher.group(1)+" already exists");
+                }
+                else{
+                    new Deck(matcher.group(1), LoginMenu.loginUsername);
+                    System.out.println(Response.deckCreateSuccessfully);
+                }
+            }
+        }
 
+        public static void deleteDeck(Matcher matcher) {
+            if (matcher.find()){
+                if (DeckProgramController.getInstance().checkDeckNameExist(matcher.group(1))){
+                    System.out.println("deck with name "+matcher.group(1)+" already exists");
+                }
+                else{
+                    Deck.decks.remove(Deck.getDeckByName(matcher.group(1)));
+                    System.out.println(Response.deckDeleteSuccessfully);
+                }
+            }
+        }
+        public static void setActiveDeck(Matcher matcher){
+            if (matcher.find()){
+                if (!DeckProgramController.getInstance().checkDeckNameExist(matcher.group(1))){
+                    System.out.println("deck with name "+matcher.group(1)+" does not exist");
+                }
+                else {
+                    Deck.getDeckByName(matcher.group(1)).setActive(true);
+                    System.out.println("deck activated successfully");
+                }
+            }
+        }
+        public static void deckRemoveCard(Matcher matcher){
+            if (matcher.find()){
+                if ()
+            }
+        }
+        public static void showDeckCard(Matcher matcher) {
+            if (matcher.find()) {
+                Collections.sort(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks());
+                for (int i = 0; i < Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().size(); ++i) {
+                    System.out.println(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i) + Cards.getCardByName
+                            (Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i)).getDescription());
+                }
+            }
+        }
     }
+
 }

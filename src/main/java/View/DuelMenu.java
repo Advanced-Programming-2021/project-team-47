@@ -1,12 +1,9 @@
 package View;
 
 import Controller.GameProgramController;
+
 import Model.Players;
 
-import Controller.GameProgramController;
-import Model.Players;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;

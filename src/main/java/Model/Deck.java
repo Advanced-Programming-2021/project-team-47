@@ -1,4 +1,4 @@
-package main.java.Model;
+package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,18 +10,18 @@ public class Deck {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<Deck> decks = new ArrayList<>();
     private ArrayList<String> cardsInDecks = new ArrayList<>();
+    private ArrayList<String> cardsInSideDecks=new ArrayList<>();
     private String deckName;
     private String owner;
-    private String type;
     private int allCardsNumber;
     private boolean isActive;
     private boolean invalidDeck;
 
-    public Deck(String deckName, String owner, String type) {
+    public Deck(String deckName, String owner) {
         setDeckName(deckName);
         setOwner(owner);
-        setType(type);
         setActive(false);
+        decks.add(this);
     }
 
     public static Deck getDeckByName(String deckName) {
@@ -56,14 +56,6 @@ public class Deck {
 
     public void setAllCardsNumber(int allCardsNumber) {
         this.allCardsNumber = allCardsNumber;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getDeckName() {

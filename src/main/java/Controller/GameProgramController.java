@@ -16,15 +16,18 @@ public class GameProgramController {
         }
         return gameProgramController;
     }
-  //  public void startMultiplePlayerGame(String username1,String username2,int rounds){
-  //
-  //  }
-    public Players getFirstPlayer(String userName){
+
+    //  public void startMultiplePlayerGame(String username1,String username2,int rounds){
+    //
+    //  }
+    public Players getFirstPlayer(String userName) {
         return Players.getPlayerByUsername(userName);
     }
-    public Players getSecondPlayer(String userName){
+
+    public Players getSecondPlayer(String userName) {
         return Players.getPlayerByUsername(userName);
     }
+
     public ArrayList<String> scoreboardShow() {
         ArrayList<Players> scoreSorting = Players.allPlayers;
         scoreSorting.sort(Comparator.comparing(Players::getScore)

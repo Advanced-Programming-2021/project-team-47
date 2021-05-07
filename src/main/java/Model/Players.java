@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import main.java.Model.Deck;
@@ -22,6 +23,7 @@ public class Players {
     private int score;
     private int lifePoint;
     private int money;
+    private ArrayList<Deck> activeDeck = new ArrayList<>(); //first element:mainDeck ,, second element:sideDeck
 
     public Players(String username, String nickname, String password) {
         setUsername(username);
@@ -30,6 +32,23 @@ public class Players {
         setMoney(100000);
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
+    }
+
+    public static boolean isActiveDeckValid(Players players) {
+        if (players.activeDeck.size() != 2) return false;
+        if (!(players.activeDeck.get(0) instanceof MainDeck)) return false;
+        if (!(players.activeDeck.get(1) instanceof SideDeck)) return false;
+        ArrayList<Cards> allOfCards = new ArrayList<>();
+        for (Cards mainCards : players.activeDeck.get(0).mainDeckCards) {
+            allOfCards.add(mainCards);
+        }
+        for (Cards sideCards : players.activeDeck.get(1).sideDeckCards) {
+            allOfCards.add(sideCards);
+        }
+        for (Cards card : allOfCards) {
+            if (Collections.frequency(allOfCards, card) > 3) return false;
+        }
+        return true;
     }
 
     public static HashMap<String, String> getUsernameAndPasswordOfPLayer() {
@@ -110,22 +129,6 @@ public class Players {
         this.playerCards.add(playerCards);
     }
 
-
-    // public ArrayList<String> getMainDecks() {
-    //     return mainDecks;
-    // }
-
-    // public void setMainDecks(String mainDecks) {
-    //     this.mainDecks.add(mainDecks);
-    // }
-
-    // public ArrayList<String> getSideDecks() {
-    //     return sideDecks;
-    // }
-
-    // public void setSideDecks(String sideDecks) {
-    //     this.sideDecks.add(sideDecks);
-    // }
 
     public ArrayList<String> getFieldZone() {
         return fieldZone;

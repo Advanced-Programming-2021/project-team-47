@@ -81,16 +81,20 @@ public class DuelMenu implements Runnable {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        SideDeck firstPlayerSideDeck = thisPlayer.getSideDecks();
-        if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
-            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-            return;
+        if (rounds == 3) {
+            SideDeck firstPlayerSideDeck = thisPlayer.getSideDecks();
+            if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
+                System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
+                return;
+            }
+            SideDeck secondPlayerSideDeck = secondPlayer.getSideDecks();
+            if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
+                System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
+                return;
+            }
+
         }
-        SideDeck secondPlayerSideDeck = secondPlayer.getSideDecks();
-        if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
-            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
+
         Random random = new Random();
         boolean isFirstPlayerTurn = random.nextBoolean();
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
@@ -119,11 +123,16 @@ public class DuelMenu implements Runnable {
             System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        SideDeck playerSideDeck = thisPlayer.getSideDecks();
-        if (!playerSideDeck.isDeckValid(playerSideDeck)) {
-            System.out.println(playerUsername + "'s " + Response.invalidDeck);
-            return;
+        if (rounds == 3) {
+            SideDeck playerSideDeck = thisPlayer.getSideDecks();
+            if (!playerSideDeck.isDeckValid(playerSideDeck)) {
+                System.out.println(playerUsername + "'s " + Response.invalidDeck);
+                return;
+            }
+
+
         }
+
         Random random = new Random();
         boolean isFirstPlayerTurn = random.nextBoolean();
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);

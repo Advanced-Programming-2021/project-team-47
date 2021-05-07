@@ -1,7 +1,10 @@
-package main.java.View;
+package View;
 
-import main.java.Controller.Regex;
+import Model.Deck;
+import main.java.controller.Regex;
 
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -39,6 +42,16 @@ public class DeckMenu implements Runnable {
     }
 
     static class commandChecker {
+        public static void deckShowAll(Matcher matcher){
 
+        }
+        public static void showDeckCard(Matcher matcher) {
+            if (matcher.find()) {
+                Collections.sort(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks());
+                for (int i = 0; i < Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().size(); ++i) {
+                    System.out.println(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i) + main.java.model.Cards.getCardByName(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i)).getDescription());
+                }
+            }
+        }
     }
 }

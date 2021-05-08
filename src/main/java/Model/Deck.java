@@ -15,7 +15,7 @@ public class Deck {
     private String deckName;
     private String owner;
     private int allCardsNumber;
-    private boolean isActive;
+    private boolean isActive=false;
     private boolean invalidDeck;
 
     public Deck(String deckName, String owner) {
@@ -39,7 +39,9 @@ public class Deck {
         }
         return false;
     }
-
+    public void setActive(){
+        this.isActive=true;
+    }
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {

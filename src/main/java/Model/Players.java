@@ -38,6 +38,14 @@ public class Players {
         return activeDeck;
     }
 
+    public void setActiveDeck(ArrayList<Deck> activeDeck) {
+        this.activeDeck = activeDeck;
+        for (Deck deck:this.activeDeck
+             ) {
+            deck.setActive();
+        }
+    }
+
     public static boolean isActiveDeckValid(Players players) {
         if (players.activeDeck.size() != 2) return false;
         if (!(players.activeDeck.get(0) instanceof MainDeck)) return false;
@@ -61,7 +69,6 @@ public class Players {
     public static void setUsernameAndPasswordOfPLayer(HashMap<String, String> usernameAndPasswordOfPLayer) {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
-
     public void setMainDecks(MainDeck mainDecks) {
         this.mainDecks = mainDecks;
     }

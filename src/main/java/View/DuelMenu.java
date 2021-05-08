@@ -1,18 +1,7 @@
 package View;
 
-import Controller.GameProgramController;
 
-import Controller.GameProgramController;
-import Model.MainDeck;
-import Model.Players;
-import Model.Players;
-import Model.SideDeck;
-import main.java.View.Response;
-import main.java.Model.Deck;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,15 +17,15 @@ public class DuelMenu implements Runnable {
     private String cardZoneSelected;
     private int cardAddressNumberSelected;
 
-    public void run(String command) {
-
-    }
-
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
             duelMenu = new DuelMenu();
         }
         return duelMenu;
+    }
+
+    public void run(String command) {
+
     }
 
     public void takeCommand(String command) {
@@ -46,99 +35,6 @@ public class DuelMenu implements Runnable {
                 return;
             }
         System.out.println("invalid command");
-    }
-
-    public void startTwoPlayerDuel(String firstPlayerUsername, String secondPlayerUsername, int rounds) {
-        Players thisPlayer = Players.getPlayerByUsername(firstPlayerUsername);
-        if (thisPlayer == null) {
-            System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (thisPlayer.getMainDecks() == null) {
-            System.out.println(firstPlayerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        if (rounds != 3 && rounds != 1) {
-            System.out.println(Response.invalidRoundNumber);
-            return;
-        }
-        Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);
-        if (secondPlayer == null) {
-            System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (secondPlayer.getMainDecks() == null) {
-            System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        MainDeck firstPlayerMainDeck = thisPlayer.getMainDecks();
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
-            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        MainDeck secondPlayerMainDeck = secondPlayer.getMainDecks();
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
-            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        if (rounds == 3) {
-            SideDeck firstPlayerSideDeck = thisPlayer.getSideDecks();
-            if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
-                System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-                return;
-            }
-            SideDeck secondPlayerSideDeck = secondPlayer.getSideDecks();
-            if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
-                System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-                return;
-            }
-
-        }
-
-        Random random = new Random();
-        boolean isFirstPlayerTurn = random.nextBoolean();
-        PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
-        PlayerController secondPlayerController = new NormalPlayerController(isFirstPlayerTurn ? secondPlayer : firstPlayer);
-        GameProgramController gameController = GameProgramController.getInstance();
-        ProgramController.setGameControllerID(gameController.getId());
-        gameController.play();
-    }
-
-    public void startOnePlayerDuel(String playerUsername, int rounds) {
-        Players thisPlayer = Players.getPlayerByUsername(playerUsername);
-        if (thisPlayer == null) {
-            System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (thisPlayer.getMainDecks() == null) {
-            System.out.println(playerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        if (rounds != 3 && rounds != 1) {
-            System.out.println(Response.invalidRoundNumber);
-            return;
-        }
-        MainDeck playerMainDeck = thisPlayer.getMainDecks();
-        if (!playerMainDeck.isDeckValid(playerMainDeck)) {
-            System.out.println(playerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        if (rounds == 3) {
-            SideDeck playerSideDeck = thisPlayer.getSideDecks();
-            if (!playerSideDeck.isDeckValid(playerSideDeck)) {
-                System.out.println(playerUsername + "'s " + Response.invalidDeck);
-                return;
-            }
-
-
-        }
-
-        Random random = new Random();
-        boolean isFirstPlayerTurn = random.nextBoolean();
-        PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
-        GameProgramController gameController = GameProgramController.getInstance();
-        ProgramController.setGameControllerID(gameController.getId());
-        gameController.play();
     }
 
     public String getFirstPlayer() {

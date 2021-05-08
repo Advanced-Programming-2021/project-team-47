@@ -1,4 +1,4 @@
-package main.java.Controller;
+package main.java.controller;
 
 import java.util.regex.Pattern;
 
@@ -50,7 +50,6 @@ public enum Regex {
     DUEL_WIN(Pattern.compile("^duel set-winner ([\\s\\S]+)$")),
     CARD_IMPORT(Pattern.compile("^import card ([\\s\\S]+)$")),
     CARD_EXPORT(Pattern.compile("^export card ([\\s\\S]+)$"));
-
 
     public final Pattern label;
 

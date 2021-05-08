@@ -1,7 +1,7 @@
-package Controller;
+package main.java.controller;
 
-import Model.Cards;
-import Model.Deck;
+import main.java.model.Cards;
+import main.java.model.Deck;
 
 public class DeckProgramController {
 

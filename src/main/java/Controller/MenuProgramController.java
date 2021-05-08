@@ -1,5 +1,7 @@
-package main.java.controller;
+package Controller;
 
+import Model.Menus;
+import View.*;
 import main.java.model.Menus;
 import main.java.view.*;
 

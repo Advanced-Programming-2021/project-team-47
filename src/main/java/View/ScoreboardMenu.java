@@ -1,10 +1,10 @@
 package View;
 
-import main.java.controller.GameProgramController;
-import main.java.controller.MenuProgramController;
-import main.java.controller.Regex;
-import main.java.model.Menus;
-import main.java.model.Players;
+import Controller.Regex;
+import Controller.GameProgramController;
+import Controller.MenuProgramController;
+import Model.Menus;
+import Model.Players;
 
 import java.util.ArrayList;
 import java.util.HashMap;

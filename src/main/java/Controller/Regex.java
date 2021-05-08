@@ -1,4 +1,4 @@
-package main.java.controller;
+package Controller;
 
 import java.util.regex.Pattern;
 

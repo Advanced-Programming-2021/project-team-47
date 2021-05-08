@@ -1,5 +1,6 @@
 package Model;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -10,18 +11,33 @@ public class Deck {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<Deck> decks = new ArrayList<>();
     private ArrayList<String> cardsInDecks = new ArrayList<>();
+    private ArrayList<String> cardsInSideDecks = new ArrayList<>();
     private String deckName;
     private String owner;
-    private String type;
     private int allCardsNumber;
     private boolean isActive;
     private boolean invalidDeck;
 
-    public Deck(String deckName, String owner, String type) {
+    public Deck(String deckName, String owner) {
         setDeckName(deckName);
         setOwner(owner);
-        setType(type);
         setActive(false);
+        decks.add(this);
+    }
+
+    public static boolean isDeckValid(Deck deck, int type) {
+        // type=1 --> mainDeck type=-1 --> sideDeck
+
+        if (deck == null) return false;
+        if (type == 1) {
+            if (getNumberOfCards(deck) < 40 || getNumberOfCards(deck) > 60) return false;
+            return true;
+        }
+        if (type == -1) {
+            if (getNumberOfCards(deck) > 15) return false;
+            return true;
+        }
+        return false;
     }
 
     public static Deck getDeckByName(String deckName) {
@@ -31,6 +47,10 @@ public class Deck {
             }
         }
         return null;
+    }
+
+    public static int getNumberOfCards(Deck deck) {
+        return deck.cardsInDecks.size();
     }
 
     public static Deck getDeckByOwner(String owner) {
@@ -46,8 +66,32 @@ public class Deck {
         return cardsInDecks;
     }
 
-    public void setCardsInDecks(ArrayList<String> cardsInDecks) {
-        this.cardsInDecks = cardsInDecks;
+    public int getNumberOfCardsInDecks() {
+        return cardsInDecks.size();
+    }
+
+    public ArrayList<String> getCardsInSideDecks() {
+        return cardsInSideDecks;
+    }
+
+    public int getNuberOfCardsInSideDecks() {
+        return cardsInSideDecks.size();
+    }
+
+    public void setCardsInDecks(String cardsInDecks) {
+        this.cardsInDecks.add(cardsInDecks);
+    }
+
+    public void removeCardsInDecks(String cardsInDecks) {
+        this.cardsInDecks.remove(cardsInDecks);
+    }
+
+    public void removeCardsInSideDecks(String cardsInSideDecks) {
+        this.cardsInSideDecks.remove(cardsInSideDecks);
+    }
+
+    public void setCardsInSideDecks(String cardsInSideDecks) {
+        this.cardsInSideDecks.add(cardsInSideDecks);
     }
 
     public int getAllCardsNumber() {
@@ -56,14 +100,6 @@ public class Deck {
 
     public void setAllCardsNumber(int allCardsNumber) {
         this.allCardsNumber = allCardsNumber;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getDeckName() {

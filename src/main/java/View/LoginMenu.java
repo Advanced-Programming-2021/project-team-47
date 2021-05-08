@@ -6,12 +6,12 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import main.java.controller.GameProgramController;
-import main.java.controller.LoginProgramController;
-import main.java.controller.MenuProgramController;
-import main.java.controller.Regex;
-import main.java.model.Menus;
-import main.java.model.Players;
+import Controller.Regex;
+import Controller.GameProgramController;
+import Controller.LoginProgramController;
+import Controller.MenuProgramController;
+import Model.Menus;
+import Model.Players;
 
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();

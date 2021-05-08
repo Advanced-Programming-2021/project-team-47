@@ -1,9 +1,9 @@
 package View;
 
+
 import Controller.DeckProgramController;
 import Controller.Regex;
 import Model.Cards;
-import Model.CardsOfPlayer;
 import Model.Deck;
 import Model.Players;
 

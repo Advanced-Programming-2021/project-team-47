@@ -1,4 +1,4 @@
-package main.java.controller;
+package Controller;
 
 import main.java.model.*;
 import main.java.view.DuelMenu;

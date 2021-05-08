@@ -1,9 +1,9 @@
 package View;
 
-import main.java.controller.GameProgramController;
-import main.java.controller.MenuProgramController;
-import main.java.controller.Regex;
-import main.java.model.Menus;
+import Controller.Regex;
+import Model.Menus;
+import Controller.GameProgramController;
+import Controller.MenuProgramController;
 
 import java.util.HashMap;
 import java.util.Map;

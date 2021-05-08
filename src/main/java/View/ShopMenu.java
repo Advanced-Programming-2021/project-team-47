@@ -1,13 +1,12 @@
 package View;
 
-import main.java.controller.GameProgramController;
-import main.java.controller.MenuProgramController;
-import main.java.controller.Regex;
-import main.java.controller.ShopProgramController;
-import main.java.model.Cards;
-import main.java.model.Menus;
-import main.java.model.Players;
-
+import Controller.MenuProgramController;
+import Controller.GameProgramController;
+import Controller.ShopProgramController;
+import Controller.Regex;
+import Model.Menus;
+import Model.Players;
+import Model.Cards;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;

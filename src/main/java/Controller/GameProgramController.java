@@ -1,10 +1,9 @@
-package main.java.Controller;
+package Controller;
 
-import main.java.Model.*;
-import main.java.View.DuelMenu;
+import Model.*;
+import View.DuelMenu;
 
 import java.util.*;
-
 
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
@@ -15,6 +14,30 @@ public class GameProgramController {
             gameProgramController = new GameProgramController();
         }
         return gameProgramController;
+    }
+
+    //  public void startMultiplePlayerGame(String username1,String username2,int rounds){
+    //
+    //  }
+    public Players getPlayer(String userName) {
+        return Players.getPlayerByUsername(userName);
+    }
+
+    public boolean isAnyCardSelected() {
+        return DuelMenu.getInstance().getCardAddressNumberSelected() == 0 || DuelMenu.getInstance().getCardZoneSelected() == null;
+    }
+
+    public void changePhase(String phase) {
+        DuelMenu.getInstance().setPhaseName(phase);
+    }
+
+    public boolean isMonsterCardZoneFull(String username) {
+        int full = 0;
+        for (String card : Players.getPlayerByUsername(username).getMonsterCardZone()) {
+            if (!card.equals(null))
+                ++full;
+        }
+        return full == 5;
     }
 
     public ArrayList<String> scoreboardShow() {
@@ -71,6 +94,14 @@ public class GameProgramController {
                 return true;
         }
         return false;
+    }
+
+    public boolean userExist(String username) {
+        return Players.getPlayerByUsername(username) != null;
+    }
+
+    public boolean userDeckIsActive(String username) {
+        return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
     public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {

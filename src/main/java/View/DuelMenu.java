@@ -50,13 +50,17 @@ public class DuelMenu implements Runnable {
 
     public void startTwoPlayerDuel(String firstPlayerUsername, String secondPlayerUsername, int rounds) {
         Players thisPlayer = Players.getPlayerByUsername(firstPlayerUsername);
+
         if (thisPlayer == null) {
             System.out.println(Response.usernameNotExist);
             return;
         }
-        if (thisPlayer.getMainDecks() == null) {
+        if (thisPlayer.getActiveDeck() == null) {
             System.out.println(firstPlayerUsername + " " + Response.activeDeckNotAvailable);
             return;
+        }
+        if (!thisPlayer.isActiveDeckValid(thisPlayer)){
+            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
         }
         if (rounds != 3 && rounds != 1) {
             System.out.println(Response.invalidRoundNumber);
@@ -67,27 +71,30 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.usernameNotExist);
             return;
         }
-        if (secondPlayer.getMainDecks() == null) {
+        if (secondPlayer.getActiveDeck() == null) {
             System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
             return;
         }
-        MainDeck firstPlayerMainDeck = thisPlayer.getMainDecks();
+        if (!secondPlayer.isActiveDeckValid(secondPlayer)){
+            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
+        }
+        MainDeck firstPlayerMainDeck = (MainDeck) thisPlayer.getActiveDeck().get(0);
         if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
             System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
-        MainDeck secondPlayerMainDeck = secondPlayer.getMainDecks();
+        MainDeck secondPlayerMainDeck = (MainDeck) secondPlayer.getActiveDeck().get(0);
         if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
             System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
             return;
         }
         if (rounds == 3) {
-            SideDeck firstPlayerSideDeck = thisPlayer.getSideDecks();
+            SideDeck firstPlayerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
             if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
                 System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
                 return;
             }
-            SideDeck secondPlayerSideDeck = secondPlayer.getSideDecks();
+            SideDeck secondPlayerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
             if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
                 System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
                 return;
@@ -101,7 +108,7 @@ public class DuelMenu implements Runnable {
         PlayerController secondPlayerController = new NormalPlayerController(isFirstPlayerTurn ? secondPlayer : firstPlayer);
         GameProgramController gameController = GameProgramController.getInstance();
         ProgramController.setGameControllerID(gameController.getId());
-        gameController.play();
+        gameController.playTwoPlayer(thisPlayer.getActiveDeck(), secondPlayer.getActiveDeck());
     }
 
     public void startOnePlayerDuel(String playerUsername, int rounds) {
@@ -110,7 +117,7 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.usernameNotExist);
             return;
         }
-        if (thisPlayer.getMainDecks() == null) {
+        if (thisPlayer.getActiveDeck() == null) {
             System.out.println(playerUsername + " " + Response.activeDeckNotAvailable);
             return;
         }
@@ -118,13 +125,16 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.invalidRoundNumber);
             return;
         }
-        MainDeck playerMainDeck = thisPlayer.getMainDecks();
+        if (!thisPlayer.isActiveDeckValid(thisPlayer)){
+            System.out.println(playerUsername+"'s "+Response.invalidDeck);
+        }
+        MainDeck playerMainDeck = (MainDeck) thisPlayer.getActiveDeck().get(0);
         if (!playerMainDeck.isDeckValid(playerMainDeck)) {
             System.out.println(playerUsername + "'s " + Response.invalidDeck);
             return;
         }
         if (rounds == 3) {
-            SideDeck playerSideDeck = thisPlayer.getSideDecks();
+            SideDeck playerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
             if (!playerSideDeck.isDeckValid(playerSideDeck)) {
                 System.out.println(playerUsername + "'s " + Response.invalidDeck);
                 return;
@@ -138,7 +148,7 @@ public class DuelMenu implements Runnable {
         PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
         GameProgramController gameController = GameProgramController.getInstance();
         ProgramController.setGameControllerID(gameController.getId());
-        gameController.play();
+        gameController.playOnePlayer(thisPlayer.getActiveDeck());
     }
 
     public String getFirstPlayer() {

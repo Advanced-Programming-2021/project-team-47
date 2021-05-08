@@ -34,6 +34,10 @@ public class Players {
         allPlayers.add(this);
     }
 
+    public ArrayList<Deck> getActiveDeck() {
+        return activeDeck;
+    }
+
     public static boolean isActiveDeckValid(Players players) {
         if (players.activeDeck.size() != 2) return false;
         if (!(players.activeDeck.get(0) instanceof MainDeck)) return false;

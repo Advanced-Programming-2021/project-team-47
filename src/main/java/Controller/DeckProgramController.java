@@ -1,7 +1,10 @@
-package main.java.Controller;
+package Controller;
 
-import main.java.Model.Cards;
-import main.java.Model.Deck;
+import Model.Cards;
+import Model.Deck;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 
 public class DeckProgramController {
 
@@ -37,5 +40,26 @@ public class DeckProgramController {
             }
         }
         return false;
+    }
+    public ArrayList<String> deckAddCard(Matcher matcher) {
+        ArrayList<String> data = new ArrayList<>();
+        String card = null;
+        String deck = null;
+        String side = null;
+        for (int i = 1; i < 4; ++i) {
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--card")) {
+                    card = matcher.group(i).replaceAll("--card", "").trim();
+                } else if (matcher.group(i).contains("--deck")) {
+                    deck = matcher.group(i).replaceAll("--deck", "").trim();
+                } else if (matcher.group(i).contains("--side")) {
+                    side = matcher.group(i).replaceAll("--side", "").trim();
+                }
+            }
+        }
+        data.add(card);
+        data.add(deck);
+        data.add(side);
+        return data;
     }
 }

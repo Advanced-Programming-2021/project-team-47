@@ -7,6 +7,7 @@ import Model.CardsOfPlayer;
 import Model.Deck;
 import Model.Players;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -52,6 +53,79 @@ public class DeckMenu implements Runnable {
                 } else {
                     new Deck(matcher.group(1), LoginMenu.loginUsername);
                     System.out.println(Response.deckCreateSuccessfully);
+                }
+            }
+        }
+
+        public static void deckShowAll(Matcher matcher) {
+            if (matcher.find()) {
+                System.out.println("Decks:");
+                System.out.println("Active deck:");
+                ArrayList<String> activeDeck = new ArrayList<>();
+                ArrayList<String> otherDecks = new ArrayList<>();
+                for (Deck deck : Deck.decks) {
+                    if (deck.getOwner().equals(LoginMenu.loginUsername)) {
+                        if (deck.isActive()) {
+                            activeDeck.add(deck.getDeckName());
+                        } else {
+                            otherDecks.add(deck.getDeckName());
+                        }
+                    }
+                }
+                Collections.sort(activeDeck);
+                Collections.sort(otherDecks);
+                String validOrNot;
+                for (String active : activeDeck) {
+                    if (Deck.getDeckByName(active).isInvalidDeck())
+                        validOrNot = "invalid";
+                    else
+                        validOrNot = "valid";
+                    System.out.println(active + ":" + " main deck " + Deck.getDeckByName(active).getNumberOfCardsInDecks() + "," + " side deck " + Deck.getDeckByName(active).getNuberOfCardsInSideDecks() + ", " + validOrNot);
+                }
+                System.out.println("Other decks:");
+                for (String other : otherDecks) {
+                    if (Deck.getDeckByName(other).isInvalidDeck())
+                        validOrNot = "invalid";
+                    else
+                        validOrNot = "valid";
+                    System.out.println(other + ":" + " main deck " + Deck.getDeckByName(other).getNumberOfCardsInDecks() + "," + " side deck " + Deck.getDeckByName(other).getNuberOfCardsInSideDecks() + ", " + validOrNot);
+                }
+            }
+        }
+
+        public static void showDeck(Matcher matcher) {
+            if (matcher.find()) {
+                String deck = DeckProgramController.getInstance().deckShow(matcher).get(0);
+                String side = DeckProgramController.getInstance().deckShow(matcher).get(1);
+                if (Deck.getDeckByName(deck) == null) {
+                    System.out.println("deck with name " + deck + " does not exist");
+                } else {
+                    System.out.println("Deck: " + deck);
+                    if (side == null) {
+                        System.out.println("Main deck:");
+                        System.out.println("Monsters:");
+                        for (String cards : Deck.getDeckByName(deck).getCardsInDecks()) {
+                            if (Cards.getCardByName(cards).getStyle().equals("MONSTER"))
+                                System.out.println(cards + ":" + Cards.getCardByName(cards).getDescription());
+                        }
+                        System.out.println("Spell and Traps:");
+                        for (String cards : Deck.getDeckByName(deck).getCardsInDecks()) {
+                            if (Cards.getCardByName(cards).getStyle().equals("SPELL") || Cards.getCardByName(cards).getStyle().equals("TRAP"))
+                                System.out.println(cards + ":" + Cards.getCardByName(cards).getDescription());
+                        }
+                    } else {
+                        System.out.println("Side deck:");
+                        System.out.println("Monsters:");
+                        for (String cards : Deck.getDeckByName(deck).getCardsInSideDecks()) {
+                            if (Cards.getCardByName(cards).getStyle().equals("MONSTER"))
+                                System.out.println(cards + ":" + Cards.getCardByName(cards).getDescription());
+                        }
+                        System.out.println("Spell and Traps:");
+                        for (String cards : Deck.getDeckByName(deck).getCardsInSideDecks()) {
+                            if (Cards.getCardByName(cards).getStyle().equals("SPELL") || Cards.getCardByName(cards).getStyle().equals("TRAP"))
+                                System.out.println(cards + ":" + Cards.getCardByName(cards).getDescription());
+                        }
+                    }
                 }
             }
         }

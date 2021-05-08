@@ -1,14 +1,16 @@
-package main.java.Model;
+package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+
 
 public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
     private ArrayList<String> playerCards = new ArrayList<>();
-    private ArrayList<String> mainDecks = new ArrayList<>();
-    private ArrayList<String> sideDecks = new ArrayList<>();
+    private MainDeck mainDecks;
+    private SideDeck sideDecks;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
     private String[] cardsInHand = new String[6];
@@ -20,6 +22,7 @@ public class Players {
     private int score;
     private int lifePoint;
     private int money;
+    private ArrayList<Deck> activeDeck = new ArrayList<>(); //first element:mainDeck ,, second element:sideDeck
 
     public Players(String username, String nickname, String password) {
         setUsername(username);
@@ -30,12 +33,44 @@ public class Players {
         allPlayers.add(this);
     }
 
+    public ArrayList<Deck> getActiveDeck() {
+        return activeDeck;
+    }
+
+    public void setActiveDeck(ArrayList<Deck> activeDeck) {
+        this.activeDeck = activeDeck;
+    }
+
+    public static boolean isActiveDeckValid(Players players) {
+        if (players.activeDeck.size() != 2) return false;
+        if (!(players.activeDeck.get(0) instanceof MainDeck)) return false;
+        if (!(players.activeDeck.get(1) instanceof SideDeck)) return false;
+        ArrayList<Cards> allOfCards = new ArrayList<>();
+        MainDeck playerMainDeck = (MainDeck) players.activeDeck.get(0);
+        SideDeck playerSideDeck = (SideDeck) players.activeDeck.get(1);
+
+        allOfCards.addAll(playerMainDeck.getMainDeckCards());
+        allOfCards.addAll(playerSideDeck.getSideDeckCards());
+        for (Cards card : allOfCards) {
+            if (Collections.frequency(allOfCards, card) > 3) return false;
+        }
+        return true;
+    }
+
     public static HashMap<String, String> getUsernameAndPasswordOfPLayer() {
         return usernameAndPasswordOfPLayer;
     }
 
     public static void setUsernameAndPasswordOfPLayer(HashMap<String, String> usernameAndPasswordOfPLayer) {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
+    }
+
+    public void setMainDecks(MainDeck mainDecks) {
+        this.mainDecks = mainDecks;
+    }
+
+    public void setSideDecks(SideDeck sideDecks) {
+        this.sideDecks = sideDecks;
     }
 
     public static Players getPlayerByUsername(String username) {
@@ -56,8 +91,20 @@ public class Players {
         return null;
     }
 
+    public SideDeck getSideDecks() {
+        return this.sideDecks;
+    }
+
+    public MainDeck getMainDecks() {
+        return this.mainDecks;
+    }
+
     public String getMonsterCardZone(int x) {
         return monsterCardZone[x];
+    }
+
+    public String[] getMonsterCardZoneArray() {
+        return monsterCardZone;
     }
 
     public String[] getSpellCardZone() {
@@ -92,22 +139,6 @@ public class Players {
         this.playerCards.add(playerCards);
     }
 
-
-    public ArrayList<String> getMainDecks() {
-        return mainDecks;
-    }
-
-    public void setMainDecks(String mainDecks) {
-        this.mainDecks.add(mainDecks);
-    }
-
-    public ArrayList<String> getSideDecks() {
-        return sideDecks;
-    }
-
-    public void setSideDecks(String sideDecks) {
-        this.sideDecks.add(sideDecks);
-    }
 
     public ArrayList<String> getFieldZone() {
         return fieldZone;

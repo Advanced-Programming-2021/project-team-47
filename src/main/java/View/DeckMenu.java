@@ -1,12 +1,11 @@
 package View;
 
 import Controller.DeckProgramController;
+import Controller.Regex;
 import Model.Cards;
+import Model.CardsOfPlayer;
 import Model.Deck;
 import Model.Players;
-import main.java.Controller.Regex;
-import main.java.View.LoginMenu;
-import main.java.View.Response;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -81,7 +80,22 @@ public class DeckMenu implements Runnable {
 
         public static void deckRemoveCard(Matcher matcher) {
             if (matcher.find()) {
-                if ()
+                String card = DeckProgramController.getInstance().deckRemoveCard(matcher).get(0);
+                String deck = DeckProgramController.getInstance().deckRemoveCard(matcher).get(1);
+                String side = DeckProgramController.getInstance().deckRemoveCard(matcher).get(2);
+                if (Deck.getDeckByName(deck) == null) {
+                    System.out.println("deck with name " + deck + " does not exist");
+                } else if (!Deck.getDeckByName(deck).getCardsInDecks().contains(card) && side == null) {
+                    System.out.println("card with name" + card + " does not exist in main deck");
+                } else if (!Deck.getDeckByName(deck).getCardsInSideDecks().contains(card) && side != null) {
+                    System.out.println("card with name" + card + " does not exist in side deck");
+                } else {
+                    if (side == null) {
+                        Deck.getDeckByName(deck).removeCardsInDecks(card);
+                    } else {
+                        Deck.getDeckByName(deck).removeCardsInSideDecks(card);
+                    }
+                }
             }
         }
 

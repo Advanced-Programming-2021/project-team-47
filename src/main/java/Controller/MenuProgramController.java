@@ -1,7 +1,14 @@
 package main.java.Controller;
 
+import main.java.View.LoginMenu;
+import Controller.GameProgramController;
+import View.ImportOrExportMenu;
+import View.MainMenu;
 import main.java.Model.Menus;
-import main.java.View.*;
+import View.*;
+import main.java.View.ShopMenu;
+import main.java.View.ScoreboardMenu;
+import main.java.View.ProfileMenu;
 
 public class MenuProgramController {
     public static Menus currentMenu = Menus.LOGIN_MENU;

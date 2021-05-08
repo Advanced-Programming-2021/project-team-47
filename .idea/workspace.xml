@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="new">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Runnable.java" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu">
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +66,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -134,14 +137,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../oop practice" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.kdsfjljs">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AP_Project" />
@@ -152,6 +157,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="kdsfjljs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kdsfjljs" />
+      <module name="alaki" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.kdsfjljs" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -168,7 +191,9 @@
       <workItem from="1619222918459" duration="13831000" />
       <workItem from="1619314598363" duration="15467000" />
       <workItem from="1620227638941" duration="6723000" />
-      <workItem from="1620378571642" duration="903000" />
+      <workItem from="1620387660915" duration="2679000" />
+      <workItem from="1620401866403" duration="912000" />
+      <workItem from="1620415001583" duration="1619000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -303,14 +328,133 @@
       <option name="project" value="LOCAL" />
       <updated>1620321778535</updated>
     </task>
-    <task id="LOCAL-00020" summary="new">
-      <created>1620323078449</created>
+    <task id="LOCAL-00020" summary="duelMenu3 import players">
+      <created>1620325993094</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1620323078449</updated>
+      <updated>1620325993094</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="duelMenu3 import deck">
+      <created>1620326054156</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620326054156</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Deck isDeckValid + getNumberOfCards">
+      <created>1620326421850</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1620326421850</updated>
+    </task>
+    <task id="LOCAL-00023" summary="DuelMenu update">
+      <created>1620326571272</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1620326571272</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Players mainDeck , sideDeck  (+ setter and getter)">
+      <created>1620327209689</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1620327209689</updated>
+    </task>
+    <task id="LOCAL-00025" summary="players debug">
+      <created>1620328190480</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1620328190480</updated>
+    </task>
+    <task id="LOCAL-00026" summary="DuelMenu startTwoPlayerDuel update">
+      <created>1620329067087</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1620329067087</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Deck isDeckValid update">
+      <created>1620329426463</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1620329426463</updated>
+    </task>
+    <task id="LOCAL-00028" summary="DuelMenu startTwoPlayerDuel update">
+      <created>1620329551528</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1620329551528</updated>
+    </task>
+    <task id="LOCAL-00029" summary="clean code">
+      <created>1620329739816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1620329739816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="duelMenu startTwoPlayerDuel update">
+      <created>1620330206321</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1620330206321</updated>
+    </task>
+    <task id="LOCAL-00031" summary="duelMenu startOnePlayerDuel">
+      <created>1620330431804</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1620330431804</updated>
+    </task>
+    <task id="LOCAL-00032" summary="SideDeck and MainDeck class">
+      <created>1620330949353</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1620330949353</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Player update">
+      <created>1620331108025</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1620331108025</updated>
+    </task>
+    <task id="LOCAL-00034" summary="DuelMenu startTwoPlayerDuel and startOnePlayerDuel update">
+      <created>1620331320754</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1620331320754</updated>
+    </task>
+    <task id="LOCAL-00035" summary="addToDeck method /// abstract Deck =&gt; MainDeck and SideDeck">
+      <created>1620388261419</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1620388261419</updated>
+    </task>
+    <task id="LOCAL-00036" summary="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu">
+      <created>1620416108067</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1620416108068</updated>
+    </task>
+    <task id="LOCAL-00037" summary="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu">
+      <created>1620416215139</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1620416215139</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +485,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="All files" />
     <MESSAGE value="Other files" />
     <MESSAGE value="Fix ImportOrExportMenu class" />
     <MESSAGE value="debug menu enum" />
@@ -351,7 +494,22 @@
     <MESSAGE value="GameProgramController and DuelMenu" />
     <MESSAGE value="GameProgramController and Players" />
     <MESSAGE value="debug menu detection" />
-    <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="duelMenu3 import players" />
+    <MESSAGE value="duelMenu3 import deck" />
+    <MESSAGE value="Deck isDeckValid + getNumberOfCards" />
+    <MESSAGE value="DuelMenu update" />
+    <MESSAGE value="Players mainDeck , sideDeck  (+ setter and getter)" />
+    <MESSAGE value="players debug" />
+    <MESSAGE value="Deck isDeckValid update" />
+    <MESSAGE value="DuelMenu startTwoPlayerDuel update" />
+    <MESSAGE value="clean code" />
+    <MESSAGE value="duelMenu startTwoPlayerDuel update" />
+    <MESSAGE value="duelMenu startOnePlayerDuel" />
+    <MESSAGE value="SideDeck and MainDeck class" />
+    <MESSAGE value="Player update" />
+    <MESSAGE value="DuelMenu startTwoPlayerDuel and startOnePlayerDuel update" />
+    <MESSAGE value="addToDeck method /// abstract Deck =&gt; MainDeck and SideDeck" />
+    <MESSAGE value="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu" />
   </component>
 </project>

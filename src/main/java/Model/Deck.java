@@ -1,12 +1,14 @@
 package Model;
 
+import Model.Cards;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Deck {
+public abstract class Deck {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<Deck> decks = new ArrayList<>();
     private ArrayList<String> cardsInDecks = new ArrayList<>();
@@ -24,6 +26,21 @@ public class Deck {
         decks.add(this);
     }
 
+    public static boolean isDeckValid(Deck deck, int type) {
+        // type=1 --> mainDeck type=-1 --> sideDeck
+
+        if (deck == null) return false;
+        if (type == 1) {
+            if (getNumberOfCards(deck) < 40 || getNumberOfCards(deck) > 60) return false;
+            return true;
+        }
+        if (type == -1) {
+            if (getNumberOfCards(deck) > 15) return false;
+            return true;
+        }
+        return false;
+    }
+
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {
@@ -31,6 +48,10 @@ public class Deck {
             }
         }
         return null;
+    }
+
+    public static int getNumberOfCards(Deck deck) {
+        return deck.cardsInDecks.size();
     }
 
     public static Deck getDeckByOwner(String owner) {
@@ -41,6 +62,8 @@ public class Deck {
         }
         return null;
     }
+
+    public abstract void addToDeck(Cards card);
 
     public ArrayList<String> getCardsInDecks() {
         return cardsInDecks;

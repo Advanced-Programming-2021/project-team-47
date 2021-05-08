@@ -6,9 +6,10 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Model.Menus;
+import Controller.GameProgramController;
+import main.java.Model.Menus;
 import Model.Players;
-import main.java.Controller.GameProgramController;
+import main.java.View.Response;
 import main.java.Controller.LoginProgramController;
 import main.java.Controller.MenuProgramController;
 import main.java.Controller.Regex;

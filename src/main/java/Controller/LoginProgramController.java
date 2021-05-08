@@ -1,7 +1,8 @@
 package main.java.Controller;
 
 
-import main.java.Model.Players;
+import Model.Players;
+import Model.Players;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;

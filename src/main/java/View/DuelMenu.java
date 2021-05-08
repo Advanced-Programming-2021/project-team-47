@@ -2,15 +2,10 @@ package View;
 
 import Controller.GameProgramController;
 
-import main.java.Controller.GameProgramController;
 import Model.MainDeck;
 import Model.Players;
-import Model.Players;
 import Model.SideDeck;
-import main.java.View.Response;
-import main.java.Model.Deck;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.function.Consumer;

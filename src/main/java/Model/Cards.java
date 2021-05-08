@@ -7,14 +7,14 @@ public class Cards {
     Style style;
     private String cardName;
     private int level;
-    private String type;
+    private CardTypes type;
     private int ATK;
     private int DEF;
     private int price;
     private String description;
     private boolean visible;
 
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {
+    public Cards(String cardName, int level, CardTypes type, int ATK, int DEF, String description, int price, Style style) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
@@ -24,6 +24,15 @@ public class Cards {
         setDescription(description);
         setPrice(price);
         allCards.add(this);
+        if (type==CardTypes.MONSTER_CARD){
+            new MonsterCard(cardName,level,ATK,DEF,description,price,style);
+        }
+        if (type==CardTypes.SPELL_CARD){
+            new SpellCard(cardName,level,ATK,DEF,description,price,style);
+        }
+        if (type==CardTypes.TRAP_CARD){
+            new TrapCard(cardName,level,ATK,DEF,description,price,style);
+        }
     }
 
     public static Cards getCardByName(String cardName) {
@@ -55,8 +64,9 @@ public class Cards {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(CardTypes cardTypes) {
+        this.type = cardTypes;
+
     }
 
     public int getATK() {

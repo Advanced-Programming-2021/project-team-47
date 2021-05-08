@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import main.java.Model.Deck;
 
 public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();

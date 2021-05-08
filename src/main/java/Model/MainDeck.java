@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class MainDeck extends Deck {
     public MainDeck(String deckName, String owner, String type) {
-        super(deckName, owner, type);
+        super(deckName, owner);
     }
 
     public static boolean isDeckValid(MainDeck mainDeck) {

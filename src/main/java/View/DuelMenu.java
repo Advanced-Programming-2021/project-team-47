@@ -2,7 +2,7 @@ package View;
 
 import Controller.GameProgramController;
 
-import Controller.GameProgramController;
+import main.java.Controller.GameProgramController;
 import Model.MainDeck;
 import Model.Players;
 import Model.Players;

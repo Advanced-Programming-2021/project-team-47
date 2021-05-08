@@ -1,6 +1,4 @@
-package main.java.View;
-
-import java.util.regex.Pattern;
+package View;
 
 public class Response {
     public static String loginFirst = "please login first";
@@ -66,6 +64,4 @@ public class Response {
     public static String shouldSpecialSummon = "you should special summon right now";
     public static String graveyardEmpty = "graveyard empty";
     public static String cardNotVisible = "card is not visible";
-    public static String activeDeckNotAvailable = "has no active deck";
-    public static String invalidDeck=" deck is invalid";
 }

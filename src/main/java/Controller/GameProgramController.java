@@ -28,7 +28,7 @@ public class GameProgramController {
         return Players.getPlayerByUsername(userName);
     }
     public static void playTwoPlayer(ArrayList<Deck> firstActiveDeck,ArrayList<Deck> secondActiveDeck){
-        
+
     }
 
     public ArrayList<String> scoreboardShow() {

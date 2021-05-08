@@ -1,6 +1,5 @@
-package Model;
+package main.java.model;
 
-import javax.swing.text.Style;
 import java.util.ArrayList;
 
 public class Cards {

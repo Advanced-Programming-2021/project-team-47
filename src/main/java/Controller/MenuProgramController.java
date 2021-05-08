@@ -1,23 +1,16 @@
-package main.java.Controller;
+package main.java.controller;
 
-import main.java.View.LoginMenu;
-import Controller.GameProgramController;
-import View.ImportOrExportMenu;
-import View.MainMenu;
-import main.java.Model.Menus;
-import View.*;
-import main.java.View.ShopMenu;
-import main.java.View.ScoreboardMenu;
-import main.java.View.ProfileMenu;
+import main.java.model.Menus;
+import main.java.view.*;
 
 public class MenuProgramController {
     public static Menus currentMenu = Menus.LOGIN_MENU;
     private static MenuProgramController menuProgramController;
 
     public static MenuProgramController getInstance() {
-        if (menuProgramController == null)
+        if (menuProgramController == null) {
             menuProgramController = new MenuProgramController();
-
+        }
         return menuProgramController;
     }
 

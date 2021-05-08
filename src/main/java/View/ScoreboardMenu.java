@@ -1,11 +1,10 @@
-package main.java.View;
+package View;
 
-import main.java.Model.Menus;
-import main.java.View.Response;
-import Model.Players;
-import Controller.GameProgramController;
-import main.java.Controller.MenuProgramController;
-import main.java.Controller.Regex;
+import main.java.controller.GameProgramController;
+import main.java.controller.MenuProgramController;
+import main.java.controller.Regex;
+import main.java.model.Menus;
+import main.java.model.Players;
 
 import java.util.ArrayList;
 import java.util.HashMap;

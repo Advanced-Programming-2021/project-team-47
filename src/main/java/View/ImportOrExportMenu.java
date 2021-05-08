@@ -1,10 +1,9 @@
 package View;
 
-import main.java.Controller.Regex;
-import Controller.GameProgramController;
-import main.java.Controller.MenuProgramController;
-import main.java.Model.Menus;
-import main.java.View.Response;
+import main.java.controller.GameProgramController;
+import main.java.controller.MenuProgramController;
+import main.java.controller.Regex;
+import main.java.model.Menus;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -23,12 +22,7 @@ public class ImportOrExportMenu implements Runnable {
     }
 
     public void takeCommand(String command) {
-        for (Pattern commandReg : commandMap.keySet())
-            if (command.matches(commandReg.pattern())) {
-                commandMap.get(commandReg).accept(commandReg.matcher(command));
-                return;
-            }
-        System.out.println("invalid command");
+
     }
 
     public void run(String command) {

@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="DeckMenu and Deck and DeckProgramController">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Cards update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MainDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MainDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SideDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SideDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -201,7 +195,8 @@
       <workItem from="1620401866403" duration="912000" />
       <workItem from="1620415001583" duration="1619000" />
       <workItem from="1620466182643" duration="1396000" />
-      <workItem from="1620520459080" duration="4243000" />
+      <workItem from="1620555067597" duration="618000" />
+      <workItem from="1620565819118" duration="1445000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -476,7 +471,28 @@
       <option name="project" value="LOCAL" />
       <updated>1620480142122</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="CardTypes adjustments">
+      <created>1620481687459</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1620481687459</updated>
+    </task>
+    <task id="LOCAL-00041" summary="MainDeck + SideDeck Class add">
+      <created>1620483006650</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1620483006650</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Cards update">
+      <created>1620486474700</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1620486474700</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,9 +523,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug menu enum" />
-    <MESSAGE value="debug scoreboardShow" />
-    <MESSAGE value="Duel menu add" />
     <MESSAGE value="GameProgramController" />
     <MESSAGE value="GameProgramController and DuelMenu" />
     <MESSAGE value="GameProgramController and Players" />
@@ -532,7 +545,10 @@
     <MESSAGE value="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu" />
     <MESSAGE value="deckMenu update" />
     <MESSAGE value="Players + Deck related adjustments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Players + Deck related adjustments" />
+    <MESSAGE value="CardTypes adjustments" />
+    <MESSAGE value="MainDeck + SideDeck Class add" />
+    <MESSAGE value="Cards update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cards update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

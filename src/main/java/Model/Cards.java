@@ -24,17 +24,20 @@ public class Cards {
         setDescription(description);
         setPrice(price);
         allCards.add(this);
-        if (type==CardTypes.MONSTER_CARD){
-            new MonsterCard(cardName,level,ATK,DEF,description,price,style);
-        }
-        if (type==CardTypes.SPELL_CARD){
-            new SpellCard(cardName,level,ATK,DEF,description,price,style);
-        }
-        if (type==CardTypes.TRAP_CARD){
-            new TrapCard(cardName,level,ATK,DEF,description,price,style);
+        make(type);
+    }
+    public void make(CardTypes type){
+        switch (type){
+            case TRAP_CARD:
+                new TrapCard(cardName,level,ATK,DEF,description,price,style);
+                return;
+            case SPELL_CARD:
+                new SpellCard(cardName,level,ATK,DEF,description,price,style);
+                return;
+            case MONSTER_CARD:
+                new MonsterCard(cardName,level,ATK,DEF,description,price,style);
         }
     }
-
     public static Cards getCardByName(String cardName) {
         for (Cards cards : allCards) {
             if (cards.cardName.equals(cardName)) {

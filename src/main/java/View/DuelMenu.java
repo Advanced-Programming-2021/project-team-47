@@ -2,13 +2,12 @@ package View;
 
 import Controller.GameProgramController;
 
-import main.java.Controller.GameProgramController;
+
+import Controller.Regex;
 import Model.MainDeck;
 import Model.Players;
-import Model.Players;
 import Model.SideDeck;
-import main.java.View.Response;
-import main.java.Model.Deck;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +28,10 @@ public class DuelMenu implements Runnable {
     private int cardAddressNumberSelected;
 
     public void run(String command) {
-
+        commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);
+        commandMap.put(Regex.ACTIVE_EFFECT.label, DuelMenu.commandChecker::activeEffect);
+        commandMap.put(Regex.SET.label, DuelMenu.commandChecker::set);
+        commandMap.put(Regex.SHOW_GRAVEYARD.label, DuelMenu.commandChecker::showGraveyard);
     }
 
     public static DuelMenu getInstance() {
@@ -231,5 +233,19 @@ public class DuelMenu implements Runnable {
 
     public void setCardAddressNumberSelected(int cardAddressNumberSelected) {
         this.cardAddressNumberSelected = cardAddressNumberSelected;
+    }
+    static class commandChecker{
+        static void directAttack(Matcher matcher){
+
+        }
+        static void activeEffect(Matcher matcher){
+
+        }
+        static void set(Matcher matcher){
+
+        }
+        static void showGraveyard(Matcher matcher){
+
+        }
     }
 }

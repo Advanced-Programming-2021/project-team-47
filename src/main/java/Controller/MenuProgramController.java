@@ -2,8 +2,6 @@ package Controller;
 
 import Model.Menus;
 import View.*;
-import main.java.model.Menus;
-import main.java.view.*;
 
 public class MenuProgramController {
     public static Menus currentMenu = Menus.LOGIN_MENU;

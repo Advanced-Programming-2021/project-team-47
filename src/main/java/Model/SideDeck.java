@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SideDeck extends Deck {
     public SideDeck(String deckName, String owner, String type) {
-        super(deckName, owner, type);
+        super(deckName, owner);
     }
 
     public static boolean isDeckValid(SideDeck sideDeck) {

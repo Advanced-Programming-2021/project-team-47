@@ -5,10 +5,6 @@ import View.DuelMenu;
 
 import java.util.*;
 
-import main.java.Model.SpellCard;
-
-import main.java.Model.MonsterCard;
-import main.java.Model.TrapCard;
 
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
@@ -19,16 +15,6 @@ public class GameProgramController {
             gameProgramController = new GameProgramController();
         }
         return gameProgramController;
-    }
-
-    //  public void startMultiplePlayerGame(String username1,String username2,int rounds){
-    //
-    //  }
-    public Players getPlayer(String userName) {
-        return Players.getPlayerByUsername(userName);
-    }
-    public static void playTwoPlayer(ArrayList<Deck> firstActiveDeck,ArrayList<Deck> secondActiveDeck){
-
     }
 
     public ArrayList<String> scoreboardShow() {
@@ -186,6 +172,4 @@ public class GameProgramController {
         }
     }
 
-    public void playOnePlayer(ArrayList<Deck> activeDeck) {
-    }
 }

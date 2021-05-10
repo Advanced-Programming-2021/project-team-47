@@ -1,7 +1,7 @@
-package main.java.Controller;
+package Controller;
 
-import main.java.Model.Cards;
-import main.java.Model.Players;
+import Model.Cards;
+import Model.Players;
 
 import java.util.TreeMap;
 

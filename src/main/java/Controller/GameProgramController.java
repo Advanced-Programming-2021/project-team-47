@@ -87,7 +87,7 @@ public class GameProgramController {
 
 
     public void summon(String username) {
-        for (int i = 1; i < 10; ++i) {
+        for (int i = 1; i < 6; ++i) {
             if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
                 Players.getPlayerByUsername(username).setCardsInHand("OO", i);
                 break;
@@ -103,7 +103,7 @@ public class GameProgramController {
 
     public boolean isTwoMonsterCard(String username) {
         int counter = 0;
-        for (int i = 1; i < 10; ++i) {
+        for (int i = 1; i < 6; ++i) {
             if (!Players.getPlayerByUsername(username).getMonsterCardZone(i).equals("E"))
                 ++counter;
             if (counter == 2)
@@ -131,7 +131,7 @@ public class GameProgramController {
     }
 
     public void normalSet(String username) {
-        for (int i = 1; i < 10; ++i) {
+        for (int i = 1; i < 6; ++i) {
             if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
                 Players.getPlayerByUsername(username).setCardsInHand("DH", i);
                 break;

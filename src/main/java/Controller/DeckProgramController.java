@@ -84,4 +84,22 @@ public class DeckProgramController {
         data.add(side);
         return data;
     }
+
+    public ArrayList<String> deckShow(Matcher matcher) {
+        ArrayList<String> data = new ArrayList<>();
+        String deck = null;
+        String side = null;
+        for (int i = 1; i < 3; ++i) {
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--deck")) {
+                    deck = matcher.group(i).replaceAll("--deck", "").trim();
+                } else if (matcher.group(i).contains("--side")) {
+                    side = matcher.group(i).replaceAll("--side", "").trim();
+                }
+            }
+        }
+        data.add(deck);
+        data.add(side);
+        return data;
+    }
 }

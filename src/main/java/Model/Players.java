@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 
 
-
 public class Players {
     public static ArrayList<Players> allPlayers = new ArrayList<>();
     private static HashMap<String, String> usernameAndPasswordOfPLayer = new HashMap<>();
@@ -14,7 +13,7 @@ public class Players {
     private SideDeck sideDecks;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private String[] cardsInHand = new String[6];
+    private ArrayList<String> cardsInHand = new ArrayList<>();
     private String[] monsterCardZone = new String[6];
     private String[] spellCardZone = new String[6];
     private String username;
@@ -32,18 +31,6 @@ public class Players {
         setMoney(100000);
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
-    }
-
-    public ArrayList<Deck> getActiveDeck() {
-        return activeDeck;
-    }
-
-    public void setActiveDeck(ArrayList<Deck> activeDeck) {
-        this.activeDeck = activeDeck;
-        for (Deck deck:this.activeDeck
-             ) {
-            deck.setActive();
-        }
     }
 
     public static boolean isActiveDeckValid(Players players) {
@@ -69,13 +56,6 @@ public class Players {
     public static void setUsernameAndPasswordOfPLayer(HashMap<String, String> usernameAndPasswordOfPLayer) {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
-    public void setMainDecks(MainDeck mainDecks) {
-        this.mainDecks = mainDecks;
-    }
-
-    public void setSideDecks(SideDeck sideDecks) {
-        this.sideDecks = sideDecks;
-    }
 
     public static Players getPlayerByUsername(String username) {
         for (Players players : allPlayers) {
@@ -95,16 +75,36 @@ public class Players {
         return null;
     }
 
+    public ArrayList<Deck> getActiveDeck() {
+        return activeDeck;
+    }
+
+    public void setActiveDeck(ArrayList<Deck> activeDeck) {
+        this.activeDeck = activeDeck;
+    }
+
     public SideDeck getSideDecks() {
         return this.sideDecks;
+    }
+
+    public void setSideDecks(SideDeck sideDecks) {
+        this.sideDecks = sideDecks;
     }
 
     public MainDeck getMainDecks() {
         return this.mainDecks;
     }
 
+    public void setMainDecks(MainDeck mainDecks) {
+        this.mainDecks = mainDecks;
+    }
+
     public String getMonsterCardZone(int x) {
         return monsterCardZone[x];
+    }
+
+    public String[] getMonsterCardZoneArray() {
+        return monsterCardZone;
     }
 
     public String[] getSpellCardZone() {
@@ -124,11 +124,15 @@ public class Players {
     }
 
     public String getCardsInHand(int x) {
-        return cardsInHand[x];
+        return cardsInHand.get(x);
     }
 
-    public void setCardsInHand(String cardsInHand, int x) {
-        this.cardsInHand[x] = cardsInHand;
+    public ArrayList<String> getAllCardsInHandsArray(){
+        return cardsInHand;
+    }
+
+    public void setCardsInHand(String cardsInHand) {
+        this.cardsInHand.add(cardsInHand);
     }
 
     public ArrayList<String> getPlayerCards() {

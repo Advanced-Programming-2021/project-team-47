@@ -1,24 +1,20 @@
 package View;
 
 import Controller.GameProgramController;
-
-
 import Controller.Regex;
+import Model.Deck;
 import Model.MainDeck;
 import Model.Players;
 import Model.SideDeck;
 
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DuelMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    private static DuelMenu duelMenu;
+    public static DuelMenu duelMenu;
     private String firstPlayer;
     private String secondPlayer;
     private String phaseName;
@@ -27,18 +23,20 @@ public class DuelMenu implements Runnable {
     private String cardZoneSelected;
     private int cardAddressNumberSelected;
 
-    public void run(String command) {
-        commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);
-        commandMap.put(Regex.ACTIVE_EFFECT.label, DuelMenu.commandChecker::activeEffect);
-        commandMap.put(Regex.SET.label, DuelMenu.commandChecker::set);
-        commandMap.put(Regex.SHOW_GRAVEYARD.label, DuelMenu.commandChecker::showGraveyard);
-    }
-
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
             duelMenu = new DuelMenu();
         }
         return duelMenu;
+    }
+
+    public void run(String command) {
+        commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);
+        commandMap.put(Regex.ACTIVE_EFFECT.label, DuelMenu.commandChecker::activeEffect);
+        commandMap.put(Regex.SET.label, DuelMenu.commandChecker::set);
+        commandMap.put(Regex.SHOW_GRAVEYARD.label, DuelMenu.commandChecker::showGraveyard);
+        commandMap.put(Regex.DUEL_PLAYER.label, DuelMenu.commandChecker::startTwoPlayerDuel);
+        commandMap.put(Regex.DUEL_AI.label, DuelMenu.commandChecker::startTwoPlayerDuel);
     }
 
     public void takeCommand(String command) {
@@ -50,107 +48,26 @@ public class DuelMenu implements Runnable {
         System.out.println("invalid command");
     }
 
-    public void startTwoPlayerDuel(String firstPlayerUsername, String secondPlayerUsername, int rounds) {
-        Players thisPlayer = Players.getPlayerByUsername(firstPlayerUsername);
-
-        if (thisPlayer == null) {
+    public void checkErrorsGame(String username, int rounds) {
+        MainDeck playerMainDeck = (MainDeck) Players.getPlayerByUsername(username).getActiveDeck().get(0);
+        if (Players.getPlayerByUsername(username) == null) {
             System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (thisPlayer.getActiveDeck() == null) {
-            System.out.println(firstPlayerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        if (!thisPlayer.isActiveDeckValid(thisPlayer)){
-            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
-        }
-        if (rounds != 3 && rounds != 1) {
+        } else if (Players.getPlayerByUsername(username).getActiveDeck() == null) {
+            System.out.println(username + " " + Response.activeDeckNotAvailable);
+        } else if (!Players.getPlayerByUsername(username).isActiveDeckValid(Players.getPlayerByUsername(username))) {
+            System.out.println(username + "'s " + Response.invalidDeck);
+        } else if (!playerMainDeck.isDeckValid(playerMainDeck)) {
+            System.out.println(username + "'s " + Response.invalidDeck);
+        } else if (rounds != 3 && rounds != 1) {
             System.out.println(Response.invalidRoundNumber);
             return;
         }
-        Players secondPlayer = Players.getPlayerByUsername(secondPlayerUsername);
-        if (secondPlayer == null) {
-            System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (secondPlayer.getActiveDeck() == null) {
-            System.out.println(secondPlayerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        if (!secondPlayer.isActiveDeckValid(secondPlayer)){
-            System.out.println(firstPlayerUsername+"'s "+Response.invalidDeck);
-        }
-        MainDeck firstPlayerMainDeck = (MainDeck) thisPlayer.getActiveDeck().get(0);
-        if (!firstPlayerMainDeck.isDeckValid(firstPlayerMainDeck)) {
-            System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        MainDeck secondPlayerMainDeck = (MainDeck) secondPlayer.getActiveDeck().get(0);
-        if (!secondPlayerMainDeck.isDeckValid(secondPlayerMainDeck)) {
-            System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
         if (rounds == 3) {
-            SideDeck firstPlayerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
-            if (!firstPlayerSideDeck.isDeckValid(firstPlayerSideDeck)) {
-                System.out.println(firstPlayerUsername + "'s " + Response.invalidDeck);
-                return;
-            }
-            SideDeck secondPlayerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
-            if (!secondPlayerSideDeck.isDeckValid(secondPlayerSideDeck)) {
-                System.out.println(secondPlayerUsername + "'s " + Response.invalidDeck);
-                return;
-            }
-
-        }
-
-        Random random = new Random();
-        boolean isFirstPlayerTurn = random.nextBoolean();
-        PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
-        PlayerController secondPlayerController = new NormalPlayerController(isFirstPlayerTurn ? secondPlayer : firstPlayer);
-        GameProgramController gameController = GameProgramController.getInstance();
-        ProgramController.setGameControllerID(gameController.getId());
-        gameController.playTwoPlayer(thisPlayer.getActiveDeck(), secondPlayer.getActiveDeck());
-    }
-
-    public void startOnePlayerDuel(String playerUsername, int rounds) {
-        Players thisPlayer = Players.getPlayerByUsername(playerUsername);
-        if (thisPlayer == null) {
-            System.out.println(Response.usernameNotExist);
-            return;
-        }
-        if (thisPlayer.getActiveDeck() == null) {
-            System.out.println(playerUsername + " " + Response.activeDeckNotAvailable);
-            return;
-        }
-        if (rounds != 3 && rounds != 1) {
-            System.out.println(Response.invalidRoundNumber);
-            return;
-        }
-        if (!thisPlayer.isActiveDeckValid(thisPlayer)){
-            System.out.println(playerUsername+"'s "+Response.invalidDeck);
-        }
-        MainDeck playerMainDeck = (MainDeck) thisPlayer.getActiveDeck().get(0);
-        if (!playerMainDeck.isDeckValid(playerMainDeck)) {
-            System.out.println(playerUsername + "'s " + Response.invalidDeck);
-            return;
-        }
-        if (rounds == 3) {
-            SideDeck playerSideDeck = (SideDeck) thisPlayer.getActiveDeck().get(1);
+            SideDeck playerSideDeck = (SideDeck) Players.getPlayerByUsername(username).getActiveDeck().get(1);
             if (!playerSideDeck.isDeckValid(playerSideDeck)) {
-                System.out.println(playerUsername + "'s " + Response.invalidDeck);
-                return;
+                System.out.println(username + "'s " + Response.invalidDeck);
             }
-
-
         }
-
-        Random random = new Random();
-        boolean isFirstPlayerTurn = random.nextBoolean();
-        PlayerController firstPlayerController = new NormalPlayerController(isFirstPlayerTurn ? firstPlayer : secondPlayer);
-        GameProgramController gameController = GameProgramController.getInstance();
-        ProgramController.setGameControllerID(gameController.getId());
-        gameController.playOnePlayer(thisPlayer.getActiveDeck());
     }
 
     public String getFirstPlayer() {
@@ -234,18 +151,69 @@ public class DuelMenu implements Runnable {
     public void setCardAddressNumberSelected(int cardAddressNumberSelected) {
         this.cardAddressNumberSelected = cardAddressNumberSelected;
     }
-    static class commandChecker{
-        static void directAttack(Matcher matcher){
+
+    public void gameBoardPrint(String username) {
+        System.out.println(Players.getPlayerByUsername(username).getNickname() + ":" + Players.getPlayerByUsername(username).getLifePoint());
+        System.out.println("    ");
+        for (int i = 0; i < Players.getPlayerByUsername(username).getAllCardsInHandsArray().size(); ++i) {
+            System.out.print(Players.getPlayerByUsername(username).getCardsInHand(i));
+            System.out.println("    ");
+        }
+        System.out.println();
+        System.out.println(Deck.getDeckByOwner(username).getAllCardsNumber());
+        System.out.println("    ");
+        for (int z = 0; z < Players.getPlayerByUsername(username).getMonsterCardZoneArray().length; ++z) {
+            System.out.print(Players.getPlayerByUsername(username).getMonsterCardZone(z));
+            System.out.println("    ");
+        }
+        for (int j = 0; j < Players.getPlayerByUsername(username).getSpellCardZone().length; ++j) {
+            System.out.print(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(j));
+            System.out.println("    ");
+        }
+        String fieldZone;
+        if (Players.getPlayerByUsername(username).getFieldZone().size() == 0) {
+            fieldZone = "E";
+        } else {
+            fieldZone = "O";
+        }
+        System.out.println(Players.getPlayerByUsername(username).getCardsInGraveyard().size() + "                      " + fieldZone);
+    }
+
+    public void gameBoard(String firstPlayer, String secondPlayer) {
+        gameBoardPrint(firstPlayer);
+        System.out.println("--------------------------");
+        gameBoardPrint(secondPlayer);
+    }
+
+    static class commandChecker {
+        static void directAttack(Matcher matcher) {
 
         }
-        static void activeEffect(Matcher matcher){
+
+        static void activeEffect(Matcher matcher) {
 
         }
-        static void set(Matcher matcher){
+
+        static void set(Matcher matcher) {
 
         }
-        static void showGraveyard(Matcher matcher){
 
+        static void showGraveyard(Matcher matcher) {
+
+        }
+
+        static void startTwoPlayerDuel(Matcher matcher) {
+            String firstPlayerUsername = DuelMenu.getInstance().firstPlayer;
+            String secondPlayerUsername = DuelMenu.getInstance().secondPlayer;
+            int rounds = DuelMenu.getInstance().round;
+            if (!firstPlayerUsername.equals("ai") || !secondPlayerUsername.equals("ai")) {
+                DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
+                DuelMenu.getInstance().checkErrorsGame(secondPlayerUsername, rounds);
+                GameProgramController.getInstance().startMultiplePlayerGame(matcher);
+            } else {
+                DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
+                GameProgramController.getInstance().startMultiplePlayerGame(matcher);
+            }
         }
     }
 }

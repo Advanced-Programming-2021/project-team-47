@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Cards update">
+    <list default="true" id="0ed1c857-8f95-4c5b-aa3d-3640f7280c3c" name="Default Changelist" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -492,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620486474700</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java">
+      <created>1620578376553</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1620578376554</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +532,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GameProgramController" />
     <MESSAGE value="GameProgramController and DuelMenu" />
     <MESSAGE value="GameProgramController and Players" />
     <MESSAGE value="debug menu detection" />
@@ -548,7 +556,8 @@
     <MESSAGE value="CardTypes adjustments" />
     <MESSAGE value="MainDeck + SideDeck Class add" />
     <MESSAGE value="Cards update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cards update" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

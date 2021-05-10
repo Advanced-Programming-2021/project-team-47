@@ -2,9 +2,10 @@ package Controller;
 
 import Model.*;
 import View.DuelMenu;
+import View.LoginMenu;
 
 import java.util.*;
-
+import java.util.regex.Matcher;
 
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
@@ -15,6 +16,44 @@ public class GameProgramController {
             gameProgramController = new GameProgramController();
         }
         return gameProgramController;
+    }
+
+    public void startMultiplePlayerGame(Matcher matcher) {
+        String username2 = null;
+        String rounds = null;
+        for (int i = 1; i < 4; ++i) {
+            if (matcher.find()) {
+                if (matcher.group(i).contains("--rounds")) {
+                    rounds = matcher.group(i).replaceAll("--rounds", "").trim();
+                } else if (matcher.group(i).contains("--second-player")||matcher.group(i).contains("--ai")) {
+                    username2 = matcher.group(i).replaceAll("--second-player", "").trim();
+                }
+            }
+        }
+        DuelMenu.getInstance().setFirstPlayer(LoginMenu.loginUsername);
+        DuelMenu.getInstance().setSecondPlayer(username2);
+        DuelMenu.getInstance().setRound(Integer.parseInt(rounds));
+    }
+
+    public Players getPlayer(String userName) {
+        return Players.getPlayerByUsername(userName);
+    }
+
+    public boolean isAnyCardSelected() {
+        return DuelMenu.getInstance().getCardAddressNumberSelected() == 0 || DuelMenu.getInstance().getCardZoneSelected() == null;
+    }
+
+    public void changePhase(String phase) {
+        DuelMenu.getInstance().setPhaseName(phase);
+    }
+
+    public boolean isMonsterCardZoneFull(String username) {
+        int full = 0;
+        for (String card : Players.getPlayerByUsername(username).getMonsterCardZoneArray()) {
+            if (!card.equals(null))
+                ++full;
+        }
+        return full == 5;
     }
 
     public ArrayList<String> scoreboardShow() {
@@ -71,6 +110,14 @@ public class GameProgramController {
                 return true;
         }
         return false;
+    }
+
+    public boolean userExist(String username) {
+        return Players.getPlayerByUsername(username) != null;
+    }
+
+    public boolean userDeckIsActive(String username) {
+        return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
     public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {

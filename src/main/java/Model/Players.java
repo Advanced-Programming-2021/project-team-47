@@ -127,12 +127,12 @@ public class Players {
         return cardsInHand.get(x);
     }
 
-    public ArrayList<String> getAllCardsInHandsArray(){
+    public ArrayList<String> getAllCardsInHandsArray() {
         return cardsInHand;
     }
 
-    public void setCardsInHand(String cardsInHand) {
-        this.cardsInHand.add(cardsInHand);
+    public void setCardsInHand(String cardsInHand, int x) {
+        this.cardsInHand.add(x, cardsInHand);
     }
 
     public ArrayList<String> getPlayerCards() {

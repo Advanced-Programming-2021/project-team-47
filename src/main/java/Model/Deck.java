@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class Deck {
+public class Deck {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static ArrayList<Deck> decks = new ArrayList<>();
     private ArrayList<String> cardsInDecks = new ArrayList<>();
@@ -15,7 +15,7 @@ public abstract class Deck {
     private String deckName;
     private String owner;
     private int allCardsNumber;
-    private boolean isActive;
+    private boolean isActive=false;
     private boolean invalidDeck;
 
     public Deck(String deckName, String owner) {
@@ -39,7 +39,9 @@ public abstract class Deck {
         }
         return false;
     }
-
+    public void setActive(){
+        this.isActive=true;
+    }
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {
@@ -62,14 +64,20 @@ public abstract class Deck {
         return null;
     }
 
-    public abstract void addToDeck(Cards card);
-
     public ArrayList<String> getCardsInDecks() {
         return cardsInDecks;
     }
 
+    public int getNumberOfCardsInDecks() {
+        return cardsInDecks.size();
+    }
+
     public ArrayList<String> getCardsInSideDecks() {
         return cardsInSideDecks;
+    }
+
+    public int getNuberOfCardsInSideDecks() {
+        return cardsInSideDecks.size();
     }
 
     public void setCardsInDecks(String cardsInDecks) {

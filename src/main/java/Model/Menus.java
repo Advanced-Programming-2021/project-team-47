@@ -1,6 +1,4 @@
-package main.java.Model;
-
-import java.util.regex.Pattern;
+package Model;
 
 public enum Menus {
     DECK_MENU("Main Menu"),

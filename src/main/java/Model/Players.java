@@ -13,7 +13,7 @@ public class Players {
     private SideDeck sideDecks;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private String[] cardsInHand = new String[6];
+    private ArrayList<String> cardsInHand = new ArrayList<>();
     private String[] monsterCardZone = new String[6];
     private String[] spellCardZone = new String[6];
     private String username;
@@ -31,14 +31,6 @@ public class Players {
         setMoney(100000);
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
-    }
-
-    public ArrayList<Deck> getActiveDeck() {
-        return activeDeck;
-    }
-
-    public void setActiveDeck(ArrayList<Deck> activeDeck) {
-        this.activeDeck = activeDeck;
     }
 
     public static boolean isActiveDeckValid(Players players) {
@@ -65,14 +57,6 @@ public class Players {
         Players.usernameAndPasswordOfPLayer = usernameAndPasswordOfPLayer;
     }
 
-    public void setMainDecks(MainDeck mainDecks) {
-        this.mainDecks = mainDecks;
-    }
-
-    public void setSideDecks(SideDeck sideDecks) {
-        this.sideDecks = sideDecks;
-    }
-
     public static Players getPlayerByUsername(String username) {
         for (Players players : allPlayers) {
             if (players.username.equals(username)) {
@@ -91,12 +75,28 @@ public class Players {
         return null;
     }
 
+    public ArrayList<Deck> getActiveDeck() {
+        return activeDeck;
+    }
+
+    public void setActiveDeck(ArrayList<Deck> activeDeck) {
+        this.activeDeck = activeDeck;
+    }
+
     public SideDeck getSideDecks() {
         return this.sideDecks;
     }
 
+    public void setSideDecks(SideDeck sideDecks) {
+        this.sideDecks = sideDecks;
+    }
+
     public MainDeck getMainDecks() {
         return this.mainDecks;
+    }
+
+    public void setMainDecks(MainDeck mainDecks) {
+        this.mainDecks = mainDecks;
     }
 
     public String getMonsterCardZone(int x) {
@@ -124,11 +124,15 @@ public class Players {
     }
 
     public String getCardsInHand(int x) {
-        return cardsInHand[x];
+        return cardsInHand.get(x);
     }
 
-    public void setCardsInHand(String cardsInHand, int x) {
-        this.cardsInHand[x] = cardsInHand;
+    public ArrayList<String> getAllCardsInHandsArray(){
+        return cardsInHand;
+    }
+
+    public void setCardsInHand(String cardsInHand) {
+        this.cardsInHand.add(cardsInHand);
     }
 
     public ArrayList<String> getPlayerCards() {

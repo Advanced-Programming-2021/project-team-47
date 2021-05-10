@@ -1,10 +1,10 @@
-package main.java.View;
+package View;
 
+import Controller.GameProgramController;
+import Controller.MenuProgramController;
+import Controller.Regex;
 import Model.Menus;
 import Model.Players;
-import main.java.Controller.GameProgramController;
-import main.java.Controller.MenuProgramController;
-import main.java.Controller.Regex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ public class ScoreboardMenu implements Runnable {
             if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
             } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
-                System.out.println(View.Response.menuNotPossible);
+                System.out.println(Response.menuNotPossible);
             }
         }
 

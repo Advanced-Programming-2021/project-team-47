@@ -24,7 +24,7 @@ public class DuelMenu implements Runnable {
     private ArrayList<Cards> cardsInHand=new ArrayList<>();
     private Cards selectedCard;
     private Cards summonedCard;
-    private Cards setCards;
+    private Cards setCard;
 
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
@@ -118,12 +118,12 @@ public class DuelMenu implements Runnable {
         return summonedCard;
     }
 
-    public void setSetCards(Cards setCards) {
-        this.setCards = setCards;
+    public void setSetCard(Cards setCards) {
+        this.setCard = setCard;
     }
 
-    public Cards getSetCards() {
-        return setCards;
+    public Cards getSetCard() {
+        return setCard;
     }
 
     public void setSelectedCard(Cards selectedCard) {
@@ -204,6 +204,9 @@ public class DuelMenu implements Runnable {
             DuelMenu.getInstance().setSummonedCard(selectedCard);
             monsterCardZone.add((MonsterCard)selectedCard);
             System.out.println(Response.summonedSuccessfully);
+            selectedCard=null;
+            summonedCard=null;
+            setCard=null;
             return;
         }
         if (DuelMenu.getInstance().selectedCard.getLevel()<7) {
@@ -219,6 +222,9 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.summonedSuccessfully);
             DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributed);
             DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
+            selectedCard=null;
+            summonedCard=null;
+            setCard=null;
             return;
         }
         if (DuelMenu.getInstance().getMonsterCardZone().size()<2){
@@ -237,6 +243,9 @@ public class DuelMenu implements Runnable {
         DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedFirst);
         DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedSecond);
         DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
+        selectedCard=null;
+        summonedCard=null;
+        setCard=null;
     }
 
     public Phase getPhase() {

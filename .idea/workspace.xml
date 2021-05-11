@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Cards update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="DuelMenu summon update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Response.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,17 +170,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.kdsfjljs" />
@@ -212,7 +197,8 @@
       <workItem from="1620466182643" duration="1396000" />
       <workItem from="1620555067597" duration="618000" />
       <workItem from="1620565819118" duration="1445000" />
-      <workItem from="1620731019874" duration="3931000" />
+      <workItem from="1620731019874" duration="4036000" />
+      <workItem from="1620743897079" duration="331000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -515,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620578376554</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="DuelMenu summon update">
+      <created>1620735011864</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1620735011864</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GameProgramController and DuelMenu" />
     <MESSAGE value="GameProgramController and Players" />
     <MESSAGE value="debug menu detection" />
     <MESSAGE value="duelMenu3 import players" />
@@ -571,7 +563,8 @@
     <MESSAGE value="MainDeck + SideDeck Class add" />
     <MESSAGE value="Cards update" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
+    <MESSAGE value="DuelMenu summon update" />
+    <option name="LAST_COMMIT_MESSAGE" value="DuelMenu summon update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

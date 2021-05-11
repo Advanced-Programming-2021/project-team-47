@@ -5,11 +5,13 @@ import Controller.DeckProgramController;
 import Controller.Regex;
 import Model.Cards;
 import Model.Deck;
+import Model.MainDeck;
 import Model.Players;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 public class DeckMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static DeckMenu deckMenu;
+    private ArrayList<Cards> cardsInHand=new ArrayList<>();
 
     public static DeckMenu getInstance() {
         if (deckMenu == null) {
@@ -35,6 +38,8 @@ public class DeckMenu implements Runnable {
         commandMap.put(Regex.SHOW_DECK.label, DeckMenu.commandChecker::showDeck);
         commandMap.put(Regex.DECK_SHOW_CARD.label, DeckMenu.commandChecker::showDeckCard);
     }
+
+
 
     public void takeCommand(String command) {
         for (Pattern commandReg : commandMap.keySet())

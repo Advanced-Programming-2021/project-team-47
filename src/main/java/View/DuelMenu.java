@@ -2,12 +2,11 @@ package View;
 
 import Controller.GameProgramController;
 import Controller.Regex;
-import Model.Deck;
-import Model.MainDeck;
-import Model.Players;
-import Model.SideDeck;
+import Model.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +21,10 @@ public class DuelMenu implements Runnable {
     private int round;
     private String cardZoneSelected;
     private int cardAddressNumberSelected;
+    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private Cards selectedCard;
+    private Cards summonedCard;
+    private Cards setCards;
 
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
@@ -29,7 +32,8 @@ public class DuelMenu implements Runnable {
         }
         return duelMenu;
     }
-
+    private ArrayList<MonsterCard> monsterCardZone;
+    private Phase phase=Phase.MAIN_PHASE1;
     public void run(String command) {
         commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);
         commandMap.put(Regex.ACTIVE_EFFECT.label, DuelMenu.commandChecker::activeEffect);
@@ -70,6 +74,14 @@ public class DuelMenu implements Runnable {
         }
     }
 
+    public void setMonsterCardZone(ArrayList<MonsterCard> monsterCardZone) {
+        this.monsterCardZone = monsterCardZone;
+    }
+
+    public ArrayList<MonsterCard> getMonsterCardZone() {
+        return monsterCardZone;
+    }
+
     public String getFirstPlayer() {
         return firstPlayer;
     }
@@ -86,12 +98,40 @@ public class DuelMenu implements Runnable {
         this.secondPlayer = secondPlayer;
     }
 
+    public ArrayList<Cards> getCardsInHand() {
+        return cardsInHand;
+    }
+
     public int getRound() {
         return round;
     }
 
     public void setRound(int round) {
         this.round = round;
+    }
+
+    public void setSummonedCard(Cards summonedCard) {
+        this.summonedCard = summonedCard;
+    }
+
+    public Cards getSummonedCard() {
+        return summonedCard;
+    }
+
+    public void setSetCards(Cards setCards) {
+        this.setCards = setCards;
+    }
+
+    public Cards getSetCards() {
+        return setCards;
+    }
+
+    public void setSelectedCard(Cards selectedCard) {
+        this.selectedCard = selectedCard;
+    }
+
+    public Cards getSelectedCard() {
+        return selectedCard;
     }
 
     public void showGameBoard(String firstPlayer, String secondPlayer) {
@@ -133,9 +173,85 @@ public class DuelMenu implements Runnable {
     }
 
     public void summonCard(String cardName) {
+        if (DuelMenu.getInstance().getSelectedCard()==null) {
+            System.out.println(Response.notCardSelected);
+            return;
+        }
+        if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)){
+            System.out.println(Response.cantSummon);
+            return;
+        }
+        Cards hold=DuelMenu.getInstance().getSelectedCard();
+        DuelMenu.getInstance().setSelectedCard((MonsterCard) hold);
+        if (!DuelMenu.getInstance().getCardsInHand().contains(selectedCard)
+        || !((MonsterCard) DuelMenu.getInstance().getSelectedCard()).isNormalSummonValid()){
+            System.out.println(Response.cantSummon);
+            return;
+        }
+        if(DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE1 && DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE2){
+            System.out.println(Response.cantDoActionInThisPhase);
+            return;
+        }
+        if (DuelMenu.getInstance().getMonsterCardZone().size()>4){
+            System.out.println(Response.monsterCardZoneFull);
+            return;
+        }
+        if(DuelMenu.getInstance().summonedCard!=null || DuelMenu.getInstance().selectedCard!=null){
+            System.out.println(Response.alreadySummonedOrSet);
+            return;
+        }
+        if (DuelMenu.getInstance().selectedCard.getLevel() <= 4){
+            DuelMenu.getInstance().setSummonedCard(selectedCard);
+            monsterCardZone.add((MonsterCard)selectedCard);
+            System.out.println(Response.summonedSuccessfully);
+            return;
+        }
+        if (DuelMenu.getInstance().selectedCard.getLevel()<7) {
+            if (DuelMenu.getInstance().getMonsterCardZone().size() == 0) {
+                System.out.println(Response.notEnoughCardForTribute);
+                return;
+            }
+            int toBeTributed = GameProgramController.scanner.nextInt();
+            if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributed) == null) {
+                System.out.println(Response.noMonsterOnThisAddress);
+                return;
+            }
+            System.out.println(Response.summonedSuccessfully);
+            DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributed);
+            DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
+            return;
+        }
+        if (DuelMenu.getInstance().getMonsterCardZone().size()<2){
+            System.out.println(Response.notEnoughCardForTribute);
+            return;
+        }
+        int toBeTributedFirst = GameProgramController.scanner.nextInt();
+        int toBeTributedSecond = GameProgramController.scanner.nextInt();
 
+        if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedFirst) == null
+        || DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedSecond) == null) {
+            System.out.println(Response.noMonsterOnOneOfAddress);
+            return;
+        }
+        System.out.println(Response.summonedSuccessfully);
+        DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedFirst);
+        DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedSecond);
+        DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
     }
 
+    public Phase getPhase() {
+        return phase;
+    }
+
+    public void setCardsInHand(Players players) {
+        Random random=new Random();
+        MainDeck playersMainDeck=(MainDeck) players.getActiveDeck().get(0);
+        for (int i=0; i<6;i++){
+            Cards toBeAdded=playersMainDeck.getMainDeckCards().get(random.nextInt(playersMainDeck.getMainDeckCards().size()));
+            cardsInHand.add(toBeAdded);
+            playersMainDeck.getMainDeckCards().remove(toBeAdded);
+        }
+    }
     public String getCardZoneSelected() {
         return cardZoneSelected;
     }

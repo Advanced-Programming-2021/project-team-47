@@ -120,7 +120,7 @@ public class GameProgramController {
         return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style) {
         if (type.equals("Monster"))
             new MonsterCard(cardName, level, type, ATK, DEF, description, price, style);
         else if (type.equals("Trap"))

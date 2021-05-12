@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Cards {
     public static ArrayList<Cards> allCards = new ArrayList<>();
-    Style style;
+    public CardTypes style;
     private String cardName;
     private int level;
     private String type;
@@ -14,7 +14,7 @@ public class Cards {
     private String description;
     private boolean visible;
 
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
@@ -99,11 +99,11 @@ public class Cards {
         this.visible = visible;
     }
 
-    public Style getStyle() {
+    public CardTypes getStyle() {
         return style;
     }
 
-    public void setStyle(Style style) {
+    public void setStyle(CardTypes style) {
         this.style = style;
     }
 }

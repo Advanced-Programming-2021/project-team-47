@@ -11,14 +11,14 @@ public class Players {
     private ArrayList<String> playerCards = new ArrayList<>();
     private MainDeck mainDecks;
     private SideDeck sideDecks;
-    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private ArrayList<Cards> cardsInHand = new ArrayList<>();
     private Cards selectedCard;
     private Cards summonedCard;
     private Cards setCard;
-    private ArrayList<String> fieldZone = new ArrayList<>();
+    private ArrayList<Cards> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private String[] monsterCardZone = new String[6];
-    private String[] spellCardZone = new String[6];
+    private ArrayList<Cards> monsterCardZone = new ArrayList<>();
+    private ArrayList<Cards> spellCardZone = new ArrayList<>();
     private String username;
     private String nickname;
     private String password;
@@ -102,28 +102,28 @@ public class Players {
         this.mainDecks = mainDecks;
     }
 
-    public String getMonsterCardZone(int x) {
-        return monsterCardZone[x];
+    public Cards getMonsterCardZone(int x) {
+        return monsterCardZone.get(x);
     }
 
-    public String[] getMonsterCardZoneArray() {
+    public ArrayList<Cards> getMonsterCardZoneArray() {
         return monsterCardZone;
     }
 
-    public String[] getSpellCardZone() {
+    public ArrayList<Cards> getSpellCardZone() {
         return spellCardZone;
     }
 
-    public String getSpellCardZoneByCoordinate(int x) {
-        return spellCardZone[x];
+    public Cards getSpellCardZoneByCoordinate(int x) {
+        return spellCardZone.get(x);
     }
 
-    public void setMonsterCardZone(String monsterCardZone, int x) {
-        this.monsterCardZone[x] = monsterCardZone;
+    public void setMonsterCardZone(Cards monsterCardZone, int x) {
+        this.monsterCardZone.add(x,monsterCardZone);
     }
 
-    public void setSpellCardZone(String spellCardZone, int x) {
-        this.spellCardZone[x] = spellCardZone;
+    public void setSpellCardZone(Cards spellCardZone, int x) {
+        this.spellCardZone.add(x, spellCardZone);
     }
 
     public Cards getCardsInHand(int x) {
@@ -147,11 +147,13 @@ public class Players {
     }
 
 
-    public ArrayList<String> getFieldZone() {
+    public ArrayList<Cards> getFieldZone() {
         return fieldZone;
     }
-
-    public void setFieldZone(String fieldZone) {
+    public Cards getFieldZoneByCoordinates(int x) {
+        return fieldZone.get(x);
+    }
+    public void setFieldZone(Cards fieldZone) {
         this.fieldZone.add(fieldZone);
     }
 

@@ -25,7 +25,7 @@ public class GameProgramController {
             if (matcher.find()) {
                 if (matcher.group(i).contains("--rounds")) {
                     rounds = matcher.group(i).replaceAll("--rounds", "").trim();
-                } else if (matcher.group(i).contains("--second-player")||matcher.group(i).contains("--ai")) {
+                } else if (matcher.group(i).contains("--second-player") || matcher.group(i).contains("--ai")) {
                     username2 = matcher.group(i).replaceAll("--second-player", "").trim();
                 }
             }
@@ -49,7 +49,7 @@ public class GameProgramController {
 
     public boolean isMonsterCardZoneFull(String username) {
         int full = 0;
-        for (String card : Players.getPlayerByUsername(username).getMonsterCardZoneArray()) {
+        for (Cards card : Players.getPlayerByUsername(username).getMonsterCardZoneArray()) {
             if (!card.equals(null))
                 ++full;
         }
@@ -120,13 +120,13 @@ public class GameProgramController {
         return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, Style style) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes) {
         if (type.equals("Monster"))
-            new MonsterCard(cardName, level, type, ATK, DEF, description, price, style);
+            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
         else if (type.equals("Trap"))
-            new TrapCard(cardName, level, type, ATK, DEF, description, price, style);
+            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
         else
-            new SpellCard(cardName, level, type, ATK, DEF, description, price, style);
+            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
 
     }
 
@@ -171,24 +171,24 @@ public class GameProgramController {
         Players.getPlayerByUsername(username).decreaseLifePoint(Cards.getCardByName(cardName).getATK());
     }
 
-    public void activateEffect(String username, String cardName) {
-        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+    public void activateEffect(String username, Cards cards) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
                 Players.getPlayerByUsername(username).setSpellCardZone("O", i);
         }
-        if (Players.getPlayerByUsername(username).getFieldZone().contains(cardName))
-            Players.getPlayerByUsername(username).setFieldZone(cardName);
+        if (Players.getPlayerByUsername(username).getFieldZone().contains(cards.getCardName()))
+            Players.getPlayerByUsername(username).setFieldZone(cards);
     }
 
     public void setSpell(String username) {
-        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
                 Players.getPlayerByUsername(username).setSpellCardZone("H", i);
         }
     }
 
     public void setTrap(String username) {
-        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().length; ++i) {
+        for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
                 Players.getPlayerByUsername(username).setSpellCardZone("H", i);
         }
@@ -197,10 +197,13 @@ public class GameProgramController {
     public void swapTurn(String username) {
         DuelMenu game = DuelMenu.getInstance();
         String turn = game.getShowTurn();
-        if (turn.equals(game.getFirstPlayer()))
+        if (turn.equals(game.getFirstPlayer())) {
             DuelMenu.getInstance().setShowTurn(game.getSecondPlayer());
-        else
+            DuelMenu.getInstance().setShowOpponent(game.getFirstPlayer());
+        } else {
             DuelMenu.getInstance().setShowTurn(game.getFirstPlayer());
+            DuelMenu.getInstance().setShowOpponent(game.getSecondPlayer());
+        }
     }
 
     public void setPosition(String username, String position) {

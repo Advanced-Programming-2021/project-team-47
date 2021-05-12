@@ -77,32 +77,7 @@ public class Players {
         }
         return null;
     }
-    public ArrayList<Cards> getCardsInHand() {
-        return cardsInHand;
-    }
-    public void setSummonedCard(Cards summonedCard) {
-        this.summonedCard = summonedCard;
-    }
 
-    public Cards getSummonedCard() {
-        return summonedCard;
-    }
-
-    public void setSetCard(Cards setCards) {
-        this.setCard = setCard;
-    }
-
-    public Cards getSetCard() {
-        return setCard;
-    }
-
-    public void setSelectedCard(Cards selectedCard) {
-        this.selectedCard = selectedCard;
-    }
-
-    public Cards getSelectedCard() {
-        return selectedCard;
-    }
     public ArrayList<Deck> getActiveDeck() {
         return activeDeck;
     }

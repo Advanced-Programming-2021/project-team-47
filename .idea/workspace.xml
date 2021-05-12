@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="CardTypes to be replacing Style">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
@@ -213,7 +212,7 @@
       <workItem from="1620731019874" duration="4036000" />
       <workItem from="1620743897079" duration="1406000" />
       <workItem from="1620762596385" duration="855000" />
-      <workItem from="1620810645636" duration="1535000" />
+      <workItem from="1620810645636" duration="2464000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -537,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620812303136</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="++">
+      <created>1620812950919</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1620812950919</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +574,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug menu detection" />
     <MESSAGE value="duelMenu3 import players" />
     <MESSAGE value="duelMenu3 import deck" />
     <MESSAGE value="Deck isDeckValid + getNumberOfCards" />
@@ -593,7 +598,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
     <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
-    <option name="LAST_COMMIT_MESSAGE" value="CardTypes to be replacing Style" />
+    <MESSAGE value="++" />
+    <option name="LAST_COMMIT_MESSAGE" value="++" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

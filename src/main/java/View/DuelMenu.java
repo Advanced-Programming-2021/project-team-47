@@ -16,7 +16,10 @@ public class DuelMenu implements Runnable {
     public static DuelMenu duelMenu;
     private String firstPlayer;
     private String secondPlayer;
-
+    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private Cards selectedCard;
+    private Cards summonedCard;
+    private Cards setCard;
     private String showTurn;
     private int round;
     private String cardZoneSelected;
@@ -129,12 +132,34 @@ public class DuelMenu implements Runnable {
 
     }
 
-    public String getPhaseName() {
-        return phaseName;
+    public void setSummonedCard(Cards summonedCard) {
+        this.summonedCard = summonedCard;
     }
 
-    public void setPhaseName(String phaseName) {
-        this.phaseName = phaseName;
+    public Cards getSummonedCard() {
+        return summonedCard;
+    }
+
+    public void setSelectedCard(Cards selectedCard) {
+        this.selectedCard = selectedCard;
+    }
+
+    public Cards getSelectedCard() {
+        return selectedCard;
+    }
+
+
+
+    public ArrayList<Cards> getCardsInHand() {
+        return cardsInHand;
+    }
+
+    public void setSetCard(Cards setCard) {
+        this.setCard = setCard;
+    }
+
+    public Cards getSetCard() {
+        return setCard;
     }
 
     public String getShowTurn() {

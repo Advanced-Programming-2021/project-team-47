@@ -16,15 +16,12 @@ public class DuelMenu implements Runnable {
     public static DuelMenu duelMenu;
     private String firstPlayer;
     private String secondPlayer;
-    private String phaseName;
+
     private String showTurn;
     private int round;
     private String cardZoneSelected;
     private int cardAddressNumberSelected;
-    private ArrayList<Cards> cardsInHand=new ArrayList<>();
-    private Cards selectedCard;
-    private Cards summonedCard;
-    private Cards setCard;
+
 
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
@@ -98,9 +95,7 @@ public class DuelMenu implements Runnable {
         this.secondPlayer = secondPlayer;
     }
 
-    public ArrayList<Cards> getCardsInHand() {
-        return cardsInHand;
-    }
+
 
     public int getRound() {
         return round;
@@ -110,29 +105,7 @@ public class DuelMenu implements Runnable {
         this.round = round;
     }
 
-    public void setSummonedCard(Cards summonedCard) {
-        this.summonedCard = summonedCard;
-    }
 
-    public Cards getSummonedCard() {
-        return summonedCard;
-    }
-
-    public void setSetCard(Cards setCards) {
-        this.setCard = setCard;
-    }
-
-    public Cards getSetCard() {
-        return setCard;
-    }
-
-    public void setSelectedCard(Cards selectedCard) {
-        this.selectedCard = selectedCard;
-    }
-
-    public Cards getSelectedCard() {
-        return selectedCard;
-    }
 
     public void showGameBoard(String firstPlayer, String secondPlayer) {
 
@@ -172,7 +145,7 @@ public class DuelMenu implements Runnable {
         this.showTurn = showTurn;
     }
 
-    public void summonCard(String cardName) {
+    public void summonCard() {
         if (DuelMenu.getInstance().getSelectedCard()==null) {
             System.out.println(Response.notCardSelected);
             return;

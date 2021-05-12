@@ -11,9 +11,12 @@ public class Players {
     private ArrayList<String> playerCards = new ArrayList<>();
     private MainDeck mainDecks;
     private SideDeck sideDecks;
+    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private Cards selectedCard;
+    private Cards summonedCard;
+    private Cards setCard;
     private ArrayList<String> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private ArrayList<String> cardsInHand = new ArrayList<>();
     private String[] monsterCardZone = new String[6];
     private String[] spellCardZone = new String[6];
     private String username;
@@ -74,7 +77,32 @@ public class Players {
         }
         return null;
     }
+    public ArrayList<Cards> getCardsInHand() {
+        return cardsInHand;
+    }
+    public void setSummonedCard(Cards summonedCard) {
+        this.summonedCard = summonedCard;
+    }
 
+    public Cards getSummonedCard() {
+        return summonedCard;
+    }
+
+    public void setSetCard(Cards setCards) {
+        this.setCard = setCard;
+    }
+
+    public Cards getSetCard() {
+        return setCard;
+    }
+
+    public void setSelectedCard(Cards selectedCard) {
+        this.selectedCard = selectedCard;
+    }
+
+    public Cards getSelectedCard() {
+        return selectedCard;
+    }
     public ArrayList<Deck> getActiveDeck() {
         return activeDeck;
     }
@@ -123,15 +151,15 @@ public class Players {
         this.spellCardZone[x] = spellCardZone;
     }
 
-    public String getCardsInHand(int x) {
+    public Cards getCardsInHand(int x) {
         return cardsInHand.get(x);
     }
 
-    public ArrayList<String> getAllCardsInHandsArray() {
+    public ArrayList<Cards> getAllCardsInHandsArray() {
         return cardsInHand;
     }
 
-    public void setCardsInHand(String cardsInHand, int x) {
+    public void setCardsInHand(Cards cardsInHand, int x) {
         this.cardsInHand.add(x, cardsInHand);
     }
 

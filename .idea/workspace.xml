@@ -5,21 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="++">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_29_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_29_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_36_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_36_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM_[Default_Changelist]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/GameProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/GameProgramController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/LoginProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/LoginProgramController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuProgramController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Regex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ShopProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ShopProgramController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Cards.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Cards.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Menus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/MonsterCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Players.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/SpellCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Style.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/TrapCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/TrapCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/DeckMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/DeckMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/DuelMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/DuelMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu$commandChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LoginMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LoginMenu$commandChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LoginMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ProfileMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Runnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Runnable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu$commandChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ShopMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ShopMenu$commandChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/ShopMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ShopMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +68,7 @@
     <option name="BRANCH" value="origin/Masih" />
   </component>
   <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="origin/Masih" />
+    <option name="NEW_BASE" value="origin/Hamid" />
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -150,16 +174,22 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oop practice" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.kdsfjljs">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AP_Project" />
@@ -183,21 +213,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.kdsfjljs" />
       </list>
     </recent_temporary>
@@ -227,7 +245,18 @@
       <workItem from="1620743897079" duration="1406000" />
       <workItem from="1620762596385" duration="855000" />
       <workItem from="1620810645636" duration="2464000" />
-      <workItem from="1620834685990" duration="14465000" />
+      <workItem from="1620889958167" duration="72000" />
+      <workItem from="1620890032274" duration="800000" />
+      <workItem from="1620890834204" duration="970000" />
+      <workItem from="1620892320561" duration="171000" />
+      <workItem from="1620892517795" duration="88000" />
+      <workItem from="1620905774795" duration="306000" />
+      <workItem from="1620907098484" duration="27000" />
+      <workItem from="1620910625524" duration="4103000" />
+      <workItem from="1620923343730" duration="2040000" />
+      <workItem from="1620931200081" duration="1219000" />
+      <workItem from="1620936305116" duration="39000" />
+      <workItem from="1620938898213" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -575,7 +604,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Abolfazl" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>

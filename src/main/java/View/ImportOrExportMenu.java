@@ -1,6 +1,8 @@
 package View;
 
 import Controller.Regex;
+import Model.CardTypes;
+import Model.Cards;
 import Model.Menus;
 import Controller.GameProgramController;
 import Controller.MenuProgramController;
@@ -64,7 +66,7 @@ public class ImportOrExportMenu implements Runnable {
                 ObjectMapper mapper = new ObjectMapper();
                 for (Map<?, ?> url : data) {
                     if (url.get("Name").equals(name)) {
-                        File out = new File("src/main/resources/" + url.get("Name") + ".json");
+                        File out = new File("src/main/resources/ExportCards/" + url.get("Name") + ".json");
                         mapper.writeValue(out, url);
                         return;
                     }
@@ -79,7 +81,57 @@ public class ImportOrExportMenu implements Runnable {
 
         static void importCards(Matcher matcher) {
             if (matcher.find()) {
-
+                ArrayList<String> cards = new ArrayList<>();
+                cards.add("SpellTrap");
+                cards.add("Monster");
+                CardTypes style = null;
+                String cardName = null;
+                int level = 0;
+                String type = null;
+                int ATK = 0;
+                int DEF = 0;
+                int price = 0;
+                String description = null;
+                for (String card : cards) {
+                    File input = new File("src/main/resources/+" + card + ".csv");
+                    try {
+                        List<Map<?, ?>> data = ImportOrExportMenu.commandChecker.csvToJson.readObjectsFromCsv(input);
+                        for (Map<?, ?> url : data) {
+                            if (url.get("Name").equals(matcher.group(1))) {
+                                if (url.get("Type") != null) {
+                                    type = url.get("Type").toString();
+                                } else {
+                                    type = url.get("Monster Type").toString();
+                                }
+                                if (url.get("Atk") != null) {
+                                    type = url.get("Atk").toString();
+                                }
+                                if (url.get("Def") != null) {
+                                    type = url.get("Def").toString();
+                                }
+                                if (url.get("Level") != null) {
+                                    type = url.get("Level").toString();
+                                }
+                                cardName = url.get("Name").toString();
+                                description = url.get("Description").toString();
+                                price = Integer.parseInt(url.get("Price").toString());
+                                if (card.equals("Monster")) {
+                                    style = CardTypes.MONSTER_CARD;
+                                } else {
+                                    if (url.get("Type").equals("Trap")) {
+                                        style = CardTypes.TRAP_CARD;
+                                    } else {
+                                        style = CardTypes.SPELL_CARD;
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                new Cards(cardName, level, type, ATK, DEF, description, price, style);
             }
         }
 

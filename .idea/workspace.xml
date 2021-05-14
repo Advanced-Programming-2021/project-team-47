@@ -4,46 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="++">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add Database (Cards)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_csv_2_11_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/GameProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/GameProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/LoginProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/LoginProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Regex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ShopProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ShopProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Cards.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Cards.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Menus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/MonsterCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Players.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/SpellCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Style.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/TrapCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/TrapCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/DeckMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/DeckMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/DuelMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/DuelMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu$commandChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ImportOrExportMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/LoginMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LoginMenu$commandChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/LoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LoginMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ProfileMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Runnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Runnable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu$commandChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ScoreboardMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ShopMenu$commandChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ShopMenu$commandChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/ShopMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/ShopMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +83,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -174,6 +146,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -257,6 +230,7 @@
       <workItem from="1620931200081" duration="1219000" />
       <workItem from="1620936305116" duration="39000" />
       <workItem from="1620938898213" duration="20000" />
+      <workItem from="1620986905646" duration="1154000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -587,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620812950919</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Add Database (Cards)">
+      <created>1620986942428</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1620986942428</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +599,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="duelMenu3 import players" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="duelMenu3 import deck" />
     <MESSAGE value="Deck isDeckValid + getNumberOfCards" />
     <MESSAGE value="DuelMenu update" />
@@ -643,7 +624,8 @@
     <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
     <MESSAGE value="++" />
-    <option name="LAST_COMMIT_MESSAGE" value="++" />
+    <MESSAGE value="Add Database (Cards)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Database (Cards)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

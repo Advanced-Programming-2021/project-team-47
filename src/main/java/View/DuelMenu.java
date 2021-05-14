@@ -128,7 +128,7 @@ public class DuelMenu implements Runnable {
 
     }
 
-    public void setSelectCard(String cardAddressSelected, int cardAddressNumberSelected) {
+    public void setSelectCard(Cards cardAddressSelected, int cardAddressNumberSelected) {
         setCardZoneSelected(cardAddressSelected);
         setCardAddressNumberSelected(cardAddressNumberSelected);
     }

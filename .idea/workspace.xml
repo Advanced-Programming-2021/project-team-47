@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add ExportCard functions">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Monster.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SpellTrap.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +184,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -226,6 +240,7 @@
       <workItem from="1620936305116" duration="39000" />
       <workItem from="1620938898213" duration="20000" />
       <workItem from="1620986905646" duration="2937000" />
+      <workItem from="1621082645907" duration="14854000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>

@@ -25,7 +25,20 @@ public class DuelMenu implements Runnable {
     private int round;
     private Cards cardZoneSelected;
     private int cardAddressNumberSelected;
+    private static ArrayList<Phase> phaseChanger = new ArrayList<>();
+    private ArrayList<MonsterCard> monsterCardZone;
 
+
+    private static Phase phase;
+
+    static {
+        phaseChanger.add(Phase.DRAW_PHASE);
+        phaseChanger.add(Phase.STANDBY_PHASE);
+        phaseChanger.add(Phase.MAIN_PHASE1);
+        phaseChanger.add(Phase.BATTLE_PHASE);
+        phaseChanger.add(Phase.MAIN_PHASE2);
+        phaseChanger.add(Phase.END_PHASE);
+    }
 
     public static DuelMenu getInstance() {
         if (duelMenu == null) {
@@ -34,8 +47,6 @@ public class DuelMenu implements Runnable {
         return duelMenu;
     }
 
-    private ArrayList<MonsterCard> monsterCardZone;
-    private Phase phase = Phase.MAIN_PHASE1;
 
     public void run(String command) {
         commandMap.put(Regex.SELECT_MONSTER.label, DuelMenu.commandChecker::selectMonster);
@@ -51,6 +62,8 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.SHOW_GRAVEYARD.label, DuelMenu.commandChecker::showGraveyard);
         commandMap.put(Regex.DUEL_PLAYER.label, DuelMenu.commandChecker::startTwoPlayerDuel);
         commandMap.put(Regex.DUEL_AI.label, DuelMenu.commandChecker::startTwoPlayerDuel);
+        commandMap.put(Regex.NEXT_PHASE.label, DuelMenu.commandChecker::nextPhase);
+
     }
 
     public void takeCommand(String command) {
@@ -107,6 +120,7 @@ public class DuelMenu implements Runnable {
     public void setSecondPlayer(String secondPlayer) {
         this.secondPlayer = secondPlayer;
     }
+
     public String getShowOpponent() {
         return showOpponent;
     }
@@ -128,7 +142,7 @@ public class DuelMenu implements Runnable {
 
     }
 
-    public void setSelectCard(Cards cardAddressSelected, int cardAddressNumberSelected) {
+    public void setSelectCard(String cardAddressSelected, int cardAddressNumberSelected) {
         setCardZoneSelected(cardAddressSelected);
         setCardAddressNumberSelected(cardAddressNumberSelected);
     }
@@ -259,6 +273,10 @@ public class DuelMenu implements Runnable {
         setCard = null;
     }
 
+    public void setPhase(Phase phase) {
+        DuelMenu.phase = phase;
+    }
+
     public Phase getPhase() {
         return phase;
     }
@@ -323,6 +341,17 @@ public class DuelMenu implements Runnable {
     }
 
     static class commandChecker {
+        static void nextPhase(Matcher matcher) {
+            if (matcher.find()) {
+                for (int i = 0; i < DuelMenu.phaseChanger.size(); i++) {
+                    if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i != DuelMenu.phaseChanger.size()-1)
+                        duelMenu.setPhase(DuelMenu.phaseChanger.get(i + 1));
+                    else if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i == DuelMenu.phaseChanger.size()-1)
+                        duelMenu.setPhase(DuelMenu.phaseChanger.get(0));
+                }
+            }
+        }
+
         static void selectMonster(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
@@ -388,7 +417,16 @@ public class DuelMenu implements Runnable {
         }
 
         static void directAttack(Matcher matcher) {
+            if (matcher.find()) {
+                if (duelMenu.getCardZoneSelected() != null)
+                    System.out.println(Response.notCardSelected);
+                else if (!(duelMenu.getCardZoneSelected() instanceof MonsterCard))
+                    System.out.println(Response.cantAttackWithThisCard);
+                else if (!duelMenu.getPhase().equals(Phase.BATTLE_PHASE))
+                    System.out.println(Response.cantDoActionInThisPhase);
 
+
+            }
         }
 
         static void activeEffect(Matcher matcher) {

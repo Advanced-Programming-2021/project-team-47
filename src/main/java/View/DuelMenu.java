@@ -169,37 +169,75 @@ public class DuelMenu implements Runnable {
     public void setShowTurn(String showTurn) {
         this.showTurn = showTurn;
     }
+    public void setPhaseByKey(int key){
+        if (key==1) {
+            this.phase = Phase.MAIN_PHASE1;
+            return;
+        }
+        if (key==2) {
+            this.phase = Phase.MAIN_PHASE2;
+            return;
+        }
+        if (key==3) {
+            this.phase = Phase.DRAW_PHASE;
+            return;
+        }
+        if (key==4) {
+            this.phase = Phase.STANDBY_PHASE;
+            return;
+        }
+        if (key==5) {
+            this.phase = Phase.BATTLE_PHASE;
+            return;
+        }
+        if (key==6) {
+            this.phase = Phase.END_PHASE;
+
+        }
+    }
+    public void nextPhase(){
+        Phase currentPhase=DuelMenu.getInstance().getPhase();
+        this.setPhaseByKey(currentPhase.getKey()+1);
+        String currentPhaseLabel=this.getPhase().getlabel();
+        System.out.println("Phase : "+currentPhase+currentPhaseLabel);
+    }
+
+    public void setPhase(Phase phase) {
+        this.phase = phase;
+    }
 
     public void summonCard() {
-        if (DuelMenu.getInstance().getSelectedCard()==null) {
+
+        if (this.getSelectedCard()==null) {
             System.out.println(Response.notCardSelected);
             return;
         }
-        if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)){
+        if (!(this.getSelectedCard() instanceof MonsterCard)){
             System.out.println(Response.cantSummon);
             return;
         }
-        Cards hold=DuelMenu.getInstance().getSelectedCard();
-        DuelMenu.getInstance().setSelectedCard((MonsterCard) hold);
-        if (!DuelMenu.getInstance().getCardsInHand().contains(selectedCard)
-        || !((MonsterCard) DuelMenu.getInstance().getSelectedCard()).isNormalSummonValid()){
+        Cards hold=this.getSelectedCard();
+        this.setSelectedCard((MonsterCard) hold);
+        if (!this.getCardsInHand().contains(selectedCard)
+        || !((MonsterCard) this.getSelectedCard()).isNormalSummonValid()){
             System.out.println(Response.cantSummon);
             return;
         }
-        if(DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE1 && DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE2){
+        if(this.getPhase() != Phase.MAIN_PHASE1 && this.getPhase() != Phase.MAIN_PHASE2){
             System.out.println(Response.cantDoActionInThisPhase);
             return;
         }
-        if (DuelMenu.getInstance().getMonsterCardZone().size()>4){
+        if (this.getMonsterCardZone().size()>4){
             System.out.println(Response.monsterCardZoneFull);
             return;
         }
-        if(DuelMenu.getInstance().summonedCard!=null || DuelMenu.getInstance().selectedCard!=null){
+        if(this.summonedCard!=null){
             System.out.println(Response.alreadySummonedOrSet);
             return;
         }
-        if (DuelMenu.getInstance().selectedCard.getLevel() <= 4){
-            DuelMenu.getInstance().setSummonedCard(selectedCard);
+
+        if (this.selectedCard.getLevel() <= 4){
+            this.setSummonedCard(selectedCard);
             monsterCardZone.add((MonsterCard)selectedCard);
             System.out.println(Response.summonedSuccessfully);
             selectedCard=null;
@@ -207,40 +245,40 @@ public class DuelMenu implements Runnable {
             setCard=null;
             return;
         }
-        if (DuelMenu.getInstance().selectedCard.getLevel()<7) {
-            if (DuelMenu.getInstance().getMonsterCardZone().size() == 0) {
+        if (this.selectedCard.getLevel()<7) {
+            if (this.getMonsterCardZone().size() == 0) {
                 System.out.println(Response.notEnoughCardForTribute);
                 return;
             }
             int toBeTributed = GameProgramController.scanner.nextInt();
-            if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributed) == null) {
+            if (this.getMonsterCardZone().get(toBeTributed) == null) {
                 System.out.println(Response.noMonsterOnThisAddress);
                 return;
             }
             System.out.println(Response.summonedSuccessfully);
-            DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributed);
-            DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
+            this.getMonsterCardZone().remove(toBeTributed);
+            this.getMonsterCardZone().add((MonsterCard)selectedCard);
             selectedCard=null;
             summonedCard=null;
             setCard=null;
             return;
         }
-        if (DuelMenu.getInstance().getMonsterCardZone().size()<2){
+        if (this.getMonsterCardZone().size()<2){
             System.out.println(Response.notEnoughCardForTribute);
             return;
         }
         int toBeTributedFirst = GameProgramController.scanner.nextInt();
         int toBeTributedSecond = GameProgramController.scanner.nextInt();
 
-        if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedFirst) == null
-        || DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedSecond) == null) {
+        if (this.getMonsterCardZone().get(toBeTributedFirst) == null
+        || this.getMonsterCardZone().get(toBeTributedSecond) == null) {
             System.out.println(Response.noMonsterOnOneOfAddress);
             return;
         }
         System.out.println(Response.summonedSuccessfully);
-        DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedFirst);
-        DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedSecond);
-        DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard)selectedCard);
+        this.getMonsterCardZone().remove(toBeTributedFirst);
+        this.getMonsterCardZone().remove(toBeTributedSecond);
+        this.getMonsterCardZone().add((MonsterCard)selectedCard);
         selectedCard=null;
         summonedCard=null;
         setCard=null;

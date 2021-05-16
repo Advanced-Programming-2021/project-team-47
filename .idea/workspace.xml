@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="++">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_29_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_29_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_36_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_36_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_41_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_45_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add ExportCard functions">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +36,7 @@
     <option name="BRANCH" value="origin/Masih" />
   </component>
   <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="origin/Masih" />
+    <option name="NEW_BASE" value="origin/Hamid" />
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -89,7 +81,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -150,16 +144,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oop practice" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.kdsfjljs">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AP_Project" />
@@ -183,8 +184,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.kdsfjljs" />
       </list>
     </recent_temporary>
@@ -214,9 +227,20 @@
       <workItem from="1620743897079" duration="1406000" />
       <workItem from="1620762596385" duration="855000" />
       <workItem from="1620810645636" duration="2464000" />
-      <workItem from="1621011494519" duration="597000" />
-      <workItem from="1621077035792" duration="638000" />
-      <workItem from="1621172257780" duration="1391000" />
+      <workItem from="1620889958167" duration="72000" />
+      <workItem from="1620890032274" duration="800000" />
+      <workItem from="1620890834204" duration="970000" />
+      <workItem from="1620892320561" duration="171000" />
+      <workItem from="1620892517795" duration="88000" />
+      <workItem from="1620905774795" duration="306000" />
+      <workItem from="1620907098484" duration="27000" />
+      <workItem from="1620910625524" duration="4103000" />
+      <workItem from="1620923343730" duration="2040000" />
+      <workItem from="1620931200081" duration="1219000" />
+      <workItem from="1620936305116" duration="39000" />
+      <workItem from="1620938898213" duration="20000" />
+      <workItem from="1620986905646" duration="2937000" />
+      <workItem from="1621082645907" duration="14854000" />
     </task>
     <task id="LOCAL-00001" summary="All files">
       <created>1619018821009</created>
@@ -547,7 +571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620812950919</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Add Database (Cards)">
+      <created>1620986942428</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1620986942428</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add ExportCard functions">
+      <created>1620988378416</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1620988378416</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +602,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Abolfazl" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -578,8 +616,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="duelMenu3 import players" />
-    <MESSAGE value="duelMenu3 import deck" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Deck isDeckValid + getNumberOfCards" />
     <MESSAGE value="DuelMenu update" />
     <MESSAGE value="Players mainDeck , sideDeck  (+ setter and getter)" />
@@ -603,7 +640,9 @@
     <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
     <MESSAGE value="++" />
-    <option name="LAST_COMMIT_MESSAGE" value="++" />
+    <MESSAGE value="Add Database (Cards)" />
+    <MESSAGE value="Add ExportCard functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ExportCard functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

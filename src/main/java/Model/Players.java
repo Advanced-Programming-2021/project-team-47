@@ -11,14 +11,17 @@ public class Players {
     private ArrayList<String> playerCards = new ArrayList<>();
     private MainDeck mainDecks;
     private SideDeck sideDecks;
-    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private ArrayList<Cards> cardsInHand = new ArrayList<>();
     private Cards selectedCard;
     private Cards summonedCard;
     private Cards setCard;
-    private ArrayList<String> fieldZone = new ArrayList<>();
+    private ArrayList<Cards> fieldZone = new ArrayList<>();
     private ArrayList<String> cardsInGraveyard = new ArrayList<>();
-    private String[] monsterCardZone = new String[6];
-    private String[] spellCardZone = new String[6];
+    private ArrayList<Cards> monsterCardZone = new ArrayList<>();
+    private ArrayList<Cards> spellCardZone = new ArrayList<>();
+    private HashMap<Cards, String> monsterZone = new HashMap<>();
+    private HashMap<Cards, String> spellZone = new HashMap<>();
+    private HashMap<Cards, String> cardsInHandZone = new HashMap<>();
     private String username;
     private String nickname;
     private String password;
@@ -34,6 +37,21 @@ public class Players {
         setMoney(100000);
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
+    }
+    public void removeFromArrayList(ArrayList<Cards>cardsArrayList,HashMap<Cards,String>cardsHashMap,Cards cards){
+        cardsArrayList.remove(cards);
+        cardsHashMap.remove(cards);
+    }
+    public void putInMonsterZone(Cards cards, String cardSymbol) {
+        monsterZone.put(cards, cardSymbol);
+    }
+
+    public void putInSpellZone(Cards cards, String cardSymbol) {
+        spellZone.put(cards, cardSymbol);
+    }
+
+    public void putInCardsInHandZone(Cards cards, String cardSymbol) {
+        cardsInHandZone.put(cards, cardSymbol);
     }
 
     public static boolean isActiveDeckValid(Players players) {
@@ -102,28 +120,40 @@ public class Players {
         this.mainDecks = mainDecks;
     }
 
-    public String getMonsterCardZone(int x) {
-        return monsterCardZone[x];
+    public HashMap<Cards, String> getMonsterZone() {
+        return monsterZone;
     }
 
-    public String[] getMonsterCardZoneArray() {
+    public HashMap<Cards, String> getSpellZone() {
+        return spellZone;
+    }
+
+    public HashMap<Cards, String> getCardsInHandZone() {
+        return cardsInHandZone;
+    }
+
+    public Cards getMonsterCardZone(int x) {
+        return monsterCardZone.get(x);
+    }
+
+    public ArrayList<Cards> getMonsterCardZoneArray() {
         return monsterCardZone;
     }
 
-    public String[] getSpellCardZone() {
+    public ArrayList<Cards> getSpellCardZone() {
         return spellCardZone;
     }
 
-    public String getSpellCardZoneByCoordinate(int x) {
-        return spellCardZone[x];
+    public Cards getSpellCardZoneByCoordinate(int x) {
+        return spellCardZone.get(x);
     }
 
-    public void setMonsterCardZone(String monsterCardZone, int x) {
-        this.monsterCardZone[x] = monsterCardZone;
+    public void setMonsterCardZone(Cards monsterCardZone, int x) {
+        this.monsterCardZone.add(x, monsterCardZone);
     }
 
-    public void setSpellCardZone(String spellCardZone, int x) {
-        this.spellCardZone[x] = spellCardZone;
+    public void setSpellCardZone(Cards spellCardZone, int x) {
+        this.spellCardZone.add(x, spellCardZone);
     }
 
     public Cards getCardsInHand(int x) {
@@ -147,11 +177,15 @@ public class Players {
     }
 
 
-    public ArrayList<String> getFieldZone() {
+    public ArrayList<Cards> getFieldZone() {
         return fieldZone;
     }
 
-    public void setFieldZone(String fieldZone) {
+    public Cards getFieldZoneByCoordinates(int x) {
+        return fieldZone.get(x);
+    }
+
+    public void setFieldZone(Cards fieldZone) {
         this.fieldZone.add(fieldZone);
     }
 

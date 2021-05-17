@@ -43,8 +43,8 @@ public class GameProgramController {
         return DuelMenu.getInstance().getCardAddressNumberSelected() == 0 || DuelMenu.getInstance().getCardZoneSelected() == null;
     }
 
-    public void changePhase(String phase) {
-        DuelMenu.getInstance().setPhaseName(phase);
+    public void changePhase(Phase phase) {
+        DuelMenu.getInstance().setPhase(phase);
     }
 
     public boolean isMonsterCardZoneFull(String username) {
@@ -120,13 +120,13 @@ public class GameProgramController {
         return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes,String kind) {
         if (type.equals("Monster"))
-            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
+            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
         else if (type.equals("Trap"))
-            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
+            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
         else
-            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes);
+            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
 
     }
 

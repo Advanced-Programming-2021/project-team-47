@@ -87,6 +87,7 @@ public class ImportOrExportMenu implements Runnable {
                 CardTypes style = null;
                 String cardName = null;
                 int level = 0;
+                String kind = null;
                 String type = null;
                 int ATK = 0;
                 int DEF = 0;
@@ -99,18 +100,21 @@ public class ImportOrExportMenu implements Runnable {
                         for (Map<?, ?> url : data) {
                             if (url.get("Name").equals(matcher.group(1))) {
                                 if (url.get("Type") != null) {
-                                    type = url.get("Type").toString();
+                                    kind = url.get("Type").toString();
                                 } else {
-                                    type = url.get("Monster Type").toString();
+                                    kind = url.get("Monster Type").toString();
                                 }
                                 if (url.get("Atk") != null) {
-                                    type = url.get("Atk").toString();
+                                    kind = url.get("Atk").toString();
                                 }
                                 if (url.get("Def") != null) {
-                                    type = url.get("Def").toString();
+                                    kind = url.get("Def").toString();
                                 }
                                 if (url.get("Level") != null) {
-                                    type = url.get("Level").toString();
+                                    kind = url.get("Level").toString();
+                                }
+                                if (url.get("Monster type") != null){
+                                    kind=url.get("Monster type").toString();
                                 }
                                 cardName = url.get("Name").toString();
                                 description = url.get("Description").toString();
@@ -131,7 +135,7 @@ public class ImportOrExportMenu implements Runnable {
                         e.printStackTrace();
                     }
                 }
-                new Cards(cardName, level, type, ATK, DEF, description, price, style);
+                new Cards(cardName, level, type, ATK, DEF, description, price, style,kind);
             }
         }
 

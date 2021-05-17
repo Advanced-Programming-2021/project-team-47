@@ -16,7 +16,7 @@ public class Players {
     private Cards summonedCard;
     private Cards setCard;
     private ArrayList<Cards> fieldZone = new ArrayList<>();
-    private ArrayList<String> cardsInGraveyard = new ArrayList<>();
+    private ArrayList<Cards> cardsInGraveyard = new ArrayList<>();
     private ArrayList<Cards> monsterCardZone = new ArrayList<>();
     private ArrayList<Cards> spellCardZone = new ArrayList<>();
     private HashMap<Cards, String> monsterZone = new HashMap<>();
@@ -189,11 +189,11 @@ public class Players {
         this.fieldZone.add(fieldZone);
     }
 
-    public ArrayList<String> getCardsInGraveyard() {
+    public ArrayList<Cards> getCardsInGraveyard() {
         return cardsInGraveyard;
     }
 
-    public void setCardsInGraveyard(String cardName) {
+    public void setCardsInGraveyard(Cards cardName) {
         this.cardsInGraveyard.add(cardName);
     }
 

@@ -113,8 +113,8 @@ public class ImportOrExportMenu implements Runnable {
                                 if (url.get("Level") != null) {
                                     kind = url.get("Level").toString();
                                 }
-                                if (url.get("Monster type") != null){
-                                    kind=url.get("Monster type").toString();
+                                if (url.get("Monster type") != null) {
+                                    type = url.get("Monster type").toString();
                                 }
                                 cardName = url.get("Name").toString();
                                 description = url.get("Description").toString();
@@ -135,7 +135,7 @@ public class ImportOrExportMenu implements Runnable {
                         e.printStackTrace();
                     }
                 }
-                new Cards(cardName, level, type, ATK, DEF, description, price, style,kind);
+                new Cards(cardName, level, type, ATK, DEF, description, price, style, kind);
             }
         }
 

@@ -151,13 +151,13 @@ public class GameProgramController {
                 .getATK() > playerOpponent.getMonsterCardZone(addressNumber).getATK()) {
             playerOpponent.decreaseLifePoint(DuelMenu.getInstance().getCardZoneSelected()
                     .getATK() - playerOpponent.getMonsterCardZone(addressNumber).getATK());
-            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber).getCardName());
+            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber));
             playerOpponent.removeFromArrayList(playerOpponent.getMonsterCardZoneArray(), playerOpponent.getMonsterZone(),
                     playerOpponent.getMonsterCardZone(addressNumber));
         } else if (playerOpponent.getMonsterCardZone(addressNumber).equals("OO") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() == playerOpponent.getMonsterCardZone(addressNumber).getATK()) {
-            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber).getCardName());
-            playerCurrent.setCardsInGraveyard(DuelMenu.getInstance().getCardZoneSelected().getCardName());
+            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber));
+            playerCurrent.setCardsInGraveyard(DuelMenu.getInstance().getCardZoneSelected());
             playerCurrent.removeFromArrayList(playerCurrent.getMonsterCardZoneArray(), playerCurrent.getMonsterZone(), playerCurrent
                     .getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
             playerOpponent.removeFromArrayList(playerOpponent.getMonsterCardZoneArray(), playerOpponent.getMonsterZone(),
@@ -167,38 +167,35 @@ public class GameProgramController {
                 equals("OO") && DuelMenu.getInstance().getCardZoneSelected().getATK() < playerOpponent.getMonsterCardZone(addressNumber).getATK()) {
             playerCurrent.decreaseLifePoint(playerOpponent.getMonsterCardZone(addressNumber).getATK() - DuelMenu.getInstance().
                     getCardZoneSelected().getATK());
-            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected())
-                    .getCardName());
+            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
             playerCurrent.removeFromArrayList(playerCurrent.getMonsterCardZoneArray(), playerCurrent.getMonsterZone(), playerCurrent
                     .getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
         } else if (playerOpponent.getMonsterCardZone(addressNumber).equals("DO") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() > playerOpponent.getMonsterCardZone(addressNumber).getDEF()) {
             playerOpponent.decreaseLifePoint(DuelMenu.getInstance().getCardZoneSelected()
                     .getATK() - playerOpponent.getMonsterCardZone(addressNumber).getATK());
-            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber).getCardName());
+            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber));
             playerOpponent.removeFromArrayList(playerOpponent.getMonsterCardZoneArray(), playerOpponent.getMonsterZone(),
                     playerOpponent.getMonsterCardZone(addressNumber));
         } else if (playerOpponent.getMonsterCardZone(addressNumber).equals("DO") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() < playerOpponent.getMonsterCardZone(addressNumber).getDEF()) {
             playerCurrent.decreaseLifePoint(playerOpponent.getMonsterCardZone(addressNumber).getATK() - DuelMenu.getInstance().
                     getCardZoneSelected().getATK());
-            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected())
-                    .getCardName());
+            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
             playerCurrent.removeFromArrayList(playerCurrent.getMonsterCardZoneArray(), playerCurrent.getMonsterZone(), playerCurrent
                     .getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
         } else if (playerOpponent.getMonsterCardZone(addressNumber).equals("DH") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() > playerOpponent.getMonsterCardZone(addressNumber).getDEF()) {
             playerOpponent.decreaseLifePoint(DuelMenu.getInstance().getCardZoneSelected()
                     .getATK() - playerOpponent.getMonsterCardZone(addressNumber).getATK());
-            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber).getCardName());
+            playerOpponent.setCardsInGraveyard(playerOpponent.getMonsterCardZone(addressNumber));
             playerOpponent.removeFromArrayList(playerOpponent.getMonsterCardZoneArray(), playerOpponent.getMonsterZone(),
                     playerOpponent.getMonsterCardZone(addressNumber));
         } else if (playerOpponent.getMonsterCardZone(addressNumber).equals("DH") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() < playerOpponent.getMonsterCardZone(addressNumber).getDEF()) {
             playerCurrent.decreaseLifePoint(playerOpponent.getMonsterCardZone(addressNumber).getATK() - DuelMenu.getInstance().
                     getCardZoneSelected().getATK());
-            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected())
-                    .getCardName());
+            playerCurrent.setCardsInGraveyard(playerCurrent.getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
             playerCurrent.removeFromArrayList(playerCurrent.getMonsterCardZoneArray(), playerCurrent.getMonsterZone(), playerCurrent
                     .getMonsterCardZone(DuelMenu.duelMenu.getCardAddressNumberSelected()));
         }

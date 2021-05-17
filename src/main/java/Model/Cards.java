@@ -23,6 +23,20 @@ public class Cards {
         this.kind = kind;
     }
 
+    public void increaseATK(int ATK) {
+        this.ATK += ATK;
+    }
+    public void decreaseATK(int ATK) {
+        this.ATK -= ATK;
+    }
+
+    public void increaseDEF(int DEF) {
+        this.DEF += DEF;
+    }
+    public void decreaseDEF(int DEF) {
+        this.DEF -= DEF;
+    }
+
     public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind) {
         setCardName(cardName);
         setLevel(level);

@@ -3,9 +3,6 @@ package Model;
 import Controller.GameProgramController;
 
 public class Effects {
-    public void ringOfDefence() {
-
-    }
 
     public void yami(String opponent) {
         for (Cards card : Players.getPlayerByUsername(opponent).getMonsterCardZoneArray()) {
@@ -107,20 +104,8 @@ public class Effects {
         }
     }
 
-    public void trapHole() {
-
-    }
-
-    public void negateAttack() {
-
-    }
-
     public void solemnWarning(String turn) {
         Players.getPlayerByUsername(turn).decreaseLifePoint(2000);
-    }
-
-    public void magicJammer() {
-
     }
 
     public void callOfTheHaunted(String turn) {

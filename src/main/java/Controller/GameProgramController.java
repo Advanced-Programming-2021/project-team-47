@@ -242,6 +242,7 @@ public class GameProgramController {
             DuelMenu.getInstance().setShowTurn(game.getFirstPlayer());
             DuelMenu.getInstance().setShowOpponent(game.getSecondPlayer());
         }
+        DuelMenu.getInstance().getAttackedThisTurn().clear();
     }
 
     public void setPosition(String username, String position) {

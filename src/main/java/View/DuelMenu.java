@@ -29,6 +29,9 @@ public class DuelMenu implements Runnable {
     private ArrayList<MonsterCard> monsterCardZone;
 
 
+
+    private ArrayList<Cards>attackedThisTurn=new ArrayList<>();
+
     private static Phase phase;
 
     static {
@@ -137,13 +140,15 @@ public class DuelMenu implements Runnable {
         this.round = round;
     }
 
-
+    public ArrayList<Cards> getAttackedThisTurn() {
+        return attackedThisTurn;
+    }
 
     public void showGameBoard(String firstPlayer, String secondPlayer) {
 
     }
 
-    public void setSelectCard(String cardAddressSelected, int cardAddressNumberSelected) {
+    public void setSelectCard(Cards cardAddressSelected, int cardAddressNumberSelected) {
         setCardZoneSelected(cardAddressSelected);
         setCardAddressNumberSelected(cardAddressNumberSelected);
     }
@@ -371,11 +376,38 @@ public class DuelMenu implements Runnable {
         }
         System.out.println(Players.getPlayerByUsername(username).getCardsInGraveyard().size() + "                      " + fieldZone);
     }
+    public void gameBoardPrintOpponent(String username){
+        String fieldZone;
+        if (Players.getPlayerByUsername(username).getFieldZone().size() == 0) {
+            fieldZone = "E";
+        } else {
+            fieldZone = "O";
+        }
+        System.out.println(Players.getPlayerByUsername(username).getCardsInGraveyard().size() + "                      " + fieldZone);
+        for (int j = 0; j < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++j) {
+            System.out.print(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(j));
+            System.out.println("    ");
+        }
+        for (int z = 0; z < Players.getPlayerByUsername(username).getMonsterCardZoneArray().size(); ++z) {
+            System.out.print(Players.getPlayerByUsername(username).getMonsterCardZone(z));
+            System.out.println("    ");
+        }
+        System.out.println("    ");
+        System.out.println(Deck.getDeckByOwner(username).getAllCardsNumber());
+        System.out.println();
+        for (int i = 0; i < Players.getPlayerByUsername(username).getAllCardsInHandsArray().size(); ++i) {
+            System.out.print(Players.getPlayerByUsername(username).getCardsInHand(i));
+            System.out.println("    ");
+        }
+        System.out.println("    ");
+        System.out.println(Players.getPlayerByUsername(username).getNickname() + ":" + Players.
+                getPlayerByUsername(username).getLifePoint());
 
+    }
     public void gameBoard(String firstPlayer, String secondPlayer) {
         gameBoardPrint(firstPlayer);
         System.out.println("--------------------------");
-        gameBoardPrint(secondPlayer);
+        gameBoardPrintOpponent(secondPlayer);
     }
 
     static class commandChecker {
@@ -462,8 +494,14 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.cantAttackWithThisCard);
                 else if (!duelMenu.getPhase().equals(Phase.BATTLE_PHASE))
                     System.out.println(Response.cantDoActionInThisPhase);
-
-
+                else if (duelMenu.getAttackedThisTurn().contains(duelMenu.getCardZoneSelected()))
+                    System.out.println(Response.alreadyAttacked);
+                else {
+                    Players.getPlayerByUsername(duelMenu.showOpponent).decreaseLifePoint
+                            (duelMenu.getCardZoneSelected().getATK());
+                    System.out.println("you opponent receives "+duelMenu.getCardZoneSelected()
+                            .getATK()+" battale damage");
+                }
             }
         }
 

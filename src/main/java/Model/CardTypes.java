@@ -6,7 +6,7 @@ public enum CardTypes {
     TRAP_CARD(3);
     public final int label;
 
-    public int getType() {
+    public int getLabel() {
         return label;
     }
     CardTypes(int label){this.label=label;}

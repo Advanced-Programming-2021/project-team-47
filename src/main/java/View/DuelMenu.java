@@ -17,7 +17,7 @@ public class DuelMenu implements Runnable {
     private String firstPlayer;
     private String secondPlayer;
     private ArrayList<Cards> cardsInHand = new ArrayList<>();
-    private Cards selectedCard;
+    private Cards selectedCard = null;
     private Cards summonedCard;
     private Cards setCard;
     private String showTurn;
@@ -27,9 +27,8 @@ public class DuelMenu implements Runnable {
     private int cardAddressNumberSelected;
     private static ArrayList<Phase> phaseChanger = new ArrayList<>();
     private ArrayList<MonsterCard> monsterCardZone;
-
-
-    private static Phase phase;
+    private ArrayList<Integer> toRemoveForRitual = new ArrayList<>();
+    private State state;
 
     static {
         phaseChanger.add(Phase.DRAW_PHASE);
@@ -46,8 +45,9 @@ public class DuelMenu implements Runnable {
         }
         return duelMenu;
     }
-    private ArrayList<MonsterCard> monsterCardZone;
-    private Phase phase=Phase.MAIN_PHASE1;
+
+    private static Phase phase = Phase.MAIN_PHASE1;
+
     public void run(String command) {
         commandMap.put(Regex.SELECT_MONSTER.label, DuelMenu.commandChecker::selectMonster);
         commandMap.put(Regex.SELECT_SPELL_AND_TRAP.label, DuelMenu.commandChecker::selectSpellAndTrap);
@@ -138,7 +138,6 @@ public class DuelMenu implements Runnable {
     }
 
 
-
     public void showGameBoard(String firstPlayer, String secondPlayer) {
 
     }
@@ -178,7 +177,6 @@ public class DuelMenu implements Runnable {
     }
 
 
-
     public ArrayList<Cards> getCardsInHand() {
         return cardsInHand;
     }
@@ -198,37 +196,39 @@ public class DuelMenu implements Runnable {
     public void setShowTurn(String showTurn) {
         this.showTurn = showTurn;
     }
-    public void setPhaseByKey(int key){
-        if (key==1) {
+
+    public void setPhaseByKey(int key) {
+        if (key == 1) {
             this.phase = Phase.MAIN_PHASE1;
             return;
         }
-        if (key==2) {
+        if (key == 2) {
             this.phase = Phase.MAIN_PHASE2;
             return;
         }
-        if (key==3) {
+        if (key == 3) {
             this.phase = Phase.DRAW_PHASE;
             return;
         }
-        if (key==4) {
+        if (key == 4) {
             this.phase = Phase.STANDBY_PHASE;
             return;
         }
-        if (key==5) {
+        if (key == 5) {
             this.phase = Phase.BATTLE_PHASE;
             return;
         }
-        if (key==6) {
+        if (key == 6) {
             this.phase = Phase.END_PHASE;
 
         }
     }
-    public void nextPhase(){
-        Phase currentPhase=DuelMenu.getInstance().getPhase();
-        this.setPhaseByKey(currentPhase.getKey()+1);
-        String currentPhaseLabel=this.getPhase().getlabel();
-        System.out.println("Phase : "+currentPhase+currentPhaseLabel);
+
+    public void nextPhase() {
+        Phase currentPhase = DuelMenu.getInstance().getPhase();
+        this.setPhaseByKey(currentPhase.getKey() + 1);
+        String currentPhaseLabel = this.getPhase().getLabel();
+        System.out.println("Phase : " + currentPhase + currentPhaseLabel);
     }
 
     public void setPhase(Phase phase) {
@@ -237,44 +237,45 @@ public class DuelMenu implements Runnable {
 
     public void summonCard() {
 
-        if (this.getSelectedCard()==null) {
+        if (this.getSelectedCard() == null) {
             System.out.println(Response.notCardSelected);
             return;
         }
-        if (!(this.getSelectedCard() instanceof MonsterCard)){
+        if (!(this.getSelectedCard() instanceof MonsterCard)) {
             System.out.println(Response.cantSummon);
             return;
         }
-        Cards hold=this.getSelectedCard();
+        Cards hold = this.getSelectedCard();
         this.setSelectedCard((MonsterCard) hold);
         if (!this.getCardsInHand().contains(selectedCard)
-        || !((MonsterCard) this.getSelectedCard()).isNormalSummonValid()){
+                || !((MonsterCard) this.getSelectedCard()).isNormalSummonValid()) {
             System.out.println(Response.cantSummon);
             return;
         }
-        if(this.getPhase() != Phase.MAIN_PHASE1 && this.getPhase() != Phase.MAIN_PHASE2){
+        if (this.getPhase() != Phase.MAIN_PHASE1 && this.getPhase() != Phase.MAIN_PHASE2) {
             System.out.println(Response.cantDoActionInThisPhase);
             return;
         }
-        if (this.getMonsterCardZone().size()>4){
+        if (this.getMonsterCardZone().size() > 4) {
             System.out.println(Response.monsterCardZoneFull);
             return;
         }
-        if(this.summonedCard!=null){
+        if (this.summonedCard != null
+                || this.setCard != null) {
             System.out.println(Response.alreadySummonedOrSet);
             return;
         }
 
-        if (this.selectedCard.getLevel() <= 4){
+        if (this.selectedCard.getLevel() <= 4) {
             this.setSummonedCard(selectedCard);
-            monsterCardZone.add((MonsterCard)selectedCard);
+            monsterCardZone.add((MonsterCard) selectedCard);
             System.out.println(Response.summonedSuccessfully);
-            selectedCard=null;
-            summonedCard=null;
-            setCard=null;
+            selectedCard = null;
+            summonedCard = null;
+            setCard = null;
             return;
         }
-        if (this.selectedCard.getLevel()<7) {
+        if (this.selectedCard.getLevel() < 7) {
             if (this.getMonsterCardZone().size() == 0) {
                 System.out.println(Response.notEnoughCardForTribute);
                 return;
@@ -286,13 +287,13 @@ public class DuelMenu implements Runnable {
             }
             System.out.println(Response.summonedSuccessfully);
             this.getMonsterCardZone().remove(toBeTributed);
-            this.getMonsterCardZone().add((MonsterCard)selectedCard);
-            selectedCard=null;
-            summonedCard=null;
-            setCard=null;
+            this.getMonsterCardZone().add((MonsterCard) selectedCard);
+            selectedCard = null;
+            summonedCard = null;
+            setCard = null;
             return;
         }
-        if (this.getMonsterCardZone().size()<2){
+        if (this.getMonsterCardZone().size() < 2) {
             System.out.println(Response.notEnoughCardForTribute);
             return;
         }
@@ -300,20 +301,102 @@ public class DuelMenu implements Runnable {
         int toBeTributedSecond = GameProgramController.scanner.nextInt();
 
         if (this.getMonsterCardZone().get(toBeTributedFirst) == null
-        || this.getMonsterCardZone().get(toBeTributedSecond) == null) {
+                || this.getMonsterCardZone().get(toBeTributedSecond) == null) {
             System.out.println(Response.noMonsterOnOneOfAddress);
             return;
         }
         System.out.println(Response.summonedSuccessfully);
         this.getMonsterCardZone().remove(toBeTributedFirst);
         this.getMonsterCardZone().remove(toBeTributedSecond);
-        this.getMonsterCardZone().add((MonsterCard)selectedCard);
-        selectedCard=null;
-        summonedCard=null;
-        setCard=null;
+        this.getMonsterCardZone().add((MonsterCard) selectedCard);
+        selectedCard = null;
+        summonedCard = null;
+        setCard = null;
     }
 
+    public void setState(State state) {
+        this.state = state;
+    }
 
+    public State getState() {
+        return state;
+    }
+
+    public void flipSummon() {
+        if (this.selectedCard == null) {
+            System.out.println(Response.notCardSelected);
+            return;
+        }
+        if (!monsterCardZone.contains(selectedCard)) {
+            System.out.println(Response.cantChangeCardPosition);
+            return;
+        }
+        if (this.getPhase() != Phase.MAIN_PHASE1
+                && this.getPhase() != Phase.MAIN_PHASE2) {
+            System.out.println(Response.cantDoActionInThisPhase);
+            return;
+        }
+        if (state != State.DH) {
+            System.out.println(Response.cantFlipSummonCard);
+            return;
+        }
+        setState(State.OO);
+        System.out.println(Response.flipSummonCardSuccessfully);
+    }
+
+    public void ritualSummon() {
+        int toCheck = 0;
+        ArrayList<Cards> ritualMonsterCards = new ArrayList<>();
+        for (int i = 0; i < this.getCardsInHand().size(); i++) {
+            if (this.getCardsInHand().get(i).getRitual()) {
+                toCheck++;
+                ritualMonsterCards.add(this.getCardsInHand().get(i));
+            }
+        }
+        int n = this.getCardsInHand().size();
+        boolean canRitualSummon = false;
+        for (int i = 0; i < (1 << n); i++) {
+            ArrayList<Cards> cardsInHandSubsets = new ArrayList<>();
+            for (int j = 0; j < n; j++)
+
+
+                if ((i & (1 << j)) > 0)
+                    cardsInHandSubsets.add(getCardsInHand().get(j));
+
+            int levelSub = 0;
+            for (Cards card : cardsInHandSubsets) {
+                levelSub += card.getLevel();
+            }
+            for (Cards card : ritualMonsterCards) {
+                if (card.getLevel() == levelSub) {
+                    canRitualSummon = true;
+                    break;
+                }
+            }
+        }
+        if (toCheck == 0
+                || !canRitualSummon) {
+            System.out.println(Response.noWayCouldRitualSummonMonster);
+            return;
+        }
+        int sum=0;
+        for (Integer i : toRemoveForRitual
+        ) {
+            sum+=this.getMonsterCardZone().get(i).getLevel();
+        }
+        if (sum!=selectedCard.getLevel()){
+            System.out.println(Response.dontMatchLevels);
+            setToRemoveForRitual();
+            return;
+        }
+
+
+
+    }
+
+    public void setToRemoveForRitual(int i) {
+        toRemoveForRitual.add(i);
+    }
 
     public Phase getPhase() {
         return phase;
@@ -382,9 +465,9 @@ public class DuelMenu implements Runnable {
         static void nextPhase(Matcher matcher) {
             if (matcher.find()) {
                 for (int i = 0; i < DuelMenu.phaseChanger.size(); i++) {
-                    if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i != DuelMenu.phaseChanger.size()-1)
+                    if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i != DuelMenu.phaseChanger.size() - 1)
                         duelMenu.setPhase(DuelMenu.phaseChanger.get(i + 1));
-                    else if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i == DuelMenu.phaseChanger.size()-1)
+                    else if (duelMenu.getPhase().equals(DuelMenu.phaseChanger.get(i)) && i == DuelMenu.phaseChanger.size() - 1)
                         duelMenu.setPhase(DuelMenu.phaseChanger.get(0));
                 }
             }

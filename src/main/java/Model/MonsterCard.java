@@ -7,6 +7,6 @@ public class MonsterCard extends Cards {
     }
 
     public boolean isNormalSummonValid(){
-
+        if (this.)
     }
 }

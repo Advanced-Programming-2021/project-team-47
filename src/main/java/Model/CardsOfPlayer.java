@@ -9,7 +9,6 @@ public class CardsOfPlayer {
     private String face;
     private String cardName;
     private int addressNumber;
-    private
     public CardsOfPlayer(Zones zones, String mode, String face, String cardName, int addressNumber) {
         setZones(zones);
         setMode(mode);

@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d9eff1-5dfa-4a21-bd1b-25a702767475" name="Default Changelist" comment="add Effects.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add ExportCard functions">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -185,13 +183,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -241,11 +241,15 @@
       <workItem from="1620936305116" duration="39000" />
       <workItem from="1620938898213" duration="20000" />
       <workItem from="1620986905646" duration="2937000" />
-      <workItem from="1621082645907" duration="15704000" />
-      <workItem from="1621189202556" duration="19000" />
-      <workItem from="1621189232816" duration="9171000" />
       <workItem from="1621082645907" duration="14854000" />
       <workItem from="1621252499398" duration="2749000" />
+    </task>
+    <task id="LOCAL-00001" summary="All files">
+      <created>1619018821009</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619018821009</updated>
     </task>
     <task id="LOCAL-00002" summary="Other files">
       <created>1619019440156</created>
@@ -583,14 +587,7 @@
       <option name="project" value="LOCAL" />
       <updated>1620988378416</updated>
     </task>
-    <task id="LOCAL-00050" summary="GameProgramController fix and some changes in DuelMenu and Players">
-      <created>1621114766756</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1621114766756</updated>
-    </task>
-    <option name="localTasksCounter" value="51" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,6 +619,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Deck isDeckValid + getNumberOfCards" />
     <MESSAGE value="DuelMenu update" />
     <MESSAGE value="Players mainDeck , sideDeck  (+ setter and getter)" />
     <MESSAGE value="players debug" />
@@ -646,8 +644,7 @@
     <MESSAGE value="++" />
     <MESSAGE value="Add Database (Cards)" />
     <MESSAGE value="Add ExportCard functions" />
-    <MESSAGE value="GameProgramController fix and some changes in DuelMenu and Players" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameProgramController fix and some changes in DuelMenu and Players" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ExportCard functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

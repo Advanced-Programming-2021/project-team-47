@@ -11,27 +11,38 @@ public class Cards {
     private int ATK;
     private int DEF;
     private int price;
+    private String kind;
     private String description;
     private boolean visible;
 
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style) {
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
         setATK(ATK);
         setStyle(style);
         setDEF(DEF);
+        setKind(kind);
         setDescription(description);
         setPrice(price);
         allCards.add(this);
     }
+
     private boolean isRitual;
 
     public void setRitual(boolean ritual) {
         isRitual = ritual;
     }
 
-    public boolean getRitual(){
+    public boolean getRitual() {
         return isRitual;
     }
 

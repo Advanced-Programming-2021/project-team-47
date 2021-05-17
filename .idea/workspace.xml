@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add Effects methods">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Effects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Effects.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Fix Effects methods" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,15 +176,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -239,13 +234,6 @@
       <workItem from="1620986905646" duration="2937000" />
       <workItem from="1621082645907" duration="14854000" />
       <workItem from="1621252499398" duration="2749000" />
-    </task>
-    <task id="LOCAL-00003" summary="Other files">
-      <created>1619077499621</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1619077499621</updated>
     </task>
     <task id="LOCAL-00004" summary="debug menu detection">
       <created>1619223481824</created>
@@ -583,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621267745826</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Fix Effects methods">
+      <created>1621268884333</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1621268884333</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +610,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Players mainDeck , sideDeck  (+ setter and getter)" />
     <MESSAGE value="players debug" />
     <MESSAGE value="Deck isDeckValid update" />
     <MESSAGE value="DuelMenu startTwoPlayerDuel update" />
@@ -640,7 +634,8 @@
     <MESSAGE value="Add ExportCard functions" />
     <MESSAGE value="Fix ImportOrExportMenu + Add kind of cards" />
     <MESSAGE value="Add Effects methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Effects methods" />
+    <MESSAGE value="Fix Effects methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Effects methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

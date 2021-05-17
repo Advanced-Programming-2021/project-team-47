@@ -1,8 +1,10 @@
-package Model;
+package Controller;
 
 import Controller.GameProgramController;
+import Model.Cards;
+import Model.Players;
 
-public class Effects {
+public class EffectController {
 
     public void yami(String opponent) {
         for (Cards card : Players.getPlayerByUsername(opponent).getMonsterCardZoneArray()) {

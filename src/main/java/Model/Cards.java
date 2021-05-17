@@ -25,6 +25,15 @@ public class Cards {
         setPrice(price);
         allCards.add(this);
     }
+    private boolean isRitual;
+
+    public void setRitual(boolean ritual) {
+        isRitual = ritual;
+    }
+
+    public boolean getRitual(){
+        return isRitual;
+    }
 
     public static Cards getCardByName(String cardName) {
         for (Cards cards : allCards) {

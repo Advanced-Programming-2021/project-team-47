@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="GameProgramController fix and some changes in DuelMenu and Players">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Effects.java" afterDir="false" />
+    <list default="true" id="96d9eff1-5dfa-4a21-bd1b-25a702767475" name="Default Changelist" comment="add Effects.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,6 +244,8 @@
       <workItem from="1621082645907" duration="15704000" />
       <workItem from="1621189202556" duration="19000" />
       <workItem from="1621189232816" duration="9171000" />
+      <workItem from="1621082645907" duration="14854000" />
+      <workItem from="1621252499398" duration="2749000" />
     </task>
     <task id="LOCAL-00002" summary="Other files">
       <created>1619019440156</created>

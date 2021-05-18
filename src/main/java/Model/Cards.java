@@ -14,7 +14,8 @@ public class Cards {
     private String kind;
     private String description;
     private boolean visible;
-
+    private boolean canSummon=true;
+    private boolean attackable;
     public String getKind() {
         return kind;
     }
@@ -36,6 +37,18 @@ public class Cards {
     public void decreaseDEF(int DEF) {
         this.DEF -= DEF;
     }
+    public boolean canRitualSummon = false;
+
+    public void canRitualSummon() {
+        this.canRitualSummon = true;
+    }
+    public boolean getCanRitualSummon(){
+        return this.canRitualSummon;
+    }
+
+    public void setCanSummon(boolean canSummon) {
+        this.canSummon = canSummon;
+    }
 
     public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind) {
         setCardName(cardName);
@@ -47,6 +60,23 @@ public class Cards {
         setKind(kind);
         setDescription(description);
         setPrice(price);
+        allCards.add(this);
+        if (cardName=="Gate Guardian"){
+            setCanSummon(false);
+        }
+    }
+
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind , boolean canRitualSummon) {
+        setCardName(cardName);
+        setLevel(level);
+        setType(type);
+        setATK(ATK);
+        setStyle(style);
+        setDEF(DEF);
+        setKind(kind);
+        setDescription(description);
+        setPrice(price);
+        canRitualSummon();
         allCards.add(this);
     }
 
@@ -139,5 +169,11 @@ public class Cards {
 
     public void setStyle(CardTypes style) {
         this.style = style;
+    }
+    public boolean getAttackable(){
+        return this.attackable;
+    }
+    public void setAttackable(boolean b) {
+        attackable=b;
     }
 }

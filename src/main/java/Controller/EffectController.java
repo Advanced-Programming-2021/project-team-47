@@ -2,7 +2,11 @@ package Controller;
 
 import Controller.GameProgramController;
 import Model.Cards;
+import Model.MonsterCard;
 import Model.Players;
+import View.DuelMenu;
+
+import java.util.ArrayList;
 
 public class EffectController {
 
@@ -113,4 +117,57 @@ public class EffectController {
     public void callOfTheHaunted(String turn) {
         GameProgramController.getInstance().summon(turn);
     }
+
+    public void commandKnight(String turn){
+        for (Cards card : Players.getPlayerByUsername(turn).getMonsterCardZoneArray()
+             ) {
+            Players.getPlayerByUsername(turn).increaseATK(card);
+        }
+        while (Players.getPlayerByUsername(turn).getMonsterCardZoneArray().size()>1){
+            Cards.getCardByName("command Knight").setAttackable(false);
+        }
+    }
+
+    public void yomiShip(String opponent ,MonsterCard attackingCard){
+        Cards thisCard=Cards.getCardByName("yomi ship");
+        if (attackingCard.getATK()>thisCard.getDEF()){
+            Players.getPlayerByUsername(opponent).getMonsterCardZoneArray().remove(attackingCard);
+        }
+    }
+
+    public void suijin(String opponent , MonsterCard attackingCard){
+        int repeat=0;
+        int originalATK = attackingCard.getATK();
+        if (repeat == 0) {
+
+            attackingCard.setATK(0);
+            repeat += 1;
+        }
+        attackingCard.setATK(originalATK);
+
+    }
+
+    public void crabTurtle(){
+        Cards.getCardByName("crab Turtle").canRitualSummon();
+    }
+
+    public void skullGuardian(){
+        Cards.getCardByName("skull Guardian").canRitualSummon();
+    }
+    public void manEaterBug(String opponent ,Cards card){
+        Players.getPlayerByUsername(opponent).getMonsterCardZoneArray().remove(card);
+    }
+
+    public void gateGuardian(String turn, ArrayList<MonsterCard> toBeSacirfised){
+        for (MonsterCard card:toBeSacirfised
+             ) {
+            Players.getPlayerByUsername(turn).getMonsterCardZoneArray().remove(card);
+        }
+        Cards.getCardByName("Gate Guardian").setCanSummon(true);
+    }
+
+    public void scannerCard(String turn , String opponent,Cards cards){
+        Players.getPlayerByUsername(turn).putInMonsterZone(cards,cards.getCardName());
+    }
+
 }

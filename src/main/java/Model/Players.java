@@ -42,6 +42,14 @@ public class Players {
         cardsArrayList.remove(cards);
         cardsHashMap.remove(cards);
     }
+
+    public void increaseATK(Cards card){
+        int originalATK=card.getATK();
+        while (this.getMonsterCardZoneArray().contains(card)){
+            card.setATK(originalATK+400);
+        }
+        card.setATK(originalATK);
+    }
     public void putInMonsterZone(Cards cards, String cardSymbol) {
         monsterZone.put(cards, cardSymbol);
     }

@@ -61,7 +61,7 @@ public class GameProgramController {
         scoreSorting.sort(Comparator.comparing(Players::getScore)
                 .thenComparing(Players::getUsername));
         ArrayList<String> scoreSortingUsernames = new ArrayList<>();
-        for (Players players : scoreSorting) {
+       for (Players players : scoreSorting) {
             scoreSortingUsernames.add(players.getUsername());
         }
         return scoreSortingUsernames;

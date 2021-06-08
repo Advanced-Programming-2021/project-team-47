@@ -61,7 +61,7 @@ public class Cards {
         setDescription(description);
         setPrice(price);
         allCards.add(this);
-        if (cardName=="Gate Guardian"){
+        if (cardName.equals("Gate Guardian")){
             setCanSummon(false);
         }
     }

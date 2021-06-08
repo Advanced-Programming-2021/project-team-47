@@ -6,6 +6,7 @@ public enum Regex {
     LOGIN(Pattern.compile("^user login (--password (?:[\\s\\S]+)|--username (?:[\\s\\S]+)) (--password (?:[\\s\\S]+)|--username (?:[\\s\\S]+))$")),
     MENU_ENTER(Pattern.compile("^menu enter ([^\\d]+)$")),
     MENU_EXIT(Pattern.compile("^menu exit$")),
+    CANCEL(Pattern.compile("^cancel$")),
     SHOW_CURRENT_MENU(Pattern.compile("^menu show-current$")),
     CREATE_USER(Pattern.compile("^user create (--password (?:[\\s\\S]+)|--nickname (?:[\\s\\S]+)|--username (?:[\\s\\S]+)) (--password (?:[\\s\\S]+)|--nickname (?:[\\s\\S]+)|--username (?:[\\s\\S]+)) (--password (?:[\\s\\S]+)|--nickname (?:[\\s\\S]+)|--username (?:[\\s\\S]+))$")),
     LOGOUT(Pattern.compile("^user logout$")),

@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameProgramController;
+import Controller.MenuProgramController;
 import Controller.Regex;
 import Model.*;
 
@@ -14,22 +15,20 @@ import java.util.regex.Pattern;
 public class DuelMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static DuelMenu duelMenu;
-    private String firstPlayer;
-    private String secondPlayer;
+    private Players firstPlayer;
+    private Players secondPlayer;
     private ArrayList<Cards> cardsInHand = new ArrayList<>();
     private Cards selectedCard;
     private Cards summonedCard;
     private Cards setCard;
-    private String showTurn;
-    private String showOpponent;
+    private Players showTurn;
+    private Players showOpponent;
     private int round;
+    private static int thisRound = 0;
     private Cards cardZoneSelected;
     private int cardAddressNumberSelected;
     private static ArrayList<Phase> phaseChanger = new ArrayList<>();
     private ArrayList<MonsterCard> monsterCardZone;
-
-
-    private static Phase phase;
 
     static {
         phaseChanger.add(Phase.DRAW_PHASE);
@@ -46,10 +45,17 @@ public class DuelMenu implements Runnable {
         }
         return duelMenu;
     }
-    private ArrayList<MonsterCard> monsterCardZone;
-    private Phase phase=Phase.MAIN_PHASE1;
+
+    private static Phase phase = Phase.MAIN_PHASE1;
+
     public void run(String command) {
         commandMap.put(Regex.SELECT_MONSTER.label, DuelMenu.commandChecker::selectMonster);
+        commandMap.put(Regex.SUMMON.label, DuelMenu.commandChecker::summonCard);
+        commandMap.put(Regex.DESELECT.label, DuelMenu.commandChecker::deselect);
+        commandMap.put(Regex.ATTACK.label, DuelMenu.commandChecker::attackMonster);
+        commandMap.put(Regex.SURRENDER.label, DuelMenu.commandChecker::surrender);
+        commandMap.put(Regex.CANCEL.label, DuelMenu.commandChecker::cancel);
+        commandMap.put(Regex.FLIP_SUMMON.label, DuelMenu.commandChecker::flipSummon);
         commandMap.put(Regex.SELECT_SPELL_AND_TRAP.label, DuelMenu.commandChecker::selectSpellAndTrap);
         commandMap.put(Regex.SELECT_OPPONENT_MONSTER.label, DuelMenu.commandChecker::selectOpponentMonster);
         commandMap.put(Regex.SELECT_OPPONENT_SPELL.label, DuelMenu.commandChecker::selectOpponentSpell);
@@ -59,17 +65,33 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);
         commandMap.put(Regex.ACTIVE_EFFECT.label, DuelMenu.commandChecker::activeEffect);
         commandMap.put(Regex.SET.label, DuelMenu.commandChecker::set);
+        commandMap.put(Regex.DUEL_WIN.label, DuelMenu.commandChecker::setWinner);
+        commandMap.put(Regex.SHOW_SELECT_CARDS.label, DuelMenu.commandChecker::showSelectedCard);
+        commandMap.put(Regex.SET_POSITION.label, DuelMenu.commandChecker::setPosition);
         commandMap.put(Regex.SHOW_GRAVEYARD.label, DuelMenu.commandChecker::showGraveyard);
         commandMap.put(Regex.DUEL_PLAYER.label, DuelMenu.commandChecker::startTwoPlayerDuel);
         commandMap.put(Regex.DUEL_AI.label, DuelMenu.commandChecker::startTwoPlayerDuel);
         commandMap.put(Regex.NEXT_PHASE.label, DuelMenu.commandChecker::nextPhase);
-
+        commandMap.put(Regex.INCREASE_MONEY.label, DuelMenu.commandChecker::increaseMoney);
+        commandMap.put(Regex.INCREASE_LP.label, DuelMenu.commandChecker::increaseLP);
     }
 
     public void takeCommand(String command) {
+        if (thisRound == 1 || thisRound == 3) {
+            if (showTurn.getLifePoint() <= 0) {
+                ++thisRound;
+                System.out.println("Game Ended");
+                GameProgramController.getInstance().rewards(showOpponent, showTurn, round);
+            } else if (showOpponent.getLifePoint() <= 0) {
+                ++thisRound;
+                System.out.println("Game Ended");
+                GameProgramController.getInstance().rewards(showTurn, showOpponent, round);
+            }
+        }
         for (Pattern commandReg : commandMap.keySet())
             if (command.matches(commandReg.pattern())) {
                 commandMap.get(commandReg).accept(commandReg.matcher(command));
+                gameBoard(firstPlayer, secondPlayer);
                 return;
             }
         System.out.println("invalid command");
@@ -105,27 +127,27 @@ public class DuelMenu implements Runnable {
         return monsterCardZone;
     }
 
-    public String getFirstPlayer() {
+    public Players getFirstPlayer() {
         return firstPlayer;
     }
 
-    public void setFirstPlayer(String firstPlayer) {
+    public void setFirstPlayer(Players firstPlayer) {
         this.firstPlayer = firstPlayer;
     }
 
-    public String getSecondPlayer() {
+    public Players getSecondPlayer() {
         return secondPlayer;
     }
 
-    public void setSecondPlayer(String secondPlayer) {
+    public void setSecondPlayer(Players secondPlayer) {
         this.secondPlayer = secondPlayer;
     }
 
-    public String getShowOpponent() {
+    public Players getShowOpponent() {
         return showOpponent;
     }
 
-    public void setShowOpponent(String showOpponent) {
+    public void setShowOpponent(Players showOpponent) {
         this.showOpponent = showOpponent;
     }
 
@@ -141,10 +163,6 @@ public class DuelMenu implements Runnable {
         return attackedThisTurn;
     }
 
-    public void showGameBoard(String firstPlayer, String secondPlayer) {
-
-    }
-
     public void setSelectCard(Cards cardAddressSelected, int cardAddressNumberSelected) {
         setCardZoneSelected(cardAddressSelected);
         setCardAddressNumberSelected(cardAddressNumberSelected);
@@ -155,9 +173,6 @@ public class DuelMenu implements Runnable {
         setCardAddressNumberSelected(0);
     }
 
-    public void setWinner() {
-
-    }
 
     public void cheatSelectCardHand() {
 
@@ -192,11 +207,11 @@ public class DuelMenu implements Runnable {
         return setCard;
     }
 
-    public String getShowTurn() {
+    public Players getShowTurn() {
         return showTurn;
     }
 
-    public void setShowTurn(String showTurn) {
+    public void setShowTurn(Players showTurn) {
         this.showTurn = showTurn;
     }
 
@@ -236,85 +251,6 @@ public class DuelMenu implements Runnable {
 
     public void setPhase(Phase phase) {
         this.phase = phase;
-    }
-
-    public void summonCard() {
-
-        if (this.getSelectedCard() == null) {
-            System.out.println(Response.notCardSelected);
-            return;
-        }
-        if (!(this.getSelectedCard() instanceof MonsterCard)) {
-            System.out.println(Response.cantSummon);
-            return;
-        }
-        Cards hold = this.getSelectedCard();
-        this.setSelectedCard((MonsterCard) hold);
-        if (!this.getCardsInHand().contains(selectedCard)
-                || !((MonsterCard) this.getSelectedCard()).isNormalSummonValid()) {
-            System.out.println(Response.cantSummon);
-            return;
-        }
-        if (this.getPhase() != Phase.MAIN_PHASE1 && this.getPhase() != Phase.MAIN_PHASE2) {
-            System.out.println(Response.cantDoActionInThisPhase);
-            return;
-        }
-        if (this.getMonsterCardZone().size() > 4) {
-            System.out.println(Response.monsterCardZoneFull);
-            return;
-        }
-        if (this.summonedCard != null
-                || this.setCard != null) {
-            System.out.println(Response.alreadySummonedOrSet);
-            return;
-        }
-
-        if (this.selectedCard.getLevel() <= 4) {
-            this.setSummonedCard(selectedCard);
-            monsterCardZone.add((MonsterCard) selectedCard);
-            System.out.println(Response.summonedSuccessfully);
-            selectedCard = null;
-            summonedCard = null;
-            setCard = null;
-            return;
-        }
-        if (this.selectedCard.getLevel() < 7) {
-            if (this.getMonsterCardZone().size() == 0) {
-                System.out.println(Response.notEnoughCardForTribute);
-                return;
-            }
-            int toBeTributed = GameProgramController.scanner.nextInt();
-            if (this.getMonsterCardZone().get(toBeTributed) == null) {
-                System.out.println(Response.noMonsterOnThisAddress);
-                return;
-            }
-            System.out.println(Response.summonedSuccessfully);
-            this.getMonsterCardZone().remove(toBeTributed);
-            this.getMonsterCardZone().add((MonsterCard) selectedCard);
-            selectedCard = null;
-            summonedCard = null;
-            setCard = null;
-            return;
-        }
-        if (this.getMonsterCardZone().size() < 2) {
-            System.out.println(Response.notEnoughCardForTribute);
-            return;
-        }
-        int toBeTributedFirst = GameProgramController.scanner.nextInt();
-        int toBeTributedSecond = GameProgramController.scanner.nextInt();
-
-        if (this.getMonsterCardZone().get(toBeTributedFirst) == null
-                || this.getMonsterCardZone().get(toBeTributedSecond) == null) {
-            System.out.println(Response.noMonsterOnOneOfAddress);
-            return;
-        }
-        System.out.println(Response.summonedSuccessfully);
-        this.getMonsterCardZone().remove(toBeTributedFirst);
-        this.getMonsterCardZone().remove(toBeTributedSecond);
-        this.getMonsterCardZone().add((MonsterCard) selectedCard);
-        selectedCard = null;
-        summonedCard = null;
-        setCard = null;
     }
 
     public void setState(State state) {
@@ -382,17 +318,16 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.noWayCouldRitualSummonMonster);
             return;
         }
-        int sum=0;
+        int sum = 0;
         for (Integer i : toRemoveForRitual
         ) {
-            sum+=this.getMonsterCardZone().get(i).getLevel();
+            sum += this.getMonsterCardZone().get(i).getLevel();
         }
-        if (sum!=selectedCard.getLevel()){
+        if (sum != selectedCard.getLevel()) {
             System.out.println(Response.dontMatchLevels);
             setToRemoveForRitual();
             return;
         }
-
 
 
     }
@@ -431,63 +366,96 @@ public class DuelMenu implements Runnable {
         this.cardAddressNumberSelected = cardAddressNumberSelected;
     }
 
-    public void gameBoardPrint(String username) {
-        System.out.println(Players.getPlayerByUsername(username).getNickname() + ":" + Players.getPlayerByUsername(username).getLifePoint());
+    public void gameBoardPrint(Players username) {
+        System.out.println(Players.getPlayerByUsername(username.getUsername()).getNickname() + ":" + Players.getPlayerByUsername(username.getUsername()).getLifePoint());
         System.out.println("    ");
-        for (int i = 0; i < Players.getPlayerByUsername(username).getAllCardsInHandsArray().size(); ++i) {
-            System.out.print(Players.getPlayerByUsername(username).getCardsInHand(i));
+        for (int i = 0; i < Players.getPlayerByUsername(username.getUsername()).getAllCardsInHandsArray().size(); ++i) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getCardsInHand(i));
             System.out.println("    ");
         }
         System.out.println();
         System.out.println(Deck.getDeckByOwner(username).getAllCardsNumber());
         System.out.println("    ");
-        for (int z = 0; z < Players.getPlayerByUsername(username).getMonsterCardZoneArray().size(); ++z) {
-            System.out.print(Players.getPlayerByUsername(username).getMonsterCardZone(z));
+        for (int z = 0; z < Players.getPlayerByUsername(username.getUsername()).getMonsterCardZoneArray().size(); ++z) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getMonsterCardZone(z));
             System.out.println("    ");
         }
-        for (int j = 0; j < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++j) {
-            System.out.print(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(j));
+        for (int j = 0; j < Players.getPlayerByUsername(username.getUsername()).getSpellCardZone().size(); ++j) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getSpellCardZoneByCoordinate(j));
             System.out.println("    ");
         }
         String fieldZone;
-        if (Players.getPlayerByUsername(username).getFieldZone().size() == 0) {
+        if (Players.getPlayerByUsername(username.getUsername()).getFieldZone().size() == 0) {
             fieldZone = "E";
         } else {
             fieldZone = "O";
         }
-        System.out.println(Players.getPlayerByUsername(username).getCardsInGraveyard().size() + "                      " + fieldZone);
+        System.out.println(Players.getPlayerByUsername(username.getUsername()).getCardsInGraveyard().size() + "                      " + fieldZone);
     }
-    public void gameBoardPrintOpponent(String username){
+
+    public void gameBoardPrintOpponent(Players username) {
         String fieldZone;
-        if (Players.getPlayerByUsername(username).getFieldZone().size() == 0) {
+        if (Players.getPlayerByUsername(username.getUsername()).getFieldZone().size() == 0) {
             fieldZone = "E";
         } else {
             fieldZone = "O";
         }
-        System.out.println(Players.getPlayerByUsername(username).getCardsInGraveyard().size() + "                      " + fieldZone);
-        for (int j = 0; j < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++j) {
-            System.out.print(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(j));
+        System.out.println(Players.getPlayerByUsername(username.getUsername()).getCardsInGraveyard().size() + "                      " + fieldZone);
+        for (int j = 0; j < Players.getPlayerByUsername(username.getUsername()).getSpellCardZone().size(); ++j) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getSpellCardZoneByCoordinate(j));
             System.out.println("    ");
         }
-        for (int z = 0; z < Players.getPlayerByUsername(username).getMonsterCardZoneArray().size(); ++z) {
-            System.out.print(Players.getPlayerByUsername(username).getMonsterCardZone(z));
+        for (int z = 0; z < Players.getPlayerByUsername(username.getUsername()).getMonsterCardZoneArray().size(); ++z) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getMonsterCardZone(z));
             System.out.println("    ");
         }
         System.out.println("    ");
         System.out.println(Deck.getDeckByOwner(username).getAllCardsNumber());
         System.out.println();
-        for (int i = 0; i < Players.getPlayerByUsername(username).getAllCardsInHandsArray().size(); ++i) {
-            System.out.print(Players.getPlayerByUsername(username).getCardsInHand(i));
+        for (int i = 0; i < Players.getPlayerByUsername(username.getUsername()).getAllCardsInHandsArray().size(); ++i) {
+            System.out.print(Players.getPlayerByUsername(username.getUsername()).getCardsInHand(i));
             System.out.println("    ");
         }
         System.out.println("    ");
-        System.out.println(Players.getPlayerByUsername(username).getNickname() + ":" + Players.
-                getPlayerByUsername(username).getLifePoint());
+        System.out.println(Players.getPlayerByUsername(username.getUsername()).getNickname() + ":" + Players.
+                getPlayerByUsername(username.getUsername()).getLifePoint());
+    }
 
-    public void gameBoard(String firstPlayer, String secondPlayer) {
+    public void gameBoard(Players firstPlayer, Players secondPlayer) {
         gameBoardPrint(firstPlayer);
         System.out.println("--------------------------");
-        gameBoardPrint(secondPlayer);
+        gameBoardPrintOpponent(secondPlayer);
+    }
+
+    public void aiPlay() {
+        if (phase.equals(Phase.MAIN_PHASE1) || phase.equals(Phase.MAIN_PHASE2) && !GameProgramController.getInstance().isSpellZoneFull("--ai")) {
+            for (int i = 0; i < Players.getPlayerByUsername("--ai").getPlayerCards().size(); ++i) {
+                if (Players.getPlayerByUsername("--ai").getCardsInHand(i).getType().equals(CardTypes.SPELL_CARD)) {
+                    Players.getPlayerByUsername("--ai").setSpellCardZone(Players.getPlayerByUsername("--ai").getCardsInHand(i), i);
+                    break;
+                }
+            }
+            for (int i = 0; i < Players.getPlayerByUsername("--ai").getPlayerCards().size(); ++i) {
+                if (Players.getPlayerByUsername("--ai").getCardsInHand(i).getType().equals(CardTypes.TRAP_CARD)) {
+                    Players.getPlayerByUsername("--ai").setSpellCardZone(Players.getPlayerByUsername("--ai").getCardsInHand(i), i);
+                    break;
+                }
+            }
+        }
+        if (GameProgramController.getInstance().isNormalSummonValid() && !GameProgramController.getInstance().isMonsterCardZoneFull("--ai") && phase.equals(Phase.MAIN_PHASE1) || phase.equals(Phase.MAIN_PHASE2))
+            GameProgramController.getInstance().summon("--ai");
+        if (phase.equals(Phase.BATTLE_PHASE)) {
+            int max = 0;
+            for (int i = 0; i < Players.getPlayerByUsername("--ai").getMonsterCardZoneArray().size(); ++i) {
+                if (Players.getPlayerByUsername("--ai").getMonsterCardZoneArray().get(i).getATK() >= Players.getPlayerByUsername("--ai").getMonsterCardZoneArray().get(i + 1).getATK()) {
+                    max = Players.getPlayerByUsername("--ai").getMonsterCardZoneArray().get(i).getATK();
+                }
+                if (Players.getPlayerByUsername("--ai").getMonsterCardZoneArray().get(i).getATK() >= max) {
+                    GameProgramController.getInstance().attackMonster(duelMenu.showOpponent.getUsername(), i);
+                    break;
+                }
+            }
+        }
     }
 
     static class commandChecker {
@@ -505,8 +473,8 @@ public class DuelMenu implements Runnable {
         static void selectMonster(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowTurn()).getMonsterCardZone(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowTurn()).getMonsterCardZone
+                if (duelMenu.getShowTurn().getMonsterCardZone(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowTurn().getMonsterCardZone
                             (selectedCoordinates), selectedCoordinates);
                 } else {
                     System.out.println(Response.notFoundCardinPosition);
@@ -517,8 +485,8 @@ public class DuelMenu implements Runnable {
         static void selectSpellAndTrap(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowTurn()).getSpellCardZoneByCoordinate(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowTurn()).getSpellCardZoneByCoordinate
+                if (duelMenu.getShowTurn().getSpellCardZoneByCoordinate(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowTurn().getSpellCardZoneByCoordinate
                             (selectedCoordinates), selectedCoordinates);
                 } else System.out.println(Response.notFoundCardinPosition);
             } else System.out.println(Response.invalidSelection);
@@ -527,8 +495,8 @@ public class DuelMenu implements Runnable {
         static void selectOpponentMonster(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowOpponent()).getMonsterCardZone(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowOpponent()).getMonsterCardZone
+                if (duelMenu.getShowOpponent().getMonsterCardZone(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowOpponent().getMonsterCardZone
                             (selectedCoordinates), selectedCoordinates);
                 } else {
                     System.out.println(Response.notFoundCardinPosition);
@@ -539,8 +507,8 @@ public class DuelMenu implements Runnable {
         static void selectOpponentSpell(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowOpponent()).getSpellCardZoneByCoordinate(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowOpponent()).getSpellCardZoneByCoordinate
+                if (duelMenu.getShowOpponent().getSpellCardZoneByCoordinate(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowOpponent().getSpellCardZoneByCoordinate
                             (selectedCoordinates), selectedCoordinates);
                 } else System.out.println(Response.notFoundCardinPosition);
             } else System.out.println(Response.invalidSelection);
@@ -549,8 +517,8 @@ public class DuelMenu implements Runnable {
         static void selectField(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowTurn()).getFieldZoneByCoordinates(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowTurn()).getFieldZoneByCoordinates
+                if (duelMenu.getShowTurn().getFieldZoneByCoordinates(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowTurn().getFieldZoneByCoordinates
                             (selectedCoordinates), selectedCoordinates);
                 } else System.out.println(Response.notFoundCardinPosition);
             } else System.out.println(Response.invalidSelection);
@@ -559,8 +527,8 @@ public class DuelMenu implements Runnable {
         static void selectHand(Matcher matcher) {
             if (matcher.find()) {
                 int selectedCoordinates = Integer.parseInt(matcher.group(1));
-                if (Players.getPlayerByUsername(duelMenu.getShowTurn()).getCardsInHand(selectedCoordinates) != null) {
-                    processSelect(Players.getPlayerByUsername(duelMenu.getShowTurn()).getCardsInHand
+                if (duelMenu.getShowTurn().getCardsInHand(selectedCoordinates) != null) {
+                    processSelect(duelMenu.getShowTurn().getCardsInHand
                             (selectedCoordinates), selectedCoordinates);
                 } else System.out.println(Response.notFoundCardinPosition);
             } else System.out.println(Response.invalidSelection);
@@ -577,44 +545,289 @@ public class DuelMenu implements Runnable {
                 else if (duelMenu.getAttackedThisTurn().contains(duelMenu.getCardZoneSelected()))
                     System.out.println(Response.alreadyAttacked);
                 else {
-                    Players.getPlayerByUsername(duelMenu.showOpponent).decreaseLifePoint
-                            (duelMenu.getCardZoneSelected().getATK());
-                    System.out.println("you opponent receives "+duelMenu.getCardZoneSelected()
-                            .getATK()+" battale damage");
+                    GameProgramController.getInstance().directAttack(duelMenu.showOpponent.getUsername(), duelMenu.getCardZoneSelected().getCardName());
+                    System.out.println("you opponent receives " + duelMenu.getCardZoneSelected()
+                            .getATK() + " battale damage");
                 }
             }
         }
 
         static void activeEffect(Matcher matcher) {
-
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if (!(DuelMenu.getInstance().getSelectedCard() instanceof SpellCard)) {
+                    System.out.println(Response.activeEffectErrorForSpellCard);
+                } else if (!phase.equals(Phase.MAIN_PHASE2) && !phase.equals(Phase.MAIN_PHASE1)) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                } else if () {
+                    System.out.println(Response.alreadyActive);
+                } else if (GameProgramController.getInstance().isSpellZoneFull(DuelMenu.getInstance().showTurn.getUsername())) {
+                    System.out.println(Response.spellZoneFull);
+                } else if () {
+                    System.out.println(Response.notDonePreparationsOfSpell);
+                } else {
+                    GameProgramController.getInstance().activateEffect(DuelMenu.getInstance().showTurn.getUsername(), DuelMenu.getInstance().cardZoneSelected);
+                    System.out.println(Response.spellActivated);
+                }
+            }
         }
 
         static void set(Matcher matcher) {
-
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if (!DuelMenu.getInstance().getCardsInHand().contains(DuelMenu.getInstance().selectedCard)) {
+                    System.out.println(Response.cantSetThisCard);
+                } else if (!phase.equals(Phase.MAIN_PHASE2) && !phase.equals(Phase.MAIN_PHASE1)) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                }
+                if ((DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                    if (GameProgramController.getInstance().isMonsterCardZoneFull(DuelMenu.getInstance().showTurn.getUsername())) {
+                        System.out.println(Response.monsterCardZoneFull);
+                    } else if (!GameProgramController.getInstance().isNormalSummonValid()) {
+                        System.out.println(Response.alreadySummonedOrSet);
+                    } else {
+                        GameProgramController.getInstance().normalSet(DuelMenu.getInstance().showTurn.getUsername());
+                        System.out.println(Response.setSuccessfully);
+                    }
+                } else if ((DuelMenu.getInstance().getSelectedCard() instanceof SpellCard)) {
+                    if (GameProgramController.getInstance().isSpellZoneFull(DuelMenu.getInstance().showTurn.getUsername())) {
+                        System.out.println(Response.spellZoneFull);
+                    } else {
+                        GameProgramController.getInstance().setSpell(DuelMenu.getInstance().showTurn.getUsername());
+                        System.out.println(Response.setSuccessfully);
+                    }
+                } else if ((DuelMenu.getInstance().getSelectedCard() instanceof TrapCard)) {
+                    if (GameProgramController.getInstance().isSpellZoneFull(DuelMenu.getInstance().showTurn.getUsername())) {
+                        System.out.println(Response.spellZoneFull);
+                    } else {
+                        GameProgramController.getInstance().setTrap(DuelMenu.getInstance().showTurn.getUsername());
+                        System.out.println(Response.setSuccessfully);
+                    }
+                }
+            }
         }
 
         static void showGraveyard(Matcher matcher) {
-
+            if (matcher.find()) {
+                if (Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).getCardsInGraveyard().size() == 0) {
+                    System.out.println(Response.graveyardEmpty);
+                } else {
+                    int counter = 1;
+                    for (Cards card : Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).getCardsInGraveyard()) {
+                        System.out.println(counter + ". " + card.getCardName() + ":" + card.getDescription());
+                        ++counter;
+                    }
+                }
+            }
         }
 
         static void startTwoPlayerDuel(Matcher matcher) {
-            String firstPlayerUsername = DuelMenu.getInstance().firstPlayer;
-            String secondPlayerUsername = DuelMenu.getInstance().secondPlayer;
-            int rounds = DuelMenu.getInstance().round;
-            if (!firstPlayerUsername.equals("ai") || !secondPlayerUsername.equals("ai")) {
-                DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
-                DuelMenu.getInstance().checkErrorsGame(secondPlayerUsername, rounds);
-                GameProgramController.getInstance().startMultiplePlayerGame(matcher);
-            } else {
-                DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
-                GameProgramController.getInstance().startMultiplePlayerGame(matcher);
+            if (matcher.find()) {
+                String firstPlayerUsername = DuelMenu.getInstance().firstPlayer.getUsername();
+                String secondPlayerUsername = DuelMenu.getInstance().secondPlayer.getUsername();
+                int rounds = DuelMenu.getInstance().round;
+                if (!firstPlayerUsername.equals("ai") || !secondPlayerUsername.equals("ai")) {
+                    DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
+                    DuelMenu.getInstance().checkErrorsGame(secondPlayerUsername, rounds);
+                    GameProgramController.getInstance().startMultiplePlayerGame(matcher);
+                } else {
+                    DuelMenu.getInstance().checkErrorsGame(firstPlayerUsername, rounds);
+                    GameProgramController.getInstance().startMultiplePlayerGame(matcher);
+                }
             }
         }
-    }
 
-    private static void processSelect(Cards cards, int selectedCoordinates) {
-        duelMenu.setCardZoneSelected(cards);
-        duelMenu.setCardAddressNumberSelected(selectedCoordinates);
-        System.out.println(Response.cardSelected);
+
+        private static void processSelect(Cards cards, int selectedCoordinates) {
+            duelMenu.setCardZoneSelected(cards);
+            duelMenu.setCardAddressNumberSelected(selectedCoordinates);
+            System.out.println(Response.cardSelected);
+        }
+
+        public static void deselect(Matcher matcher) {
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else {
+                    GameProgramController.getInstance().deSelected();
+                    System.out.println(Response.cardDeselected);
+                }
+            }
+        }
+
+        public static void summonCard(Matcher matcher) {
+            if (matcher.find()) {
+                if (DuelMenu.getInstance().getSelectedCard() == null) {
+                    System.out.println(Response.notCardSelected);
+                    return;
+                }
+                if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                    System.out.println(Response.cantSummon);
+                    return;
+                }
+                Cards hold = DuelMenu.getInstance().getSelectedCard();
+                DuelMenu.getInstance().setSelectedCard((MonsterCard) hold);
+                if (!DuelMenu.getInstance().getCardsInHand().contains(DuelMenu.getInstance().selectedCard)
+                        || !GameProgramController.getInstance().isNormalSummonValid()) {
+                    System.out.println(Response.cantSummon);
+                    return;
+                }
+                if (DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE1 && DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE2) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                    return;
+                }
+                if (DuelMenu.getInstance().getMonsterCardZone().size() > 4) {
+                    System.out.println(Response.monsterCardZoneFull);
+                    return;
+                }
+                if (DuelMenu.getInstance().summonedCard != null
+                        || DuelMenu.getInstance().setCard != null) {
+                    System.out.println(Response.alreadySummonedOrSet);
+                    return;
+                }
+
+                if (DuelMenu.getInstance().selectedCard.getLevel() <= 4) {
+                    DuelMenu.getInstance().setSummonedCard(DuelMenu.getInstance().selectedCard);
+                    DuelMenu.getInstance().monsterCardZone.add((MonsterCard) DuelMenu.getInstance().selectedCard);
+                    System.out.println(Response.summonedSuccessfully);
+                    DuelMenu.getInstance().selectedCard = null;
+                    DuelMenu.getInstance().summonedCard = null;
+                    DuelMenu.getInstance().setCard = null;
+                    return;
+                }
+                if (DuelMenu.getInstance().selectedCard.getLevel() < 7) {
+                    if (DuelMenu.getInstance().getMonsterCardZone().size() == 0) {
+                        System.out.println(Response.notEnoughCardForTribute);
+                        return;
+                    }
+                    int toBeTributed = GameProgramController.scanner.nextInt();
+                    if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributed) == null) {
+                        System.out.println(Response.noMonsterOnThisAddress);
+                        return;
+                    }
+                    System.out.println(Response.summonedSuccessfully);
+                    DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributed);
+                    DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard) DuelMenu.getInstance().selectedCard);
+                    DuelMenu.getInstance().selectedCard = null;
+                    DuelMenu.getInstance().summonedCard = null;
+                    DuelMenu.getInstance().setCard = null;
+                    return;
+                }
+                if (DuelMenu.getInstance().getMonsterCardZone().size() < 2) {
+                    System.out.println(Response.notEnoughCardForTribute);
+                    return;
+                }
+                int toBeTributedFirst = GameProgramController.scanner.nextInt();
+                int toBeTributedSecond = GameProgramController.scanner.nextInt();
+
+                if (DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedFirst) == null
+                        || DuelMenu.getInstance().getMonsterCardZone().get(toBeTributedSecond) == null) {
+                    System.out.println(Response.noMonsterOnOneOfAddress);
+                    return;
+                }
+                System.out.println(Response.summonedSuccessfully);
+                DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedFirst);
+                DuelMenu.getInstance().getMonsterCardZone().remove(toBeTributedSecond);
+                DuelMenu.getInstance().getMonsterCardZone().add((MonsterCard) DuelMenu.getInstance().selectedCard);
+                DuelMenu.getInstance().selectedCard = null;
+                DuelMenu.getInstance().summonedCard = null;
+                DuelMenu.getInstance().setCard = null;
+            }
+        }
+
+        public static void setPosition(Matcher matcher) {
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                    System.out.println(Response.cantChangeCardPosition);
+                } else if (phase != Phase.MAIN_PHASE1 && phase != Phase.MAIN_PHASE2) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                } else if (GameProgramController.getInstance().canSetPosition(DuelMenu.getInstance().showTurn.getUsername(), matcher.group(1))) {
+                    System.out.println(Response.alreadyInWantedPosition);
+                } else if () {
+                    System.out.println(Response.alreadyChangedPosition);
+                } else {
+                    GameProgramController.getInstance().setPosition(DuelMenu.getInstance().showTurn.getUsername(), matcher.group(1));
+                    System.out.println(Response.monsterCardPositionChangedSuccessfully);
+                }
+            }
+        }
+
+        public static void flipSummon(Matcher matcher) {
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                    System.out.println(Response.cantChangeCardPosition);
+                } else if (phase != Phase.MAIN_PHASE1 && phase != Phase.MAIN_PHASE2) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                } else if (!Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).getMonsterZone().get(DuelMenu.getInstance().getCardZoneSelected()).equals("DH") ||) {
+                    System.out.println(Response.cantFlipSummonCard);
+                } else {
+                    GameProgramController.getInstance().flipSummon(DuelMenu.getInstance().showTurn.getUsername(), DuelMenu.getInstance().getCardAddressNumberSelected());
+                    System.out.println(Response.flipSummonCardSuccessfully);
+                }
+            }
+        }
+
+        public static void attackMonster(Matcher matcher) {
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                    System.out.println(Response.cantChangeCardPosition);
+                } else if (phase != Phase.BATTLE_PHASE) {
+                    System.out.println(Response.cantDoActionInThisPhase);
+                } else if () {
+                    System.out.println(Response.alreadyAttacked);
+                } else if (!GameProgramController.getInstance().isAnyCard(DuelMenu.getInstance().showOpponent.getUsername(), Integer.parseInt(matcher.group(1)))) {
+                    System.out.println(Response.noCardToAttack);
+                } else {
+                    GameProgramController.getInstance().attackMonster(DuelMenu.getInstance().showOpponent.getUsername(), Integer.parseInt(matcher.group(1)));
+                }
+            }
+        }
+
+        public static void showSelectedCard(Matcher matcher) {
+            if (matcher.find()) {
+                if (!GameProgramController.getInstance().isAnyCardSelected()) {
+                    System.out.println(Response.notCardSelected);
+                } else if () {
+                    System.out.println(Response.cardNotVisible);
+                } else {
+                    System.out.println(DuelMenu.getInstance().cardZoneSelected.getCardName() + ":" + DuelMenu.getInstance().cardZoneSelected.getDescription());
+                }
+            }
+        }
+
+        public static void surrender(Matcher matcher) {
+            if (matcher.find())
+                System.out.println(DuelMenu.getInstance().showOpponent.getUsername() + " won the game and the score is: " + score1 + score2);
+        }
+
+        public static void cancel(Matcher matcher) {
+            if (matcher.find())
+                MenuProgramController.getInstance().run();
+        }
+
+        public static void setWinner(Matcher matcher) {
+            if (matcher.find())
+                GameProgramController.getInstance().rewards(Players.getPlayerByNickName(matcher.group(1)), DuelMenu.duelMenu.getShowOpponent(), DuelMenu.getInstance().round);
+        }
+
+        public static void increaseMoney(Matcher matcher) {
+            if (matcher.find()) {
+                Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).increaseMoney(Integer.parseInt(matcher.group(1)));
+            }
+        }
+
+        public static void increaseLP(Matcher matcher) {
+            if (matcher.find()) {
+                Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).increaseLifePoint(Integer.parseInt(matcher.group(1)));
+            }
+        }
     }
 }

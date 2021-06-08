@@ -25,12 +25,12 @@ public class LoginProgramController {
         return Players.getPlayerByNickName(nickname) != null;
     }
 
-    public boolean checkInvalidPassword(String username, String password) {
-        return !Players.getPlayerByUsername(username).getPassword().equals(password);
+    public boolean checkInvalidPassword(Players username, String password) {
+        return !username.getPassword().equals(password);
     }
 
-    public boolean checkSamePassword(String username, String password) {
-        return Players.getPlayerByUsername(username).getPassword().equals(password);
+    public boolean checkSamePassword(Players username, String password) {
+        return username.getPassword().equals(password);
     }
 
     public ArrayList<String> signUpUser(Matcher matcher) {

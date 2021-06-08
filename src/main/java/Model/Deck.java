@@ -13,12 +13,12 @@ public class Deck {
     private ArrayList<String> cardsInDecks = new ArrayList<>();
     private ArrayList<String> cardsInSideDecks = new ArrayList<>();
     private String deckName;
-    private String owner;
+    private Players owner;
     private int allCardsNumber;
-    private boolean isActive=false;
+    private boolean isActive = false;
     private boolean invalidDeck;
 
-    public Deck(String deckName, String owner) {
+    public Deck(String deckName, Players owner) {
         setDeckName(deckName);
         setOwner(owner);
         setActive(false);
@@ -39,9 +39,11 @@ public class Deck {
         }
         return false;
     }
-    public void setActive(){
-        this.isActive=true;
+
+    public void setActive() {
+        this.isActive = true;
     }
+
     public static Deck getDeckByName(String deckName) {
         for (Deck deck : decks) {
             if (deck.getDeckName().equals(deckName)) {
@@ -55,7 +57,7 @@ public class Deck {
         return deck.cardsInDecks.size();
     }
 
-    public static Deck getDeckByOwner(String owner) {
+    public static Deck getDeckByOwner(Players owner) {
         for (Deck deck : decks) {
             if (deck.getOwner().equals(owner)) {
                 return deck;
@@ -112,11 +114,11 @@ public class Deck {
         this.deckName = deckName;
     }
 
-    public String getOwner() {
+    public Players getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Players owner) {
         this.owner = owner;
     }
 

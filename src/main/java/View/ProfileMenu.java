@@ -61,7 +61,7 @@ public class ProfileMenu implements Runnable {
         static void changeNickNameResponse(Matcher matcher) {
             if (LoginProgramController.getInstance().checkNicknameExist(matcher.group(1))) {
                 System.out.println(Response.changeNicknameSuccessfully);
-                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).changeNickname(matcher.group(1));
+                LoginMenu.getInstance().getLoginUsername().changeNickname(matcher.group(1));
             } else {
                 System.out.println("user with nickname " + matcher.group(1) + " already exists");
             }
@@ -76,7 +76,7 @@ public class ProfileMenu implements Runnable {
                 System.out.println(Response.samePasswordError);
             } else {
                 System.out.println(Response.changePasswordSuccessfully);
-                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).changePassword(newPassword);
+                LoginMenu.getInstance().getLoginUsername().changePassword(newPassword);
             }
         }
     }

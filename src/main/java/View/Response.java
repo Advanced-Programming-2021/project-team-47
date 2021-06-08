@@ -28,6 +28,7 @@ public class Response {
     public static String cantSummon = "you can’t summon this card";
     public static String actionNotAllowed = "action not allowed in this phase";
     public static String monsterCardZoneFull = "monster card zone is full";
+    public static String spellZoneFull = "spell card zone is full";
     public static String alreadySummonedOrSet = "you already summoned/set on this turn";
     public static String summonedSuccessfully = "summoned successfully";
     public static String notEnoughCardForTribute = "there are not enough cards for tribute";

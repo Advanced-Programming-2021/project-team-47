@@ -31,8 +31,11 @@ public class GameProgramController {
             }
         }
         DuelMenu.getInstance().setFirstPlayer(LoginMenu.loginUsername);
-        DuelMenu.getInstance().setSecondPlayer(username2);
+        if (username2.equals("--ai"))
+            new Players("--ai", "--ai", "");
+        DuelMenu.getInstance().setSecondPlayer(Players.getPlayerByUsername(username2));
         DuelMenu.getInstance().setRound(Integer.parseInt(rounds));
+        MenuProgramController.currentMenu = Menus.DUEL_MENU;
     }
 
     public Players getPlayer(String userName) {
@@ -41,6 +44,11 @@ public class GameProgramController {
 
     public boolean isAnyCardSelected() {
         return DuelMenu.getInstance().getCardAddressNumberSelected() == 0 || DuelMenu.getInstance().getCardZoneSelected() == null;
+    }
+
+    public void deSelected() {
+        DuelMenu.getInstance().setCardAddressNumberSelected(0);
+        DuelMenu.getInstance().setCardZoneSelected(null);
     }
 
     public void changePhase(Phase phase) {
@@ -56,12 +64,21 @@ public class GameProgramController {
         return full == 5;
     }
 
+    public boolean isSpellZoneFull(String username) {
+        int full = 0;
+        for (Cards card : Players.getPlayerByUsername(username).getSpellCardZone()) {
+            if (!card.equals(null))
+                ++full;
+        }
+        return full == 5;
+    }
+
     public ArrayList<String> scoreboardShow() {
         ArrayList<Players> scoreSorting = Players.allPlayers;
         scoreSorting.sort(Comparator.comparing(Players::getScore)
                 .thenComparing(Players::getUsername));
         ArrayList<String> scoreSortingUsernames = new ArrayList<>();
-       for (Players players : scoreSorting) {
+        for (Players players : scoreSorting) {
             scoreSortingUsernames.add(players.getUsername());
         }
         return scoreSortingUsernames;
@@ -79,17 +96,20 @@ public class GameProgramController {
         return false;
     }
 
-    public boolean isAnyCardSelected(String username, int position) {
+    public boolean isAnyCardSelected(int position) {
         if (DuelMenu.getInstance().getCardAddressNumberSelected() == position || DuelMenu.getInstance().getCardZoneSelected() != null)
             return true;
         return false;
     }
 
+    public boolean isNormalSummonValid() {
+        if (this.)
+    }
 
     public void summon(String username) {
         for (int i = 1; i < 10; ++i) {
             if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
-                Players.getPlayerByUsername(username).setCardsInHand("OO", i);
+                Players.getPlayerByUsername(username).putInCardsInHandZone(Players.getPlayerByUsername(username).getCardsInHand(i), "OO");
                 break;
             }
         }
@@ -120,20 +140,20 @@ public class GameProgramController {
         return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes,String kind) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes, String kind) {
         if (type.equals("Monster"))
-            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
+            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
         else if (type.equals("Trap"))
-            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
+            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
         else
-            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes,kind);
+            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
 
     }
 
     public void normalSet(String username) {
         for (int i = 1; i < 10; ++i) {
             if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
-                Players.getPlayerByUsername(username).setCardsInHand("DH", i);
+                Players.getPlayerByUsername(username).putInCardsInHandZone(Players.getPlayerByUsername(username).getCardsInHand(i), "DH");
                 break;
             }
         }
@@ -146,7 +166,7 @@ public class GameProgramController {
 
     public void attackMonster(String username, int addressNumber) {
         Players playerOpponent = Players.getPlayerByUsername(username);
-        Players playerCurrent = Players.getPlayerByUsername(DuelMenu.getInstance().getShowTurn());
+        Players playerCurrent = DuelMenu.getInstance().getShowTurn();
         if (playerOpponent.getMonsterCardZone(addressNumber).equals("OO") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() > playerOpponent.getMonsterCardZone(addressNumber).getATK()) {
             playerOpponent.decreaseLifePoint(DuelMenu.getInstance().getCardZoneSelected()
@@ -209,7 +229,7 @@ public class GameProgramController {
     public void activateEffect(String username, Cards cards) {
         for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
-                Players.getPlayerByUsername(username).setSpellCardZone("O", i);
+                Players.getPlayerByUsername(username).putInSpellZone(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i), "O");
         }
         if (Players.getPlayerByUsername(username).getFieldZone().contains(cards.getCardName()))
             Players.getPlayerByUsername(username).setFieldZone(cards);
@@ -218,41 +238,67 @@ public class GameProgramController {
     public void setSpell(String username) {
         for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
-                Players.getPlayerByUsername(username).setSpellCardZone("H", i);
+                Players.getPlayerByUsername(username).putInSpellZone(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i), "H");
+        }
+    }
+
+    public void rewards(Players winner, Players loser, int round) {
+        if (round == 1) {
+            winner.increaseMoney(1000 + winner.getLifePoint());
+            loser.increaseMoney(100);
+            winner.increaseScore(1000);
+        } else {
+            winner.increaseMoney(3000 + 3 * winner.getLifePoint());
+            winner.increaseScore(3000);
+            loser.increaseMoney(300);
         }
     }
 
     public void setTrap(String username) {
         for (int i = 1; i < Players.getPlayerByUsername(username).getSpellCardZone().size(); ++i) {
             if (!Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i).equals("E"))
-                Players.getPlayerByUsername(username).setSpellCardZone("H", i);
+                Players.getPlayerByUsername(username).putInSpellZone(Players.getPlayerByUsername(username).getSpellCardZoneByCoordinate(i), "H");
         }
     }
 
     public void swapTurn(String username) {
         DuelMenu game = DuelMenu.getInstance();
-        String turn = game.getShowTurn();
+        Players turn = game.getShowTurn();
         if (turn.equals(game.getFirstPlayer())) {
             DuelMenu.getInstance().setShowTurn(game.getSecondPlayer());
             DuelMenu.getInstance().setShowOpponent(game.getFirstPlayer());
+            if (DuelMenu.getInstance().getShowTurn().equals("--ai")) {
+                DuelMenu.getInstance().aiPlay();
+            }
         } else {
             DuelMenu.getInstance().setShowTurn(game.getFirstPlayer());
             DuelMenu.getInstance().setShowOpponent(game.getSecondPlayer());
+            if (DuelMenu.getInstance().getShowTurn().equals("--ai")) {
+                DuelMenu.getInstance().aiPlay();
+            }
         }
         DuelMenu.getInstance().getAttackedThisTurn().clear();
     }
 
     public void setPosition(String username, String position) {
         if (position.equals("attack"))
-            Players.getPlayerByUsername(username).setMonsterCardZone("OO", DuelMenu.getInstance().getCardAddressNumberSelected());
+            Players.getPlayerByUsername(username).putInMonsterZone(DuelMenu.getInstance().getCardZoneSelected(), "OO");
         else
-            Players.getPlayerByUsername(username).setMonsterCardZone("DO", DuelMenu.getInstance().getCardAddressNumberSelected());
+            Players.getPlayerByUsername(username).putInMonsterZone(DuelMenu.getInstance().getCardZoneSelected(), "DO");
+    }
+
+    public boolean canSetPosition(String username, String position) {
+        if (position.equals("attack") && Players.getPlayerByUsername(username).getMonsterZone().get(DuelMenu.getInstance().getCardZoneSelected()).equals("OO"))
+            return false;
+        else if (position.equals("defence") && Players.getPlayerByUsername(username).getMonsterZone().get(DuelMenu.getInstance().getCardZoneSelected()).equals("DO"))
+            return false;
+        return true;
     }
 
     public void ritualSummon(String username, String position) {
         for (int i = 1; i < 10; ++i) {
             if (!Players.getPlayerByUsername(username).getCardsInHand(i).equals("E")) {
-                Players.getPlayerByUsername(username).setCardsInHand(position, i);
+                Players.getPlayerByUsername(username).putInCardsInHandZone(Players.getPlayerByUsername(username).getCardsInHand(i), position);
                 break;
             }
         }

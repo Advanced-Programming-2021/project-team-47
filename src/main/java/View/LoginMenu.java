@@ -15,7 +15,7 @@ import Model.Players;
 
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    public static String loginUsername;
+    public static Players loginUsername;
     private static LoginMenu loginMenuSingleton;
 
     public static LoginMenu getInstance() {
@@ -46,11 +46,11 @@ public class LoginMenu implements Runnable {
         System.exit(0);
     }
 
-    public String getLoginUsername() {
+    public Players getLoginUsername() {
         return loginUsername;
     }
 
-    public void setLoginUsername(String loginUsername) {
+    public void setLoginUsername(Players loginUsername) {
         LoginMenu.loginUsername = loginUsername;
     }
 
@@ -73,11 +73,11 @@ public class LoginMenu implements Runnable {
             String username = LoginProgramController.getInstance().loginUser(matcher).get(1);
             if (!LoginProgramController.getInstance().checkUsernameExist(username)) {
                 System.out.println(Response.wrongUsernameOrPassword);
-            } else if (LoginProgramController.getInstance().checkInvalidPassword(username, password)) {
+            } else if (LoginProgramController.getInstance().checkInvalidPassword(Players.getPlayerByUsername(username), password)) {
                 System.out.println(Response.wrongUsernameOrPassword);
             } else {
                 System.out.println(Response.userLoginSuccessfully);
-                LoginMenu.getInstance().setLoginUsername(username);
+                LoginMenu.getInstance().setLoginUsername(Players.getPlayerByUsername(username));
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
             }
         }

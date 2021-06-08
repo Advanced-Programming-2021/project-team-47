@@ -17,8 +17,8 @@ public class ShopProgramController {
         return shopProgramController;
     }
 
-    public boolean checkEnoughMoney(String username, String cardName) {
-        return Players.getPlayerByUsername(username).getMoney() >= Cards.getCardByName(cardName).getPrice();
+    public boolean checkEnoughMoney(Players username, String cardName) {
+        return username.getMoney() >= Cards.getCardByName(cardName).getPrice();
     }
 
     public TreeMap<String, Integer> sortCard() {

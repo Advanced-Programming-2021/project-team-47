@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 public class DeckMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static DeckMenu deckMenu;
-    private ArrayList<Cards> cardsInHand=new ArrayList<>();
+    private ArrayList<Cards> cardsInHand = new ArrayList<>();
 
     public static DeckMenu getInstance() {
         if (deckMenu == null) {
@@ -38,7 +38,6 @@ public class DeckMenu implements Runnable {
         commandMap.put(Regex.SHOW_DECK.label, DeckMenu.commandChecker::showDeck);
         commandMap.put(Regex.DECK_SHOW_CARD.label, DeckMenu.commandChecker::showDeckCard);
     }
-
 
 
     public void takeCommand(String command) {
@@ -183,7 +182,7 @@ public class DeckMenu implements Runnable {
                 String card = DeckProgramController.getInstance().deckAddCard(matcher).get(0);
                 String deck = DeckProgramController.getInstance().deckAddCard(matcher).get(1);
                 String side = DeckProgramController.getInstance().deckAddCard(matcher).get(2);
-                if (!Players.getPlayerByUsername(LoginMenu.loginUsername).getPlayerCards().contains(card)) {
+                if (!LoginMenu.loginUsername.getPlayerCards().contains(card)) {
                     System.out.println("card with name " + card + " does not exist");
                 } else if (Deck.getDeckByName(deck) == null) {
                     System.out.println("deck with name " + deck + " does not exist");
@@ -205,10 +204,10 @@ public class DeckMenu implements Runnable {
 
         public static void showDeckCard(Matcher matcher) {
             if (matcher.find()) {
-                Collections.sort(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks());
-                for (int i = 0; i < Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().size(); ++i) {
-                    System.out.println(Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i) + Cards.getCardByName
-                            (Deck.getDeckByName(LoginMenu.loginUsername).getCardsInDecks().get(i)).getDescription());
+                Collections.sort(Deck.getDeckByName(LoginMenu.loginUsername.getUsername()).getCardsInDecks());
+                for (int i = 0; i < Deck.getDeckByName(LoginMenu.loginUsername.getUsername()).getCardsInDecks().size(); ++i) {
+                    System.out.println(Deck.getDeckByName(LoginMenu.loginUsername.getUsername()).getCardsInDecks().get(i) + Cards.getCardByName
+                            (Deck.getDeckByName(LoginMenu.loginUsername.getUsername()).getCardsInDecks().get(i)).getDescription());
                 }
             }
         }

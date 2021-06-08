@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainDeck extends Deck {
-    public MainDeck(String deckName, String owner) {
+    public MainDeck(String deckName, Players owner) {
         super(deckName, owner);
     }
 

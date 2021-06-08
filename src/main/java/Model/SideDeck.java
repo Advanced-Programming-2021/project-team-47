@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class SideDeck extends Deck {
-    public SideDeck(String deckName, String owner) {
+    public SideDeck(String deckName, Players owner) {
         super(deckName, owner);
     }
 

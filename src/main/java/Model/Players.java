@@ -38,18 +38,20 @@ public class Players {
         usernameAndPasswordOfPLayer.put(username, password);
         allPlayers.add(this);
     }
-    public void removeFromArrayList(ArrayList<Cards>cardsArrayList,HashMap<Cards,String>cardsHashMap,Cards cards){
+
+    public void removeFromArrayList(ArrayList<Cards> cardsArrayList, HashMap<Cards, String> cardsHashMap, Cards cards) {
         cardsArrayList.remove(cards);
         cardsHashMap.remove(cards);
     }
 
-    public void increaseATK(Cards card){
-        int originalATK=card.getATK();
-        while (this.getMonsterCardZoneArray().contains(card)){
-            card.setATK(originalATK+400);
+    public void increaseATK(Cards card) {
+        int originalATK = card.getATK();
+        while (this.getMonsterCardZoneArray().contains(card)) {
+            card.setATK(originalATK + 400);
         }
         card.setATK(originalATK);
     }
+
     public void putInMonsterZone(Cards cards, String cardSymbol) {
         monsterZone.put(cards, cardSymbol);
     }
@@ -268,6 +270,14 @@ public class Players {
 
     public void increaseMoney(int money) {
         this.money += money;
+    }
+
+    public void increaseScore(int score) {
+        this.score += score;
+    }
+
+    public void decreaseScore(int score) {
+        this.score -= score;
     }
 
     public void increaseLifePoint(int lifePoint) {

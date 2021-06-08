@@ -54,8 +54,8 @@ public class ShopMenu implements Runnable {
 
         static void printMoneyError(Matcher matcher) {
             if (ShopProgramController.getInstance().checkEnoughMoney(LoginMenu.getInstance().getLoginUsername(), matcher.group(1))) {
-                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).setPlayerCards(matcher.group(1));
-                Players.getPlayerByUsername(LoginMenu.getInstance().getLoginUsername()).decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
+                LoginMenu.getInstance().getLoginUsername().setPlayerCards(matcher.group(1));
+                LoginMenu.getInstance().getLoginUsername().decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
             } else if (Cards.getCardByName(matcher.group(1)) == null) {
                 System.out.println(Response.cardNameNotExist);
             } else {

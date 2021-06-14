@@ -29,7 +29,7 @@ public class DuelMenu implements Runnable {
     private int cardAddressNumberSelected;
     private static ArrayList<Phase> phaseChanger = new ArrayList<>();
     private ArrayList<MonsterCard> monsterCardZone;
-
+    private ArrayList<MonsterCard> toRemoveForRitual = new ArrayList<>();
     static {
         phaseChanger.add(Phase.DRAW_PHASE);
         phaseChanger.add(Phase.STANDBY_PHASE);
@@ -216,23 +216,23 @@ public class DuelMenu implements Runnable {
     }
 
     public void setPhaseByKey(int key) {
-        if (key == 1) {
+        if (key == 3) {
             this.phase = Phase.MAIN_PHASE1;
             return;
         }
-        if (key == 2) {
+        if (key == 5) {
             this.phase = Phase.MAIN_PHASE2;
             return;
         }
-        if (key == 3) {
+        if (key == 1) {
             this.phase = Phase.DRAW_PHASE;
             return;
         }
-        if (key == 4) {
+        if (key == 2) {
             this.phase = Phase.STANDBY_PHASE;
             return;
         }
-        if (key == 5) {
+        if (key == 4) {
             this.phase = Phase.BATTLE_PHASE;
             return;
         }

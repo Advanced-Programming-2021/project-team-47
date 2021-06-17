@@ -194,6 +194,8 @@ public class EffectController {
         Cards thisCard = Cards.getCardByName("yomi ship");
         if (attackingCard.getATK() > thisCard.getDEF()) {
             Players.getPlayerByUsername(opponent).getMonsterCardZoneArray().remove(attackingCard);
+            Players.getPlayerByUsername(opponent).getAllCardsInHandsArray().remove(attackingCard);
+            Players.getPlayerByUsername(opponent).getCardsInGraveyard().add(attackingCard);
         }
     }
 

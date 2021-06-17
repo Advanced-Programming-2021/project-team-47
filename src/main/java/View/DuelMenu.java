@@ -288,27 +288,7 @@ public class DuelMenu implements Runnable {
         this.phase = phase;
     }
 
-    public void flipSummon() {
-        if (this.selectedCard == null) {
-            System.out.println(Response.notCardSelected);
-            return;
-        }
-        if (!monsterCardZone.contains(selectedCard)) {
-            System.out.println(Response.cantChangeCardPosition);
-            return;
-        }
-        if (this.getPhase() != Phase.MAIN_PHASE1
-                && this.getPhase() != Phase.MAIN_PHASE2) {
-            System.out.println(Response.cantDoActionInThisPhase);
-            return;
-        }
-        if (selectedCard.getState() != State.DH) {
-            System.out.println(Response.cantFlipSummonCard);
-            return;
-        }
-        selectedCard.setState(State.OO);
-        System.out.println(Response.flipSummonCardSuccessfully);
-    }
+
 
     public void ritualSummon() {
         int toCheck = 0;
@@ -354,6 +334,10 @@ public class DuelMenu implements Runnable {
             setToRemoveForRitual((MonsterCard) selectedCard);
         }
 
+
+    }
+
+    public void specialSummon(){
 
     }
 
@@ -690,7 +674,7 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.notCardSelected);
                     return;
                 }
-                if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
+                else if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
                     System.out.println(Response.cantSummon);
                     return;
                 }
@@ -764,6 +748,28 @@ public class DuelMenu implements Runnable {
             }
         }
 
+        public void flipSummon() {
+            if (DuelMenu.getInstance().selectedCard == null) {
+                System.out.println(Response.notCardSelected);
+                return;
+            }
+            if (!DuelMenu.getInstance().monsterCardZone.contains(DuelMenu.getInstance().selectedCard)) {
+                System.out.println(Response.cantChangeCardPosition);
+                return;
+            }
+            if (DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE1
+                    && DuelMenu.getInstance().getPhase() != Phase.MAIN_PHASE2) {
+                System.out.println(Response.cantDoActionInThisPhase);
+                return;
+            }
+            if (DuelMenu.getInstance().selectedCard.getState() != State.DH) {
+                System.out.println(Response.cantFlipSummonCard);
+                return;
+            }
+            DuelMenu.getInstance().selectedCard.setState(State.OO);
+            System.out.println(Response.flipSummonCardSuccessfully);
+        }
+
         public static void setPosition(Matcher matcher) {
             if (matcher.find()) {
                 if (!GameProgramController.getInstance().isAnyCardSelected()) {
@@ -784,22 +790,6 @@ public class DuelMenu implements Runnable {
             }
         }
 
-        public static void flipSummon(Matcher matcher) {
-            if (matcher.find()) {
-                if (!GameProgramController.getInstance().isAnyCardSelected()) {
-                    System.out.println(Response.notCardSelected);
-                } else if (!(DuelMenu.getInstance().getSelectedCard() instanceof MonsterCard)) {
-                    System.out.println(Response.cantChangeCardPosition);
-                } else if (phase != Phase.MAIN_PHASE1 && phase != Phase.MAIN_PHASE2) {
-                    System.out.println(Response.cantDoActionInThisPhase);
-                } else if (!Players.getPlayerByUsername(DuelMenu.getInstance().showTurn.getUsername()).getMonsterZone().get(DuelMenu.getInstance().getCardZoneSelected()).equals("DH") ||) {
-                    System.out.println(Response.cantFlipSummonCard);
-                } else {
-                    GameProgramController.getInstance().flipSummon(DuelMenu.getInstance().showTurn.getUsername(), DuelMenu.getInstance().getCardAddressNumberSelected());
-                    System.out.println(Response.flipSummonCardSuccessfully);
-                }
-            }
-        }
 
         public static void attackMonster(Matcher matcher) {
             if (matcher.find()) {

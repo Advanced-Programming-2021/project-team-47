@@ -1,5 +1,7 @@
 package Model;
 
+import View.State;
+
 import java.util.ArrayList;
 
 public class Cards {
@@ -9,13 +11,24 @@ public class Cards {
     private int level;
     private String type;
     private int ATK;
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     private int DEF;
+    private State state;
     private int price;
     private String kind;
     private String description;
     private boolean visible;
-    private boolean canSummon=true;
+    private boolean canSummon = true;
     private boolean attackable;
+
     public String getKind() {
         return kind;
     }
@@ -27,6 +40,7 @@ public class Cards {
     public void increaseATK(int ATK) {
         this.ATK += ATK;
     }
+
     public void decreaseATK(int ATK) {
         this.ATK -= ATK;
     }
@@ -34,15 +48,18 @@ public class Cards {
     public void increaseDEF(int DEF) {
         this.DEF += DEF;
     }
+
     public void decreaseDEF(int DEF) {
         this.DEF -= DEF;
     }
+
     public boolean canRitualSummon = false;
 
     public void canRitualSummon() {
         this.canRitualSummon = true;
     }
-    public boolean getCanRitualSummon(){
+
+    public boolean getCanRitualSummon() {
         return this.canRitualSummon;
     }
 
@@ -50,7 +67,7 @@ public class Cards {
         this.canSummon = canSummon;
     }
 
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind) {
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, State state) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
@@ -60,13 +77,14 @@ public class Cards {
         setKind(kind);
         setDescription(description);
         setPrice(price);
+        setState(state);
         allCards.add(this);
-        if (cardName.equals("Gate Guardian")){
+        if (cardName.equals("Gate Guardian")) {
             setCanSummon(false);
         }
     }
 
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind , boolean canRitualSummon) {
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, boolean canRitualSummon) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
@@ -170,10 +188,12 @@ public class Cards {
     public void setStyle(CardTypes style) {
         this.style = style;
     }
-    public boolean getAttackable(){
+
+    public boolean getAttackable() {
         return this.attackable;
     }
+
     public void setAttackable(boolean b) {
-        attackable=b;
+        attackable = b;
     }
 }

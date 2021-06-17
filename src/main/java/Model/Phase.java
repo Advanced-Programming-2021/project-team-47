@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.HashMap;
-
 public enum Phase {
     MAIN_PHASE1(3,"Main Phase1"),
     MAIN_PHASE2(5,"Main Phase2"),

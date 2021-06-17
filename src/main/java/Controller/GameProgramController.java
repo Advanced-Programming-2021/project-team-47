@@ -3,6 +3,7 @@ package Controller;
 import Model.*;
 import View.DuelMenu;
 import View.LoginMenu;
+import View.State;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -140,13 +141,13 @@ public class GameProgramController {
         return Players.getPlayerByUsername(username).getActiveDeck().size() != 0;
     }
 
-    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes, String kind) {
+    public void addCardByType(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes cardTypes, String kind, State state) {
         if (type.equals("Monster"))
-            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
+            new MonsterCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind, state);
         else if (type.equals("Trap"))
-            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
+            new TrapCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind, state);
         else
-            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind);
+            new SpellCard(cardName, level, type, ATK, DEF, description, price, cardTypes, kind, state);
 
     }
 

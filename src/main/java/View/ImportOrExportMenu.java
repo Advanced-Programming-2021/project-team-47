@@ -135,7 +135,7 @@ public class ImportOrExportMenu implements Runnable {
                         e.printStackTrace();
                     }
                 }
-                new Cards(cardName, level, type, ATK, DEF, description, price, style, kind);
+                new Cards(cardName, level, type, ATK, DEF, description, price, style, kind, State.NULL);
             }
         }
 

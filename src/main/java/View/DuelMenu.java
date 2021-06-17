@@ -15,6 +15,19 @@ import java.util.regex.Pattern;
 public class DuelMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     public static DuelMenu duelMenu;
+    private ArrayList<Cards> directAttackedThisTurn = new ArrayList<>();
+    private ArrayList<Cards> monsterAttackedThisTurn = new ArrayList<>();
+    private ArrayList<Cards> activatedThisTurn = new ArrayList<>();
+    private ArrayList<Cards> setPositionThisTurn = new ArrayList<>();
+
+    public ArrayList<Cards> getSetPositionThisTurn() {
+        return setPositionThisTurn;
+    }
+
+    public void setSetPositionThisTurn(Cards setPositionThisTurn) {
+        this.setPositionThisTurn.add(setPositionThisTurn);
+    }
+
     private Players firstPlayer;
     private Players secondPlayer;
     private ArrayList<Cards> cardsInHand = new ArrayList<>();
@@ -22,6 +35,19 @@ public class DuelMenu implements Runnable {
     private Cards summonedCard;
     private Cards setCard;
     private Players showTurn;
+
+    public void setAttackedThisTurn(Cards attackedThisTurn) {
+        this.directAttackedThisTurn.add(attackedThisTurn);
+    }
+
+    public ArrayList<Cards> getActivatedThisTurn() {
+        return activatedThisTurn;
+    }
+
+    public void setActivatedThisTurn(Cards activatedThisTurn) {
+        this.activatedThisTurn.add(activatedThisTurn);
+    }
+
     private Players showOpponent;
     private int round;
     private static int thisRound = 0;
@@ -30,6 +56,15 @@ public class DuelMenu implements Runnable {
     private static ArrayList<Phase> phaseChanger = new ArrayList<>();
     private ArrayList<MonsterCard> monsterCardZone;
     private ArrayList<MonsterCard> toRemoveForRitual = new ArrayList<>();
+
+    public ArrayList<Cards> getMonsterAttackedThisTurn() {
+        return monsterAttackedThisTurn;
+    }
+
+    public void setMonsterAttackedThisTurn(Cards monsterAttackedThisTurn) {
+        this.monsterAttackedThisTurn.add(monsterAttackedThisTurn);
+    }
+
     static {
         phaseChanger.add(Phase.DRAW_PHASE);
         phaseChanger.add(Phase.STANDBY_PHASE);
@@ -160,7 +195,7 @@ public class DuelMenu implements Runnable {
     }
 
     public ArrayList<Cards> getAttackedThisTurn() {
-        return attackedThisTurn;
+        return directAttackedThisTurn;
     }
 
     public void setSelectCard(Cards cardAddressSelected, int cardAddressNumberSelected) {
@@ -253,14 +288,6 @@ public class DuelMenu implements Runnable {
         this.phase = phase;
     }
 
-    public void setState(State state) {
-        this.state = state;
-    }
-
-    public State getState() {
-        return state;
-    }
-
     public void flipSummon() {
         if (this.selectedCard == null) {
             System.out.println(Response.notCardSelected);
@@ -275,11 +302,11 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.cantDoActionInThisPhase);
             return;
         }
-        if (state != State.DH) {
+        if (selectedCard.getState() != State.DH) {
             System.out.println(Response.cantFlipSummonCard);
             return;
         }
-        setState(State.OO);
+        selectedCard.setState(State.OO);
         System.out.println(Response.flipSummonCardSuccessfully);
     }
 
@@ -319,21 +346,19 @@ public class DuelMenu implements Runnable {
             return;
         }
         int sum = 0;
-        for (Integer i : toRemoveForRitual
-        ) {
+        for (int i = 0; i < toRemoveForRitual.size(); ++i) {
             sum += this.getMonsterCardZone().get(i).getLevel();
         }
         if (sum != selectedCard.getLevel()) {
             System.out.println(Response.dontMatchLevels);
-            setToRemoveForRitual();
-            return;
+            setToRemoveForRitual((MonsterCard) selectedCard);
         }
 
 
     }
 
-    public void setToRemoveForRitual(int i) {
-        toRemoveForRitual.add(i);
+    public void setToRemoveForRitual(MonsterCard cards) {
+        toRemoveForRitual.add(cards);
     }
 
     public Phase getPhase() {
@@ -546,6 +571,7 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.alreadyAttacked);
                 else {
                     GameProgramController.getInstance().directAttack(duelMenu.showOpponent.getUsername(), duelMenu.getCardZoneSelected().getCardName());
+                    DuelMenu.getInstance().setAttackedThisTurn(DuelMenu.getInstance().selectedCard);
                     System.out.println("you opponent receives " + duelMenu.getCardZoneSelected()
                             .getATK() + " battale damage");
                 }
@@ -560,7 +586,7 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.activeEffectErrorForSpellCard);
                 } else if (!phase.equals(Phase.MAIN_PHASE2) && !phase.equals(Phase.MAIN_PHASE1)) {
                     System.out.println(Response.cantDoActionInThisPhase);
-                } else if () {
+                } else if (DuelMenu.getInstance().getActivatedThisTurn().contains(DuelMenu.getInstance().selectedCard)) {
                     System.out.println(Response.alreadyActive);
                 } else if (GameProgramController.getInstance().isSpellZoneFull(DuelMenu.getInstance().showTurn.getUsername())) {
                     System.out.println(Response.spellZoneFull);
@@ -568,6 +594,7 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.notDonePreparationsOfSpell);
                 } else {
                     GameProgramController.getInstance().activateEffect(DuelMenu.getInstance().showTurn.getUsername(), DuelMenu.getInstance().cardZoneSelected);
+                    DuelMenu.getInstance().setActivatedThisTurn(DuelMenu.getInstance().selectedCard);
                     System.out.println(Response.spellActivated);
                 }
             }
@@ -747,10 +774,11 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.cantDoActionInThisPhase);
                 } else if (GameProgramController.getInstance().canSetPosition(DuelMenu.getInstance().showTurn.getUsername(), matcher.group(1))) {
                     System.out.println(Response.alreadyInWantedPosition);
-                } else if () {
+                } else if (DuelMenu.getInstance().getSetPositionThisTurn().contains(DuelMenu.getInstance().selectedCard)) {
                     System.out.println(Response.alreadyChangedPosition);
                 } else {
                     GameProgramController.getInstance().setPosition(DuelMenu.getInstance().showTurn.getUsername(), matcher.group(1));
+                    DuelMenu.getInstance().setSetPositionThisTurn(DuelMenu.getInstance().selectedCard);
                     System.out.println(Response.monsterCardPositionChangedSuccessfully);
                 }
             }
@@ -781,12 +809,13 @@ public class DuelMenu implements Runnable {
                     System.out.println(Response.cantChangeCardPosition);
                 } else if (phase != Phase.BATTLE_PHASE) {
                     System.out.println(Response.cantDoActionInThisPhase);
-                } else if () {
+                } else if (DuelMenu.getInstance().getMonsterAttackedThisTurn().contains(DuelMenu.getInstance().selectedCard)) {
                     System.out.println(Response.alreadyAttacked);
                 } else if (!GameProgramController.getInstance().isAnyCard(DuelMenu.getInstance().showOpponent.getUsername(), Integer.parseInt(matcher.group(1)))) {
                     System.out.println(Response.noCardToAttack);
                 } else {
                     GameProgramController.getInstance().attackMonster(DuelMenu.getInstance().showOpponent.getUsername(), Integer.parseInt(matcher.group(1)));
+                    DuelMenu.getInstance().setMonsterAttackedThisTurn(DuelMenu.getInstance().selectedCard);
                 }
             }
         }

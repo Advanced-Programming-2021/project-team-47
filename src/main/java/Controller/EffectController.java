@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.GameProgramController;
 import Model.Cards;
 import Model.Deck;
 import Model.MonsterCard;

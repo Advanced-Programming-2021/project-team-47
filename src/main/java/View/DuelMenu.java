@@ -841,7 +841,7 @@ public class DuelMenu implements Runnable {
             }
             int sum = 0;
             for (int i = 0; i < DuelMenu.getInstance().toRemoveForRitual.size(); ++i) {
-                sum += this.getMonsterCardZone().get(i).getLevel();
+                sum += DuelMenu.getInstance().getMonsterCardZone().get(i).getLevel();
             }
             if (sum != DuelMenu.getInstance().selectedCard.getLevel()) {
                 System.out.println(Response.dontMatchLevels);

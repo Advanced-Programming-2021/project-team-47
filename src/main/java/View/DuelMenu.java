@@ -215,7 +215,9 @@ public class DuelMenu implements Runnable {
     public void cheatSelectCardHand() {
 
     }
-
+    public void specialSummon(){
+        if (selectedCard.canSpecialSummon)
+    }
     public void setSummonedCard(Cards summonedCard) {
         this.summonedCard = summonedCard;
     }
@@ -291,13 +293,6 @@ public class DuelMenu implements Runnable {
         this.phase = phase;
     }
 
-
-
-
-
-    public void specialSummon(){
-
-    }
 
     public void setToRemoveForRitual(MonsterCard cards) {
         toRemoveForRitual.add(cards);
@@ -809,175 +804,6 @@ public class DuelMenu implements Runnable {
             System.out.println(Response.flipSummonCardSuccessfully);
 
         }
-        public static void ritualSummon(Matcher matcher, Players thisPlayer) {
-            int toCheck = 0;
-            ArrayList<Cards> ritualMonsterCards = new ArrayList<>();
-            for (int i = 0; i < DuelMenu.getInstance().getCardsInHand().size(); i++) {
-                if (DuelMenu.getInstance().getCardsInHand().get(i).getRitual()) {
-                    toCheck++;
-                    ritualMonsterCards.add(DuelMenu.getInstance().getCardsInHand().get(i));
-                }
-            }
-            int n = DuelMenu.getInstance().getCardsInHand().size();
-            boolean canRitualSummon = false;
-            for (int i = 0; i < (1 << n); i++) {
-                ArrayList<Cards> cardsInHandSubsets = new ArrayList<>();
-                for (int j = 0; j < n; j++)
-
-
-                    if ((i & (1 << j)) > 0)
-                        cardsInHandSubsets.add(DuelMenu.getInstance().getCardsInHand().get(j));
-
-                int levelSub = 0;
-                for (Cards card : cardsInHandSubsets) {
-                    levelSub += card.getLevel();
-                }
-                for (Cards card : ritualMonsterCards) {
-                    if (card.getLevel() == levelSub) {
-                        canRitualSummon = true;
-                        break;
-                    }
-                }
-            }
-            if (toCheck == 0
-                    || !canRitualSummon) {
-                System.out.println(Response.noWayCouldRitualSummonMonster);
-                return;
-            }
-            int sum = 0;
-            for (int i = 0; i < DuelMenu.getInstance().toRemoveForRitual.size(); ++i) {
-                sum += this.getMonsterCardZone().get(i).getLevel();
-            }
-            if (sum != DuelMenu.getInstance().selectedCard.getLevel()) {
-                System.out.println(Response.dontMatchLevels);
-                DuelMenu.getInstance().setToRemoveForRitual((MonsterCard) DuelMenu.getInstance().selectedCard);
-            }
-            if (!thisPlayer.getAllCardsInHandsArray().contains(Model.Cards.getCardByName("Advanced Ritual Art"))){
-                System.out.println(Response.cantRitualSummon);
-            }
-            int level=0;
-            ArrayList<Cards> toBeSacrificed=new ArrayList<>();
-            while(level != DuelMenu.getInstance().selectedCard.getLevel()){
-                System.out.println(Response.sacrificeAddress);
-
-                String remove = GameProgramController.scanner.nextLine();
-                String[] toBeSacrificedAddress= remove.split(" ");
-                for (String s:toBeSacrificedAddress) {
-                    toBeSacrificed.add(DuelMenu.getInstance().cardsInHand.get(Integer.parseInt(s)));
-                }
-                for (Cards c:toBeSacrificed) {
-                    level+=c.getLevel();
-                }
-                if ( DuelMenu.getInstance().selectedCard.getLevel()!= level){
-                    System.out.println(Response.dontMatchLevels);
-                }
-                System.out.println("Input back if you want to cancel :");
-                if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("cancel")){
-                    return;
-                }
-                level = 0;
-            }
-            for (Cards c:toBeSacrificed) {
-                DuelMenu.getInstance().cardsInHand.remove(c);
-                thisPlayer.getCardsInGraveyard().add(c);
-            }
-            DuelMenu.getInstance().cardsInHand.remove(Model.Cards.getCardByName("Advanced Ritual Art"));
-            System.out.println("Do you wanna add this card in attacking state or defensing? :");
-            if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("attacking")){
-                DuelMenu.getInstance().selectedCard.setState(State.OO);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
-            }
-            else if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("defensing")){
-                DuelMenu.getInstance().selectedCard.setState(State.DH);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
-            }
-            DuelMenu.getInstance().selectedCard = null;
-        }
-
-        public static void ritualSummon(Matcher matcher , Players thisPlayer) {
-            int toCheck = 0;
-            ArrayList<Cards> ritualMonsterCards = new ArrayList<>();
-            for (int i = 0; i < DuelMenu.getInstance().getCardsInHand().size(); i++) {
-                if (DuelMenu.getInstance().getCardsInHand().get(i).getRitual()) {
-                    toCheck++;
-                    ritualMonsterCards.add(DuelMenu.getInstance().getCardsInHand().get(i));
-                }
-            }
-            int n = DuelMenu.getInstance().getCardsInHand().size();
-            boolean canRitualSummon = false;
-            for (int i = 0; i < (1 << n); i++) {
-                ArrayList<Cards> cardsInHandSubsets = new ArrayList<>();
-                for (int j = 0; j < n; j++)
-
-
-                    if ((i & (1 << j)) > 0)
-                        cardsInHandSubsets.add(DuelMenu.getInstance().getCardsInHand().get(j));
-
-                int levelSub = 0;
-                for (Cards card : cardsInHandSubsets) {
-                    levelSub += card.getLevel();
-                }
-                for (Cards card : ritualMonsterCards) {
-                    if (card.getLevel() == levelSub) {
-                        canRitualSummon = true;
-                        break;
-                    }
-                }
-            }
-            if (toCheck == 0
-                    || !canRitualSummon) {
-                System.out.println(Response.noWayCouldRitualSummonMonster);
-                return;
-            }
-            int sum = 0;
-            for (int i = 0; i < DuelMenu.getInstance().toRemoveForRitual.size(); ++i) {
-                sum += this.getMonsterCardZone().get(i).getLevel();
-            }
-            if (sum != DuelMenu.getInstance().selectedCard.getLevel()) {
-                System.out.println(Response.dontMatchLevels);
-                DuelMenu.getInstance().setToRemoveForRitual((MonsterCard) DuelMenu.getInstance().selectedCard);
-            }
-            if (!thisPlayer.getAllCardsInHandsArray().contains(Model.Cards.getCardByName("Advanced Ritual Art"))){
-                System.out.println(Response.cantRitualSummon);
-            }
-            int level=0;
-            ArrayList<Cards> toBeSacrificed=new ArrayList<>();
-            while(level != DuelMenu.getInstance().selectedCard.getLevel()){
-                System.out.println(Response.sacrificeAddress);
-
-                String remove = GameProgramController.scanner.nextLine();
-                String[] toBeSacrificedAddress= remove.split(" ");
-                for (String s:toBeSacrificedAddress) {
-                    toBeSacrificed.add(DuelMenu.getInstance().cardsInHand.get(Integer.parseInt(s)));
-                }
-                for (Cards c:toBeSacrificed) {
-                    level+=c.getLevel();
-                }
-                if ( DuelMenu.getInstance().selectedCard.getLevel()!= level){
-                    System.out.println(Response.dontMatchLevels);
-                }
-                System.out.println("Input back if you want to cancel :");
-                if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("cancel")){
-                    return;
-                }
-                level = 0;
-            }
-            for (Cards c:toBeSacrificed) {
-                DuelMenu.getInstance().cardsInHand.remove(c);
-                thisPlayer.getCardsInGraveyard().add(c);
-            }
-            DuelMenu.getInstance().cardsInHand.remove(Model.Cards.getCardByName("Advanced Ritual Art"));
-            System.out.println("Do you wanna add this card in attacking state or defensing? :");
-            if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("attacking")){
-                DuelMenu.getInstance().selectedCard.setState(State.OO);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
-            }
-            else if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("defensing")){
-                DuelMenu.getInstance().selectedCard.setState(State.DH);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
-            }
-            DuelMenu.getInstance().selectedCard = null;
-        }
 
         public static void ritualSummon(Matcher matcher) {
             int toCheck = 0;
@@ -1022,7 +848,7 @@ public class DuelMenu implements Runnable {
                 System.out.println(Response.dontMatchLevels);
                 DuelMenu.getInstance().setToRemoveForRitual((MonsterCard) DuelMenu.getInstance().selectedCard);
             }
-            if (!thisPlayer.getAllCardsInHandsArray().contains(Model.Cards.getCardByName("Advanced Ritual Art"))){
+            if (!DuelMenu.getInstance().thisPlayer.getAllCardsInHandsArray().contains(Model.Cards.getCardByName("Advanced Ritual Art"))){
                 System.out.println(Response.cantRitualSummon);
             }
             int level=0;
@@ -1049,17 +875,17 @@ public class DuelMenu implements Runnable {
             }
             for (Cards c:toBeSacrificed) {
                 DuelMenu.getInstance().cardsInHand.remove(c);
-                thisPlayer.getCardsInGraveyard().add(c);
+                DuelMenu.getInstance().thisPlayer.getCardsInGraveyard().add(c);
             }
             DuelMenu.getInstance().cardsInHand.remove(Model.Cards.getCardByName("Advanced Ritual Art"));
             System.out.println("Do you wanna add this card in attacking state or defensing? :");
             if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("attacking")){
                 DuelMenu.getInstance().selectedCard.setState(State.OO);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
+                DuelMenu.getInstance().thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
             }
             else if (GameProgramController.scanner.nextLine().toLowerCase(Locale.ROOT).equals("defensing")){
                 DuelMenu.getInstance().selectedCard.setState(State.DH);
-                thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
+                DuelMenu.getInstance().thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
             }
             DuelMenu.getInstance().selectedCard = null;
         }

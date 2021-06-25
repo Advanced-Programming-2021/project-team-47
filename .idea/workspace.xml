@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Move EffectController class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Regex.java" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Summon">
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Response.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +231,7 @@
       <workItem from="1623918609060" duration="47000" />
       <workItem from="1623918759478" duration="2846000" />
       <workItem from="1624279246473" duration="125000" />
-      <workItem from="1624619831029" duration="3952000" />
-    </task>
-    <task id="LOCAL-00004" summary="debug menu detection">
-      <created>1619223481824</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1619223481824</updated>
+      <workItem from="1624619831029" duration="4025000" />
     </task>
     <task id="LOCAL-00005" summary="debug menu enum">
       <created>1619224713342</created>
@@ -579,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621268884333</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Summon">
+      <created>1624623837288</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1624623837288</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="players debug" />
     <MESSAGE value="Deck isDeckValid update" />
     <MESSAGE value="DuelMenu startTwoPlayerDuel update" />
     <MESSAGE value="clean code" />
@@ -636,7 +632,8 @@
     <MESSAGE value="Fix ImportOrExportMenu + Add kind of cards" />
     <MESSAGE value="Add Effects methods" />
     <MESSAGE value="Fix Effects methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Effects methods" />
+    <MESSAGE value="Summon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Summon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

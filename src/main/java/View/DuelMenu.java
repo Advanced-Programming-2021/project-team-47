@@ -94,6 +94,7 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.CANCEL.label, DuelMenu.commandChecker::cancel);
         commandMap.put(Regex.FLIP_SUMMON.label, DuelMenu.commandChecker::flipSummon);
         commandMap.put(Regex.RITUAL_SUMMON.label, DuelMenu.commandChecker::ritualSummon);
+        commandMap.put(Regex.SPECIAL_SUMMON.label, DuelMenu.commandChecker::specialSummon);
         commandMap.put(Regex.SELECT_SPELL_AND_TRAP.label, DuelMenu.commandChecker::selectSpellAndTrap);
         commandMap.put(Regex.SELECT_OPPONENT_MONSTER.label, DuelMenu.commandChecker::selectOpponentMonster);
         commandMap.put(Regex.SELECT_OPPONENT_SPELL.label, DuelMenu.commandChecker::selectOpponentSpell);
@@ -215,9 +216,7 @@ public class DuelMenu implements Runnable {
     public void cheatSelectCardHand() {
 
     }
-    public void specialSummon(){
-        if (selectedCard.canSpecialSummon)
-    }
+
     public void setSummonedCard(Cards summonedCard) {
         this.summonedCard = summonedCard;
     }
@@ -888,6 +887,20 @@ public class DuelMenu implements Runnable {
                 DuelMenu.getInstance().thisPlayer.getMonsterCardZoneArray().add(DuelMenu.getInstance().selectedCard);
             }
             DuelMenu.getInstance().selectedCard = null;
+        }
+        public static void specialSummon(Matcher matcher){
+            if (DuelMenu.getInstance().selectedCard.getCanSpecialSummon()){
+                int checker=0;
+                for (Cards c:DuelMenu.getInstance().thisPlayer.getAllCardsInHandsArray()
+                ) {
+                    if (c instanceof MonsterCard) checker++;
+                }
+                if(checker == 0) {
+                    System.out.println(Response.noWayCouldSpecialSummonMonster);
+                    return;
+                }
+
+            }
         }
     }
 }

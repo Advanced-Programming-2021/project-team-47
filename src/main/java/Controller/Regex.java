@@ -86,7 +86,8 @@ public enum Regex {
     MAN_EATER_BUG(Pattern.compile("manEaterBug")),
     GATE_GUARDIAN(Pattern.compile("gateGuardian")),
     SCANNER_CARD(Pattern.compile("scannerCard")),
-    RITUAL_SUMMON(Pattern.compile("^ritual-summon$"));
+    RITUAL_SUMMON(Pattern.compile("^ritual-summon$")),
+    SPECIAL_SUMMON(Pattern.compile("^special-summon$"));
     public final Pattern label;
     Regex(Pattern label){this.label=label;};
     public String getLabel(){

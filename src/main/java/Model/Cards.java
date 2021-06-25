@@ -3,6 +3,7 @@ package Model;
 import View.State;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Cards {
     public static ArrayList<Cards> allCards = new ArrayList<>();
@@ -11,6 +12,7 @@ public class Cards {
     private int level;
     private String type;
     private int ATK;
+    private boolean canSpecialSummonBoolean=false;
 
     public State getState() {
         return state;
@@ -97,6 +99,20 @@ public class Cards {
         canRitualSummon();
         allCards.add(this);
     }
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, boolean canRitualSummon , boolean canSpecialSummon) {
+        setCardName(cardName);
+        setLevel(level);
+        setType(type);
+        setATK(ATK);
+        setStyle(style);
+        setDEF(DEF);
+        setKind(kind);
+        setDescription(description);
+        setPrice(price);
+        canRitualSummon();
+        canSpecialSummon();
+        allCards.add(this);
+    }
 
     private boolean isRitual;
 
@@ -110,13 +126,18 @@ public class Cards {
 
     public static Cards getCardByName(String cardName) {
         for (Cards cards : allCards) {
-            if (cards.cardName.equals(cardName)) {
+            if (cards.cardName.equals(cardName) || cards.cardName.toLowerCase(Locale.ROOT).equals(cardName)) {
                 return cards;
             }
         }
         return null;
     }
-
+    public void canSpecialSummon(){
+        this.canSpecialSummonBoolean=true;
+    }
+    public boolean getCanSpecialSummon(){
+        return canSpecialSummonBoolean;
+    }
     public String getCardName() {
         return cardName;
     }

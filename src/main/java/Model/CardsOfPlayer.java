@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CardsOfPlayer {
     public static ArrayList<CardsOfPlayer> cardsOfPlayer = new ArrayList<>();
@@ -20,7 +21,8 @@ public class CardsOfPlayer {
 
     public static CardsOfPlayer getCardByName(String cardName) {
         for (CardsOfPlayer cards : cardsOfPlayer) {
-            if (cards.cardName.equals(cardName)) {
+            if (cards.cardName.equals(cardName)
+            || cards.cardName.toLowerCase(Locale.ROOT).equals(cardName)) {
                 return cards;
             }
         }

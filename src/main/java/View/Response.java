@@ -67,5 +67,7 @@ public class Response {
     public static String cardNotVisible = "card is not visible";
     public static String activeDeckNotAvailable="has no active deck";
     public static String invalidDeck="deck is invalid";
+    public static String sacrificeAddress="Please enter the address of cards you want to sacrifice in order to enter your selected card to zone";
 
+    public static String cantRitualSummon="cant ritual summon";
 }

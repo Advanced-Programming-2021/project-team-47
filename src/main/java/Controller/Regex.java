@@ -85,11 +85,12 @@ public enum Regex {
     SKULL_GUARDIAN(Pattern.compile("skullGuardian")),
     MAN_EATER_BUG(Pattern.compile("manEaterBug")),
     GATE_GUARDIAN(Pattern.compile("gateGuardian")),
-    SCANNER_CARD(Pattern.compile("scannerCard"));
+    SCANNER_CARD(Pattern.compile("scannerCard")),
+    RITUAL_SUMMON(Pattern.compile("^ritual-summon$");
+    public String label;
 
-    public final Pattern label;
-
-    Regex(Pattern label) {
-        this.label = label;
+    public String getLabel(){
+        return this.getLabel();
     }
+
 }

@@ -902,6 +902,7 @@ public class DuelMenu implements Runnable {
                 System.out.println("please select the card you wanna sacrifice :");
                 DuelMenu.getInstance().getCardsInHand().remove(DuelMenu.getInstance().selectedCard);
                 DuelMenu.getInstance().thisPlayer.getCardsInGraveyard().add(DuelMenu.getInstance().selectedCard);
+                DuelMenu.getInstance().selectedCard = null;
             }
         }
     }

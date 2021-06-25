@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Debug">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="final">
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,14 +231,7 @@
       <workItem from="1623918609060" duration="47000" />
       <workItem from="1623918759478" duration="2846000" />
       <workItem from="1624279246473" duration="125000" />
-      <workItem from="1624619831029" duration="6887000" />
-    </task>
-    <task id="LOCAL-00009" summary="debug scoreboardShow">
-      <created>1619884195890</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1619884195890</updated>
+      <workItem from="1624619831029" duration="6928000" />
     </task>
     <task id="LOCAL-00010" summary="Duel menu add">
       <created>1619934019779</created>
@@ -576,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624639209041</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="final">
+      <created>1624639499812</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1624639499812</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="duelMenu startTwoPlayerDuel update" />
     <MESSAGE value="duelMenu startOnePlayerDuel" />
     <MESSAGE value="SideDeck and MainDeck class" />
     <MESSAGE value="Player update" />
@@ -633,7 +632,8 @@
     <MESSAGE value="Summon+" />
     <MESSAGE value="Summon++" />
     <MESSAGE value="Debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

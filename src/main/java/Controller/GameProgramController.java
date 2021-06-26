@@ -104,7 +104,10 @@ public class GameProgramController {
     }
 
     public boolean isNormalSummonValid() {
-        if (this.)
+      if (DuelMenu.getInstance().getCardZoneSelected().getCanSummon()){
+          return true;
+      }
+      return false;
     }
 
     public void summon(String username) {
@@ -262,7 +265,7 @@ public class GameProgramController {
         }
     }
 
-    public void swapTurn(String username) {
+    public void swapTurn() {
         DuelMenu game = DuelMenu.getInstance();
         Players turn = game.getShowTurn();
         if (turn.equals(game.getFirstPlayer())) {

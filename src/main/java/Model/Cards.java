@@ -69,6 +69,10 @@ public class Cards {
         this.canSummon = canSummon;
     }
 
+    public boolean getCanSummon() {
+        return this.canSummon;
+    }
+
     public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, State state) {
         setCardName(cardName);
         setLevel(level);

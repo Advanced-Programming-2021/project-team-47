@@ -99,7 +99,7 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.SELECT_SPELL_AND_TRAP.label, DuelMenu.commandChecker::selectSpellAndTrap);
         commandMap.put(Regex.SELECT_OPPONENT_MONSTER.label, DuelMenu.commandChecker::selectOpponentMonster);
         commandMap.put(Regex.SELECT_OPPONENT_SPELL.label, DuelMenu.commandChecker::selectOpponentSpell);
-        commandMap.put(Regex.SELECT_FIELD.label, DuelMenu.commandChecker::selectField);
+        commandMap.put(Regex.SELECT_OPPONENT_FIELD.label, DuelMenu.commandChecker::selectField);
         commandMap.put(Regex.SELECT_OPPONENT_SPELL.label, DuelMenu.commandChecker::selectOpponentSpell);
         commandMap.put(Regex.SELECT_HAND.label, DuelMenu.commandChecker::selectHand);
         commandMap.put(Regex.DIRECT_ATTACK.label, DuelMenu.commandChecker::directAttack);

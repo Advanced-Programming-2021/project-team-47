@@ -62,12 +62,14 @@ public class EffectController {
         effectMap.put(Regex.SCANNER_CARD.label, EffectController::scannerCard);
     }
 
-    public void takeCommand(String command) {
-        for (Pattern commandReg : effectMap.keySet())
+    public boolean takeCommand(String command) {
+        for (Pattern commandReg : effectMap.keySet()) {
             if (command.matches(commandReg.pattern())) {
                 effectMap.get(commandReg).accept(commandReg.matcher(command));
-                return;
+                return true;
             }
+        }
+        return false;
     }
 
     public static void heraldOfCreation(Matcher matcher) {

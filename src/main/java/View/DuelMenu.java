@@ -159,8 +159,8 @@ public class DuelMenu implements Runnable {
         }
     }
 
-    public void setMonsterCardZone(ArrayList<MonsterCard> monsterCardZone) {
-        this.monsterCardZone = monsterCardZone;
+    public void setMonsterCardZone(MonsterCard monsterCardZone) {
+        this.monsterCardZone.add(monsterCardZone);
     }
 
     public ArrayList<MonsterCard> getMonsterCardZone() {

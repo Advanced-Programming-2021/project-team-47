@@ -85,10 +85,25 @@ public enum Regex {
     GATE_GUARDIAN(Pattern.compile("gateGuardian")),
     SCANNER_CARD(Pattern.compile("scannerCard")),
     RITUAL_SUMMON(Pattern.compile("^ritual-summon$")),
+    MAGIC_JAMMER(Pattern.compile("^magicJammer$")),
+    TORRENTIAL_TRIBUTE(Pattern.compile("^torrentialTribute$")),
+    SPELL_ABSORPTION(Pattern.compile("^Spell Absorption$")),
+    DARK_HOLE(Pattern.compile("^Dark Hole$")),
+    THE_CALCULATOR(Pattern.compile("^The Calculator$")),
+    SCANNER(Pattern.compile("^Scanner$")),
+    MARSHMALLON(Pattern.compile("^Marshmallon$")),
+    BEAST_KING_BARBAROS(Pattern.compile("^Beast King Barbaros$")),
     SPECIAL_SUMMON(Pattern.compile("^special-summon$"));
+
     public final Pattern label;
-    Regex(Pattern label){this.label=label;};
-    public String getLabel(){
+
+    Regex(Pattern label) {
+        this.label = label;
+    }
+
+    ;
+
+    public String getLabel() {
         return this.getLabel();
     }
 

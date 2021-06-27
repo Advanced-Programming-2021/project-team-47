@@ -6,8 +6,8 @@ import Model.MonsterCard;
 import Model.Players;
 import View.DuelMenu;
 import View.LoginMenu;
+import View.State;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -60,6 +60,57 @@ public class EffectController {
         effectMap.put(Regex.MAN_EATER_BUG.label, EffectController::manEaterBug);
         effectMap.put(Regex.GATE_GUARDIAN.label, EffectController::gateGuardian);
         effectMap.put(Regex.SCANNER_CARD.label, EffectController::scannerCard);
+        effectMap.put(Regex.MAGIC_JAMMER.label, EffectController::magicJammer);
+        effectMap.put(Regex.TORRENTIAL_TRIBUTE.label, EffectController::torrentialTribute);
+        effectMap.put(Regex.SPELL_ABSORPTION.label, EffectController::spellAbsorption);
+        effectMap.put(Regex.DARK_HOLE.label, EffectController::darkHole);
+        effectMap.put(Regex.THE_CALCULATOR.label, EffectController::theCalculator);
+        effectMap.put(Regex.SCANNER.label, EffectController::scanner);
+        effectMap.put(Regex.MARSHMALLON.label, EffectController::marshmallon);
+        effectMap.put(Regex.BEAST_KING_BARBAROS.label, EffectController::beastKingBarbaros);
+    }
+
+    private static void beastKingBarbaros(Matcher matcher) {
+        Cards.getCardByName("Beast King Barbaros").setATK(1900);
+    }
+
+    private static void marshmallon(Matcher matcher) {
+        for (Cards cards : DuelMenu.getInstance().getMonsterCardZone()) {
+            if (cards.getCardName().equals("marshmallon") && cards.getState().equals(State.DH)) {
+                DuelMenu.getInstance().getShowOpponent().decreaseLifePoint(1000);
+                return;
+            }
+        }
+    }
+
+    private static void scanner(Matcher matcher) {
+        DuelMenu.getInstance().setMonsterCardZone((MonsterCard) DuelMenu.getInstance().getShowOpponent().getCardsInGraveyard().get(0));
+    }
+
+    private static void theCalculator(Matcher matcher) {
+        int counter = 0;
+        for (MonsterCard card : DuelMenu.getInstance().getMonsterCardZone()) {
+            counter += card.getLevel();
+        }
+        counter *= 300;
+        Cards.getCardByName("The Calculator").setATK(counter);
+    }
+
+    private static void darkHole(Matcher matcher) {
+        DuelMenu.getInstance().getMonsterCardZone().clear();
+    }
+
+    private static void spellAbsorption(Matcher matcher) {
+        DuelMenu.getInstance().getShowTurn().increaseLifePoint(500);
+    }
+
+    private static void torrentialTribute(Matcher matcher) {
+        DuelMenu.getInstance().getMonsterCardZone().clear();
+    }
+
+    private static void magicJammer(Matcher matcher) {
+        if (DuelMenu.getInstance().getCardsInHand().size() != 0)
+            DuelMenu.getInstance().getCardsInHand().remove(0);
     }
 
     public boolean takeCommand(String command) {
@@ -292,7 +343,7 @@ public class EffectController {
         Cards.getCardByName("Gate Guardian").setCanSummon(true);
     }
 
-    public static void scannerCard(Matcher matcher) {//group1 -> Turn / gropu2 -> Card
+    public static void scannerCard(Matcher matcher) {//group1 -> Turn / group2 -> Card
         Players.getPlayerByUsername(matcher.group(1)).putInMonsterZone(Cards.getCardByName(matcher.group(2)), Cards.getCardByName(matcher.group(2)).getCardName());
     }
 

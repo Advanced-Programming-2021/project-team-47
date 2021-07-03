@@ -63,46 +63,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShopProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MainDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MainDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SideDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SideDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Zones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Zones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Runnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Monster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Monster.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SpellTrap.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SpellTrap.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,17 +243,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.kdsfjljs" />
@@ -357,6 +306,7 @@
       <workItem from="1625233985036" duration="2365000" />
       <workItem from="1625236461639" duration="575000" />
       <workItem from="1625237163885" duration="1638000" />
+      <workItem from="1625239840286" duration="4442000" />
     </task>
     <task id="LOCAL-00012" summary="GameProgramController and Players">
       <created>1619934217232</created>

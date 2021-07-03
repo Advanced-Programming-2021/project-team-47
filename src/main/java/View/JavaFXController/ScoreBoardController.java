@@ -1,9 +1,7 @@
 package View.JavaFXController;
 
 import Controller.GameProgramController;
-import Controller.LoginProgramController;
 import Model.Players;
-import View.DuelMenu;
 import View.LoginMenu;
 import javafx.application.Application;
 import javafx.fxml.FXML;

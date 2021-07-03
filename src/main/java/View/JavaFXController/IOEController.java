@@ -49,6 +49,8 @@ public class IOEController extends Application {
         for (Cards card : Cards.allCards) {
             Rectangle rectangle = new Rectangle();
             try {
+                rectangle.setWidth(20);
+                rectangle.setHeight(30);
                 rectangle.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + card.getCardName() + ".jpg"))));
             } catch (FileNotFoundException ignored) {
             }

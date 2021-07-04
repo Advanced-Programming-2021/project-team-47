@@ -7,6 +7,7 @@ import Controller.Regex;
 import Model.Menus;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +15,16 @@ import java.util.regex.Pattern;
 public class ProfileMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
     private static ProfileMenu profileMenuSingleton;
+    private static HashMap<Menus, String> menuEnter = new HashMap<>();
+
+    static {
+        menuEnter.put(Menus.LOGIN_MENU, Menus.LOGIN_MENU.label);
+        menuEnter.put(Menus.MAIN_MENU, Menus.MAIN_MENU.label);
+        menuEnter.put(Menus.PROFILE_MENU, Menus.PROFILE_MENU.label);
+        menuEnter.put(Menus.SHOP_MENU, Menus.SHOP_MENU.label);
+        menuEnter.put(Menus.SCOREBOARD_MENU, Menus.SCOREBOARD_MENU.label);
+        menuEnter.put(Menus.IMPORT_OR_EXPORT_MENU, Menus.IMPORT_OR_EXPORT_MENU.label);
+    }
 
     public static ProfileMenu getInstance() {
         if (profileMenuSingleton == null) {
@@ -50,10 +61,13 @@ public class ProfileMenu implements Runnable {
         }
 
         static void menuEnterHandler(Matcher matcher) {
-            if (matcher.group(1).equals(Menus.MAIN_MENU.label)) {
-                MenuProgramController.currentMenu = Menus.MAIN_MENU;
-            } else if (matcher.group(1).equals(Menus.LOGIN_MENU.label)) {
-                System.out.println(Response.menuNotPossible);
+            for (Map.Entry<Menus, String> entry : menuEnter.entrySet()) {
+                if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 1) {
+                    MenuProgramController.currentMenu = entry.getKey();
+                    break;
+                } else if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 2) {
+                    System.out.println(Response.menuNotPossible);
+                }
             }
         }
 

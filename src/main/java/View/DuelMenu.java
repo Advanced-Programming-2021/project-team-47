@@ -6,10 +6,7 @@ import Controller.MenuProgramController;
 import Controller.Regex;
 import Model.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +18,16 @@ public class DuelMenu implements Runnable {
     private ArrayList<Cards> monsterAttackedThisTurn = new ArrayList<>();
     private ArrayList<Cards> activatedThisTurn = new ArrayList<>();
     private ArrayList<Cards> setPositionThisTurn = new ArrayList<>();
+    private static HashMap<Menus, String> menuEnter = new HashMap<>();
+
+    static {
+        menuEnter.put(Menus.LOGIN_MENU, Menus.LOGIN_MENU.label);
+        menuEnter.put(Menus.MAIN_MENU, Menus.MAIN_MENU.label);
+        menuEnter.put(Menus.PROFILE_MENU, Menus.PROFILE_MENU.label);
+        menuEnter.put(Menus.SHOP_MENU, Menus.SHOP_MENU.label);
+        menuEnter.put(Menus.SCOREBOARD_MENU, Menus.SCOREBOARD_MENU.label);
+        menuEnter.put(Menus.IMPORT_OR_EXPORT_MENU, Menus.IMPORT_OR_EXPORT_MENU.label);
+    }
 
     public ArrayList<Cards> getSetPositionThisTurn() {
         return setPositionThisTurn;
@@ -114,6 +121,7 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.NEXT_PHASE.label, DuelMenu.commandChecker::nextPhase);
         commandMap.put(Regex.INCREASE_MONEY.label, DuelMenu.commandChecker::increaseMoney);
         commandMap.put(Regex.INCREASE_LP.label, DuelMenu.commandChecker::increaseLP);
+        commandMap.put(Regex.MENU_ENTER.label, ScoreboardMenu.commandChecker::menuEnterHandler);
     }
 
     public void takeCommand(String command) {
@@ -902,6 +910,17 @@ public class DuelMenu implements Runnable {
                 DuelMenu.getInstance().getCardsInHand().remove(DuelMenu.getInstance().selectedCard);
                 DuelMenu.getInstance().thisPlayer.getCardsInGraveyard().add(DuelMenu.getInstance().selectedCard);
                 DuelMenu.getInstance().selectedCard = null;
+            }
+        }
+
+        static void menuEnterHandler(Matcher matcher) {
+            for (Map.Entry<Menus, String> entry : menuEnter.entrySet()) {
+                if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 1) {
+                    MenuProgramController.currentMenu = entry.getKey();
+                    break;
+                } else if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 2) {
+                    System.out.println(Response.menuNotPossible);
+                }
             }
         }
     }

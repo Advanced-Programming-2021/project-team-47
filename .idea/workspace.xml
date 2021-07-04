@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Complete ImportOrExport">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Complete ShopMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JavaFXController/IOEController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JavaFXController/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Menus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,14 +265,8 @@
       <workItem from="1625236461639" duration="575000" />
       <workItem from="1625237163885" duration="4623000" />
       <workItem from="1625291515206" duration="1997000" />
-      <workItem from="1625311620404" duration="1132000" />
-    </task>
-    <task id="LOCAL-00013" summary="GameProgramController">
-      <created>1619934583056</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1619934583056</updated>
+      <workItem from="1625311620404" duration="1631000" />
+      <workItem from="1625377475126" duration="2222000" />
     </task>
     <task id="LOCAL-00014" summary="GameProgramController and Players">
       <created>1619934852241</created>
@@ -606,11 +604,28 @@
       <option name="project" value="LOCAL" />
       <updated>1625239276107</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Complete ShopMenu">
+      <created>1625312766309</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1625312766310</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -623,7 +638,14 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="text">
+                    <value>
+                      <list>
+                        <option value="enum" />
                       </list>
                     </value>
                   </entry>
@@ -638,7 +660,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Player update" />
     <MESSAGE value="DuelMenu startTwoPlayerDuel and startOnePlayerDuel update" />
     <MESSAGE value="addToDeck method /// abstract Deck =&gt; MainDeck and SideDeck" />
     <MESSAGE value="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu" />
@@ -663,14 +684,15 @@
     <MESSAGE value="final" />
     <MESSAGE value="Done" />
     <MESSAGE value="Phase 2 Start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Phase 2 Start" />
+    <MESSAGE value="Complete ShopMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete ShopMenu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/ProfileMenu.java</url>
-          <line>40</line>
+          <line>51</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -1,14 +1,14 @@
 package Model;
 
 public enum Menus {
-    DECK_MENU("Main Menu"),
-    DUEL_MENU("Main Menu"),
+    DECK_MENU("Deck Menu"),
+    DUEL_MENU("Duel Menu"),
     LOGIN_MENU("Login Menu"),
     MAIN_MENU("Main Menu"),
-    PROFILE_MENU("Main Menu"),
-    SHOP_MENU("Main Menu"),
-    SCOREBOARD_MENU("Main Menu"),
-    IMPORT_OR_EXPORT_MENU("Main Menu"),
+    PROFILE_MENU("Profile Menu"),
+    SHOP_MENU("Shop Menu"),
+    SCOREBOARD_MENU("Scoreboard Menu"),
+    IMPORT_OR_EXPORT_MENU("Import/Export Menu"),
     EXIT("Exit");
 
     public final String label;

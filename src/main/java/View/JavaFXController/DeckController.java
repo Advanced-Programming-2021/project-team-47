@@ -1,4 +1,11 @@
 package View.JavaFXController;
 
-public class DeckController {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class DeckController extends Application {
+    @Override
+    public void start(Stage stage) throws Exception {
+
+    }
 }

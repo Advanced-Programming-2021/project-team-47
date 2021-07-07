@@ -1,11 +1,15 @@
 package View.JavaFXController;
 
 import Controller.MenuProgramController;
+import Model.Menus;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -33,16 +37,27 @@ public class MenuController extends Application {
     public void showMenu(){
         showCurrentMenu.setText(MenuProgramController.currentMenu.label);
     }
-    public void mainMenu(){
-
+    public void mainMenu() throws Exception {
+        if (!MenuProgramController.currentMenu.equals(Menus.MAIN_MENU)){
+            Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(stage);
+            VBox dialogVbox = new VBox(20);
+            dialogVbox.getChildren().add(new Text("Menu Navigation is not possible"));
+            Scene dialogScene = new Scene(dialogVbox, 300, 200);
+            dialog.setScene(dialogScene);
+            dialog.show();
+        }else {
+            MainController.getInstance().start(stage);
+        }
     }
 
     public void importOrExportMenu(){
 
     }
 
-    public void loginMenu(){
-
+    public void loginMenu() throws Exception {
+        LoginController.getInstance().start(stage);
     }
 
     public void profileMenu(){

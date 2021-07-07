@@ -1,4 +1,4 @@
-package View;
+package View.Console;
 
 
 import java.util.HashMap;
@@ -13,10 +13,10 @@ import Controller.LoginProgramController;
 import Controller.MenuProgramController;
 import Model.Menus;
 import Model.Players;
+import Model.Response;
 
 public class LoginMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    public static Players loginUsername;
     private static LoginMenu loginMenuSingleton;
     private static HashMap<Menus, String> menuEnter = new HashMap<>();
 
@@ -57,14 +57,6 @@ public class LoginMenu implements Runnable {
         System.exit(0);
     }
 
-    public Players getLoginUsername() {
-        return loginUsername;
-    }
-
-    public void setLoginUsername(Players loginUsername) {
-        LoginMenu.loginUsername = loginUsername;
-    }
-
     static class commandChecker {
         static void showCurrentMenu(Matcher matcher) {
             Menus current = MenuProgramController.currentMenu;
@@ -91,7 +83,7 @@ public class LoginMenu implements Runnable {
                 System.out.println(Response.wrongUsernameOrPassword);
             } else {
                 System.out.println(Response.userLoginSuccessfully);
-                LoginMenu.getInstance().setLoginUsername(Players.getPlayerByUsername(username));
+                LoginProgramController.setLoginUsername(Players.getPlayerByUsername(username));
                 MenuProgramController.currentMenu = Menus.MAIN_MENU;
             }
         }

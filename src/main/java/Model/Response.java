@@ -1,4 +1,4 @@
-package View;
+package Model;
 
 public class Response {
     public static String loginFirst = "please login first";

@@ -1,4 +1,4 @@
-package View.JavaFXController;
+package View;
 
 import Controller.MenuProgramController;
 import javafx.application.Application;

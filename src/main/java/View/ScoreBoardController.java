@@ -1,8 +1,8 @@
-package View.JavaFXController;
+package View;
 
 import Controller.GameProgramController;
+import Controller.LoginProgramController;
 import Model.Players;
-import View.LoginMenu;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class ScoreBoardController extends Application {
         ArrayList<String> sortWithArrayList = GameProgramController.getInstance().scoreboardShow();
         StringBuilder scoreBoard = new StringBuilder();
         for (String s : sortWithArrayList) {
-            if (LoginMenu.loginUsername.equals(Players.getPlayerByNickName(s))) {
+            if (LoginProgramController.loginUsername.equals(Players.getPlayerByNickName(s))) {
                 scoreBoard.append("***");
             }
             scoreBoard.append(rank + "-" + s + ":" + " " + Players.getPlayerByNickName(s).getScore() + "\n");

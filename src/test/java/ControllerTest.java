@@ -1,15 +1,13 @@
 import Controller.*;
 import Model.*;
-import View.DuelMenu;
-import View.State;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import View.Console.DuelMenu;
+import Model.State;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ControllerTest {

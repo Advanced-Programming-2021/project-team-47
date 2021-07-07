@@ -4,9 +4,8 @@ import Model.Cards;
 import Model.Deck;
 import Model.MonsterCard;
 import Model.Players;
-import View.DuelMenu;
-import View.LoginMenu;
-import View.State;
+import View.Console.DuelMenu;
+import Model.State;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -125,7 +124,7 @@ public class EffectController {
 
     public static void heraldOfCreation(Matcher matcher) {
         DuelMenu.getInstance().getCardsInHand().remove(0);
-        DuelMenu.getInstance().setCardsInHand(LoginMenu.loginUsername);
+        DuelMenu.getInstance().setCardsInHand(LoginProgramController.loginUsername);
     }
 
     public static void exploderDagon(Matcher matcher) {
@@ -133,7 +132,7 @@ public class EffectController {
     }
 
     public static void terratiger(Matcher matcher) {
-        GameProgramController.getInstance().summon(LoginMenu.loginUsername.getUsername());
+        GameProgramController.getInstance().summon(LoginProgramController.loginUsername.getUsername());
     }
 
     public static void theTricky(Matcher matcher) {
@@ -182,7 +181,7 @@ public class EffectController {
     }
 
     public static void monsterReborn(Matcher matcher) {
-        GameProgramController.getInstance().summon(LoginMenu.loginUsername.getUsername());
+        GameProgramController.getInstance().summon(LoginProgramController.loginUsername.getUsername());
     }
 
     public static void yami(Matcher opponent) {

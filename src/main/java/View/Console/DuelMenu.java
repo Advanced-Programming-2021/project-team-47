@@ -1,4 +1,4 @@
-package View;
+package View.Console;
 
 import Controller.EffectController;
 import Controller.GameProgramController;
@@ -121,7 +121,7 @@ public class DuelMenu implements Runnable {
         commandMap.put(Regex.NEXT_PHASE.label, DuelMenu.commandChecker::nextPhase);
         commandMap.put(Regex.INCREASE_MONEY.label, DuelMenu.commandChecker::increaseMoney);
         commandMap.put(Regex.INCREASE_LP.label, DuelMenu.commandChecker::increaseLP);
-        commandMap.put(Regex.MENU_ENTER.label, ScoreboardMenu.commandChecker::menuEnterHandler);
+        commandMap.put(Regex.MENU_ENTER.label, DuelMenu.commandChecker::menuEnterHandler);
     }
 
     public void takeCommand(String command) {

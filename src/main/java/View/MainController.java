@@ -1,9 +1,10 @@
-package View.JavaFXController;
+package View;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class LoginController extends Application {
+public class MainController extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
 

@@ -1,10 +1,15 @@
 package Controller;
 
 import Model.*;
-import View.DuelMenu;
-import View.LoginMenu;
-import View.State;
+import View.Console.DuelMenu;
+import Model.State;
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 
@@ -31,12 +36,106 @@ public class GameProgramController {
                 }
             }
         }
-        DuelMenu.getInstance().setFirstPlayer(LoginMenu.loginUsername);
+        DuelMenu.getInstance().setFirstPlayer(LoginProgramController.loginUsername);
         if (username2.equals("--ai"))
             new Players("--ai", "--ai", "");
         DuelMenu.getInstance().setSecondPlayer(Players.getPlayerByUsername(username2));
         DuelMenu.getInstance().setRound(Integer.parseInt(rounds));
         MenuProgramController.currentMenu = Menus.DUEL_MENU;
+    }
+
+    static class csvToJson {
+        public static List<Map<?, ?>> readObjectsFromCsv(File file) throws IOException {
+            CsvSchema bootstrap = CsvSchema.emptySchema().withHeader();
+            CsvMapper csvMapper = new CsvMapper();
+            MappingIterator<Map<?, ?>> mappingIterator = csvMapper.reader(Map.class).with(bootstrap).readValues(file);
+            return mappingIterator.readAll();
+        }
+
+        public static void writeAsJson(List<Map<?, ?>> data, String name) throws IOException {
+            ObjectMapper mapper = new ObjectMapper();
+            for (Map<?, ?> url : data) {
+                if (url.get("Name").equals(name)) {
+                    File out = new File("src/main/resources/ExportCards/" + url.get("Name") + ".json");
+                    mapper.writeValue(out, url);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void exportCards(String matcher) {
+        ArrayList<String> cards = new ArrayList<>();
+        cards.add("SpellTrap");
+        cards.add("Monster");
+        for (String card : cards) {
+            File input = new File("src/main/resources/+" + card + ".csv");
+            try {
+                List<Map<?, ?>> data = GameProgramController.csvToJson.readObjectsFromCsv(input);
+                GameProgramController.csvToJson.writeAsJson(data, matcher);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public void importCards(String matcher) {
+        ArrayList<String> cards = new ArrayList<>();
+        cards.add("SpellTrap");
+        cards.add("Monster");
+        CardTypes style = null;
+        String cardName = null;
+        int level = 0;
+        String kind = null;
+        String type = null;
+        int ATK = 0;
+        int DEF = 0;
+        int price = 0;
+        String description = null;
+        for (String card : cards) {
+            File input = new File("src/main/resources/+" + card + ".csv");
+            try {
+                List<Map<?, ?>> data = GameProgramController.csvToJson.readObjectsFromCsv(input);
+                for (Map<?, ?> url : data) {
+                    if (url.get("Name").equals(matcher)) {
+                        if (url.get("Type") != null) {
+                            kind = url.get("Type").toString();
+                        } else {
+                            kind = url.get("Monster Type").toString();
+                        }
+                        if (url.get("Atk") != null) {
+                            kind = url.get("Atk").toString();
+                        }
+                        if (url.get("Def") != null) {
+                            kind = url.get("Def").toString();
+                        }
+                        if (url.get("Level") != null) {
+                            kind = url.get("Level").toString();
+                        }
+                        if (url.get("Monster type") != null) {
+                            type = url.get("Monster type").toString();
+                        }
+                        cardName = url.get("Name").toString();
+                        description = url.get("Description").toString();
+                        price = Integer.parseInt(url.get("Price").toString());
+                        if (card.equals("Monster")) {
+                            style = CardTypes.MONSTER_CARD;
+                        } else {
+                            if (url.get("Type").equals("Trap")) {
+                                style = CardTypes.TRAP_CARD;
+                            } else {
+                                style = CardTypes.SPELL_CARD;
+                            }
+                        }
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        new Cards(cardName, level, type, ATK, DEF, description, price, style, kind, State.NULL);
     }
 
     public Players getPlayer(String userName) {
@@ -104,10 +203,10 @@ public class GameProgramController {
     }
 
     public boolean isNormalSummonValid() {
-      if (DuelMenu.getInstance().getCardZoneSelected().getCanSummon()){
-          return true;
-      }
-      return false;
+        if (DuelMenu.getInstance().getCardZoneSelected().getCanSummon()) {
+            return true;
+        }
+        return false;
     }
 
     public void summon(String username) {

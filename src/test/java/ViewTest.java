@@ -1,5 +1,6 @@
+import Controller.LoginProgramController;
 import Model.Players;
-import View.LoginMenu;
+import View.Console.LoginMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class ViewTest {
 
     @Test
     public void setAndGetLoginUser() {
-        LoginMenu.getInstance().setLoginUsername(Players.getPlayerByUsername("finalTest"));
-        Assertions.assertEquals(LoginMenu.getInstance().getLoginUsername(), Players.getPlayerByUsername("finalTest"));
+        LoginProgramController.setLoginUsername(Players.getPlayerByUsername("finalTest"));
+        Assertions.assertEquals(LoginProgramController.getLoginUsername(), Players.getPlayerByUsername("finalTest"));
     }
 }

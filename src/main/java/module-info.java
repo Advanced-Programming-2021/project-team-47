@@ -1,10 +1,9 @@
-module main {
-    requires javafx.controls;
+module AP.Project {
+    requires javafx.graphics;
     requires javafx.fxml;
-    requires javafx.media;
-    requires com.fasterxml.jackson.databind;
+    requires javafx.controls;
     requires com.fasterxml.jackson.dataformat.csv;
-
-    opens View to javafx.fxml;
+    requires com.fasterxml.jackson.databind;
     exports View;
+    opens View to javafx.fxml;
 }

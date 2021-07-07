@@ -1,4 +1,4 @@
-package View.JavaFXController;
+package View;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,14 +8,13 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-
-public class DuelController extends Application {
+public class ProfileController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        URL duel = getClass().getResource("/fxml/DuelMenu.fxml");
-        Parent root = FXMLLoader.load(duel);
+        URL profileController = getClass().getResource("/fxml/ProfileController.fxml");
+        Parent root = FXMLLoader.load(profileController);
         Scene scene = new Scene(root);
-        root.setId("duelMenu");
+        root.setId("profileController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
     }

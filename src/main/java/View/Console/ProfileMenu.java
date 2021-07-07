@@ -1,21 +1,21 @@
-package View;
+package View.Console;
 
-import Controller.MenuProgramController;
 import Controller.GameProgramController;
-import Controller.ShopProgramController;
+import Controller.LoginProgramController;
+import Controller.MenuProgramController;
 import Controller.Regex;
 import Model.Menus;
-import Model.Cards;
+import Model.Response;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ShopMenu implements Runnable {
+public class ProfileMenu implements Runnable {
     public static HashMap<Pattern, Consumer<Matcher>> commandMap = new HashMap<>();
-    private static ShopMenu shopMenuSingleton;
+    private static ProfileMenu profileMenuSingleton;
     private static HashMap<Menus, String> menuEnter = new HashMap<>();
 
     static {
@@ -27,11 +27,11 @@ public class ShopMenu implements Runnable {
         menuEnter.put(Menus.IMPORT_OR_EXPORT_MENU, Menus.IMPORT_OR_EXPORT_MENU.label);
     }
 
-    public static ShopMenu getInstance() {
-        if (shopMenuSingleton == null) {
-            shopMenuSingleton = new ShopMenu();
+    public static ProfileMenu getInstance() {
+        if (profileMenuSingleton == null) {
+            profileMenuSingleton = new ProfileMenu();
         }
-        return shopMenuSingleton;
+        return profileMenuSingleton;
     }
 
     public void takeCommand(String command) {
@@ -44,10 +44,10 @@ public class ShopMenu implements Runnable {
     }
 
     public void run(String command) {
-        commandMap.put(Regex.BUY.label, commandChecker::printMoneyError);
-        commandMap.put(Regex.SHOW_CURRENT_MENU.label, commandChecker::showCurrentMenu);
-        commandMap.put(Regex.SHOP_SHOW_ALL.label, commandChecker::printAllCards);
-        commandMap.put(Regex.MENU_ENTER.label, commandChecker::menuEnterHandler);
+        commandMap.put(Regex.SHOW_CURRENT_MENU.label, ProfileMenu.commandChecker::showCurrentMenu);
+        commandMap.put(Regex.CHANGE_NICKNAME.label, ProfileMenu.commandChecker::changeNickNameResponse);
+        commandMap.put(Regex.CHANGE_PASSWORD.label, ProfileMenu.commandChecker::changePasswordResponse);
+        commandMap.put(Regex.MENU_ENTER.label, ProfileMenu.commandChecker::menuEnterHandler);
         while (!command.equals("menu exit")) {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
@@ -61,25 +61,6 @@ public class ShopMenu implements Runnable {
             System.out.println(current.label);
         }
 
-        static void printMoneyError(Matcher matcher) {
-            if (ShopProgramController.getInstance().checkEnoughMoney(LoginMenu.getInstance().getLoginUsername(), matcher.group(1))) {
-                LoginMenu.getInstance().getLoginUsername().setPlayerCards(matcher.group(1));
-                LoginMenu.getInstance().getLoginUsername().decreaseMoney(Cards.getCardByName(matcher.group(1)).getPrice());
-            } else if (Cards.getCardByName(matcher.group(1)) == null) {
-                System.out.println(Response.cardNameNotExist);
-            } else {
-                System.out.println(Response.notEnoughMoney);
-            }
-        }
-
-        static void printAllCards(Matcher matcher) {
-            TreeMap<String, Integer> sortCard = ShopProgramController.getInstance().sortCard();
-            for (Map.Entry<String, Integer> entry : sortCard.entrySet()) {
-                System.out.println(entry.getKey() + ":" + entry.getValue());
-            }
-
-        }
-
         static void menuEnterHandler(Matcher matcher) {
             for (Map.Entry<Menus, String> entry : menuEnter.entrySet()) {
                 if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 1) {
@@ -88,6 +69,28 @@ public class ShopMenu implements Runnable {
                 } else if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 2) {
                     System.out.println(Response.menuNotPossible);
                 }
+            }
+        }
+
+        static void changeNickNameResponse(Matcher matcher) {
+            if (LoginProgramController.getInstance().checkNicknameExist(matcher.group(1))) {
+                System.out.println(Response.changeNicknameSuccessfully);
+                LoginProgramController.getLoginUsername().changeNickname(matcher.group(1));
+            } else {
+                System.out.println("user with nickname " + matcher.group(1) + " already exists");
+            }
+        }
+
+        static void changePasswordResponse(Matcher matcher) {
+            String newPassword = LoginProgramController.getInstance().changePassword(matcher).get(0);
+            String currentPassword = LoginProgramController.getInstance().changePassword(matcher).get(1);
+            if (LoginProgramController.getInstance().checkInvalidPassword(LoginProgramController.getLoginUsername(), currentPassword)) {
+                System.out.println(Response.invalidCurrentPassword);
+            } else if (LoginProgramController.getInstance().checkSamePassword(LoginProgramController.getLoginUsername(), newPassword)) {
+                System.out.println(Response.samePasswordError);
+            } else {
+                System.out.println(Response.changePasswordSuccessfully);
+                LoginProgramController.getLoginUsername().changePassword(newPassword);
             }
         }
     }

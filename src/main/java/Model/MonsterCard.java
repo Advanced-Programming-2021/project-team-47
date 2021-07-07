@@ -1,7 +1,5 @@
 package Model;
 
-import View.State;
-
 public class MonsterCard extends Cards {
 
 

@@ -9,6 +9,16 @@ import java.util.regex.Matcher;
 public class LoginProgramController {
     private static LoginProgramController loginProgramController;
 
+    public static Players getLoginUsername() {
+        return loginUsername;
+    }
+
+    public static void setLoginUsername(Players loginUsername) {
+        LoginProgramController.loginUsername = loginUsername;
+    }
+
+    public static Players loginUsername;
+
     public static LoginProgramController getInstance() {
         if (loginProgramController == null) {
             loginProgramController = new LoginProgramController();

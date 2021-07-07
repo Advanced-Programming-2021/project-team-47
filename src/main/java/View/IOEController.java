@@ -1,73 +1,69 @@
-package View.JavaFXController;
+package View;
 
+import Controller.GameProgramController;
 import Model.Cards;
-import View.ImportOrExportMenu;
-import View.LoginMenu;
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 
-public class ShopController extends Application {
+public class IOEController extends Application {
+    public static FileChooser fileChooser = new FileChooser();
     public GridPane gridPane;
+    public Rectangle rect;
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL shop = getClass().getResource("/fxml/ShopMenu");
-        Parent root = FXMLLoader.load(shop);
+        URL IOEController = getClass().getResource("/fxml/ImportOrExportMenu.fxml");
+        Parent root = FXMLLoader.load(IOEController);
         Scene scene = new Scene(root);
-        root.setId("shop");
+        root.setId("IOEController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
+        fileChooser.setTitle("Import File");
+        fileChooser.showOpenDialog(stage);
     }
 
-    @FXML
-    public void initialize() {
-        showCardsList();
+    public void importMethod(MouseEvent mouseEvent) {
+        try {
+            rect.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + fileChooser.getInitialFileName() + ".jpg"))));
+            GameProgramController.getInstance().importCards("import card " + fileChooser.getInitialFileName());
+        } catch (FileNotFoundException ignored) {
+        }
     }
 
-    public void showCardsList() {
-        int i = 0;
+    public void exportMethod(MouseEvent mouseEvent) {
+        int i = 0, j = 0;
         for (Cards card : Cards.allCards) {
             Rectangle rectangle = new Rectangle();
-            rectangle.setWidth(20);
-            rectangle.setHeight(30);
             try {
+                rectangle.setWidth(20);
+                rectangle.setHeight(30);
                 rectangle.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + card.getCardName() + ".jpg"))));
             } catch (FileNotFoundException ignored) {
             }
             rectangle.setId(card.getCardName());
-            int finalI = i;
             rectangle.setOnMouseClicked(new EventHandler<>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    LoginMenu.loginUsername.decreaseMoney(card.getPrice());
-                    Label label = new Label();
-                    label.setText("Card added successfully");
-                    gridPane.add(label, finalI, 2);
+                    GameProgramController.getInstance().exportCards("export card " + rectangle.getId());
                 }
             });
-            Label label = new Label();
-            Label label1 = new Label();
-            label.setText(card.getCardName());
-            label1.setText(String.valueOf(card.getPrice()));
-            gridPane.add(rectangle, i, 0);
-            gridPane.add(label, i, 1);
-            gridPane.add(label1, i, 2);
+            gridPane.add(rectangle, i, j);
             ++i;
+            ++j;
         }
     }
 }

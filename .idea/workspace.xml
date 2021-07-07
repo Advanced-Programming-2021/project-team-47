@@ -4,11 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="MenuController">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="ProfileController 1">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_linux_11_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JavaFXController/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/DeckMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ImportOrExportMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JavaFXController/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/Runnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreboardMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MenuController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MenuController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScoreBoardMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreBoardMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +71,7 @@
         <option value="Tag Library Descriptor" />
         <option value="Class" />
         <option value="FxmlFile" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -78,6 +122,14 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/AP_Project.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/DeckController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/ShopController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/DuelController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -154,12 +206,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/media/hamidreza/Local Disk/AP/TamrinAP/Part1/main1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19235227" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -168,14 +220,17 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/View" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.DuelController">
+  <component name="RunManager" selected="Application.MainController">
     <configuration name="DuelController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.JavaFXController.DuelController" />
+      <option name="MAIN_CLASS_NAME" value="View.DuelController" />
       <module name="AP_Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.JavaFXController.*" />
+          <option name="PATTERN" value="View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -184,11 +239,11 @@
       </method>
     </configuration>
     <configuration name="IOEController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.JavaFXController.IOEController" />
+      <option name="MAIN_CLASS_NAME" value="View.IOEController" />
       <module name="AP_Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.JavaFXController.*" />
+          <option name="PATTERN" value="View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -205,15 +260,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.MainController" />
+      <module name="AP_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.ShopController" />
+      <module name="AP_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -222,12 +301,16 @@
       <item itemvalue="Application.IOEController" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.DuelController" />
+      <item itemvalue="Application.MainController" />
+      <item itemvalue="Application.ShopController" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainController" />
+        <item itemvalue="Application.ShopController" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DuelController" />
         <item itemvalue="Application.IOEController" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -294,6 +377,14 @@
       <workItem from="1625478792885" duration="38000" />
       <workItem from="1625499396882" duration="72000" />
       <workItem from="1625499480914" duration="1656000" />
+      <workItem from="1625642304951" duration="3247000" />
+    </task>
+    <task id="LOCAL-00014" summary="GameProgramController and Players">
+      <created>1619934852241</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934852241</updated>
     </task>
     <task id="LOCAL-00015" summary="GameProgramController">
       <created>1619934972520</created>
@@ -631,14 +722,7 @@
       <option name="project" value="LOCAL" />
       <updated>1625312766310</updated>
     </task>
-    <task id="LOCAL-00063" summary="MenuController">
-      <created>1625636330997</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1625636330998</updated>
-    </task>
-    <option name="localTasksCounter" value="64" />
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,6 +771,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="addToDeck method /// abstract Deck =&gt; MainDeck and SideDeck" />
     <MESSAGE value="some adjustments to GameProgramController / DuelMenu /MainMenu and SideMenu" />
     <MESSAGE value="deckMenu update" />
     <MESSAGE value="Players + Deck related adjustments" />
@@ -711,15 +796,14 @@
     <MESSAGE value="Phase 2 Start" />
     <MESSAGE value="Complete ShopMenu" />
     <MESSAGE value="ProfileController 1" />
-    <MESSAGE value="MenuController" />
-    <option name="LAST_COMMIT_MESSAGE" value="MenuController" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProfileController 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/ProfileMenu.java</url>
-          <line>62</line>
+          <url>file://$PROJECT_DIR$/src/main/java/View/Console/ProfileMenu.java</url>
+          <line>51</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -1,9 +1,10 @@
-package View;
+package View.Console;
 
 import Controller.Regex;
 import Model.Menus;
 import Controller.GameProgramController;
 import Controller.MenuProgramController;
+import Model.Response;
 
 import java.util.HashMap;
 import java.util.Map;

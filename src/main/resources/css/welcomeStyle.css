@@ -1,0 +1,15 @@
+
+.root{
+    -fx-background-image:url("../resources/images/yugiohseason1netflix.jpg");
+    background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
+.button {
+    -fx-background-color: #2F4F4F;
+}
+
+.button:hover {
+    -fx-background-image: url("../resources/images/buttonPattern.jpg");
+}

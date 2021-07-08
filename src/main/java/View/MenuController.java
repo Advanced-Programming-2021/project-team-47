@@ -38,18 +38,8 @@ public class MenuController extends Application {
         showCurrentMenu.setText(MenuProgramController.currentMenu.label);
     }
     public void mainMenu() throws Exception {
-        if (!MenuProgramController.currentMenu.equals(Menus.MAIN_MENU)){
-            Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            dialog.initOwner(stage);
-            VBox dialogVbox = new VBox(20);
-            dialogVbox.getChildren().add(new Text("Menu Navigation is not possible"));
-            Scene dialogScene = new Scene(dialogVbox, 300, 200);
-            dialog.setScene(dialogScene);
-            dialog.show();
-        }else {
             MainController.getInstance().start(stage);
-        }
+
     }
 
     public void importOrExportMenu(){
@@ -60,23 +50,19 @@ public class MenuController extends Application {
         LoginController.getInstance().start(stage);
     }
 
-    public void profileMenu(){
-
+    public void profileMenu() throws Exception {
+        ProfileController.getInstance().start(stage);
     }
 
-    public void scoreboardMenu(){
-
+    public void scoreboardMenu() throws Exception{
+        ScoreBoardController.getInstance().start(stage);
     }
 
-    public void shopMenu(){
-
-    }
-
-    public void exitCurrentMenu(){
-
+    public void shopMenu() throws Exception {
+        ShopController.getInstance().start(stage);
     }
 
     public void exit(){
-
+        System.exit(0);
     }
 }

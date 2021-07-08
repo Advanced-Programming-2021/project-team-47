@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 public class ProfileController extends Application {
+    public static ProfileController profileController;
+    public static ProfileController getInstance() {
+        if (profileController == null) profileController = new ProfileController();
+        return profileController;
+    }
     @Override
     public void start(Stage stage) throws Exception {
         URL profileController = getClass().getResource("/fxml/ProfileController.fxml");

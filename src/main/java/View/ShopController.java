@@ -22,7 +22,11 @@ import java.net.URL;
 
 public class ShopController extends Application {
     public GridPane gridPane;
-
+    public static ShopController shopController;
+    public static ShopController getInstance() {
+        if (shopController == null) shopController = new ShopController();
+        return shopController;
+    }
     @Override
     public void start(Stage stage) throws Exception {
         URL shop = getClass().getResource("/fxml/ShopMenu.fxml");

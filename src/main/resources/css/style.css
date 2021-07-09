@@ -1,6 +1,14 @@
 #scoreBoard {
-    background-image: url("../images/Yu-Gi-Oh.jpg");
+    -fx-background-image: url("../images/Yu-Gi-Oh.jpg");
+    -fx-background-size: cover;
 }
-#IOEController{
-    background-image: url("../images/yugiohseason1netflix.jpg");
+
+#IOEController {
+    -fx-background-image: url("../images/yugiohseason1netflix.jpg");
+    -fx-background-size: cover;
+}
+
+#shop {
+    -fx-background-image: url("../images/ezgif.com-gif-maker.png");
+    -fx-background-size: cover;
 }

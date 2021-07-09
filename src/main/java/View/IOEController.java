@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -23,6 +24,7 @@ public class IOEController extends Application {
     public static FileChooser fileChooser = new FileChooser();
     public GridPane gridPane;
     public Rectangle rect;
+    public static Stage staticStage;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -32,14 +34,16 @@ public class IOEController extends Application {
         root.setId("IOEController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
-        fileChooser.setTitle("Import File");
-        fileChooser.showOpenDialog(stage);
+        staticStage = stage;
+        stage.show();
     }
 
     public void importMethod(MouseEvent mouseEvent) {
         try {
-            rect.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + fileChooser.getInitialFileName() + ".jpg"))));
-            GameProgramController.getInstance().importCards("import card " + fileChooser.getInitialFileName());
+            fileChooser.setTitle("Import File");
+            File file = fileChooser.showOpenDialog(staticStage);
+            rect.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + file.getName().replaceAll(" ", "").replaceAll("json", "") + "jpg"))));
+            GameProgramController.getInstance().importCards("import card " + file.getName());
         } catch (FileNotFoundException ignored) {
         }
     }
@@ -50,7 +54,7 @@ public class IOEController extends Application {
             Rectangle rectangle = new Rectangle();
             try {
                 rectangle.setWidth(20);
-                rectangle.setHeight(30);
+                rectangle.setHeight(25);
                 rectangle.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + card.getCardName() + ".jpg"))));
             } catch (FileNotFoundException ignored) {
             }

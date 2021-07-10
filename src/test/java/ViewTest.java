@@ -1,6 +1,5 @@
 import Controller.LoginProgramController;
 import Model.Players;
-import View.Console.LoginMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

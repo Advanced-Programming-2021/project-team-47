@@ -1,8 +1,6 @@
 package View;
 
 import Controller.LoginProgramController;
-import Controller.MenuProgramController;
-import Model.Menus;
 import Model.Players;
 import Model.Response;
 import javafx.application.Application;
@@ -20,7 +18,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.regex.Matcher;
 
 public class LoginController extends Application {
     public static LoginController loginController;

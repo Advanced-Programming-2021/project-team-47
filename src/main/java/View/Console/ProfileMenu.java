@@ -2,7 +2,6 @@ package View.Console;
 
 import Controller.GameProgramController;
 import Controller.LoginProgramController;
-import Controller.MenuProgramController;
 import Controller.Regex;
 import Model.Menus;
 import Model.Response;

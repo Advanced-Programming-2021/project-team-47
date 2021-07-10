@@ -17,6 +17,6 @@
       <Button layoutX="249.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#signUpResponse" prefHeight="41.0" prefWidth="108.0" text="SignUp" />
       <TextField fx:id="nickName" layoutX="249.0" layoutY="55.0" onMouseClicked="#showNickName" />
       <Label layoutX="16.0" layoutY="60.0" text="Nickname:(necessary for SignUp)" />
-      <Button layoutY="371.0" mnemonicParsing="false" text="Back" />
+      <Button layoutY="371.0" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
    </children>
 </AnchorPane>

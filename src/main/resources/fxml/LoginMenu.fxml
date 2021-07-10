@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginController">
+   <children>
+      <TextField fx:id="username" layoutX="249.0" layoutY="107.0" onMouseClicked="#showUsername" />
+      <PasswordField fx:id="password" layoutX="249.0" layoutY="158.0" onMouseClicked="#showPassword" />
+      <Label layoutX="118.0" layoutY="112.0" text="Username: " />
+      <Label layoutX="124.0" layoutY="163.0" text="Password: " />
+      <Button layoutX="249.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#loginResponse" prefHeight="41.0" prefWidth="108.0" text="Login" />
+      <Button layoutX="249.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#signUpResponse" prefHeight="41.0" prefWidth="108.0" text="SignUp" />
+      <TextField fx:id="nickName" layoutX="249.0" layoutY="55.0" onMouseClicked="#showNickName" />
+      <Label layoutX="16.0" layoutY="60.0" text="Nickname:(necessary for SignUp)" />
+      <Button layoutY="371.0" mnemonicParsing="false" text="Back" />
+   </children>
+</AnchorPane>

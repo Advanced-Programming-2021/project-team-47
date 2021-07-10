@@ -4,171 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="new commit">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/AdvancedRitualArt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/AlexandriteDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/AxeRaider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BabyDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BattleOx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BattleWarrior.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BeastKingBarbaros.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Bitron.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BlackPendant.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/BlueEyesWhiteDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Call of the Hunted.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/ChangeOfHeart.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/ClosedForest.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/CommandKnight.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/CrabTurtle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/CrawlingDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/CurtainOfTheDarkOnes.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/DarkBlade.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/DarkHole.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/DarkMagician.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/ExploderDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/FeralImp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Fireyarou.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/FlameManipulator.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Forest.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/GateGuardian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Haniwa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/HarpiesFeatherDuster.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/HeraldOfCreation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/HeroOfTheEast.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/HornImp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Leotron.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MagicCylinder.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MagicJammer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MagnumShield.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/ManEaterBug.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Marshmallon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MessengerOfPeace.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MindCrush.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MirageDragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MirrorForce.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MonsterReborn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/MysticalSpaceTyphoon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/NegateAttack.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/PotOfGreed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Raigeki.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/RingOfDefense.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Scanner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SilverFang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SkullGuardian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SlotMachine.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SolemnWarning.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellAbsorption.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SpiralSerpent.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Suijin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SupplySquad.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SwordOfDarkDestruction.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/SwordOfRevealingLight.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Terraforming.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Terratiger.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Texchanger.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TheCalculator.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TheTricky.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TimeSeal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TorrentialTribute.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TrapHole.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/TwinTwisters.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Umiiruka.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/UnitedWeStand.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Unknown.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/VanitysEmptiness.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/WallOfRevealingLight.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/WarriorDaiGrepher.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Wattaildragon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Wattkid.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/Yami.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Cards/YomiShip.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ezgif.com-gif-maker.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_5_2021_7_46_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_9_30_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="ProfileController 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/welcomeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/welcomeStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/AlexandriteDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/AxeRaider.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/BabyDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/BattleOx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/BattleWarrior.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/BeastKingBarbaros.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Bitron.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/BlueEyesWhiteDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/CommandKnight.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/CrabTurtle.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/CrawlingDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/CurtainOfTheDarkOnes.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/DarkBlade.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/DarkMagician.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/ExploderDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/FeralImp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Fireyarou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/FlameManipulator.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/GateGuardian.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Haniwa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/HeraldOfCreation.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/HeroOfTheEast.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/HornImp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Leotron.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/ManEaterBug.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Marshmallon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/MirageDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Scanner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/SilverFang.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/SkullGuardian.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/SlotMachine.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/SpiralSerpent.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Suijin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Terratiger.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Texchanger.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/TheCalculator.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/TheTricky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Unknown.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/WarriorDaiGrepher.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Wattaildragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/Wattkid.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/Monsters/YomiShip.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/AdvancedRitualArt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/BlackPendant.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Call of the Hunted.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/ChangeOfHeart.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/ClosedForest.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/DarkHole.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Forest.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/HarpiesFeatherDuster.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MagicCylinder.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MagicJammer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MagnumShield.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MessengerOfPeace.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MindCrush.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MirrorForce.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MonsterReborn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/MysticalSpaceTyphoon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/NegateAttack.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/PotOfGreed.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Raigeki.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/RingOfDefense.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/SolemnWarning.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/SpellAbsorption.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/SupplySquad.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/SwordOfDarkDestruction.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/SwordOfRevealingLight.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Terraforming.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/TimeSeal.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/TorrentialTribute.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/TrapHole.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/TwinTwisters.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Umiiruka.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/UnitedWeStand.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/VanitysEmptiness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/WallOfRevealingLight.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Cards/SpellTrap/Yami.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AP_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,12 +81,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AP_Project.iml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/DeckController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/ShopController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/DuelController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -328,7 +168,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19235227" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -407,13 +247,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

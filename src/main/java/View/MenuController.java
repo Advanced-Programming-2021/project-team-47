@@ -19,19 +19,23 @@ public class MenuController extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        MenuController.stage=stage;
-        stage.resizableProperty().setValue(false);
-        stage.setTitle("Yu-Gi-Oh");
-        URL welcomeUrl = getClass().getResource("/fxml/MenuController.fxml");
-        Parent root = FXMLLoader.load(welcomeUrl);
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/welcomeStyle.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+        try {
+            MenuController.stage = stage;
+            stage.resizableProperty().setValue(false);
+            stage.setTitle("Yu-Gi-Oh");
+            URL welcomeUrl = getClass().getResource("/fxml/MenuController.fxml");
+            Parent root = FXMLLoader.load(welcomeUrl);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/welcomeStyle.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void importOrExportMenu(){
-
+    public void importOrExportMenu() throws Exception {
+        IOEController.getInstance().start(stage);
     }
 
     public void loginMenu() throws Exception {

@@ -21,6 +21,11 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class IOEController extends Application {
+    public static IOEController ioeController;
+    public static IOEController getInstance() {
+        if (ioeController == null) ioeController = new IOEController();
+        return ioeController;
+    }
     public static FileChooser fileChooser = new FileChooser();
     public GridPane gridPane;
     public Rectangle rect;

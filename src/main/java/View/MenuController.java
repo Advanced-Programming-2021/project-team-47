@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -13,13 +14,15 @@ public class MenuController extends Application {
     public Label showCurrentMenu;
     private static Stage stage;
     public static MenuController menuController;
+
     public static MenuController getInstance() {
         if (menuController == null) menuController = new MenuController();
         return menuController;
     }
+
     @Override
     public void start(Stage stage) throws Exception {
-        MenuController.stage=stage;
+        MenuController.stage = stage;
         stage.resizableProperty().setValue(false);
         stage.setTitle("Yu-Gi-Oh");
         URL welcomeUrl = getClass().getResource("/fxml/MenuController.fxml");
@@ -30,7 +33,7 @@ public class MenuController extends Application {
         stage.show();
     }
 
-    public void importOrExportMenu(){
+    public void importOrExportMenu() {
 
     }
 
@@ -42,7 +45,7 @@ public class MenuController extends Application {
         ProfileController.getInstance().start(stage);
     }
 
-    public void scoreboardMenu() throws Exception{
+    public void scoreboardMenu() throws Exception {
         ScoreBoardController.getInstance().start(stage);
     }
 
@@ -50,7 +53,11 @@ public class MenuController extends Application {
         ShopController.getInstance().start(stage);
     }
 
-    public void exit(){
+    public void exit() {
         System.exit(0);
+    }
+
+    public void mainMenu(MouseEvent mouseEvent) throws Exception {
+        MenuController.getInstance().start(stage);
     }
 }

@@ -51,19 +51,19 @@ public class ProfileMenu implements Runnable {
             takeCommand(command);
             command = GameProgramController.scanner.nextLine().trim();
         }
-        MenuProgramController.currentMenu = Menus.LOGIN_MENU;
+        GameProgramController.currentMenu = Menus.LOGIN_MENU;
     }
 
     static class commandChecker {
         static void showCurrentMenu(Matcher matcher) {
-            Menus current = MenuProgramController.currentMenu;
+            Menus current = GameProgramController.currentMenu;
             System.out.println(current.label);
         }
 
         static void menuEnterHandler(Matcher matcher) {
             for (Map.Entry<Menus, String> entry : menuEnter.entrySet()) {
                 if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 1) {
-                    MenuProgramController.currentMenu = entry.getKey();
+                    GameProgramController.currentMenu = entry.getKey();
                     break;
                 } else if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 2) {
                     System.out.println(Response.menuNotPossible);

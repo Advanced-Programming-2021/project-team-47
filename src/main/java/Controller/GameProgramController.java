@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
     private static GameProgramController gameProgramController;
+    public static Menus currentMenu = Menus.MAIN_MENU;
 
     public static GameProgramController getInstance() {
         if (gameProgramController == null) {
@@ -41,7 +42,7 @@ public class GameProgramController {
             new Players("--ai", "--ai", "");
         DuelMenu.getInstance().setSecondPlayer(Players.getPlayerByUsername(username2));
         DuelMenu.getInstance().setRound(Integer.parseInt(rounds));
-        MenuProgramController.currentMenu = Menus.DUEL_MENU;
+        GameProgramController.currentMenu = Menus.DUEL_MENU;
     }
 
     static class csvToJson {

@@ -766,8 +766,8 @@ public class DuelMenu implements Runnable {
         }
 
         public static void cancel(Matcher matcher) {
-            if (matcher.find())
-                MenuProgramController.getInstance().run();
+//            if (matcher.find())
+//                GameProgramController.getInstance().run();
         }
 
         public static void setWinner(Matcher matcher) {
@@ -915,7 +915,7 @@ public class DuelMenu implements Runnable {
         static void menuEnterHandler(Matcher matcher) {
             for (Map.Entry<Menus, String> entry : menuEnter.entrySet()) {
                 if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 1) {
-                    MenuProgramController.currentMenu = entry.getKey();
+                    GameProgramController.currentMenu = entry.getKey();
                     break;
                 } else if (matcher.group(1).equals(entry.getValue()) && entry.getKey().key == 2) {
                     System.out.println(Response.menuNotPossible);

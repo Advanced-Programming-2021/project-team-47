@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="new commit">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/audio files/Further background sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/audio files/Nothing else matters-duelMenu use.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/audio files/button hit sound effect.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="add sounds to project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -280,6 +275,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.DeckController" />
       <item itemvalue="Application.ShopController" />
@@ -364,13 +370,6 @@
       <workItem from="1625642304951" duration="3247000" />
       <workItem from="1625838822319" duration="4855000" />
       <workItem from="1626002137552" duration="254000" />
-    </task>
-    <task id="LOCAL-00016" summary="GameProgramController">
-      <created>1619980573814</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1619980573814</updated>
     </task>
     <task id="LOCAL-00017" summary="GameProgramController and DuelMenu">
       <created>1619980605388</created>
@@ -708,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625994466555</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="add sounds to project">
+      <created>1626124211116</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124211117</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -757,7 +763,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="deckMenu update" />
     <MESSAGE value="Players + Deck related adjustments" />
     <MESSAGE value="CardTypes adjustments" />
     <MESSAGE value="MainDeck + SideDeck Class add" />
@@ -782,7 +787,8 @@
     <MESSAGE value="ProfileController 1" />
     <MESSAGE value="Login" />
     <MESSAGE value="Bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixed" />
+    <MESSAGE value="add sounds to project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sounds to project" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

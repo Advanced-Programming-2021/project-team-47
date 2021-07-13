@@ -31,6 +31,7 @@ public class ShopController extends Application {
     public void start(Stage stage) throws Exception {
         URL shop = getClass().getResource("/fxml/ShopMenu.fxml");
         Parent root = FXMLLoader.load(shop);
+        stage.resizableProperty().setValue(false);
         Scene scene = new Scene(root);
         root.setId("shop");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());

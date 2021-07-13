@@ -36,6 +36,7 @@ public class IOEController extends Application {
         URL IOEController = getClass().getResource("/fxml/ImportOrExportMenu.fxml");
         Parent root = FXMLLoader.load(IOEController);
         Scene scene = new Scene(root);
+        stage.resizableProperty().setValue(false);
         root.setId("IOEController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);

@@ -33,8 +33,8 @@ public class MenuController extends Application {
         stage.show();
     }
 
-    public void importOrExportMenu() {
-
+    public void importOrExportMenu() throws Exception {
+        IOEController.getInstance().start(stage);
     }
 
     public void loginMenu() throws Exception {

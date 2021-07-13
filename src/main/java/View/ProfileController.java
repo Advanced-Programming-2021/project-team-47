@@ -41,6 +41,7 @@ public class ProfileController extends Application {
         URL profileController = getClass().getResource("/fxml/ProfileController.fxml");
         Parent root = FXMLLoader.load(profileController);
         Scene scene = new Scene(root);
+        stage.resizableProperty().setValue(false);
         root.setId("profileController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);

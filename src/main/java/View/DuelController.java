@@ -15,6 +15,7 @@ public class DuelController extends Application {
         URL duel = getClass().getResource("/fxml/DuelMenu.fxml");
         Parent root = FXMLLoader.load(duel);
         Scene scene = new Scene(root);
+        stage.resizableProperty().setValue(false);
         root.setId("duelMenu");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);

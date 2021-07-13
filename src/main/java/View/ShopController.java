@@ -21,14 +21,18 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class ShopController extends Application {
+    private static Stage stage;
     public GridPane gridPane;
     public static ShopController shopController;
+
     public static ShopController getInstance() {
         if (shopController == null) shopController = new ShopController();
         return shopController;
     }
+
     @Override
     public void start(Stage stage) throws Exception {
+        ShopController.stage = stage;
         URL shop = getClass().getResource("/fxml/ShopMenu.fxml");
         Parent root = FXMLLoader.load(shop);
         stage.resizableProperty().setValue(false);
@@ -74,5 +78,9 @@ public class ShopController extends Application {
             gridPane.add(label1, i, 2);
             ++i;
         }
+    }
+
+    public void back(MouseEvent mouseEvent) throws Exception {
+        MenuController.getInstance().start(stage);
     }
 }

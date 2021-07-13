@@ -57,7 +57,4 @@ public class MenuController extends Application {
         System.exit(0);
     }
 
-    public void mainMenu(MouseEvent mouseEvent) throws Exception {
-        MenuController.getInstance().start(stage);
-    }
 }

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -21,9 +22,9 @@ import java.net.URL;
 
 public class LoginController extends Application {
     public static LoginController loginController;
-    public TextField username=new TextField();
-    public PasswordField password=new PasswordField();
-    public TextField nickName=new TextField();
+    public TextField username = new TextField();
+    public PasswordField password = new PasswordField();
+    public TextField nickName = new TextField();
     private static Stage stage;
 
     public void showPassword() {
@@ -34,9 +35,10 @@ public class LoginController extends Application {
         String usernameText = username.getText();
     }
 
-    public void showNickName(){
-        String nickname=nickName.getText();
+    public void showNickName() {
+        String nickname = nickName.getText();
     }
+
     public static LoginController getInstance() {
         if (loginController == null) loginController = new LoginController();
         return loginController;
@@ -172,7 +174,8 @@ public class LoginController extends Application {
             new Players(username, nickName, password);
         }
     }
-    public void back() throws Exception {
+
+    public void back(MouseEvent mouseEvent) throws Exception {
         MenuController.getInstance().start(stage);
     }
 }

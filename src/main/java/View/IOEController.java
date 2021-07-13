@@ -21,33 +21,35 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class IOEController extends Application {
+    private static Stage stage;
     public static IOEController ioeController;
+
     public static IOEController getInstance() {
         if (ioeController == null) ioeController = new IOEController();
         return ioeController;
     }
+
     public static FileChooser fileChooser = new FileChooser();
     public GridPane gridPane;
     public Rectangle rect;
-    public static Stage staticStage;
 
     @Override
     public void start(Stage stage) throws Exception {
         URL IOEController = getClass().getResource("/fxml/ImportOrExportMenu.fxml");
+        View.IOEController.stage = stage;
         Parent root = FXMLLoader.load(IOEController);
         Scene scene = new Scene(root);
         stage.resizableProperty().setValue(false);
         root.setId("IOEController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
-        staticStage = stage;
         stage.show();
     }
 
     public void importMethod(MouseEvent mouseEvent) {
         try {
             fileChooser.setTitle("Import File");
-            File file = fileChooser.showOpenDialog(staticStage);
+            File file = fileChooser.showOpenDialog(stage);
             rect.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + file.getName().replaceAll(" ", "").replaceAll("json", "") + "jpg"))));
             GameProgramController.getInstance().importCards("import card " + file.getName());
         } catch (FileNotFoundException ignored) {
@@ -75,5 +77,9 @@ public class IOEController extends Application {
             ++i;
             ++j;
         }
+    }
+
+    public void back(MouseEvent mouseEvent) throws Exception {
+        MenuController.getInstance().start(stage);
     }
 }

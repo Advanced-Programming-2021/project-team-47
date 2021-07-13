@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -16,6 +17,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ScoreBoardController extends Application {
+    private static Stage stage;
     public GridPane gridPane;
     private static ScoreBoardController scoreBoardController;
 
@@ -46,6 +48,7 @@ public class ScoreBoardController extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        ScoreBoardController.stage = stage;
         URL scoreBoard = getClass().getResource("/fxml/ScoreBoardMenu.fxml");
         Parent root = FXMLLoader.load(scoreBoard);
         stage.resizableProperty().setValue(false);
@@ -59,5 +62,9 @@ public class ScoreBoardController extends Application {
     @FXML
     public void initialize() {
         showScoreBoard();
+    }
+
+    public void back(MouseEvent mouseEvent) throws Exception {
+        MenuController.getInstance().start(stage);
     }
 }

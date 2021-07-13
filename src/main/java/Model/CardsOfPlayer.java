@@ -10,6 +10,7 @@ public class CardsOfPlayer {
     private String face;
     private String cardName;
     private int addressNumber;
+
     public CardsOfPlayer(Zones zones, String mode, String face, String cardName, int addressNumber) {
         setZones(zones);
         setMode(mode);
@@ -22,7 +23,7 @@ public class CardsOfPlayer {
     public static CardsOfPlayer getCardByName(String cardName) {
         for (CardsOfPlayer cards : cardsOfPlayer) {
             if (cards.cardName.equals(cardName)
-            || cards.cardName.toLowerCase(Locale.ROOT).equals(cardName)) {
+                    || cards.cardName.toLowerCase(Locale.ROOT).equals(cardName)) {
                 return cards;
             }
         }

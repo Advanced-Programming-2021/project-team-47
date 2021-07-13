@@ -54,7 +54,6 @@ public class LoginController extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/welcomeStyle.css").toExternalForm());
         stage.setScene(scene);
-        stage.show();
     }
 
     public void loginResponse() throws Exception {

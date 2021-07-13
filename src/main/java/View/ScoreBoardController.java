@@ -56,7 +56,6 @@ public class ScoreBoardController extends Application {
         root.setId("scoreBoard");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
-        stage.show();
     }
 
     @FXML

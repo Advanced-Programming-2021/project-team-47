@@ -10,7 +10,7 @@ public class Cards {
     private int level;
     private String type;
     private int ATK;
-    private boolean canSpecialSummonBoolean=false;
+    private boolean canSpecialSummonBoolean = false;
 
     public State getState() {
         return state;
@@ -101,7 +101,8 @@ public class Cards {
         canRitualSummon();
         allCards.add(this);
     }
-    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, boolean canRitualSummon , boolean canSpecialSummon) {
+
+    public Cards(String cardName, int level, String type, int ATK, int DEF, String description, int price, CardTypes style, String kind, boolean canRitualSummon, boolean canSpecialSummon) {
         setCardName(cardName);
         setLevel(level);
         setType(type);
@@ -134,12 +135,15 @@ public class Cards {
         }
         return null;
     }
-    public void canSpecialSummon(){
-        this.canSpecialSummonBoolean=true;
+
+    public void canSpecialSummon() {
+        this.canSpecialSummonBoolean = true;
     }
-    public boolean getCanSpecialSummon(){
+
+    public boolean getCanSpecialSummon() {
         return canSpecialSummonBoolean;
     }
+
     public String getCardName() {
         return cardName;
     }

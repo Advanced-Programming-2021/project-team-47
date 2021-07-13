@@ -100,7 +100,7 @@ public class EffectController {
     }
 
     private static void spellAbsorption(Matcher matcher) {
-        DuelMenu.getInstance().getShowTurn().increaseLifePoint(500);
+        GameProgramController.getInstance().getShowTurn().increaseLifePoint(500);
     }
 
     private static void torrentialTribute(Matcher matcher) {
@@ -136,48 +136,48 @@ public class EffectController {
     }
 
     public static void theTricky(Matcher matcher) {
-        DuelMenu.getInstance().setCardsInHand(DuelMenu.duelMenu.getFirstPlayer());
-        GameProgramController.getInstance().summon(DuelMenu.duelMenu.getFirstPlayer().getUsername());
+        DuelMenu.getInstance().setCardsInHand(GameProgramController.getInstance().getFirstPlayer());
+        GameProgramController.getInstance().summon(GameProgramController.getInstance().getFirstPlayer().getUsername());
     }
 
     public static void terraforming(Matcher matcher) {
-        for (int i = 0; i < Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getFieldZone().size(); ++i) {
-            if (Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getFieldZone().get(i).getKind().equals("Field Spell")) {
-                Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).setCardsInHand(Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getFieldZone().get(i), 0);
+        for (int i = 0; i < Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getFieldZone().size(); ++i) {
+            if (Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getFieldZone().get(i).getKind().equals("Field Spell")) {
+                Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).setCardsInHand(Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getFieldZone().get(i), 0);
                 break;
             }
         }
     }
 
     public static void raigeki(Matcher matcher) {
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getSecondPlayer().getUsername()).getMonsterCardZoneArray().clear();
+        Players.getPlayerByUsername(GameProgramController.getInstance().getSecondPlayer().getUsername()).getMonsterCardZoneArray().clear();
     }
 
     public static void changeOfHeart(Matcher matcher) {
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).setMonsterCardZone(Players.getPlayerByUsername(DuelMenu.duelMenu.getSecondPlayer().getUsername()).getMonsterCardZone(0), 0);
+        Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).setMonsterCardZone(Players.getPlayerByUsername(GameProgramController.getInstance().getSecondPlayer().getUsername()).getMonsterCardZone(0), 0);
     }
 
     public static void harpiesFeatherDuster(Matcher matcher) {
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getSpellCardZone().clear();
+        Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getSpellCardZone().clear();
     }
 
     public static void mysticalSpaceTyphoon(Matcher matcher) {
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getSpellCardZone().remove(0);
+        Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getSpellCardZone().remove(0);
     }
 
     public static void twinTwisters(Matcher matcher) {
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).setCardsInHand(null, 0);
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getSecondPlayer().getUsername()).getSpellCardZone().remove(0);
-        Players.getPlayerByUsername(DuelMenu.duelMenu.getSecondPlayer().getUsername()).getSpellCardZone().remove(1);
+        Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).setCardsInHand(null, 0);
+        Players.getPlayerByUsername(GameProgramController.getInstance().getSecondPlayer().getUsername()).getSpellCardZone().remove(0);
+        Players.getPlayerByUsername(GameProgramController.getInstance().getSecondPlayer().getUsername()).getSpellCardZone().remove(1);
     }
 
     public static void supplySquad(Matcher matcher) {
-        Deck.getDeckByOwner(DuelMenu.duelMenu.getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(0).getCardName());
+        Deck.getDeckByOwner(GameProgramController.getInstance().getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(0).getCardName());
     }
 
     public static void potOfGreed(Matcher matcher) {
-        Deck.getDeckByOwner(DuelMenu.duelMenu.getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(0).getCardName());
-        Deck.getDeckByOwner(DuelMenu.duelMenu.getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(DuelMenu.duelMenu.getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(1).getCardName());
+        Deck.getDeckByOwner(GameProgramController.getInstance().getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(0).getCardName());
+        Deck.getDeckByOwner(GameProgramController.getInstance().getFirstPlayer()).setCardsInDecks(Players.getPlayerByUsername(GameProgramController.getInstance().getFirstPlayer().getUsername()).getMainDecks().getMainDeckCards().get(1).getCardName());
     }
 
     public static void monsterReborn(Matcher matcher) {

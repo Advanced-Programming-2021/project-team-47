@@ -43,7 +43,6 @@ public class IOEController extends Application {
         root.setId("IOEController");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
-        stage.show();
     }
 
     public void importMethod(MouseEvent mouseEvent) {

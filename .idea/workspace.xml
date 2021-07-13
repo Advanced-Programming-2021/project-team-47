@@ -6,21 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Console/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Console/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/Runnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/DeckMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/DeckMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoginMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ProfileController.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScoreBoardMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreBoardMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +230,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DuelController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.DuelController" />
+      <module name="AP_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IOEController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.IOEController" />
       <module name="AP_Project" />
@@ -281,19 +297,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShopController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.ShopController" />
-      <module name="AP_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="View.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -309,19 +312,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.DeckController" />
-      <item itemvalue="Application.ShopController" />
       <item itemvalue="Application.ScoreBoardController" />
       <item itemvalue="Application.IOEController" />
       <item itemvalue="Application.ProfileController" />
       <item itemvalue="Application.MenuController" />
+      <item itemvalue="Application.DuelController" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MenuController" />
+        <item itemvalue="Application.DuelController" />
         <item itemvalue="Application.ScoreBoardController" />
         <item itemvalue="Application.ProfileController" />
         <item itemvalue="Application.IOEController" />
-        <item itemvalue="Application.ShopController" />
       </list>
     </recent_temporary>
   </component>
@@ -391,13 +394,6 @@
       <workItem from="1625642304951" duration="3247000" />
       <workItem from="1625838822319" duration="4855000" />
       <workItem from="1626002137552" duration="254000" />
-    </task>
-    <task id="LOCAL-00019" summary="debug menu detection">
-      <created>1620321778535</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1620321778535</updated>
     </task>
     <task id="LOCAL-00020" summary="duelMenu3 import players">
       <created>1620325993094</created>
@@ -735,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626161788812</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Bug fixed">
+      <created>1626162789235</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1626162789235</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

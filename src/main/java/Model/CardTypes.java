@@ -9,6 +9,9 @@ public enum CardTypes {
     public int getLabel() {
         return label;
     }
-    CardTypes(int label){this.label=label;}
+
+    CardTypes(int label) {
+        this.label = label;
+    }
 
 }

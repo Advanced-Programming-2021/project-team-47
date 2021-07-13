@@ -17,12 +17,80 @@ public class GameProgramController {
     public static Scanner scanner = new Scanner(System.in);
     private static GameProgramController gameProgramController;
     public static Menus currentMenu = Menus.MAIN_MENU;
+    private Players firstPlayer;
+    private Players secondPlayer;
+    private Players showTurn;
+    private static Phase phase = Phase.MAIN_PHASE1;
 
     public static GameProgramController getInstance() {
         if (gameProgramController == null) {
             gameProgramController = new GameProgramController();
         }
         return gameProgramController;
+    }
+
+    public void setPhaseByKey(int key) {
+        if (key == 3) {
+            this.phase = Phase.MAIN_PHASE1;
+            return;
+        }
+        if (key == 5) {
+            this.phase = Phase.MAIN_PHASE2;
+            return;
+        }
+        if (key == 1) {
+            this.phase = Phase.DRAW_PHASE;
+            return;
+        }
+        if (key == 2) {
+            this.phase = Phase.STANDBY_PHASE;
+            return;
+        }
+        if (key == 4) {
+            this.phase = Phase.BATTLE_PHASE;
+            return;
+        }
+        if (key == 6) {
+            this.phase = Phase.END_PHASE;
+
+        }
+    }
+
+    public void nextPhase() {
+        Phase currentPhase = gameProgramController.getPhase();
+        this.setPhaseByKey(currentPhase.getKey() + 1);
+    }
+
+    public Phase getPhase() {
+        return phase;
+    }
+
+    public void setPhase(Phase phase) {
+        this.phase = phase;
+    }
+
+    public Players getShowTurn() {
+        return showTurn;
+    }
+
+    public void setShowTurn(Players showTurn) {
+        this.showTurn = showTurn;
+    }
+
+    public Players getFirstPlayer() {
+        return firstPlayer;
+    }
+
+    public void setFirstPlayer(Players firstPlayer) {
+        this.firstPlayer = firstPlayer;
+    }
+
+    public Players getSecondPlayer() {
+        return secondPlayer;
+    }
+
+    public void setSecondPlayer(Players secondPlayer) {
+        this.secondPlayer = secondPlayer;
     }
 
     public void startMultiplePlayerGame(Matcher matcher) {
@@ -37,10 +105,10 @@ public class GameProgramController {
                 }
             }
         }
-        DuelMenu.getInstance().setFirstPlayer(LoginProgramController.loginUsername);
+        GameProgramController.getInstance().setFirstPlayer(LoginProgramController.loginUsername);
         if (username2.equals("--ai"))
             new Players("--ai", "--ai", "");
-        DuelMenu.getInstance().setSecondPlayer(Players.getPlayerByUsername(username2));
+        GameProgramController.getInstance().setSecondPlayer(Players.getPlayerByUsername(username2));
         DuelMenu.getInstance().setRound(Integer.parseInt(rounds));
         GameProgramController.currentMenu = Menus.DUEL_MENU;
     }
@@ -153,7 +221,7 @@ public class GameProgramController {
     }
 
     public void changePhase(Phase phase) {
-        DuelMenu.getInstance().setPhase(phase);
+        gameProgramController.setPhase(phase);
     }
 
     public boolean isMonsterCardZoneFull(String username) {
@@ -270,7 +338,7 @@ public class GameProgramController {
 
     public void attackMonster(String username, int addressNumber) {
         Players playerOpponent = Players.getPlayerByUsername(username);
-        Players playerCurrent = DuelMenu.getInstance().getShowTurn();
+        Players playerCurrent = gameProgramController.getShowTurn();
         if (playerOpponent.getMonsterCardZone(addressNumber).equals("OO") && DuelMenu.getInstance().getCardZoneSelected()
                 .getATK() > playerOpponent.getMonsterCardZone(addressNumber).getATK()) {
             playerOpponent.decreaseLifePoint(DuelMenu.getInstance().getCardZoneSelected()
@@ -366,18 +434,18 @@ public class GameProgramController {
     }
 
     public void swapTurn() {
-        DuelMenu game = DuelMenu.getInstance();
+        GameProgramController game = GameProgramController.getInstance();
         Players turn = game.getShowTurn();
         if (turn.equals(game.getFirstPlayer())) {
-            DuelMenu.getInstance().setShowTurn(game.getSecondPlayer());
+            gameProgramController.setShowTurn(game.getSecondPlayer());
             DuelMenu.getInstance().setShowOpponent(game.getFirstPlayer());
-            if (DuelMenu.getInstance().getShowTurn().equals("--ai")) {
+            if (gameProgramController.getShowTurn().equals("--ai")) {
                 DuelMenu.getInstance().aiPlay();
             }
         } else {
-            DuelMenu.getInstance().setShowTurn(game.getFirstPlayer());
+            gameProgramController.setShowTurn(game.getFirstPlayer());
             DuelMenu.getInstance().setShowOpponent(game.getSecondPlayer());
-            if (DuelMenu.getInstance().getShowTurn().equals("--ai")) {
+            if (gameProgramController.getShowTurn().equals("--ai")) {
                 DuelMenu.getInstance().aiPlay();
             }
         }

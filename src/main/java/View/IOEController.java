@@ -61,6 +61,13 @@ public class IOEController extends Application {
 
     public void importMethod(MouseEvent mouseEvent) {
         try {
+            mediaPlayer.play();
+            mediaPlayer.setOnEndOfMedia(new Runnable() {
+                @Override
+                public void run() {
+                    mediaPlayer.stop();
+                }
+            });
             fileChooser.setTitle("Import File");
             File file = fileChooser.showOpenDialog(stage);
             rect.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + file.getName().replaceAll(" ", "").replaceAll("json", "") + "jpg"))));
@@ -70,6 +77,13 @@ public class IOEController extends Application {
     }
 
     public void exportMethod(MouseEvent mouseEvent) {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         int i = 0, j = 0;
         for (Cards card : Cards.allCards) {
             Rectangle rectangle = new Rectangle();

@@ -85,6 +85,13 @@ public class DuelController extends Application {
     }
 
     public void nextPhase(MouseEvent mouseEvent) {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         GameProgramController.getInstance().nextPhase();
     }
 }

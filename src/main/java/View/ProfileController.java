@@ -44,11 +44,23 @@ public class ProfileController extends Application {
     private Button profilePhotoChange;
 
     public void changePassword(ActionEvent event) {
-
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
     }
 
     public void changePhoto(ActionEvent event) {
-
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
     }
 
     public static ProfileController profileController;

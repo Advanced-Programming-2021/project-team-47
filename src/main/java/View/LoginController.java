@@ -72,6 +72,13 @@ public class LoginController extends Application {
     }
 
     public void loginResponse() throws Exception {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         String password = LoginController.getInstance().password.getText();
         String username = LoginController.getInstance().username.getText();
         if (!LoginProgramController.getInstance().checkUsernameExist(username)) {
@@ -131,6 +138,13 @@ public class LoginController extends Application {
     }
 
     public void signUpResponse() {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         String password = LoginController.getInstance().password.getText();
         String username = LoginController.getInstance().username.getText();
         String nickName = LoginController.getInstance().nickName.getText();

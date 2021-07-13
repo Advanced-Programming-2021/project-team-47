@@ -18,6 +18,17 @@ public class MenuController extends Application {
     public Label showCurrentMenu;
     private static Stage stage;
     public static MenuController menuController;
+    public static File mediaFileButton = new File("src/main/resources/audio files/button hit sound effect.mp3");
+    public static Media mediaButton;
+
+    static {
+        try {
+            mediaButton = new Media(mediaFileButton.toURI().toURL().toString());
+        } catch (MalformedURLException ignored) {
+        }
+    }
+
+    public static MediaPlayer mediaPlayerButton = new MediaPlayer(mediaButton);
     public static File mediaFile = new File("src/main/resources/audio files/Further background sound.mp3");
     public static Media media;
 
@@ -56,26 +67,68 @@ public class MenuController extends Application {
     }
 
     public void importOrExportMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         IOEController.getInstance().start(stage);
     }
 
     public void loginMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         LoginController.getInstance().start(stage);
     }
 
     public void profileMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         ProfileController.getInstance().start(stage);
     }
 
     public void scoreboardMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         ScoreBoardController.getInstance().start(stage);
     }
 
     public void shopMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         ShopController.getInstance().start(stage);
     }
 
     public void exit() {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
         System.exit(0);
     }
 

@@ -4,26 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Bug fixed">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add DuelMenu graphic + Bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/DeckProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EffectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CardsOfPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Phase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Console/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/DuelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Console/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Console/Runnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,13 +387,6 @@
       <workItem from="1625838822319" duration="4855000" />
       <workItem from="1626002137552" duration="254000" />
     </task>
-    <task id="LOCAL-00020" summary="duelMenu3 import players">
-      <created>1620325993094</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1620325993094</updated>
-    </task>
     <task id="LOCAL-00021" summary="duelMenu3 import deck">
       <created>1620326054156</created>
       <option name="number" value="00021" />
@@ -738,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626162789235</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Add DuelMenu graphic + Bug fixed">
+      <created>1626167075166</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1626167075166</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +779,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Players + Deck related adjustments" />
     <MESSAGE value="CardTypes adjustments" />
     <MESSAGE value="MainDeck + SideDeck Class add" />
     <MESSAGE value="Cards update" />
@@ -812,7 +803,8 @@
     <MESSAGE value="Login" />
     <MESSAGE value="add sounds to project" />
     <MESSAGE value="Bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixed" />
+    <MESSAGE value="Add DuelMenu graphic + Bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DuelMenu graphic + Bug fixed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

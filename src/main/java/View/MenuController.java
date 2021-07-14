@@ -76,7 +76,16 @@ public class MenuController extends Application {
         });
         IOEController.getInstance().start(stage);
     }
-
+    public void duelMenu() throws Exception{
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
+        DuelController.getInstance().start(stage);
+    }
     public void loginMenu() throws Exception {
         mediaPlayerButton.play();
         mediaPlayerButton.setOnEndOfMedia(new Runnable() {

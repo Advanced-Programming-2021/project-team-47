@@ -1,15 +1,15 @@
 
 .root{
-    -fx-background-image:url("../images/yugiohseason1netflix.jpg");
+    -fx-background-image:url("../images/welcomePagebackground.gif");
     background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
 
 .button {
-    -fx-background-color: #2F4F4F;
+    -fx-background-color: #cd1da8;
 }
 
 .button:hover {
-    -fx-background-image: url("../images/buttonPattern.jpg");
+    -fx-background-image: url("../images/doodad.png");
 }

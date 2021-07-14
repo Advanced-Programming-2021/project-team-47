@@ -25,7 +25,11 @@ public class DuelController extends Application {
     public Label phase;
     public static File mediaFileButton = new File("src/main/resources/audio files/button hit sound effect.mp3");
     public static Media mediaButton;
-
+    private static DuelController duelController;
+    public static DuelController getInstance() {
+        if (duelController == null) duelController = new DuelController();
+        return duelController;
+    }
     static {
         try {
             mediaButton = new Media(mediaFileButton.toURI().toURL().toString());

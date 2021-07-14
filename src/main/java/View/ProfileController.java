@@ -59,7 +59,7 @@ public class ProfileController extends Application {
     }
 
     private void swithToChangePasswordScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("changePassword.ProfileController.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/fxml/changePassword.ProfileController.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
@@ -68,7 +68,7 @@ public class ProfileController extends Application {
     }
 
     public void toProfile(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ProfileController.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/fxml/ProfileController.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());

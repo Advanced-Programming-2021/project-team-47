@@ -1,9 +1,12 @@
 package View;
 
+import Model.Players;
+import Model.Response;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +19,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -43,7 +47,8 @@ public class ProfileController extends Application {
     @FXML
     private Button profilePhotoChange;
 
-    public void changePassword(ActionEvent event) {
+    public void changePassword(ActionEvent event) throws IOException {
+        swithToChangePasswordScene(event);
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
@@ -51,6 +56,34 @@ public class ProfileController extends Application {
                 mediaPlayer.stop();
             }
         });
+    }
+
+    private void swithToChangePasswordScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("changePassword.ProfileController.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toProfile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ProfileController.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setNewPassword(ActionEvent event) {
+        String currentPassword = currentPasswordTextField.getText();
+        String newPassword = newPasswordTextField.getText();
+        if (!player.getPassword().equals(currentPassword)) responseLabel.setText(Response.wrongUsernameOrPassword);
+        else {
+            player.changePassword(newPassword);
+            responseLabel.setText(Response.changePasswordSuccessfully);
+        }
     }
 
     public void changePhoto(ActionEvent event) {
@@ -62,6 +95,20 @@ public class ProfileController extends Application {
             }
         });
     }
+
+    private Players player;
+    private Parent root;
+    private Scene scene;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Button submitButton;
+    @FXML
+    private TextField currentPasswordTextField;
+    @FXML
+    private TextField newPasswordTextField;
+    @FXML
+    private Label responseLabel;
 
     public static ProfileController profileController;
 
@@ -91,5 +138,10 @@ public class ProfileController extends Application {
             }
         });
         MenuController.getInstance().start(stage);
+    }
+
+    public void setNickName(ActionEvent event) {
+        String nickName = aliasTextField.getText();
+        player.setNickname(nickName);
     }
 }

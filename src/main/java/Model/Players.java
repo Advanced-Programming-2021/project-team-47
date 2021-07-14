@@ -42,6 +42,7 @@ public class Players {
         allPlayers.add(this);
     }
 
+
     public void removeFromArrayList(ArrayList<Cards> cardsArrayList, HashMap<Cards, String> cardsHashMap, Cards cards) {
         cardsArrayList.remove(cards);
         cardsHashMap.remove(cards);
@@ -230,7 +231,7 @@ public class Players {
         return nickname;
     }
 
-    private void setNickname(String nickname) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 

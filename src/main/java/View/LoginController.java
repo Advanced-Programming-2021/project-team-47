@@ -14,10 +14,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class LoginController extends Application {
@@ -26,6 +30,17 @@ public class LoginController extends Application {
     public PasswordField password = new PasswordField();
     public TextField nickName = new TextField();
     private static Stage stage;
+    public static File mediaFile = new File("src/main/resources/audio files/button hit sound effect.mp3");
+    public static Media media;
+
+    static {
+        try {
+            media = new Media(mediaFile.toURI().toURL().toString());
+        } catch (MalformedURLException ignored) {
+        }
+    }
+
+    public static MediaPlayer mediaPlayer = new MediaPlayer(media);
 
     public void showPassword() {
         String passwordText = password.getText();
@@ -57,6 +72,13 @@ public class LoginController extends Application {
     }
 
     public void loginResponse() throws Exception {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         String password = LoginController.getInstance().password.getText();
         String username = LoginController.getInstance().username.getText();
         if (!LoginProgramController.getInstance().checkUsernameExist(username)) {
@@ -116,6 +138,13 @@ public class LoginController extends Application {
     }
 
     public void signUpResponse() {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         String password = LoginController.getInstance().password.getText();
         String username = LoginController.getInstance().username.getText();
         String nickName = LoginController.getInstance().nickName.getText();
@@ -175,6 +204,13 @@ public class LoginController extends Application {
     }
 
     public void back(MouseEvent mouseEvent) throws Exception {
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.stop();
+            }
+        });
         MenuController.getInstance().start(stage);
     }
 }

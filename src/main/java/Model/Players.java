@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -29,6 +31,7 @@ public class Players {
     private int lifePoint;
     private int money;
     private ArrayList<Deck> activeDeck = new ArrayList<>(); //first element:mainDeck ,, second element:sideDeck
+    private Image image;
 
     public Players(String username, String nickname, String password) {
         setUsername(username);
@@ -286,5 +289,13 @@ public class Players {
 
     public void decreaseLifePoint(int lifePoint) {
         this.lifePoint -= lifePoint;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickname = nickName;
+    }
+
+    public Image getProfileImage() {
+        return this.image;
     }
 }

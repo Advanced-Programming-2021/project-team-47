@@ -70,4 +70,5 @@ public class Response {
     public static String sacrificeAddress = "Please enter the address of cards you want to sacrifice in order to enter your selected card to zone";
 
     public static String cantRitualSummon = "cant ritual summon";
+    public static String wrongCurrentPassword = "the password you input is not correct !";
 }

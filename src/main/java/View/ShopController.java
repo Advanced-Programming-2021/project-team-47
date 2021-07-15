@@ -79,10 +79,17 @@ public class ShopController extends Application {
             rectangle.setOnMouseClicked(new EventHandler<>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    LoginProgramController.loginUsername.decreaseMoney(card.getPrice());
-                    Label label = new Label();
-                    label.setText("Card added successfully");
-                    gridPane.add(label, finalI, 2);
+                    if (LoginProgramController.loginUsername.getMoney() > card.getPrice()) {
+                        LoginProgramController.loginUsername.decreaseMoney(card.getPrice());
+                        Label label = new Label();
+                        label.setText("Card added successfully");
+                        gridPane.add(label, finalI, 2);
+                    } else {
+                        Label label = new Label();
+                        label.setText("Your money is lower than card price");
+                        gridPane.add(label, finalI, 2);
+                    }
+
                 }
             });
             Label label = new Label();

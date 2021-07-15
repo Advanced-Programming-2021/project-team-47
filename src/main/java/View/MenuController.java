@@ -97,6 +97,16 @@ public class MenuController extends Application {
         LoginController.getInstance().start(stage);
     }
 
+    public void deckMenu() throws Exception {
+        mediaPlayerButton.play();
+        mediaPlayerButton.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerButton.stop();
+            }
+        });
+        DeckController.getInstance().start(stage);
+    }
     public void profileMenu() throws Exception {
         mediaPlayerButton.play();
         mediaPlayerButton.setOnEndOfMedia(new Runnable() {

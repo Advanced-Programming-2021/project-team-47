@@ -16,11 +16,9 @@
                 <Font name="Century Gothic Bold" size="33.0" />
             </font>
         </Label>
-        <Button layoutX="191.0" layoutY="171.0" mnemonicParsing="false" onMouseClicked="#loginMenu" prefHeight="43.0" prefWidth="156.0" text="Login Menu" textFill="#25d376">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></Button>
-        <Button layoutX="706.0" layoutY="519.0" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" />
-      <Button layoutX="396.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#duelMenu" prefHeight="43.0" prefWidth="156.0" text="DuelMenu" textFill="#25d376" />
+        <Button layoutX="191.0" layoutY="171.0" mnemonicParsing="false" onMouseClicked="#loginMenu" prefHeight="43.0" prefWidth="156.0" text="Login Menu" textFill="#25d376" />
+        <Button layoutX="706.0" layoutY="519.0" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" textFill="#eeecec" />
+      <Button layoutX="255.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#duelMenu" prefHeight="43.0" prefWidth="241.0" text="Play DuelMenu" textFill="#25d376" />
+      <Button layoutX="396.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#deckMenu" prefHeight="43.0" prefWidth="156.0" text="DeckMenu" textFill="#3ac962" />
     </children>
 </AnchorPane>

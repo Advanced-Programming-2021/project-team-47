@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ import java.net.URL;
 
 public class MenuController extends Application {
     public Label showCurrentMenu;
+    public Label logout;
     private static Stage stage;
     public static MenuController menuController;
     public static File mediaFileButton = new File("src/main/resources/audio files/button hit sound effect.mp3");
@@ -151,4 +153,7 @@ public class MenuController extends Application {
         System.exit(0);
     }
 
+    public void logout() {
+        logout.setText("Logged out successfully");
+    }
 }

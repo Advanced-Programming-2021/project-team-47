@@ -21,3 +21,13 @@
     -fx-background-image: url("../images/duelMenubackground.gif");
     -fx-background-size: cover;
 }
+#back{
+    -fx-background-image: url("../images/buttonPattern.jpg");
+    -fx-background-size: cover;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+#back:hover{
+    -fx-background-image: url("../images/doodad.png");
+    -fx-text-fill: white;
+}

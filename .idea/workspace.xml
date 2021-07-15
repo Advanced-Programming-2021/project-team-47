@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add audio to all buttons">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Change background and add card to DuelMenu">
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/welcomeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/welcomeStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,13 +367,6 @@
       <workItem from="1626282777468" duration="240000" />
       <workItem from="1626284980801" duration="384000" />
     </task>
-    <task id="LOCAL-00023" summary="DuelMenu update">
-      <created>1620326571272</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1620326571272</updated>
-    </task>
     <task id="LOCAL-00024" summary="Players mainDeck , sideDeck  (+ setter and getter)">
       <created>1620327209689</created>
       <option name="number" value="00024" />
@@ -714,7 +703,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626170506278</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Change background and add card to DuelMenu">
+      <created>1626332437536</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1626332437537</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +759,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Cards update" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
     <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
@@ -788,7 +783,8 @@
     <MESSAGE value="Add DuelMenu graphic + Bug fixed" />
     <MESSAGE value="Add audio + Bug fixed" />
     <MESSAGE value="Add audio to all buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add audio to all buttons" />
+    <MESSAGE value="Change background and add card to DuelMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change background and add card to DuelMenu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

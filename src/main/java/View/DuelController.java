@@ -8,8 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -22,14 +25,17 @@ public class DuelController extends Application {
     private static Stage stage;
     public Label label1;
     public Label label2;
+    public GridPane gridPane;
     public Label phase;
     public static File mediaFileButton = new File("src/main/resources/audio files/button hit sound effect.mp3");
     public static Media mediaButton;
     private static DuelController duelController;
+
     public static DuelController getInstance() {
         if (duelController == null) duelController = new DuelController();
         return duelController;
     }
+
     static {
         try {
             mediaButton = new Media(mediaFileButton.toURI().toURL().toString());
@@ -86,6 +92,23 @@ public class DuelController extends Application {
         phase.setText(GameProgramController.getInstance().getPhase().getLabel());
         label1.setText("LP: " + GameProgramController.getInstance().getFirstPlayer().getLifePoint() + "Username: " + GameProgramController.getInstance().getFirstPlayer().getUsername() + "Nickname: " + GameProgramController.getInstance().getFirstPlayer().getNickname());
         label2.setText("LP: " + GameProgramController.getInstance().getSecondPlayer().getLifePoint() + "Username: " + GameProgramController.getInstance().getSecondPlayer().getUsername() + "Nickname: " + GameProgramController.getInstance().getSecondPlayer().getNickname());
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 5; ++j) {
+                if (i != 1 && i != 7 && i != 4) {
+                    Rectangle rectangle = new Rectangle();
+                    rectangle.setFill(Color.GRAY);
+                    rectangle.setHeight(53);
+                    rectangle.setWidth(40);
+                    gridPane.add(rectangle, j, i);
+                }
+            }
+        }
+        for (int i = 0; i < 4; ++i) {
+            Rectangle rectangle = new Rectangle();
+            rectangle.setFill(Color.GRAY);
+            rectangle.setHeight(30);
+            rectangle.setWidth(20);
+        }
     }
 
     public void nextPhase(MouseEvent mouseEvent) {

@@ -12,3 +12,12 @@
     -fx-background-image: url("../images/ezgif.com-gif-maker.png");
     -fx-background-size: cover;
 }
+
+#profileController {
+    -fx-background-image: url("../images/profileMenu.gif");
+    -fx-background-size: cover;
+}
+#duelMenu {
+    -fx-background-image: url("../images/duelMenubackground.gif");
+    -fx-background-size: cover;
+}

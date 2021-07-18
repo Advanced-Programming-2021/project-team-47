@@ -1,23 +1,32 @@
 import java.util.ArrayList;
 
 public class Players {
+//    private static int token;
     private String password ;
     private String username ;
     private String nickname ;
+    private int token = 0;
     private static ArrayList<Players> allPlayers = new ArrayList<>();
     public Players(String username , String password){
         setPassword(password);
         setUsername(username);
+        setToken();
         allPlayers.add(this);
     }
     public Players(String username ,String nickname , String password){
         setPassword(password);
         setUsername(username);
         setNickname(nickname);
+        setToken();
         allPlayers.add(this);
     }
     public Players() {
 
+    }
+
+    public void setToken() {
+//        this.token = token;
+        token ++;
     }
 
     public void setPassword(String password) {
@@ -38,6 +47,10 @@ public class Players {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public int getToken() {
+        return token;
     }
 
     public String getPassword() {

@@ -91,8 +91,8 @@ public class Players {
         }
         return true;
     }
-    public void loginPlayer (String username){
-        LoginController.getAllLoggedInPlayers().add(getPlayerByUsername(username));
-        getPlayerByUsername(username).setToken();
-    }
+//    public void loginPlayer (String username){
+//        LoginController.getAllLoggedInPlayers().add(getPlayerByUsername(username));
+//        getPlayerByUsername(username).setToken();
+//    }
 }

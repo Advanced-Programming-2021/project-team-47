@@ -5,28 +5,28 @@ public class Players {
     private String password ;
     private String username ;
     private String nickname ;
-    private int token = 0;
+    private  int token ;
     private static ArrayList<Players> allPlayers = new ArrayList<>();
     public Players(String username , String password){
         setPassword(password);
         setUsername(username);
-        setToken();
+//        setToken();
         allPlayers.add(this);
     }
     public Players(String username ,String nickname , String password){
         setPassword(password);
         setUsername(username);
         setNickname(nickname);
-        setToken();
+//        setToken();
         allPlayers.add(this);
     }
     public Players() {
 
     }
 
-    public void setToken() {
+    public void setToken(int token) {
 //        this.token = token;
-        token ++;
+        this.token = token;
     }
 
     public void setPassword(String password) {
@@ -90,5 +90,9 @@ public class Players {
             if (player.getNickname().equals(nickname)) return false;
         }
         return true;
+    }
+    public void loginPlayer (String username){
+        LoginController.getAllLoggedInPlayers().add(getPlayerByUsername(username));
+        getPlayerByUsername(username).setToken();
     }
 }

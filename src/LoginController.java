@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class LoginController {
+    private static int token = 0;
     private static Players thisPlayer;
     private static ArrayList<Players> allLoggedInPlayers = new ArrayList<>();
     public static String login(String command) {
@@ -12,6 +13,12 @@ public class LoginController {
         thisPlayer = new Players().getPlayerByUsername(username);
         allLoggedInPlayers.add(thisPlayer);
         //Login return form -->  "user logged in successfully! <playersToken>"
+        thisPlayer.setToken(token);
+        token ++;
         return Response.userLoginSuccessfully + " " + thisPlayer.getToken();
+    }
+
+    public static ArrayList<Players> getAllLoggedInPlayers() {
+        return allLoggedInPlayers;
     }
 }

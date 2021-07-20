@@ -5,7 +5,7 @@ public class Players {
     private String password ;
     private String username ;
     private String nickname ;
-    private  int token ;
+    private  String token ;
     private static ArrayList<Players> allPlayers = new ArrayList<>();
     public Players(String username , String password){
         setPassword(password);
@@ -24,10 +24,11 @@ public class Players {
 
     }
 
-    public void setToken(int token) {
+    public void setToken(String token) {
 //        this.token = token;
         this.token = token;
     }
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -49,7 +50,7 @@ public class Players {
         return nickname;
     }
 
-    public int getToken() {
+    public String getToken() {
         return token;
     }
 

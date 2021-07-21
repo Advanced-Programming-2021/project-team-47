@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class LoginController {
     private static int token = 0;
-    private static Players thisPlayer;
+    public static Players thisPlayer;
     private static HashMap<String , Players> allLoggedInPlayers = new HashMap<>();
     public static String login(String command) {
         String[] commandSplit = command.split(" ");

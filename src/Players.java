@@ -1,25 +1,46 @@
 import java.util.ArrayList;
 
 public class Players {
-//    private static int token;
-    private String password ;
-    private String username ;
-    private String nickname ;
-    private  String token ;
+    //    private static int token;
+    private String password;
+    private String username;
+    private String nickname;
+    private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    private String token;
     private static ArrayList<Players> allPlayers = new ArrayList<>();
-    public Players(String username , String password){
+
+    public Players(String username, String password) {
         setPassword(password);
         setUsername(username);
 //        setToken();
         allPlayers.add(this);
     }
-    public Players(String username ,String nickname , String password){
+
+    public Players(String username, String nickname, String password) {
         setPassword(password);
         setUsername(username);
         setNickname(nickname);
 //        setToken();
         allPlayers.add(this);
     }
+
+    public static Players getPlayerByUsername(String username) {
+        for (Players player : allPlayers) {
+            if (player.getUsername().equals(username))
+                return player;
+        }
+        return null;
+    }
+
     public Players() {
 
     }
@@ -61,18 +82,12 @@ public class Players {
     public String getUsername() {
         return username;
     }
-    public Boolean doesPlayerExist(String username){
-        for (Players player:allPlayers) {
+
+    public Boolean doesPlayerExist(String username) {
+        for (Players player : allPlayers) {
             if (player.getUsername().equals(username)) return true;
         }
         return false;
-    }
-    public Players getPlayerByUsername(String username){
-        if (!doesPlayerExist(username)) return null;
-        for (Players player:allPlayers) {
-            if (player.getUsername().equals(username)) return player;
-        }
-        return null;
     }
 
     public boolean isPasswordCorrect(String username, String password) {
@@ -80,14 +95,14 @@ public class Players {
     }
 
     public boolean isUsernameAvailable(String username) {
-        for (Players player:allPlayers) {
+        for (Players player : allPlayers) {
             if (player.getUsername().equals(username)) return false;
         }
         return true;
     }
 
     public boolean isNicknameAvailable(String nickname) {
-        for (Players player:allPlayers) {
+        for (Players player : allPlayers) {
             if (player.getNickname().equals(nickname)) return false;
         }
         return true;

@@ -1,30 +1,29 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Main {
     private static Menus menu;
     private static String token;
+
     public static void main(String[] args) {
-        String[] arguments ={"1","2","5","3"};
+        String[] arguments = {"1", "2", "5", "3"};
         try {
             ServerSocket serverSocket = new ServerSocket(9696);
-            while (true){
+            while (true) {
                 Socket socket = serverSocket.accept();
                 new Thread(() -> {
-                    try{
+                    try {
                         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                        while(true){
+                        while (true) {
                             try {
                                 String input = dataInputStream.readUTF();
                                 String result = run(input);
                                 if (result.equals("-1")) break;
                                 dataOutputStream.writeUTF(result);
                                 dataOutputStream.flush();
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 System.out.println("Client disconnected");
                                 return;
                             }
@@ -35,14 +34,12 @@ public class Main {
                         serverSocket.close();
                         socket.close();
 
-                    }
-                    catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }).start();
             }
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -50,9 +47,11 @@ public class Main {
     private static String run(String command) {
         if (Regex.LOGIN.label.matcher(command).find()) return LoginController.login(command);
         else if (Regex.SIGNUP.label.matcher(command).find()) return SignupController.signup(command);
-        else if (Regex.LOGOUT.label.matcher(command).find()) return LogoutController.logout(menu , token);
-        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display()
-
+        else if (Regex.LOGOUT.label.matcher(command).find()) return LogoutController.logout(menu, token);
+        else if (Regex.SCOREBOARD.label.matcher(command).find())
+            return String.valueOf(Players.getPlayerByUsername(LoginController.thisPlayer.getUsername()).getScore());
+        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display();
+        return "";
     }
 
 }

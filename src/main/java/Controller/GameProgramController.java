@@ -243,6 +243,13 @@ public class GameProgramController {
     }
 
     public ArrayList<String> scoreboardShow() {
+        try {
+            InitializeNetwork.dataOutputStream.writeUTF(Regex.SCOREBOARD.label.toString());
+            InitializeNetwork.dataOutputStream.flush();
+            String score = InitializeNetwork.dataInputStream.readUTF();
+            Players.getPlayerByUsername(LoginProgramController.loginUsername.getUsername()).setScore(Integer.parseInt(score));
+        } catch (IOException ignored) {
+        }
         ArrayList<Players> scoreSorting = Players.allPlayers;
         scoreSorting.sort(Comparator.comparing(Players::getScore)
                 .thenComparing(Players::getUsername));

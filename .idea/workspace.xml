@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add server scoreboard">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/ShopPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/yu-gi-oh-pop-up-parade-yami-yugi-p11921-31043_medium.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,21 +84,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/LoginMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/LoginController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/IOEController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/DeckController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/ProfileController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/ShopController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/DeckController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/DuelMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AP_Project.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/MenuController.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/MenuController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/ProfileController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/DeckMenu.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/View/LoginController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/LoginMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/fxml/ImportOrExportMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/View/MenuController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/DuelController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1rU7G4Ew5sr9mVChE6Il0stuorj" />
@@ -289,19 +276,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

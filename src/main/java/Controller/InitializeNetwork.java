@@ -13,7 +13,7 @@ public class InitializeNetwork {
 
     public static void setupConnection() {
         try {
-            socket = new Socket("localhost", 9696);
+            socket = new Socket("tcp://8.tcp.ngrok.io", 14459);
             dataInputStream = new DataInputStream(socket.getInputStream());
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {

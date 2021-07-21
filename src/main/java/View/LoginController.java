@@ -62,7 +62,6 @@ public class LoginController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         LoginController.stage = stage;
-        stage.resizableProperty().setValue(false);
         stage.setTitle("Yu-Gi-Oh");
         URL welcomeUrl = getClass().getResource("/fxml/LoginMenu.fxml");
         Parent root = FXMLLoader.load(welcomeUrl);

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GameProgramController;
 import Controller.InitializeNetwork;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +53,7 @@ public class MenuController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         InitializeNetwork.setupConnection();
+        GameProgramController.getInstance().importCards("");
         MenuController.stage = stage;
         stage.resizableProperty().setValue(false);
         stage.setTitle("Yu-Gi-Oh");

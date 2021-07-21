@@ -66,7 +66,6 @@ public class ScoreBoardController extends Application {
         ScoreBoardController.stage = stage;
         URL scoreBoard = getClass().getResource("/fxml/ScoreBoardMenu.fxml");
         Parent root = FXMLLoader.load(scoreBoard);
-        stage.resizableProperty().setValue(false);
         Scene scene = new Scene(root);
         root.setId("scoreBoard");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());

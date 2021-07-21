@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -52,8 +54,8 @@ public class ShopController extends Application {
         ShopController.stage = stage;
         URL shop = getClass().getResource("/fxml/ShopMenu.fxml");
         Parent root = FXMLLoader.load(shop);
-        stage.resizableProperty().setValue(false);
         Scene scene = new Scene(root);
+        stage.setMaxHeight(550);
         root.setId("shop");
         scene.getStylesheets().addAll(this.getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
@@ -65,11 +67,11 @@ public class ShopController extends Application {
     }
 
     public void showCardsList() {
-        int i = 0;
+        int i = 1;
         for (Cards card : Cards.allCards) {
             Rectangle rectangle = new Rectangle();
-            rectangle.setWidth(20);
-            rectangle.setHeight(30);
+            rectangle.setWidth(60);
+            rectangle.setHeight(70);
             try {
                 rectangle.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/images/Cards/" + card.getCardName() + ".jpg"))));
             } catch (FileNotFoundException ignored) {
@@ -79,26 +81,29 @@ public class ShopController extends Application {
             rectangle.setOnMouseClicked(new EventHandler<>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    if (LoginProgramController.loginUsername.getMoney() > card.getPrice()) {
-                        LoginProgramController.loginUsername.decreaseMoney(card.getPrice());
-                        Label label = new Label();
-                        label.setText("Card added successfully");
-                        gridPane.add(label, finalI, 2);
-                    } else {
-                        Label label = new Label();
-                        label.setText("Your money is lower than card price");
-                        gridPane.add(label, finalI, 2);
+                    if (LoginProgramController.loginUsername != null) {
+                        if (LoginProgramController.loginUsername.getMoney() > card.getPrice()) {
+                            LoginProgramController.loginUsername.decreaseMoney(card.getPrice());
+                            Label label = new Label();
+                            label.setText("Card added successfully");
+                            gridPane.add(label, 2, finalI);
+                        } else {
+                            Label label = new Label();
+                            label.setText("Your money is lower than card price");
+                            gridPane.add(label, 2, finalI);
+                        }
                     }
-
                 }
             });
             Label label = new Label();
             Label label1 = new Label();
+            label.setStyle("-fx-text-fill: white");
+            label1.setStyle("-fx-text-fill: white");
             label.setText(card.getCardName());
             label1.setText(String.valueOf(card.getPrice()));
-            gridPane.add(rectangle, i, 0);
-            gridPane.add(label, i, 1);
-            gridPane.add(label1, i, 2);
+            gridPane.add(rectangle, 0, i);
+            gridPane.add(label, 1, i);
+            gridPane.add(label1, 2, i);
             ++i;
         }
     }
@@ -112,5 +117,9 @@ public class ShopController extends Application {
             }
         });
         MenuController.getInstance().start(stage);
+    }
+
+    public void panel(MouseEvent mouseEvent) throws Exception {
+        ShopPanelController.getInstance().start(stage);
     }
 }

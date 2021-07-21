@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ShopPanelController">
+    <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#back" text="Back"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <CheckBox mnemonicParsing="false" text="Forbidden" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Button fx:id="submit" mnemonicParsing="false" onMouseClicked="#submit" text="Submit" GridPane.columnIndex="1"
+            GridPane.rowIndex="6"/>
+    <Label fx:id="label" prefHeight="17.0" prefWidth="56.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Label text="Card Name:" GridPane.rowIndex="1"/>
+    <Label text="Count:" GridPane.rowIndex="2"/>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+</GridPane>

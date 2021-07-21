@@ -163,11 +163,10 @@ public class GameProgramController {
         int price = 0;
         String description = null;
         for (String card : cards) {
-            File input = new File("src/main/resources/+" + card + ".csv");
+            File input = new File("src/main/resources/" + card + ".csv");
             try {
                 List<Map<?, ?>> data = GameProgramController.csvToJson.readObjectsFromCsv(input);
                 for (Map<?, ?> url : data) {
-                    if (url.get("Name").equals(matcher)) {
                         if (url.get("Type") != null) {
                             kind = url.get("Type").toString();
                         } else {
@@ -197,14 +196,13 @@ public class GameProgramController {
                                 style = CardTypes.SPELL_CARD;
                             }
                         }
-                        break;
-                    }
+                    if (cardName != null)
+                        new Cards(cardName, level, type, ATK, DEF, description, price, style, kind, State.NULL);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        new Cards(cardName, level, type, ATK, DEF, description, price, style, kind, State.NULL);
     }
 
     public Players getPlayer(String userName) {

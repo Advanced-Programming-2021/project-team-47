@@ -17,17 +17,25 @@
     -fx-background-image: url("../images/profileMenu.gif");
     -fx-background-size: cover;
 }
+
 #duelMenu {
     -fx-background-image: url("../images/duelMenubackground.gif");
     -fx-background-size: cover;
 }
-#back{
+
+#back {
     -fx-background-image: url("../images/buttonPattern.jpg");
     -fx-background-size: cover;
     -fx-font-weight: bold;
     -fx-font-size: 16;
 }
-#back:hover{
+
+#back:hover {
     -fx-background-image: url("../images/doodad.png");
     -fx-text-fill: white;
+}
+
+#shopPanel {
+    -fx-background-image: url("../images/yu-gi-oh-pop-up-parade-yami-yugi-p11921-31043_medium.jpg");
+    -fx-background-size: cover;
 }

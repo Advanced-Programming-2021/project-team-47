@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Bug fixed">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add server scoreboard">
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/ShopPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopPanel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/yu-gi-oh-pop-up-parade-yami-yugi-p11921-31043_medium.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/IOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IOEController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ScoreBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ShopMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,13 +293,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -384,13 +397,7 @@
       <workItem from="1626612909874" duration="1188000" />
       <workItem from="1626814223591" duration="1145000" />
       <workItem from="1626859861217" duration="1795000" />
-    </task>
-    <task id="LOCAL-00024" summary="Players mainDeck , sideDeck  (+ setter and getter)">
-      <created>1620327209689</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1620327209689</updated>
+      <workItem from="1626882508388" duration="648000" />
     </task>
     <task id="LOCAL-00025" summary="players debug">
       <created>1620328190480</created>
@@ -728,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626332437537</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Add server scoreboard">
+      <created>1626874649943</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1626874649943</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +791,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Controller/LoginProgramController.java&#10;#&#9;src/main/java/Controller/ShopProgramController.java&#10;#&#9;src/main/java/Model/Players.java&#10;#&#9;src/main/java/View/DuelMenu.java" />
     <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
     <MESSAGE value="++" />
@@ -802,7 +815,8 @@
     <MESSAGE value="Add audio + Bug fixed" />
     <MESSAGE value="Add audio to all buttons" />
     <MESSAGE value="Change background and add card to DuelMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change background and add card to DuelMenu" />
+    <MESSAGE value="Add server scoreboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add server scoreboard" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

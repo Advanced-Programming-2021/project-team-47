@@ -62,7 +62,6 @@ public class DuelController extends Application {
         DuelController.stage = stage;
         Parent root = FXMLLoader.load(duel);
         Scene scene = new Scene(root);
-        stage.resizableProperty().setValue(false);
         MenuController.getInstance().mediaPlayer.stop();
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override

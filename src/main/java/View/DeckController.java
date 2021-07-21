@@ -54,7 +54,6 @@ public class DeckController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         DeckController.stage = stage;
-        stage.resizableProperty().setValue(false);
         stage.setTitle("Yu-Gi-Oh");
         URL welcomeUrl = getClass().getResource("/fxml/DeckMenu.fxml");
         Parent root = FXMLLoader.load(welcomeUrl);

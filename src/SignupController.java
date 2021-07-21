@@ -7,6 +7,7 @@ public class SignupController {
         String password = commandSplit[7];
         if (!new Players().isUsernameAvailable(username)) return Response.usernameAlreadyExists;
         if (!new Players().isNicknameAvailable(nickname)) return Response.nicknameAlreadyExists;
+        Players.getAllPlayers().add(new Players(username , nickname , password));
         return Response.userCreateSuccessfully;
     }
 }

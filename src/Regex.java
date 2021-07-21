@@ -2,6 +2,7 @@ import java.util.regex.Pattern;
 
 public enum Regex {
     LOGIN(Pattern.compile("^user login ((--password|--p) (?:[\\s\\S]+)|(--username|--u) (?:[\\s\\S]+)) ((--password|--p) (?:[\\s\\S]+)|(--username|--u) (?:[\\s\\S]+))$")),
+    SIGNUP(Pattern.compile("^user signup ((--password|--p) (?:[\\s\\S]+)|(--username|--u) (?:[\\s\\S]+)) ((--password|--p) (?:[\\s\\S]+)|(--username|--u) (?:[\\s\\S]+))$")),
     MENU_ENTER(Pattern.compile("^menu enter ([^\\d]+)$")),
     CANCEL(Pattern.compile("^cancel$")),
     SHOW_CURRENT_MENU(Pattern.compile("^menu show-current$")),

@@ -6,6 +6,7 @@ import java.net.Socket;
 
 public class Main {
     private static Menus menu;
+    private static String token;
     public static void main(String[] args) {
         String[] arguments ={"1","2","5","3"};
         try {
@@ -47,10 +48,10 @@ public class Main {
     }
 
     private static String run(String command) {
-        if (command.equals("login")) return LoginController.login(command);
-        else if (command.startsWith("sign up")) return SignupController.signup(command);
-        else if (command.startsWith("Logout")) return LogoutController.logout(menu);
-        else
+        if (Regex.LOGIN.label.matcher(command).find()) return LoginController.login(command);
+        else if (Regex.SIGNUP.label.matcher(command).find()) return SignupController.signup(command);
+        else if (Regex.LOGOUT.label.matcher(command).find()) return LogoutController.logout(menu , token);
+        else if (Regex.CHATROOM.label.matcher(command).find()) return
     }
 
 }

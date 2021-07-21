@@ -51,8 +51,8 @@ public class Main {
         if (Regex.LOGIN.label.matcher(command).find()) return LoginController.login(command);
         else if (Regex.SIGNUP.label.matcher(command).find()) return SignupController.signup(command);
         else if (Regex.LOGOUT.label.matcher(command).find()) return LogoutController.logout(menu , token);
-//        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display()
-        return "";
+        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display()
+
     }
 
 }

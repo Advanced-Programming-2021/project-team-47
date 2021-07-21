@@ -3,15 +3,18 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Message {
+    private String id ;
     private String message;
     private String to;
     private String from;
     private String date;
     private String time;
-    private ArrayList<Message> allMessages;
+    private static ArrayList<Message> allMessages;
     public Message(String message , String from ){
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         setMessage(message);
@@ -19,6 +22,7 @@ public class Message {
         setTo(to);
         setDate(now.toString());
         ChatRoom.display(this);
+        setId(UUID.randomUUID().toString());
         allMessages.add(this);
     }
     public void setDate(String date) {
@@ -41,6 +45,14 @@ public class Message {
         this.to = to;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public String getDate() {
         return date;
     }
@@ -59,5 +71,16 @@ public class Message {
 
     public String getTo() {
         return to;
+    }
+    public static Message getMessageByID(String id) {
+        for (Message message: allMessages
+             ) {
+            if (message.getId().equals(id)) return message;
+        }
+        return null;
+    }
+
+    public static ArrayList<Message> getAllMessages() {
+        return allMessages;
     }
 }

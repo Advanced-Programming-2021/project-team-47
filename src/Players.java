@@ -6,6 +6,7 @@ public class Players {
     private String username;
     private String nickname;
     private int score;
+    private ArrayList<Message> allSentMessages = new ArrayList<>();
 
     public int getScore() {
         return score;
@@ -107,7 +108,18 @@ public class Players {
         }
         return true;
     }
-//    public void loginPlayer (String username){
+    public static Players getPlayerByToken (String token){
+        for (Players player :allPlayers
+             ) {
+            if (player.getToken().equals(token)) return player;
+        }
+        return null;
+    }
+
+    public ArrayList<Message> getAllSentMessages() {
+        return allSentMessages;
+    }
+    //    public void loginPlayer (String username){
 //        LoginController.getAllLoggedInPlayers().add(getPlayerByUsername(username));
 //        getPlayerByUsername(username).setToken();
 //    }

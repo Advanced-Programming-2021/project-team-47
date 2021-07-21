@@ -1,3 +1,5 @@
+
+
 import java.util.regex.Pattern;
 
 public enum Regex {
@@ -92,7 +94,12 @@ public enum Regex {
     SCANNER(Pattern.compile("^Scanner$")),
     MARSHMALLON(Pattern.compile("^Marshmallon$")),
     BEAST_KING_BARBAROS(Pattern.compile("^Beast King Barbaros$")),
-    SPECIAL_SUMMON(Pattern.compile("^special-summon$"));
+    SPECIAL_SUMMON(Pattern.compile("^special-summon$")),
+    CHATROOM(Pattern.compile("message ")),// form : message <message> username token
+    EDIT_MESSAGE(Pattern.compile("edit ")) ,// form : edit <new message> <oldMessage ID> token
+    DELETE_MESSAEG(Pattern.compile("delete ")), // form : delete <message ID> token
+    REPLY_TO_MESSAGE(Pattern.compile("reply ")), // form : reply <message id> message token
+    SHOW_ONLINE_PLAYERS(Pattern.compile("number of online players"));
 
     public final Pattern label;
 

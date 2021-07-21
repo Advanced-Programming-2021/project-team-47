@@ -50,7 +50,11 @@ public class Main {
         else if (Regex.LOGOUT.label.matcher(command).find()) return LogoutController.logout(menu, token);
         else if (Regex.SCOREBOARD.label.matcher(command).find())
             return String.valueOf(Players.getPlayerByUsername(LoginController.thisPlayer.getUsername()).getScore());
-        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display();
+        else if (Regex.CHATROOM.label.matcher(command).find()) return ChatRoom.display(new Message(command.split(" ")[2],command.split(" ")[3]));
+        else if (Regex.EDIT_MESSAGE.label.matcher(command).find()) return ChatRoom.edit(command);
+        else if (Regex.DELETE_MESSAEG.label.matcher(command).find()) return ChatRoom.delete(command);
+        else if (Regex.REPLY_TO_MESSAGE.label.matcher(command).find()) return ChatRoom.reply(command);
+        else if (Regex.SHOW_ONLINE_PLAYERS.label.matcher(command).find()) return ChatRoom.numberOfOnlinePlayers();
         return "";
     }
 

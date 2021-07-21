@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="Add server scoreboard">
+    <list default="true" id="d3c0381f-0da9-47e2-a232-d61543da2a04" name="Default Changelist" comment="ngrok added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InitializeNetwork.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,13 +372,6 @@
       <workItem from="1626859861217" duration="1795000" />
       <workItem from="1626882508388" duration="648000" />
     </task>
-    <task id="LOCAL-00025" summary="players debug">
-      <created>1620328190480</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1620328190480</updated>
-    </task>
     <task id="LOCAL-00026" summary="DuelMenu startTwoPlayerDuel update">
       <created>1620329067087</created>
       <option name="number" value="00026" />
@@ -716,7 +708,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626874649943</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="ngrok added">
+      <created>1626892193521</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1626892193521</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,7 +764,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="DuelMenu summon update" />
     <MESSAGE value="CardTypes to be replacing Style" />
     <MESSAGE value="++" />
     <MESSAGE value="Add Database (Cards)" />
@@ -790,7 +788,8 @@
     <MESSAGE value="Add audio to all buttons" />
     <MESSAGE value="Change background and add card to DuelMenu" />
     <MESSAGE value="Add server scoreboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add server scoreboard" />
+    <MESSAGE value="ngrok added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ngrok added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
